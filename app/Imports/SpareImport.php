@@ -18,26 +18,6 @@ class SpareImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
 
-        // $data = SparePart::where('spare_part_no', $row["spare_part_no"]);
-
-
-        // $sparePart = new SparePart();
-
-        // $sparePart->title = $row["title"];
-        // $sparePart->spare_part_no = $row["spare_part_no"];
-        // $sparePart->category = $row["category"];
-        // $sparePart->sub_category = $row["sub_category"];
-        // $sparePart->manufac = $row["manufac"];
-        // $sparePart->ds = $row["ds"];
-        // $sparePart->machine_id = $row["machine_id"];
-        // $sparePart->description = $row["description"];
-        // $sparePart->price = $row["price"];
-        // $sparePart->image = $row["image"];
-
-        // $arrays[] = $sparePart->toArray();
-        // return SparePart::insertOrIgnore($arrays);
-
-        // SparePart::create($row);
         $isExist = SparePart::select("*")
             ->where('spare_part_no', $row["spare_part_no"])
             ->exists();
