@@ -230,21 +230,21 @@ Route::group(['prefix' => 'api'], function () {
     Route::get("/updateCart", "SameelController@updateCart");
     Route::get("/item/deleteFromCart", "SameelController@removeItem");
 
-    Route::get('welcome-page', 'API@welcome_page_data_api');
-    Route::post('add-subscriber', 'API@AddSubscriber');
-    Route::get('get-all-machines-categories', 'API@AllMachinesCategories');
+    Route::get('/updated/welcome-page', 'API@welcome_page_data_api');
+    Route::post('/updated/add-subscriber', 'API@AddSubscriber');
+    Route::get('/updated/get-all-machines-categories', 'API@AllMachinesCategories');
     Route::get('select/all/catgories', 'API@fetchAllMachinesCategories');
     Route::get('select/category', 'API@fetchFewMachines');
-    Route::get('all-spare-parts-api', 'API@DisplaySpareParts');
-    Route::post('upload-your-machine', 'API@uploadYourMachine');
-    Route::get('get-news-newsletters-testimonials', 'API@FetchNewsAndNewsletter');
-    Route::post('news-page-subscription', 'API@AddSubscriber');
-    Route::post('auth', 'API@ProcessLogin');
-    Route::post('create-profile', 'API@CreateProfile');
-    Route::post('delivery-info-of-user', 'API@DeliveryInfo');
-    Route::post("/machine/contactUsform", "API@QuoteFormContactUs");
-    Route::post("/forget-password", "API@ForgetPassword");
-    Route::post("/price-details", "API@QuoteFormSubmit");
+    Route::get('/updated/all-spare-parts-api', 'API@DisplaySpareParts');
+    Route::post('/updated/upload-your-machine', 'API@uploadYourMachine');
+    Route::get('/updated/get-news-newsletters-testimonials', 'API@FetchNewsAndNewsletter');
+    Route::post('/updated/news-page-subscription', 'API@AddSubscriber');
+    Route::post('/updated/auth', 'API@ProcessLogin');
+    Route::post('/updated/create-profile', 'API@CreateProfile');
+    Route::post('/updated/delivery-info-of-user', 'API@DeliveryInfo');
+    Route::post("/updated/machine/contactUsform", "API@QuoteFormContactUs");
+    Route::post("/updated/forget-password", "API@ForgetPassword");
+    Route::post("/updated/price-details", "API@QuoteFormSubmit");
 
     //sameel end
 });
