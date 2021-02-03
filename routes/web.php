@@ -213,6 +213,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'Auth'], function () {
 });
 
 
+
+
+
+
+
+
+
 //api routes
 Route::group(['prefix' => 'api'], function () {
     Route::post('/fetchMachines/{id?}', "API@FetchMachines");
