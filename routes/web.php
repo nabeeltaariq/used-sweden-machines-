@@ -240,10 +240,16 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('/updated/welcome-page', 'API@welcome_page_data_api');
     Route::post('/updated/add-subscriber', 'API@AddSubscriber');
     Route::get('/updated/get-all-machines-categories', 'API@AllMachinesCategories');
+    Route::get('/updated/more-detail/{mahineid}', 'API@MoreDetail');
     Route::get('select/all/catgories', 'API@fetchAllMachinesCategories');
     Route::get('select/category', 'API@fetchFewMachines');
+    Route::get('/updated/machine-pdf/generate/{id}', 'API@GeneratePdf');
+    Route::get('/machine-pdf-news/generate/{id}', 'API@GenerateNewsPdf');
     Route::get('/updated/all-spare-parts-api', 'API@DisplaySpareParts');
     Route::post('/updated/upload-your-machine', 'API@uploadYourMachine');
+    Route::get('/updated/checkout', 'API@Checkout');
+
+
     Route::get('/updated/get-news-newsletters-testimonials', 'API@FetchNewsAndNewsletter');
     Route::post('/updated/news-page-subscription', 'API@AddSubscriber');
     Route::post('/updated/auth', 'API@ProcessLogin');

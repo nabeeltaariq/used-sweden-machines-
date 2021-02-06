@@ -400,7 +400,6 @@ class Home extends Controller
             return redirect("/");
         } else {
             $nextMachine = $productToDisplay->next();
-            dd($netxMachine);
             if ($nextMachine != null) {
                 $str = preg_replace("/(™|®|©|&trade;|&reg;|&copy;|&#8482;|&#174;|&#169;)/", "", $nextMachine->pr_title);
                 $str = str_replace(" ", "-", $str);

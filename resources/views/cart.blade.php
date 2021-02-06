@@ -19,7 +19,7 @@
       <tr>
         <th>Part No.</th>
         <th>Part Name</th>
-        <th>Manufecturer</th>
+        <th>Manufacturer</th>
         <th>Ordered Quantity</th>
         <th>Unit Price</th>
         <th>Total Price</th>

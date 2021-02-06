@@ -275,7 +275,7 @@
           <input type="hidden" name="token" id="token">
           <div class="modal-body">
             <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-12">
+              <!-- <div class="col-lg-3 col-md-3 col-sm-12">
                 <p>Item #</p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
@@ -287,7 +287,7 @@
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
                 <input name="machine_name" type="text" id="machine_name" style="width:100%;outline:none" value="" class="col-lg-9 form-control">
-              </div>
+              </div> -->
 
               <div class="col-lg-3 col-md-3 col-sm-12">
                 <p>Full Name</p>
