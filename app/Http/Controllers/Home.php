@@ -43,13 +43,15 @@ class Home extends Controller
     {
         return view("policy");
     }
-    public function all()
+    public function all(Request $request)
     {
+        $request->session()->forget("mode");
+        $request->session()->put("mode", "all");
         $allCatagories = Catagories::where('id', ">=", 1)->orderBy("order", "asc")->get();
         $allProducts = Product::all()->sortByDesc("id");
         $allProductsJustIn = Product::where('id', ">=", 1)->where('s_status', 'Just In')->orderBy("id", "desc")->get();
         $allProductsSold = Product::where('id', ">=", 1)->where('s_status', 'SOLD')->orderBy("id", "desc")->get();
-        return view("machinesView", ["allCatagories" => $allCatagories, "allProductsJustIn" =>  $allProductsJustIn, "allProductsSold" => $allProductsSold, "selectedCat" => "*"]);
+        return view("machinesView", ["allCatagories" => $allCatagories, "allProductsJustIn" =>  $allProductsJustIn, "allProductsSold" => $allProductsSold, "selectedCat" => "all"]);
     }
 
 
@@ -61,9 +63,13 @@ class Home extends Controller
     // return view("machinesView",["allCatagories" => $allCatagories,"allProducts" => $allProducts,"selectedCat" => "*"]);
     // }
 
-    public function fetchFewMachines($cat_id)
+    public function fetchFewMachines($cat_id, Request $request)
     {
+
         session()->put('remove', 'true');
+        $request->session()->forget("mode");
+        $request->session()->put("mode", "single");
+
         $allCatagories = Catagories::where('id', ">=", 1)->orderBy("order", "asc")->get();
         $allProductsJustIn = Product::where('cat_id', $cat_id)->where('s_status', 'Just In')->orderBy("id", "desc")->get();
         $allProductsSold = Product::where('cat_id', $cat_id)->where('s_status', 'SOLD')->orderBy("id", "desc")->get();

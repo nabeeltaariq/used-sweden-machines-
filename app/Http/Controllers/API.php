@@ -482,9 +482,7 @@ class API extends Controller
         if ($request->session()->has("cartData")) {
             $userinfo = $request->session()->get("orderUser");
             $cartData = $request->session()->get("cartData");
-
             $id = DB::table("sp_ordermaster")->insertGetId(["orderDateTime" => date("Y-m-d h:i:s"), "userId" => $userinfo->userId]);
-
             foreach ($cartData as $data) {
                 $info = [
                     "partNo" => $data["partNo"],
@@ -497,6 +495,7 @@ class API extends Controller
                     'orderMasterId' => $id
 
                 ];
+
                 DB::table("sp_order")->insert($info);
             }
 

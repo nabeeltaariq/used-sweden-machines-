@@ -14,88 +14,67 @@ use Illuminate\Support\Facades\URL;
 use App\ContactHead;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Encryption\DecryptException;
-
+use Illuminate\Contracts\Session\Session;
 
 class Products extends Controller
 {
 
-    public function machine($machine_name,$id)
+    public function machine($machine_name, $id)
     {
-    $machine=Product::find($id);
-    $item=explode("-",$machine->SKU);
-    $item[1]=$item[1]-1;
-    $nextSKU=$item[0] . "-".$item[1];
-    $nextmachine=DB::select("select *from sp_products where SKU ='$nextSKU' ");
-    $allThumbs=Thumbs::where('org_id',$machine->id)->get();
-    
-    if($nextmachine)
-    {
-      $next=true;
-    }else
-    {
-        $nextmachine=DB::select("select *from sp_products where cat_id ='$machine->cat_id' LIMIT 1 ");
-        if($nextmachine)
-        {
-            $next=true;
-        }else
-        {
-            $next='';
-        }
-    }
-    return view("displayProduct",["product"=>$machine,"allThumbs"=>$allThumbs, "next"=>$next,"selectedCat" => $machine->cat_id]);
-    }
-    
-      public function nextmachine($machine_name,$id)
-    {
-    $machine=Product::find($id);
-    $item=explode("-",$machine->SKU);
-    $item[1]=$item[1]-1;
-    $nextSKU=$item[0] . "-".$item[1];
-    $machine=DB::select("select *from sp_products where SKU ='$nextSKU' ");
-  
-    $allThumbs=Thumbs::where('org_id',$machine[0]->id)->get();
-    $item=explode("-",$machine[0]->SKU);
-    $item[1]=$item[1]-1;
-    $nextSKU=$item[0] . "-".$item[1];
-    
-    $nextmachine= DB::select("select *from sp_products where SKU ='$nextSKU' ");
-    if($nextmachine)
-    {
-      $next=true;
-    }else
-    {
-        $checkCat=$machine[0]->cat_id;
-        $nextmachine=DB::select("select *from sp_products where cat_id =' $checkCat' LIMIT 1 ");
-        if($nextmachine)
-        {
-            $next=true;
-        }else
-        {
-            $next='';
-        }
-        $next=false;
-    }
-    return view("displayProduct",["product"=>$machine[0],"allThumbs"=>$allThumbs, "next"=>$next,"selectedCat" => $machine[0]->cat_id]);
-    }
-    public function Index(Request $request){
-        
-        $allProducts = Product::where("id",">=",1)->orderBy("id","desc")->get();
-     
-        return view("admin.products_home",["products" => $allProducts]);
-    }
-    public function viewProduct($id,Request $request){
-        $productFind = Product::where('id',$id)->get();
+        if (session()->get("mode") == "all") {
+            $machine = Product::find($id);
+            $nextmachine = Product::where('id', '<', $machine->id)->orderBy('id', 'desc')->first();
+            $next = '';
+            if ($nextmachine) {
+                $next = $nextmachine->id;
+            } else {
 
-        return view("admin.product_view",["product" => $productFind]);
+                $next = '';
+            }
+            $allThumbs = Thumbs::where('org_id', $machine->id)->get();
+            return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => 'all']);
+        }
+
+        $machine = Product::find($id);
+        $nextmachineid = Product::where('id', '>', $machine->id)->where('cat_id', $machine->cat_id)->min('id');
+        $next = '';
+        if (empty($nextmachineid)) {
+            $nextmachineid = Product::where('id', '<', $machine->id)->where('cat_id', $machine->cat_id)->max('id');
+            if ($nextmachineid) {
+                $next = true;
+            }
+        } else {
+            $next = true;
+        }
+        $allThumbs = Thumbs::where('org_id', $machine->id)->get();
+        return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $nextmachineid, "selectedCat" => $machine->cat_id]);
     }
-    public function sendMailOfProduct($id,Request $request){
+
+
+
+
+    public function Index(Request $request)
+    {
+
+        $allProducts = Product::where("id", ">=", 1)->orderBy("id", "desc")->get();
+
+        return view("admin.products_home", ["products" => $allProducts]);
+    }
+    public function viewProduct($id, Request $request)
+    {
+        $productFind = Product::where('id', $id)->get();
+
+        return view("admin.product_view", ["product" => $productFind]);
+    }
+    public function sendMailOfProduct($id, Request $request)
+    {
         $request = request()->all();
         /*return dd($this->sendEmailFuction($request,$id));*/
-        $data = $this->sendEmailFuction($request,$id);
+        $data = $this->sendEmailFuction($request, $id);
         return redirect()->back();
-
     }
-    public function sendEmailFuction($getData,$id){
+    public function sendEmailFuction($getData, $id)
+    {
         $product = Product::find($id);
         /*return $getData;*/
         $all_contents = "<table width='80%' border='0' align='center'>
@@ -112,17 +91,17 @@ Tel.: +92(321)7415373<br>
 					</tr>
 					<tr>
 					<td colspan='2' >
-						<p align='center'><strong>" .$product->pr_title."</strong></p><hr>
+						<p align='center'><strong>" . $product->pr_title . "</strong></p><hr>
 					</td>
 					</tr>
 					<tr>
 						<td colspan='2'  align='left'>
-						<a href='http://usedswedenmachines.com/machineView/".$product->id."' ><img src=".URL::to('/').'/storage/app/products/'.$product->image." height='250' ></a>
+						<a href='http://usedswedenmachines.com/machineView/" . $product->id . "' ><img src=" . URL::to('/') . '/storage/app/products/' . $product->image . " height='250' ></a>
 						</td>
 					</tr>
 					<tr>
 						<td  colspan='2' align='left'>
-						<div class='st_div'>"."Title: ".$product->pr_title."<br>"."SKU:  ".$product->SKU."<br>"."Specifications:".html_entity_decode($product->long_des)."</div>
+						<div class='st_div'>" . "Title: " . $product->pr_title . "<br>" . "SKU:  " . $product->SKU . "<br>" . "Specifications:" . html_entity_decode($product->long_des) . "</div>
 						</td>
 					</tr>";
 
@@ -130,14 +109,14 @@ Tel.: +92(321)7415373<br>
 
         $all_contents .= "
                 </table>";
-        $all_contents.= '<table border="1" width="80%" align="center">';
-        $all_contents.= '<tr><th align="left">Condition: </th><td>'.		$getData['condition'].'</td></tr>';
-        $all_contents.= '<tr><th align="left">Price: </th><td>'.			$getData['price'].'</td></tr>';
-        $all_contents.=	'<tr><th align="left">Terms & conditions:  </th><td>'.		$getData['tandc'].'</td></tr>';
-        $all_contents.=	'<tr><th align="left">Delivery time:  </th><td>'.		$getData['dt'].'</td></tr>';
-        $all_contents.=	'<tr><th align="left">Delivery Terms:  </th><td>'.		$getData['dtt'].'</td></tr>';
-        $all_contents.=	'<tr><th align="left">Payment terms:  </th><td>'.		$getData['pt'] .'</td></tr>';
-        $all_contents.=	'<tr><th align="left">Way of Payment:  </th><td>'.		$getData['wop'] .'</td></tr>';
+        $all_contents .= '<table border="1" width="80%" align="center">';
+        $all_contents .= '<tr><th align="left">Condition: </th><td>' .        $getData['condition'] . '</td></tr>';
+        $all_contents .= '<tr><th align="left">Price: </th><td>' .            $getData['price'] . '</td></tr>';
+        $all_contents .=    '<tr><th align="left">Terms & conditions:  </th><td>' .        $getData['tandc'] . '</td></tr>';
+        $all_contents .=    '<tr><th align="left">Delivery time:  </th><td>' .        $getData['dt'] . '</td></tr>';
+        $all_contents .=    '<tr><th align="left">Delivery Terms:  </th><td>' .        $getData['dtt'] . '</td></tr>';
+        $all_contents .=    '<tr><th align="left">Payment terms:  </th><td>' .        $getData['pt'] . '</td></tr>';
+        $all_contents .=    '<tr><th align="left">Way of Payment:  </th><td>' .        $getData['wop'] . '</td></tr>';
         $all_contents .= "<tr>
 					<td colspan='2' align='center' width='80%'>
 					<p style='padding-top: 10px;'> <span style='color:red;font-weight:bold;'>* CONDITION RATING </span><br>
@@ -156,57 +135,60 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
         // More headers
         $headers .= 'From: <info@usedswedenmachines.com>' . "\r\n";
 
-        $subject = $product->pr_title." - Used Sweden Machines";
-        mail("{$getData['receiver_id']}",$subject,"$all_contents",$headers);
-
+        $subject = $product->pr_title . " - Used Sweden Machines";
+        mail("{$getData['receiver_id']}", $subject, "$all_contents", $headers);
     }
 
 
-    public function SendMultipleEmail($id,Request $request){
+    public function SendMultipleEmail($id, Request $request)
+    {
         $r = request()->all();
 
-        foreach($request->personEmail as $email){
+        foreach ($request->personEmail as $email) {
             $r["receiver_id"] = $email;
-            $this->sendEmailFuction($r,$id);
+            $this->sendEmailFuction($r, $id);
         }
-        $productFind = Product::where('id',$id)->get();
+        $productFind = Product::where('id', $id)->get();
         $contactType = [
-            ["id" => -1,"Name" => "Subscribed Emails"]
+            ["id" => -1, "Name" => "Subscribed Emails"]
         ];
         $allContacts = ContactHead::all();
-        foreach($allContacts as $head){
-            array_push($contactType,["id" => $head->id,"Name"=>$head->name]);
+        foreach ($allContacts as $head) {
+            array_push($contactType, ["id" => $head->id, "Name" => $head->name]);
         }
 
 
-        return view('admin.sendMultipleView',['product'=>$productFind,"heads" => $contactType,"message" => "Email to multiple clients sent successfully"]);
+        return view('admin.sendMultipleView', ['product' => $productFind, "heads" => $contactType, "message" => "Email to multiple clients sent successfully"]);
     }
 
 
-    public function sendToMultipleView($id){
-        $productFind = Product::where('id',$id)->get();
+    public function sendToMultipleView($id)
+    {
+        $productFind = Product::where('id', $id)->get();
         $contactType = [
-            ["id" => -1,"Name" => "Subscribed Emails"]
+            ["id" => -1, "Name" => "Subscribed Emails"]
         ];
         $allContacts = ContactHead::all();
-        foreach($allContacts as $head){
-            array_push($contactType,["id" => $head->id,"Name"=>$head->name]);
+        foreach ($allContacts as $head) {
+            array_push($contactType, ["id" => $head->id, "Name" => $head->name]);
         }
 
 
-        return view('admin.sendMultipleView',['product'=>$productFind,"heads" => $contactType]);
+        return view('admin.sendMultipleView', ['product' => $productFind, "heads" => $contactType]);
     }
 
 
 
 
-    public function ViewUploads(){
-        return View("admin.uploadedProducts",["products" => UploadedMachine::all()]);
+    public function ViewUploads()
+    {
+        return View("admin.uploadedProducts", ["products" => UploadedMachine::all()]);
     }
 
 
     //stock reporting methods
-    public function GenerateReportWithPrice(){
+    public function GenerateReportWithPrice()
+    {
         $mpdf = new Mpdf(['setAutoTopMargin' => 'pad']);
         $logoPath = public_path() . "\imgs\logo.png";
         $date = date("d-M-Y");
@@ -233,8 +215,8 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
 
         $html = "<table cellpadding='10' style='border-collapse:collapse;width:100%'><thead><tr style='background-color:#034375'><th style='color:white'>Sr.#</th><th color='white'>Image</th><th color='white'>Title</th><th color='white'>Specification</th><th color='white'>Delivery Status</th><th color='white'>Price</th></tr></thead>";
         $i = 1;
-        foreach($allProducts as $p){
-            $bgColor = ($i%2 == 0 ? 'white':'#f8f8f8');
+        foreach ($allProducts as $p) {
+            $bgColor = ($i % 2 == 0 ? 'white' : '#f8f8f8');
             $imageURL = url('/') . Storage::url('app/products/' . $p->image);
             $html .= "<tr style='background-color:$bgColor'><td>$p->SKU</td><td><img src='$imageURL' style='max-height:50px'/></td><td>$p->pr_title</td><td>$p->short_des</td><td>$p->s_status</td><td>$p->salesPrice</td></tr>";
             $i++;
@@ -248,7 +230,8 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
         $mpdf->Output();
     }
 
-    public function GenerateReportWithoutPrice(){
+    public function GenerateReportWithoutPrice()
+    {
         $mpdf = new Mpdf(['setAutoTopMargin' => 'pad']);
         $logoPath = public_path() . "\imgs\logo.png";
         $date = date("d-M-Y");
@@ -275,8 +258,8 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
 
         $html = "<table cellpadding='10' style='border-collapse:collapse;width:100%'><thead><tr style='background-color:#034375'><th style='color:white'>Sr.#</th><th color='white'>Image</th><th color='white'>Title</th><th color='white'>Specification</th><th color='white'>Delivery Status</th></tr></thead>";
         $i = 1;
-        foreach($allProducts as $p){
-            $bgColor = ($i%2 == 0 ? 'white':'#f8f8f8');
+        foreach ($allProducts as $p) {
+            $bgColor = ($i % 2 == 0 ? 'white' : '#f8f8f8');
             $imageURL = url('/') . Storage::url('app/products/' . $p->image);
             $html .= "<tr style='background-color:$bgColor'><td>$p->SKU</td><td><img src='$imageURL' style='max-height:50px'/></td><td>$p->pr_title</td><td>$p->short_des</td><td>$p->s_status</td></tr>";
             $i++;
@@ -291,39 +274,40 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
     }
     //end of stock reporting methods
 
-    public function ShowReportPerforma(){
+    public function ShowReportPerforma()
+    {
         return view("admin.reportPerforma");
     }
 
-    public function GenerateReport(Request $request){
-        if($request->input("format") == 1){
+    public function GenerateReport(Request $request)
+    {
+        if ($request->input("format") == 1) {
             $this->GenerateReportWithPrice();
-        }else{
+        } else {
             $this->GenerateReportWithoutPrice();
         }
     }
 
 
-    public function AddProductForm(){
+    public function AddProductForm()
+    {
 
-        return view("admin.productForm",["categories" => Catagories::all()]);
+        return view("admin.productForm", ["categories" => Catagories::all()]);
     }
 
-    public function Save(Request $request){
+    public function Save(Request $request)
+    {
 
 
         //creating new sku
-        $lastProduct = Product::where("id",">=",1)->orderBy("id","desc")->first();
-        if($lastProduct!=NULL)
-        {
-        $lastSKU = $lastProduct->SKU;
-        $skuTokens = explode("-",$lastSKU);
-        $skuNumber = $skuTokens[1];
-        $skuNumber++;
-        }
-        else
-        {
-            $skuNumber="SKU-1";
+        $lastProduct = Product::where("id", ">=", 1)->orderBy("id", "desc")->first();
+        if ($lastProduct != NULL) {
+            $lastSKU = $lastProduct->SKU;
+            $skuTokens = explode("-", $lastSKU);
+            $skuNumber = $skuTokens[1];
+            $skuNumber++;
+        } else {
+            $skuNumber = "SKU-1";
             $skuNumber++;
         }
 
@@ -340,7 +324,7 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
         $product->meta_key = $request->input("metaKeywords");
         $product->meta_des = $request->input("metaDescription");
         $product->SKU = "Usm-$skuNumber";
-        $product->salesPrice= $request->input("salesPrice");
+        $product->salesPrice = $request->input("salesPrice");
         $product->machineCondition = $request->input("condition");
         $product->price = $request->input("purchasePrice");
         $product->location = $request->input("location");
@@ -351,17 +335,17 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
         $product->termsAndCondition = $request->input("terms");
         //uploading featured image
         $path = $request->file("fileToUpload")->store("products");
-        $pathTokens = explode("/",$path);
+        $pathTokens = explode("/", $path);
         $fileName = $pathTokens[1];
         $product->image = $fileName;
         $product->save();
         //upload other images
 
-        if($request->file("filesToUpload") != null){
+        if ($request->file("filesToUpload") != null) {
 
-            foreach($request->file("filesToUpload") as $file){
+            foreach ($request->file("filesToUpload") as $file) {
                 $path = $file->store("products");
-                $pathTokens = explode("/",$path);
+                $pathTokens = explode("/", $path);
                 $fileName = $pathTokens[1];
                 $thumb = new Thumbs();
                 $thumb->file_name = $fileName;
@@ -374,57 +358,57 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
 
 
 
-        return view("admin.productForm",["categories" => Catagories::all(),"message" => "Product Saved Successfully at sku $product->SKU"]);
-//
+        return view("admin.productForm", ["categories" => Catagories::all(), "message" => "Product Saved Successfully at sku $product->SKU"]);
+        //
         //creating new sku
-//        $lastProduct = Product::where("id",">=",1)->orderBy("id","desc")->first();
-//        $lastSKU = $lastProduct->SKU;
-//        $skuTokens = explode("-",$lastSKU);
-//        $skuNumber="";
-////        $skuNumber = $skuTokens[1];
-////        $skuNumber++;
-//
-//
-//        //setting up database row
-//        $product = new Product();
-//        $product->pr_title = $request->input("title");
-//        $product->is_feature = ($request->input("isFeatured") == null ? 0 : 1);
-//        $product->cat_id = $request->input("category");
-//        $product->status = $request->input("status");
-//        $product->s_status = $request->input("stockStatus");
-//        $product->short_des = $request->input("shortDescription");
-//        $product->long_des =  htmlentities($request->input("description"));
-//        $product->meta_key = $request->input("metaKeywords");
-//        $product->meta_des = $request->input("metaDescription");
-//        $product->SKU = "Usm-$skuNumber";
-//        $product->salesPrice= $request->input("salesPrice");
-//        $product->machineCondition = $request->input("condition");
-//        $product->price = $request->input("purchasePrice");
-//        $product->location = $request->input("location");
-//        $product->deliveryTime = $request->input("deliveryTime");
-//        $product->deliveryTerms = $request->input("deliveryTerms");
-//        $product->paymentTerms = $request->input("paymentTerms");
-//        $product->waysOfPayments = $request->input("waysOfPayments");
-//        $product->termsAndCondition = $request->input("terms");
-//        //uploading featured image
-//        $image = time().'.'.$request->fileToUpload->extension();
-//        $request->fileToUpload->move('app/products', $image);
-//        $product->image = $image;
-//        $product->save();
+        //        $lastProduct = Product::where("id",">=",1)->orderBy("id","desc")->first();
+        //        $lastSKU = $lastProduct->SKU;
+        //        $skuTokens = explode("-",$lastSKU);
+        //        $skuNumber="";
+        ////        $skuNumber = $skuTokens[1];
+        ////        $skuNumber++;
+        //
+        //
+        //        //setting up database row
+        //        $product = new Product();
+        //        $product->pr_title = $request->input("title");
+        //        $product->is_feature = ($request->input("isFeatured") == null ? 0 : 1);
+        //        $product->cat_id = $request->input("category");
+        //        $product->status = $request->input("status");
+        //        $product->s_status = $request->input("stockStatus");
+        //        $product->short_des = $request->input("shortDescription");
+        //        $product->long_des =  htmlentities($request->input("description"));
+        //        $product->meta_key = $request->input("metaKeywords");
+        //        $product->meta_des = $request->input("metaDescription");
+        //        $product->SKU = "Usm-$skuNumber";
+        //        $product->salesPrice= $request->input("salesPrice");
+        //        $product->machineCondition = $request->input("condition");
+        //        $product->price = $request->input("purchasePrice");
+        //        $product->location = $request->input("location");
+        //        $product->deliveryTime = $request->input("deliveryTime");
+        //        $product->deliveryTerms = $request->input("deliveryTerms");
+        //        $product->paymentTerms = $request->input("paymentTerms");
+        //        $product->waysOfPayments = $request->input("waysOfPayments");
+        //        $product->termsAndCondition = $request->input("terms");
+        //        //uploading featured image
+        //        $image = time().'.'.$request->fileToUpload->extension();
+        //        $request->fileToUpload->move('app/products', $image);
+        //        $product->image = $image;
+        //        $product->save();
         //upload other images
 
-//        if($request->file("filesToUpload") != null){
-//
-//            foreach($request->file("filesToUpload") as $file){
-//                $imagename=time().'.'.$file->extension();
-//                $path =$file->move(public_path('imgs/products',$imagename));
-//
-//               $thumb = new Thumbs();
-//                $thumb->file_name = $imagename;
-//                $thumb->org_id = $product->id;
-//                $thumb->save();
-//            }
-//        }
+        //        if($request->file("filesToUpload") != null){
+        //
+        //            foreach($request->file("filesToUpload") as $file){
+        //                $imagename=time().'.'.$file->extension();
+        //                $path =$file->move(public_path('imgs/products',$imagename));
+        //
+        //               $thumb = new Thumbs();
+        //                $thumb->file_name = $imagename;
+        //                $thumb->org_id = $product->id;
+        //                $thumb->save();
+        //            }
+        //        }
 
 
 
@@ -433,10 +417,11 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
         //return view("admin.productForm",["categories" => Catagories::all(),"message" => "Product Saved Successfully at sku $product->SKU"]);
     }
 
-    public function Remove($id){
+    public function Remove($id)
+    {
         $product = Product::find($id);
-        $thumbs = Thumbs::where("org_id",$id)->get();
-        foreach($thumbs as $thumb){
+        $thumbs = Thumbs::where("org_id", $id)->get();
+        foreach ($thumbs as $thumb) {
             $thumb->delete();
         }
 
@@ -444,15 +429,16 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
         return redirect("/admin/products");
     }
 
-    public function EditForm($id){
+    public function EditForm($id)
+    {
         $product = Product::find($id);
-        $thumbs =  Thumbs::where("org_id",$id)->get();
-        return view("admin.ProductEditForm",["categories" => Catagories::all(),"product" => $product,"thumbs" => $thumbs]);
-
+        $thumbs =  Thumbs::where("org_id", $id)->get();
+        return view("admin.ProductEditForm", ["categories" => Catagories::all(), "product" => $product, "thumbs" => $thumbs]);
     }
 
-    public function DeleteImages($id,Request $request){
-        foreach($request->input("imageToDelete") as $image){
+    public function DeleteImages($id, Request $request)
+    {
+        foreach ($request->input("imageToDelete") as $image) {
             $image = Thumbs::find($image);
             $image->delete();
         }
@@ -460,7 +446,8 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
         return redirect("/admin/products/edit/" . $id);
     }
 
-    public function SaveChanges(Request $request){
+    public function SaveChanges(Request $request)
+    {
 
         //setting up database row
         $product = Product::find($request->input("id"));
@@ -474,7 +461,7 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
         $product->meta_key = $request->input("metaKeywords");
         $product->meta_des = $request->input("metaDescription");
         // $product->SKU = "Usm-$skuNumber";
-        $product->salesPrice= $request->input("salesPrice");
+        $product->salesPrice = $request->input("salesPrice");
         $product->machineCondition = $request->input("condition");
         $product->price = $request->input("purchasePrice");
         $product->location = $request->input("location");
@@ -484,17 +471,17 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
         $product->waysOfPayments = $request->input("waysOfPayments");
         $product->termsAndCondition = $request->input("terms");
         //uploading featured image
-        if($request->file("fileToUpload") != null){
+        if ($request->file("fileToUpload") != null) {
             $path = $request->file("fileToUpload")->store("products");
-            $pathTokens = explode("/",$path);
+            $pathTokens = explode("/", $path);
             $fileName = $pathTokens[1];
             $product->image = $fileName;
         }
         //upload other images
-        if($request->file("filesToUpload") != null){
-            foreach($request->file("filesToUpload") as $file){
+        if ($request->file("filesToUpload") != null) {
+            foreach ($request->file("filesToUpload") as $file) {
                 $path = $file->store("products");
-                $pathTokens = explode("/",$path);
+                $pathTokens = explode("/", $path);
                 $fileName = $pathTokens[1];
                 $thumb = new Thumbs();
                 $thumb->file_name = $fileName;
@@ -503,9 +490,7 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
             }
         }
         $product->save();
-        $thumbs = Thumbs::where("org_id",$product->id)->get();
-        return view("admin.ProductEditForm",["categories" => Catagories::all(),"product" => $product,"thumbs" => $thumbs,"message" => "Product Edit Successfully"]);
-
-
+        $thumbs = Thumbs::where("org_id", $product->id)->get();
+        return view("admin.ProductEditForm", ["categories" => Catagories::all(), "product" => $product, "thumbs" => $thumbs, "message" => "Product Edit Successfully"]);
     }
 }

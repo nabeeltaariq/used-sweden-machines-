@@ -1,5 +1,7 @@
 @extends("templates.public")
 @section("sharing")
+
+
 <style>
     .slick-slide img {
         min-height: 84px !important;
@@ -335,10 +337,13 @@ $category = App\Catagories::find($product->cat_id);
                 font-size: 13px;
                 font-family: " Open Sans",Arial,sans-serif; color: #444; ">
                 
-            <button data-toggle=" modal" data-target="#myModal-ask_for_price" class="btn-theme">Ask For Price </>
+            <button data-toggle=" modal" data-target="#myModal-ask_for_price" class="btn-theme">Ask For Price </button>
+
             <button onclick="location.href='{{URL::to('/category/selected')}}/{{$selectedCat}}'" style="margin-left:3px;" class="btn-theme">Back To Review</button>
-            @if($next != '')
-            <a href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}/next" autofocus><button class="btn-theme"> Next Machine </button> </a>
+
+            @if($next)
+
+            <a href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}" autofocus><button class="btn-theme"> Next Machine </button> </a>
 
             @else
             <button onclick="location.href='{{URL::to('/used-tetra-pak-machines')}}'" class="btn-theme">All Products</button>
@@ -469,7 +474,7 @@ $category = App\Catagories::find($product->cat_id);
         <div class="modal-content">
             <div class="modal-header" style="color: #FBCA01;background-color:#034375;font-weight:bolder;">
                 <button type="button" style="background-color:#fbca01;color:#034375;float:right;border-radius:20px;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <p class="modal-title" id="myModalLabel" style=""> {{$product->pr_title}}</p>
+                <p class="modal-title" id="myModalLabel"> {{$product->pr_title}}</p>
             </div>
 
             <!--<p style="background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);color:#034375;padding:8px;font-weight:bolder;">-->
