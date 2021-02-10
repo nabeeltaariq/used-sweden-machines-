@@ -1,16 +1,74 @@
 @extends("templates.public")
 @section("content")
-<section style="height:500px;width:100%;max-height:400px;overflow:auto">
-  <div>
-    <div style="float:left">
-      <h1>Your Basket</h1>
-    </div>
-    <div style="float:right;margin-bottom:30px">
-      <p><a href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></p>
-    </div>
-  </div>
-  <div style="clear:both">
+<style>
+  .table>tbody>tr>td,
+  .table>tbody>tr>th,
+  .table>tfoot>tr>td,
+  .table>tfoot>tr>th,
+  .table>thead>tr>td,
+  .table>thead>tr>th {
 
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+  }
+
+  .table {
+    margin-top: 100px;
+
+  }
+
+  .btn {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  .btn-continue {
+    background-color: #034375;
+    color: white;
+  }
+
+  .btn-continue:hover {
+    background-color: #034375;
+    color: white;
+  }
+
+
+  .btn-proceed {
+    background-color: #034375;
+    color: white;
+  }
+
+  .btn-proceed:hover {
+    background-color: #034375;
+    color: white;
+  }
+
+  .footerclass {
+    position: relative;
+    top: 45px;
+    left: -20px;
+    width: 925px;
+  }
+</style>
+<section style="height:500px;width:100%;max-height:400px;overflow:auto">
+
+
+  <div style="margin-bottom:30px;
+    display: flex;
+    width:inherit;
+    position: absolute;
+    background: white;
+    width: auto;z-index: 10;">
+    <h1>Your Basket</h1>
+    <p style="float: right;margin-left:10px;"><a href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></p>
+  </div>
+
+
+  <div style="clear:both">
   </div>
   <!-- <div style="float:right"><a href="" class="btn btn-continue">Continue Shopping</a><a href="" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></div> -->
 
@@ -59,8 +117,6 @@
         }
 
         ?>
-
-
         <tr style="border-top:2px solid black">
           <td colspan="5" align="left"><Strong>Total Order</Strong></td>
           <td align="left" colspan="2"><strong>$ <?= $total ?></strong></td>
@@ -73,47 +129,10 @@
 
     </tbody>
   </table>
-  <p align="right" style="margin-top:50px"><a href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></p>
+
 </section>
 
-<style>
-  .table>tbody>tr>td,
-  .table>tbody>tr>th,
-  .table>tfoot>tr>td,
-  .table>tfoot>tr>th,
-  .table>thead>tr>td,
-  .table>thead>tr>th {
-    padding: 0px !important;
-    line-height: 1.42857143;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
-  }
 
-  .btn {
-    display: inline-block;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
-    margin-right: 10px;
-  }
-
-  .btn-continue {
-    background-color: #ccc;
-    color: black;
-  }
-
-  .btn-proceed {
-    background-color: maroon;
-    color: white;
-  }
-
-  .footerclass {
-    position: relative;
-    top: 45px;
-    left: -20px;
-    width: 925px;
-  }
-</style>
 <script type="text/javascript">
   function checkCart(totalItems) {
     totalItems = parseInt(totalItems);

@@ -13,10 +13,8 @@
   #myInput {
     float: right;
     font-size: 12px;
-
     margin-top: -15px;
-    border: 1px solid #ddd;
-
+    border: 1px solid #ffff;
     width: 280px;
     font-family: arial;
     margin-right: 33px;
@@ -464,7 +462,7 @@
 
 
                 @endphp
-                <a class="desk" style="color:black" href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}"><strong>»&nbsp;More details</strong></a>
+                <a class="desk" style="color:#034375;" href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}"><strong>»&nbsp;More details</strong></a>
                 <span class="mob">...</span>
                 <a class="mob" style="font-weight:bold" href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}">
                   <span>More details</span> </a>
