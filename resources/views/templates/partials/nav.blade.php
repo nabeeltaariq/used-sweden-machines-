@@ -229,13 +229,13 @@
 
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal-contactus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="myModal-contactus" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header" style="background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);dispaly:flex;text-align:center;position:relative;">
+        <div class="modal-header" style="background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);dispaly:flex;text-align:center;position:relative;height:70px;">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <p class="modal-title" id="myModalLabel" style=" vertical-align: text-bottom;">
-          <h3 class="item" style="
+          <h4 class="item" style="
 
               display: inline-block;
 
@@ -262,12 +262,12 @@
 
                background: -ms-linear-gradient(90deg, #b43720 0%,#e94541 100%);
 
-               background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);">Contact Us</h3>
+               background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);">Contact Us</h4>
           </p>
         </div>
-        <div style="font-size:15px;margin-left:30px">
+        <div style="font-size:15px;margin-left:18px">
           <strong>USM-Used Sweden Machines</strong><br>83-A, S.I.E # 1,<br>Gujranwala
-          Pakistan<br><br>Tel.: +92 (321) 7415373<br>E-Mail: <a class="link" style="color: blue; text-decoration: underline;" href="mailto: info@usedswedenmachines.com">info@usedswedenmachines.com</a>
+          Pakistan<br><br>Tel.: +92 (321) 7415373<br>E-Mail: <a class="link" style="color: blue; text-decoration: underline;" href="mailto: info@usedswedenmachines.com">info@usm.com.pk</a>
         </div>
         <form id="contact-form">
           @csrf
@@ -293,7 +293,7 @@
                 <p>Full Name</p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
-                <input name="full_name" type="text" style="width:100%;outline:none" id="full_name" value="" class="col-lg-9 form-control">
+                <input name="full_name" type="text" style="width:100%;outline:none" id="full_name" value="" class="col-lg-9 form-control" autofocus>
               </div>
 
 

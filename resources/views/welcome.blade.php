@@ -264,9 +264,9 @@
 
 
 <script>
-    window.onload = zE(function() {
-        zE.activate();
-    });
+    // window.onload = zE(function() {
+    //     zE.activate();
+    // });
 
 
     var reloading = sessionStorage.getItem("reloading");

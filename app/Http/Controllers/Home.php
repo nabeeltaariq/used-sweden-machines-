@@ -362,7 +362,7 @@ class Home extends Controller
                 $message = "You are already a subscriber";
             }
         }
-        return redirect()->back()->with('message', $message);
+        return view("welcome", ["message" => $message, "statistics" => Catagories::ListWithTotal(), "totalMachines" => Catagories::getAllMachinesCount()]);
     }
 
     public function About()
