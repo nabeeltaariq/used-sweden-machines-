@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/sg3plcpnl0078/public_html/usm
+    - export DEPLOYPATH=/home/auspak11/public_html/usm.gondalgroup.com
     - /bin/cp -R * $DEPLOYPATH
