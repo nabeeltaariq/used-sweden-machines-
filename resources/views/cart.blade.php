@@ -14,7 +14,8 @@
   }
 
   .table {
-    margin-top: 100px;
+    margin-top: 70px;
+
 
   }
 
@@ -63,7 +64,17 @@
     position: absolute;
     background: white;
     width: auto;z-index: 10;">
-    <h1>Your Basket</h1>
+    <span style="    margin-top: 11px;
+    background: linear-gradient( 
+90deg
+ , #FBCA01 0%,#FBCA01 100%);
+    height: 40px;
+    /* padding: 20px; */
+    padding-right: 10px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 4px; ">Your Basket</span>
+
     <p style="float: right;margin-left:10px;"><a href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></p>
   </div>
 

@@ -336,8 +336,13 @@ $category = App\Catagories::find($product->cat_id);
         <div style="
                 font-size: 13px;
                 font-family: " Open Sans",Arial,sans-serif; color: #444; ">
-                
-            <button data-toggle=" modal" data-target="#myModal-ask_for_price" class="btn-theme">Ask For Price </button>
+                <!-- Button trigger modal -->
+<button type=" button" class="btn-theme" data-toggle="modal" data-target="#myModaltarget">
+            Ask For Price
+            </button>
+
+
+
 
             <button onclick="location.href='{{URL::to('/category/selected')}}/{{$selectedCat}}'" style="margin-left:3px;" class="btn-theme">Back To Review</button>
 
@@ -356,6 +361,84 @@ $category = App\Catagories::find($product->cat_id);
 
 
 
+<!-- Modal -->
+<div class="modal fade" id="myModaltarget" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="color: #FBCA01;background-color:#034375;font-weight:bolder;">
+                <button type="button" style="background-color:#fbca01;color:#034375;float:right;border-radius:20px;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <p class="modal-title" id="myModalLabel"> {{$product->pr_title}}</p>
+            </div>
+
+            <form action="{{route('QuoteFormSubmit',$product->id)}}" style="padding:10px;" method="POST">
+                @csrf
+                <input type="hidden" name="token">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Item #</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12 ">
+                            <input name="serial_no" type="text" value="{{$product->SKU}}" readonly="" class="col-lg-9 form-control" style="text-align:center">
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Machine Name</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <input name="machine_name" type="text" value="{{$product->pr_title}}" readonly="" class="col-lg-9 form-control">
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Full Name</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <input name="full_name" type="text" value="" class="col-lg-9 form-control">
+                        </div>
+
+
+
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Phone No</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <input name="phone" type="text" value="" class="col-lg-9 form-control">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Email<span style="color:red">*</span></p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <input name="email" type="email" value="" required="" class="col-lg-9 form-control">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Company</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <input name="company" type="text" value="" class="col-lg-9 form-control">
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Special Request</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <textarea name="request" placeholder="Please, contact regarding this machine" cols="31" class="col-lg-9 form-control"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="color: #FBCA01;background-color:#034375;font-weight:bolder;" data-dismiss="modal">Close</button>
+
+                    <button name="quote_form" type="submit" style="color: #FBCA01;background-color:#034375;font-weight:bolder;" class="btn btn-default" id="Submit" name="submit">Submit
+                    </button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
 
 
 <!-- Modal -->
@@ -468,88 +551,6 @@ $category = App\Catagories::find($product->cat_id);
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="myModal-ask_for_price" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="color: #FBCA01;background-color:#034375;font-weight:bolder;">
-                <button type="button" style="background-color:#fbca01;color:#034375;float:right;border-radius:20px;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <p class="modal-title" id="myModalLabel"> {{$product->pr_title}}</p>
-            </div>
-
-            <!--<p style="background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);color:#034375;padding:8px;font-weight:bolder;">-->
-            <!--  USM-Used Sweden Machines</br>-->
-            <!--  83-A, S.I.E # 1,</br>-->
-            <!--  Gujranwala Pakistan</br>-->
-            <!--  Tel.: +92 (321) 7415373</br>-->
-            <!--  E-Mail: info@usedswedenmachines.com</p>       -->
-            <form action="{{route('QuoteFormSubmit',$product->id)}}" style="padding:10px;" method="POST">
-                @csrf
-                <input type="hidden" name="token">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                            <p>Item #</p>
-                        </div>
-                        <div class="col-lg-9 col-md-9 col-sm-12 ">
-                            <input name="serial_no" type="text" value="{{$product->SKU}}" readonly="" class="col-lg-9 form-control" style="text-align:center">
-                        </div>
-
-                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                            <p>Machine Name</p>
-                        </div>
-                        <div class="col-lg-9 col-md-9 col-sm-12">
-                            <input name="machine_name" type="text" value="{{$product->pr_title}}" readonly="" class="col-lg-9 form-control">
-                        </div>
-
-                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                            <p>Full Name</p>
-                        </div>
-                        <div class="col-lg-9 col-md-9 col-sm-12">
-                            <input name="full_name" type="text" value="" class="col-lg-9 form-control">
-                        </div>
-
-
-
-                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                            <p>Phone No</p>
-                        </div>
-                        <div class="col-lg-9 col-md-9 col-sm-12">
-                            <input name="phone" type="text" value="" class="col-lg-9 form-control">
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                            <p>Email<span style="color:red">*</span></p>
-                        </div>
-                        <div class="col-lg-9 col-md-9 col-sm-12">
-                            <input name="email" type="email" value="" required="" class="col-lg-9 form-control">
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                            <p>Company</p>
-                        </div>
-                        <div class="col-lg-9 col-md-9 col-sm-12">
-                            <input name="company" type="text" value="" class="col-lg-9 form-control">
-                        </div>
-
-                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                            <p>Special Request</p>
-                        </div>
-                        <div class="col-lg-9 col-md-9 col-sm-12">
-                            <textarea name="request" placeholder="Please, contact regarding this machine" cols="31" class="col-lg-9 form-control"></textarea>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" style="color: #FBCA01;background-color:#034375;font-weight:bolder;" data-dismiss="modal">Close</button>
-
-                    <button name="quote_form" type="submit" style="color: #FBCA01;background-color:#034375;font-weight:bolder;" class="btn btn-default" id="Submit" name="submit">Submit
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 
 
