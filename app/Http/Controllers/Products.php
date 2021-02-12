@@ -36,18 +36,18 @@ class Products extends Controller
         }
 
         $machine = Product::find($id);
-        $nextmachineid = Product::where('id', '>', $machine->id)->where('cat_id', $machine->cat_id)->min('id');
-        $next = '';
+        $nextmachineid = Product::where('id', '<', $machine->id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
+        $next = $nextmachineid->id;
         if (empty($nextmachineid)) {
-            $nextmachineid = Product::where('id', '<', $machine->id)->where('cat_id', $machine->cat_id)->max('id');
+            $nextmachineid = Product::where('id', '>', $machine->id)->where('cat_id', $machine->cat_id)->orderBy('id', 'asc')->first();
             if ($nextmachineid) {
-                $next = true;
+                $next = $nextmachineid->id;
+            } else {
+                $next = '';
             }
-        } else {
-            $next = true;
         }
         $allThumbs = Thumbs::where('org_id', $machine->id)->get();
-        return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $nextmachineid, "selectedCat" => $machine->cat_id]);
+        return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => $machine->cat_id]);
     }
 
 
