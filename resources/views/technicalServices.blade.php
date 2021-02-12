@@ -1,7 +1,14 @@
 @extends("templates.public")
+<style type="text/css">
+    @media screen and (max-width: 600px) {
+        #technical-services {
+            margin-right:0px !important;
+        }
+}
 
+</style>
 @section("content")
-<div style="font-family:arial;font-size:13px;line-height:20px">
+<div id="technical-services" style="font-family:arial;font-size:13px;line-height:20px;margin-right:15px">
     <div style="margin-top:15px;" class="row">
         <div  class="col-xl-12-col-md-12-col-lg-12 col-sm-12 p-0" >
             <p id="top-margin" style="text-align: justify;"><span ><strong>USM-Installations, Commissions and Starts up Tetra Pak® Filling Lines:</strong></span>

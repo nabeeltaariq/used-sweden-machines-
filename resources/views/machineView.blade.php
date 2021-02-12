@@ -2,6 +2,14 @@
 
 @section("content")
 <style>
+      .parts-img {
+    border: 2px solid #034375;
+   
+   width: 100px !important;
+  height: 90px !important;
+
+
+  }
     .machinesView li a strong:hover {
         background-color: #ffff;
          !important;
@@ -17,70 +25,6 @@
 
     .mobile_spareparts {
         display: none;
-    }
-
-
-    .newsletter {
-      margin-left: 2px !important;
-    }
-
-#check {
-      max-width: 230px;
-      overflow-x: hidden;
-      font-family: arial;
-      font-size: 12px;
-
-
-    }
-  #table-outer {
-      width: 100%;
-      height: auto;
-      margin-left: 0px !important;
-      margin-top: -15px;
-
-
-    }
-
-    table {
-      width: 100%;
-
-
-
-    }
-
-    table tr td {
-
-
-
-      padding-bottom: 5px;
-    }
-
-    table tr td:nth-child(2) {
-      padding-left: 15px !important;
-
-
-    }
-
-    table tr {
-      border-top: 1px solid #e6e6e6;
-
-
-    }
-
-    .content {
-      border: none;
-      height: auto;
-    }
-
-    .img-responsive {
-      
-       border: 2px solid #034375;
-    width: 150px;
-    height: 100px;
-     max-width: 100px !important;
-      max-height: 90px !important;
-      margin-top: 5px;
-
     }
 
 
@@ -200,7 +144,6 @@
         display: flex;
         margin-top: -40px;
         position: absolute;
-        z-index: 1;
 
 
     }
@@ -299,54 +242,34 @@
 
 
 
-<!--     <div class="products" style="margin-top:-5px">
+    <div class="products" style="margin-top:-5px;margin-left: 5px;font-size: 13px">
         <table>
             @foreach($parts as $part)
-            <tr>
+            <tr style="border-top:1px solid #e6e6e6;padding-bottom: 7px">
 
-                <td style="padding-bottom:4px"><img src="{{URL::to('/storage/app/products/')}}/<?= $part->image ?>" height='120px' width='120px' /></td>
-                <td style="padding-left:10px">
-                    <b>Part# <?= $part->spare_part_no ?></b><br /><b>Price <span class="text-danger"><?= $part->price ?></span></b><br />
+                <td style="padding-bottom:4px"><img src="{{URL::to('/storage/app/products/')}}/<?= $part->image ?>"  class="parts-img" alt="" /></td>
+                <td style="padding-left:15px;">
+                    <b>Part# <?= $part->spare_part_no ?></b><br />
                     <b><?= $part->title ?></b><br />
+                     <b>Manufacturer: </b>
+                      @php
+                  $manufacturer = App\Manufacturer::find($part->manufac);
+                  if($manufacturer != null){
+                  echo $manufacturer->title;
+                  }
+                  @endphp
+              <br />
+                    <b>Price <span class="text-danger"><?= $part->price ?></span></b><br />
+                    
                     <b>Delivery Status: </b><b class="text-success"><?= $part->ds ?></b><br />
-                    <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer ?? '' != null ? $manufacturer ?? ''->title : '')}}" style="display:inline-block;border:1px solid maroon;padding:5px;background-color:maroon;color:white"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button>
+                    <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer ?? '' != null ? $manufacturer ?? ''->title : '')}}" style="display:inline-block;border:1px solid maroon;margin-bottom:5px;padding:5px;background-color:maroon;color:white"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button>
                 </td>
             </tr>
             @endforeach
 
         </table>
 
-    </div> -->
-    <div class="col-lg-9 col-md-9 col-sm-12" class="margin-top-table" id="table-outer" ng-show="!loading">
-
-    <table id="myTable">
-          @foreach($parts as $part)
-    <tr>
-        <td>
-          <div>
-            <a href="#">
-              <img class="img-responsive " src="{{URL::to('/storage/app/products/')}}/<?= $part->image ?>" alt=" " />
-            </a>
-          </div>
-        </td>
-        <td>
-          <div class="content">
-            <span> <b>Part# <?= $part->spare_part_no ?></b></span><br>
-            <span > <strong><?= $part->title ?></strong></span><br>
-           
-            <span > <strong>Price <span class="text-danger"><?= $part->price ?></span> </strong></span><br>
-            <span > <strong>Delivery Status:  <span class="text-success"><?= $part->ds ?></span> </strong></span><br>
-                <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer ?? '' != null ? $manufacturer ?? ''->title : '')}}" style="display:inline-block;border:1px solid maroon;padding:5px;background-color:maroon;color:white"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button>
-
-
-          </div>
-        </td>
-    </tr>
-     @endforeach
-
-    </table>
-</div>
-
+    </div>
 
 </div>
 
@@ -535,34 +458,35 @@
 
     $("input[name='search']").on("keyup", function() {
 
-    let keyword = $(this).val();
-    if (keyword.length >= 1) {
+        let keyword = $(this).val();
+        if (keyword.length >= 1) {
 
-      $("#table-outer table tr").each(function() {
+            $(".products table tr").each(function() {
 
-        let currentKeyword = $(this)[0].cells[1].children[0].innerHTML;
+                let currentKeyword = $(this)[0].cells[1].children[0].innerHTML;
+                let partName = $(this)[0].cells[1].children[2].innerHTML;
+             
+                if ((currentKeyword.toUpperCase().indexOf(keyword.toUpperCase()) != -1) || (partName.toUpperCase().indexOf(keyword.toUpperCase()) != -1)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
 
-        if ((currentKeyword.toUpperCase().indexOf(keyword.toUpperCase()) != -1)) {
-          $(this).show();
+            });
+
         } else {
-          $(this).hide();
+
+            $(".products table tr").each(function() {
+
+                $(this).show();
+
+            });
+
+
         }
 
-      });
 
-    } else {
-
-      $("#table-outer table tr").each(function() {
-
-        $(this).show();
-
-      });
-
-
-    }
-
-
-  });
+    });
 
     $("#machine_id").on("change", function() {
 
@@ -656,30 +580,7 @@
 
 
     }
-    $("#search").on("keyup", function() {
-
-        let val = $(this).val();
-
-        $(".line").each(function(index, element) {
-            let partNumber = element.childNodes[1].childNodes[3].childNodes[1].innerHTML;
-            let partName = element.childNodes[1].childNodes[3].childNodes[3].childNodes[1].childNodes[0].childNodes[1].innerHTML;
-
-            if (val.length >= 1) {
-
-                if (partNumber.toUpperCase().indexOf(val.toUpperCase()) >= 0) {
-                    element.style.display = "block";
-                } else if (partName.toUpperCase().indexOf(val.toUpperCase()) >= 0) {
-                    element.style.display = "block";
-                } else {
-                    element.style.display = "none";
-                }
-            } else {
-                element.style.display = "block";
-            }
-        });
-
-    });
-
+  
 
     $("#machine_id").on("change", function() {
         let machineId = $(this).val();
