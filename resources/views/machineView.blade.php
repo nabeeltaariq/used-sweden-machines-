@@ -38,6 +38,7 @@
       margin-left: 0px !important;
       margin-top: -15px;
 
+
     }
 
     table {
@@ -79,7 +80,7 @@
      max-width: 100px !important;
       max-height: 90px !important;
       margin-top: 5px;
-      z-index:0;
+
     }
 
 
@@ -199,6 +200,7 @@
         display: flex;
         margin-top: -40px;
         position: absolute;
+        z-index: 1;
 
 
     }
