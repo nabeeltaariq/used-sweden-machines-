@@ -518,7 +518,7 @@
             <span>{{$news->news_date}}</span><br>
             <span id="title"> <strong>{{$news->news_title}} </strong></span><br>
 
-            <a id="web" style="font-weight:bold" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span>Read More</span> </a>
+            <a id="web" style="font-weight:bold" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span>More Details</span> </a>
 
           </div>
         </td>
