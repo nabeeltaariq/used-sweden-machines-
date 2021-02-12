@@ -25,11 +25,10 @@
     font-size: 12px;
     /*padding: 7px 20px 7px 20px;*/
     margin-top: -15px;
-    border: 1px solid #ddd;
-
+    border: none;
     width: 280px;
     font-family: arial;
-    margin-right: 40px;
+    margin-right: 0px;
 
   }
 
