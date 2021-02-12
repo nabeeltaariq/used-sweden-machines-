@@ -15,7 +15,6 @@
  */
 class Swift_Transport_StreamBuffer extends Swift_ByteStream_AbstractFilterableInputStream implements Swift_Transport_IoBuffer
 {
-      protected $_sequence=0; 
     /** A primary socket */
     private $stream;
 
@@ -230,7 +229,7 @@ class Swift_Transport_StreamBuffer extends Swift_ByteStream_AbstractFilterableIn
             }
 
             if ($totalBytesWritten > 0) {
-                return 1;
+                return ++$this->sequence;
             }
         }
     }

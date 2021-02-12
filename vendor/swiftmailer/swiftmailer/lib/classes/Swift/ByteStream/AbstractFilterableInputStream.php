@@ -18,7 +18,7 @@ abstract class Swift_ByteStream_AbstractFilterableInputStream implements Swift_I
     /**
      * Write sequence.
      */
-    protected $_sequence = 0;
+    protected $sequence = 0;
 
     /**
      * StreamFilters.
@@ -90,7 +90,7 @@ abstract class Swift_ByteStream_AbstractFilterableInputStream implements Swift_I
         }
         $this->doWrite($this->writeBuffer);
 
-        return 1;
+        return ++$this->sequence;
     }
 
     /**
