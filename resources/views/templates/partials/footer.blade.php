@@ -170,7 +170,7 @@
     <span style="color:red;font-size:14px; ">
       Email:
     </span>
-    <a href="mailto:info@usedswedenmachines.com" style="color:#034375;font-size:12px;font-weight:bold;margin-top:3px;">info@usedswedenmachines.com</a>
+    <a href="mailto:info@usedswedenmachines.com" style="color:#034375;font-size:12px;font-weight:bold;margin-top:3px;">info@usm.com.pk</a>
     |
     <a href="{{URL::to('upload-your-machine')}}" style="color:#034375;font-size:12px;font-weight:bold;margin-top:3px;">Upload Your Machine</a>
 
