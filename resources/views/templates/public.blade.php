@@ -700,7 +700,7 @@
           overflow-x: hidden;
           margin-left: 13.55%;
           margin-right: 13.55%;
-          margin-top: 10px;
+          margin-top: 1%;
           background-color: #D0D0D0;
           font-family: arial;
 
@@ -718,6 +718,7 @@
         .set {
           margin-left: 6%;
           margin-right: 6%;
+
         }
 
       }

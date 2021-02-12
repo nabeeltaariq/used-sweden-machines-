@@ -86,7 +86,7 @@
 			<br>
 			<a href="{{URL::to('/forget-password')}}" style="text-decoration:underline">Forgot Password</a>
 				<br>
-						<input type="submit" value="Log In" style="display:inline-block;padding:10px 30px;border:1px solid #ccc;color:white;background-color:maroon">
+						<input type="submit" value="Log In" style="display:inline-block;padding:10px 30px;border:1px solid #ccc;color:white;background-color:#034375">
 			
 					<br/>
 						<p style="color:red">
@@ -132,9 +132,8 @@
 				<br>
 						<input type="checkbox" name="confirmation1ForSignup" required > I confirm that I have read and accept this Privacy Policy.
 				<br>
-						<input type="submit" value="Next" style="display:inline-block;padding:10px 30px;border:1px solid #ccc;color:white;background-color:maroon">
+						<input type="submit" value="Next" style="display:inline-block;padding:10px 30px;border:1px solid #ccc;color:white;background-color:#034375">
 			
-				
 
 			
 		</form>

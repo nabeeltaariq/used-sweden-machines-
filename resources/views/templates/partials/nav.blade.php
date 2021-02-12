@@ -266,8 +266,7 @@
           </p>
         </div>
         <div style="font-size:15px;margin-left:18px">
-          <strong>USM-Used Sweden Machines</strong><br>83-A, S.I.E # 1,<br>Gujranwala
-          Pakistan<br><br>Tel.: +92 (321) 7415373<br>E-Mail: <a class="link" style="color: blue; text-decoration: underline;" href="mailto: info@usedswedenmachines.com">info@usm.com.pk</a>
+          <strong>USM-Used Sweden Machines</strong><br>85-A, Small industrial estate # 1 <br>Gujranwala, Pakistan<br><br>Tel.: +92 (321) 7415373<br>E-Mail: <a class="link" style="color: blue; text-decoration: underline;" href="mailto: info@usedswedenmachines.com">info@usm.com.pk</a>
         </div>
         <form id="contact-form">
           @csrf
