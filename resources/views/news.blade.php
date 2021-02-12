@@ -148,9 +148,8 @@
   }
 
   .content {
-    margin-top: -35px;
+    margin-top: -37.5px;
     border-top: 1px solid gray;
-
   }
 
   #table-outer {
