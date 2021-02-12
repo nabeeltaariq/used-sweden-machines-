@@ -19,6 +19,55 @@
         display: none;
     }
 
+    #table-outer {
+      width: 100%;
+      height: auto;
+      margin-left: -10px !important;
+      margin-top: -10px !important;
+
+    
+
+    }
+
+    #myTable {
+      width: 100%;
+
+
+
+    }
+
+    #myTable tr td {
+
+
+
+      padding-bottom: 5px;
+    }
+
+    #myTable tr td:nth-child(2) {
+      padding-left: 15px !important;
+
+
+    }
+
+    #myTable tr {
+      border-top: 1px solid #e6e6e6;
+
+
+    }
+
+
+    .newsletter {
+      margin-left: 2px !important;
+    }
+
+    .img-responsive {
+         border: 2px solid #034375;
+          width: 150px;
+    height: 100px;
+      max-width: 100px !important;
+      max-height: 90px !important;
+    }
+
 
     @media screen and (max-width: 765px) {
         .desktop_spareparts {
@@ -234,7 +283,7 @@
 
 
 
-    <div class="products" style="margin-top:-5px">
+<!--     <div class="products" style="margin-top:-5px">
         <table>
             @foreach($parts as $part)
             <tr>
@@ -251,7 +300,36 @@
 
         </table>
 
-    </div>
+    </div> -->
+    <div class="col-lg-9 col-md-9 col-sm-12" class="margin-top-table" id="table-outer" ng-show="!loading">
+
+    <table id="myTable">
+          @foreach($parts as $part)
+    <tr>
+        <td>
+          <div>
+            <a href="#">
+              <img class="img-responsive " src="{{URL::to('/storage/app/products/')}}/<?= $part->image ?>" alt=" " />
+            </a>
+          </div>
+        </td>
+        <td>
+          <div class="content">
+            <span> <b>Part# <?= $part->spare_part_no ?></b></span><br>
+            <span > <strong><?= $part->title ?></strong></span><br>
+           
+            <span > <strong>Price <span class="text-danger"><?= $part->price ?></span> </strong></span><br>
+            <span > <strong>Delivery Status:  <span class="text-success"><?= $part->ds ?></span> </strong></span><br>
+                <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer ?? '' != null ? $manufacturer ?? ''->title : '')}}" style="display:inline-block;border:1px solid maroon;padding:5px;background-color:maroon;color:white"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button>
+
+
+          </div>
+        </td>
+    </tr>
+     @endforeach
+
+    </table>
+</div>
 
 </div>
 
@@ -440,34 +518,34 @@
 
     $("input[name='search']").on("keyup", function() {
 
-        let keyword = $(this).val();
-        if (keyword.length >= 1) {
+    let keyword = $(this).val();
+    if (keyword.length >= 1) {
 
-            $(".products table tr").each(function() {
+      $("#table-outer table tr").each(function() {
 
-                let currentKeyword = $(this)[0].cells[1].children[0].innerHTML;
-                let part = $(this)[0].cells[1].children[4].innerHTML;
-                if ((currentKeyword.toUpperCase().indexOf(keyword.toUpperCase()) != -1) || (part.toUpperCase().indexOf(keyword.toUpperCase()) != -1)) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
+        let currentKeyword = $(this)[0].cells[1].children[0].innerHTML;
 
-            });
-
+        if ((currentKeyword.toUpperCase().indexOf(keyword.toUpperCase()) != -1)) {
+          $(this).show();
         } else {
-
-            $(".products table tr").each(function() {
-
-                $(this).show();
-
-            });
-
-
+          $(this).hide();
         }
 
+      });
 
-    });
+    } else {
+
+      $("#table-outer table tr").each(function() {
+
+        $(this).show();
+
+      });
+
+
+    }
+
+
+  });
 
     $("#machine_id").on("change", function() {
 
