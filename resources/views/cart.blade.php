@@ -14,7 +14,7 @@
   }
 
   .table {
-    margin-top: 70px;
+    margin-top: 20px;
 
 
   }
@@ -54,16 +54,45 @@
     left: -20px;
     width: 925px;
   }
+  @media screen and (max-width:600px) {
+
+#cart-btns
+{
+  display: block !important;
+  margin-top: 20px;
+  }
+  #basket
+{
+  
+  margin-left: 10px;
+  }
+  #content
+  {
+    height: auto !important;
+  }
+}
 </style>
-<section style="height:500px;width:100%;max-height:400px;overflow:auto">
+<div style="background-color:white;display: flex;" id="cart-btns">
+    <span style=" margin-top: 11px;
+    background: linear-gradient( 
+90deg
+ , #FBCA01 0%,#FBCA01 100%);
+    height: 40px;
+    
+   
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
 
-
-  <div style="margin-bottom:30px;
+    border-radius: 4px;color:#034375; " id="basket">Your Basket</span>
+    <p style="margin-left:10px;"><a href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></p>
+</div>
+<!--  <div style="margin-bottom:30px;
     display: flex;
-    width:inherit;
+    width:95%;
     position: absolute;
-    background: white;
-    width: auto;z-index: 10;">
+    background-color: white;
+z-index: 10;">
     <span style="    margin-top: 11px;
     background: linear-gradient( 
 90deg
@@ -76,12 +105,10 @@
     border-radius: 4px; ">Your Basket</span>
 
     <p style="float: right;margin-left:10px;"><a href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></p>
-  </div>
+  </div> -->
 
+<div style="height:395px;width:100%;max-height:395px;overflow:auto;position: relative;">
 
-  <div style="clear:both">
-  </div>
-  <!-- <div style="float:right"><a href="" class="btn btn-continue">Continue Shopping</a><a href="" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></div> -->
 
   <table class="table table-bordered table-sm">
     <thead>
@@ -141,7 +168,7 @@
     </tbody>
   </table>
 
-</section>
+</div>
 
 
 <script type="text/javascript">
