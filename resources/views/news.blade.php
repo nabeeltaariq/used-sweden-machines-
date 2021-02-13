@@ -96,7 +96,8 @@
   }
 
   .img-responsive {
-    border: 2px solid #034375;
+  /*  border: 2px solid #034375;*/
+    border: 2px solid red;
     width: 150px;
     height: 100px;
     max-width: 150px;
