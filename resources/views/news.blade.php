@@ -17,8 +17,7 @@
     border: 1px solid #ffff;
     width: 280px;
     font-family: arial;
-    margin-right: 33px;
-
+    margin-right: 0px;
   }
 
   input:focus {
