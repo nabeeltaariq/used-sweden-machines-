@@ -441,7 +441,7 @@
     }
   </style>
 </div>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Machine Name or SKU">
+
 <div class="dropdown" style="display:none;">
   <button id="dLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
     Select News
