@@ -1,64 +1,9 @@
 @extends("templates.public")
 @section("content")
+
 <style>
   * {
     box-sizing: border-box;
-  }
-
-  .news {
-
-    list-style-type: none;
-
-    margin: 0;
-
-    padding: 0;
-
-    width: 100%;
-
-    background-color: #f4f4f4;
-
-
-  }
-
-
-  ul li {
-
-    display: block;
-
-  }
-
-
-
-  .news li a {
-
-    display: block;
-
-    padding: 10px 20px;
-
-    color: black;
-
-  }
-
-
-
-  .news li a:hover {
-
-    background-color: #ccc;
-
-    color: white;
-
-    text-decoration: none;
-
-  }
-
-
-
-  .news li a.active {
-
-    background-color: #ccc;
-
-    color: white;
-
   }
 
   #scroll-search-icon {
@@ -68,13 +13,12 @@
   #myInput {
     float: right;
     font-size: 12px;
-    /* padding: 7px 20px 7px 20px; */
     margin-top: -15px;
-    margin-right: -50px;
-    margin-bottom: 7px;
-    border: none;
+    border: 1px solid #ffff;
     width: 280px;
     font-family: arial;
+    margin-right: 33px;
+
   }
 
   input:focus {
@@ -102,8 +46,10 @@
     display: block;
     text-decoration: none;
     color: black;
-    font-weight: bolder;
+    font-weight: bold;
+    font-size: 13px;
     padding: 3px 0px;
+    font-family: arial;
   }
 
   .leftSidebar li a:hover {
@@ -131,32 +77,38 @@
 
   }
 
-  #myTable {
+  table {
     width: 100%;
   }
 
-  #myTable tr td {
+  table tr td {
 
     text-align: justify;
     padding-bottom: 5px;
 
 
+
   }
 
-  #myTable tr td:nth-child(2) {
+  table tr td:nth-child(2) {
     padding-left: 20px !important;
+
+    padding-bottom: 4px;
   }
 
   .content {
-    margin-top: -37.5px;
+
     border-top: 1px solid gray;
+    height: 100px;
+
+
   }
 
   #table-outer {
-    height: 439px;
+    height: 435px;
     overflow-y: auto;
-
-    margin-top: -4px;
+    /*margin-left:100px;*/
+    margin-top: 4px;
 
   }
 
@@ -192,13 +144,25 @@
     margin-top: 3px;
   }
 
-  /*@media only screen and (max-width: 1030px) {*/
-  /*  #table-outer*/
-  /*  {*/
-  /*    margin-left:65px !important;*/
-  /*  }*/
-  /*}*/
+  @media only screen and (max-width: 1030px) {
+    #myInput {
+
+      margin-right: 18px;
+    }
+  }
+
   @media only screen and (max-width: 768px) {
+
+    .col-lg-3,
+    .col-md-3 {
+      width: 26%;
+    }
+
+    .col-lg-9,
+    .col-md-9 {
+      width: 74%;
+    }
+
     #table-outer {
       margin-left: 0px !important;
     }
@@ -211,24 +175,26 @@
       margin-top: 30px !important;
     }
 
+    .content {
+
+      height: auto;
+    }
+
     #myInput {
       margin-top: 10px !important;
+
     }
 
-    .dropdown {
-      display: inherit !important;
-      margin-top: 20px;
-      margin-left: 12px;
-    }
-
-    .all-categories {
-      margin-top: 28px !important;
-      height: 350px !important;
-      display: none;
-    }
   }
 
-  @media only screen and (max-width: 765px) {
+  @media only screen and (max-width:600px) {
+    .row {
+      margin-top: 30px !important;
+    }
+
+    #bread-crumb {
+      display: none;
+    }
 
     .mob {
       display: inline-block;
@@ -236,6 +202,10 @@
 
     .desk {
       display: none;
+    }
+
+    .all-categories {
+      display: none !important;
     }
 
     .leftSidebar {
@@ -267,6 +237,7 @@
     .row {
       margin-right: -10px !important;
       margin-left: -10px !important;
+
     }
 
     #table-outer {
@@ -277,27 +248,27 @@
 
     }
 
-    #myTable {
+    table {
       width: 100%;
 
 
 
     }
 
-    #myTable tr td {
+    table tr td {
 
 
 
-      padding-top: 5px;
+      padding-bottom: 5px;
     }
 
-    #myTable tr td:nth-child(2) {
+    table tr td:nth-child(2) {
       padding-left: 15px !important;
 
 
     }
 
-    #myTable tr {
+    table tr {
       border-top: 1px solid #e6e6e6;
 
 
@@ -305,16 +276,17 @@
 
     .content {
       border: none;
-      margin-top: -15px;
-    }
-
-    .newsletter {
-      margin-left: 2px !important;
+      height: auto;
     }
 
     .img-responsive {
       max-width: 100px !important;
       max-height: 90px !important;
+      margin-top: 5px;
+    }
+
+    #status-logo {
+      width: 60px;
     }
 
     .btn-sm {
@@ -347,10 +319,13 @@
       height: 80px;
     }
 
+    #status-logo {
+      width: 40px;
+    }
   }
 
   /* The Modal (background) */
-  .modal-news-page {
+  .modal-tetra-pak {
     display: none;
     position: fixed;
     z-index: 1;
@@ -367,7 +342,7 @@
   }
 
   /* Modal Content (image) */
-  .modal-content-news-page {
+  .modal-content-tetrapak {
     margin: auto;
     display: block;
     width: 80%;
@@ -375,7 +350,7 @@
   }
 
   /* Add Animation */
-  .modal-content-news-page {
+  .modal-content-tetrapak {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -403,7 +378,7 @@
   }
 
   /* The Close Button */
-  .close-news-page {
+  .close-tetra-pak {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -413,8 +388,8 @@
     transition: 0.3s;
   }
 
-  .close-news-page:hover,
-  .close-news-page:focus {
+  .close-tetra-pak:hover,
+  .close-tetra-pak:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
@@ -422,13 +397,13 @@
 
   /* 100% Image Width on Smaller Screens */
   @media only screen and (max-width: 700px) {
-    .modal-content-news-page {
+    .modal-content-tetrapak {
       width: 100%;
     }
   }
 </style>
-<div class="sharing_top" style="font-family:arial;font-size:11px;margin-top:0px;" id="bread-crumb">
-  <a href="{{URL::to('/')}}" style="">Home</a>&nbsp;»&nbsp;<a href="{{URL::to('/news')}}">News</a>
+<div style="font-family:arial;font-size:11px;margin-top:0px;" id="bread-crumb">
+  <a href="{{URL::to('/')}}" style="">Home</a>&nbsp;»&nbsp;<span>Products</span></span>
   <style>
     a {
       color: #034375;
@@ -436,221 +411,57 @@
   </style>
 </div>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Machine Name or SKU">
-<div class="dropdown" style="display:none;">
-  <button id="dLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-    Select News
-    <span class="caret"></span>
-  </button>
 
-  <ul class="dropdown-menu" aria-labelledby="dLabel">
-    <li><a href="{{URL::to('/news')}}" class="{{($mode=='news' ? 'active' : '')}}">News</a></li>
+<div class="row" style="margin-left:-25px;margin-right:1px;margin-top:3px;" ng-app="myModule" ng-controller="myController">
+  <div class="col-lg-3 col-md-3 col-sm-12 all-categories" style="margin-top:5px;background-color:#f4f4f4;height: 435px;overflow: auto;box-sizing:border-box;padding-bottom:25px;float:left;margin-right:0px;padding-left:40px;">
 
-    <li><a href="{{URL::to('/news?news_type=events')}}" class="{{($mode=='events' ? 'active' : '')}}">Events</a></li>
-
-    <li><a href="{{URL::to('/news?news_type=newsletter')}}" class="{{($mode=='newsletter' ? 'active' : '')}}">Newsletters</a></li>
-
-    <li><a href="{{URL::to('/news?news_type=testimonials')}}" class="{{($mode=='testimonials' ? 'active' : '')}}">Testimonials</a></li>
-
-    <li><a href="{{URL::to('/news?news_type=references')}}" class="{{($mode=='references' ? 'active' : '')}}">References</a></li>
-  </ul>
-</div>
-<div class="row" style="width:100%;margin-top:10px;" ng-app="myModule" ng-controller="myController">
-  <div class="col-lg-3 col-md-3 col-sm-12 all-categories" style="margin-top:-6px;box-sizing:border-box;padding-bottom:25px;float:left;margin-right:0px;">
-    <ul class="news">
-
-      <li><a href="{{URL::to('/news')}}" class="{{($mode=='news' ? 'active' : '')}}">News</a></li>
-
-      <li><a href="{{URL::to('/news?news_type=events')}}" class="{{($mode=='events' ? 'active' : '')}}">Events</a></li>
-
-      <li><a href="{{URL::to('/news?news_type=newsletter')}}" class="{{($mode=='newsletter' ? 'active' : '')}}">Newsletters</a></li>
-
-      <li><a href="{{URL::to('/news?news_type=testimonials')}}" class="{{($mode=='testimonials' ? 'active' : '')}}">Testimonials</a></li>
-
-      <li><a href="{{URL::to('/news?news_type=references')}}" class="{{($mode=='references' ? 'active' : '')}}">References</a></li>
-
-    </ul>
-
-
-
-    <form method="post" action="">
-      <input type="hidden" name="_token" value="{{csrf_token()}}">
-      <input type="email" name="email" placeholder="Enter Email for news" style="width:100%;margin-top:10px;" required />
-      <input type="submit" value="Subscribe" class="subscribeButton" style="background: #034375;width: 100px;
-
-              height: 28px;
-
-              color: #fff;
-
-              cursor: pointer;
-
-              border-radius: 5px;
-
-              box-shadow: 0 0 20px 0 rgba(0,0,0,.3);float:right">
-      <br />
-      @if(isset($message))
-
-      {{$message}}
-
-      @endif
-
-
-
-    </form>
   </div>
-  <div class="col-lg-9 col-md-9 col-sm-12" class="margin-top-table" id="table-outer" ng-show="!loading">
+  <div class="col-lg-9 col-md-9 col-sm-12" id="table-outer" ng-show="!loading">
 
     <table id="myTable">
+
       @if($mode=="news")
-      @foreach($data as $news)
+      <?php
+      foreach ($data as $news) {
+      ?>
+        <tr>
+          <td>
+            <div>
+              <a href="{{URL::to('/getnews/by/')}}/{{$news->id}}">
+                <img class="img-responsive " src="{{($news->image == null ? URL::to('imgs/newsletter-icon.png') : URL::to('/storage/app/products/') . '/' . $news->image)}}" onclick="myimg(this)" alt=" " />
+              </a>
+            </div>
+          </td>
+          <td>
+            <div class="content">
+              <?php
+              $date = date_create($news->news_date);
+              $news->news_date = date_format($date, "j M , Y");
+              ?>
+              <span> {{$news->news_date}}</span><br>
 
+              <a style="text-decoration:none" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->news_title}} </strong></span><br>
+              </a>
+              <div id="check">
 
-      <tr>
-        <td>
-          <div>
-            <a href="{{URL::to('/getnews/by/')}}/{{$news->id}}">
-              <img class="img-responsive " src="{{($news->image == null ? URL::to('imgs/newsletter-icon.png') : URL::to('/storage/app/products/') . '/' . $news->image)}}" onclick="myimg(this)" alt=" " />
-            </a>
-          </div>
-        </td>
-        <td>
-          <div class="content">
-            <span>{{$news->news_date}}</span><br>
-            <span id="title"> <strong>{{$news->news_title}} </strong></span><br>
-
-            <a id="web" style="font-weight:bold" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span>More Details</span> </a>
-
-          </div>
-        </td>
-      </tr>
-      @endforeach
+                @php
+                echo substr(strip_tags(htmlspecialchars_decode($news->news_des, ENT_QUOTES)),0,100);
+                @endphp
+                <a class="desk" style="color:#034375;" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"><strong>»&nbsp;More details</strong></a>
+                <span class="mob">...</span>
+                <a class="mob" style="font-weight:bold" href="{{URL::to('/getnews/by/')}}/{{$news->id}}">
+                  <span>More details</span> </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      <?php
+      }
+      ?>
       @endif
-
-      @if($mode=="newsletter")
-      @foreach($data as $news)
-
-
-      <tr>
-        <td>
-          <div>
-            <a href="{{URL::to('news/newsletter/')}}/{{$news->id}}">
-              <img class="img-responsive " src="{{URL::to('public/imgs/letter.png')}}" onclick="myimg(this)" alt=" " />
-            </a>
-          </div>
-        </td>
-        <td>
-          <div class="content newsletter" style="margin-left:-80px">
-            <span>{{$news->news_date}}</span><br>
-            <span style="font-size: 14px;font-weight:bold;color: #333;"> {{$news->temp_title}} </span><br>
-
-            <a id="web" href="{{URL::to('news/newsletter/')}}/{{$news->id}}"> <span>View Complete Newsletter</span> </a>
-
-          </div>
-        </td>
-      </tr>
-      @endforeach
-      @endif
-
 
     </table>
-    @if($mode == "testimonials")
-
-
-    <table>
-      @foreach($data as $news)
-      <tr style="border-bottom:1px solid #e6e6e6;">
-        <td>
-          <img src="{{URL::to('/storage/app/') . '/' . $news->brandLogo}}" alt="" style="width: 130px;
-            height: 110px;
-            color: #999999;
-            border: solid 2px #034375;">
-        </td>
-        <td>
-          <div style="margin-left:30px;">
-            <p style="font-size:12px;font-weight:bolder;display:block;margin-top:19px">
-
-
-
-              <span style="float:left;color:green">
-
-                {{$news->companyName}} </span>
-
-              <span style="float:right">
-
-                {{$news->sentDate}} </span>
-
-              <br>
-
-            </p>
-
-            <p class="para" style="min-height: 50px;text-align: justify;">
-
-              {{$news->testimonial}}
-
-            </p>
-
-
-
-            <p class="reduce-margin-top-onMobile" style="font-size:12px;font-weight:bolder;margin-bottom:35px">
-
-
-
-              <span style="float:left">Sent By {{$news->personName}} , {{$news->personDesignation}} at {{$news->companyName}}</span>
-
-            </p>
-            <br>
-        </td>
   </div>
-  </tr>
-  @endforeach
-  </table>
-
-  @endif
-
-  @if($mode == "references")
-
-  <table>
-    <tbody>
-      @foreach($data as $news)
-      <tr>
-        <th style="border-right:none;">Company Name</th>
-        <td style="border-right:none;color:green;font-weight:bolder;width:80%" colspan="2">{{$news->customerName}}
-        </td>
-      </tr>
-      <tr>
-        <th style="border-right:none">Delivery Scope</th>
-        <td colspan="3" style="border-right:none">{{$news->deliveryScope}}</td>
-      </tr>
-      <tr>
-
-        <th style="border-right:none">Project Status</th>
-
-        <td colspan="3" style="border-right:none">
-
-          {{$news->projectStatus}}
-
-        </td>
-
-      </tr>
-      <tr style="border-bottom:1px solid gray;">
-
-        <th style="border-right:none;min-width:120px;PADDING-BOTTOM:20PX;">Contact Person</th>
-
-        <td style="border-right:none;PADDING-BOTTOM:15PX;">
-
-          {{$news->contactPerson}}
-
-        </td>
-
-      </tr>
-
-
-      @endforeach
-
-    </tbody>
-  </table>
-
-  @endif
-</div>
 </div>
 <script>
   //           $( document ).ready(function() {
@@ -675,14 +486,6 @@
       }
     }
   }
-  // $(document).ready(function(){
-  //   $("#myInput").on("keyup", function() {
-  //     var value = $(this).val().toLowerCase();
-  //     $("#myTable tr").filter(function() {
-  //       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-  //     });
-  //   });
-  // });
   $("input[name='search']").on("keyup", function() {
 
     let keyword = $(this).val();
@@ -702,7 +505,7 @@
 
     } else {
 
-      $(" table tr").each(function() {
+      $(".products table tr").each(function() {
 
         $(this).show();
 
@@ -712,14 +515,6 @@
     }
 
 
-  });
-
-  //change selection script on clicking on left sidebarmenu
-  $(".leftSidebar li a").on("click", function() {
-    $(".leftSidebar li a").each(function(i, element) {
-      element.removeAttribute("class");
-    });
-    $(this).attr("class", "selected");
   });
 </script>
 @endsection
