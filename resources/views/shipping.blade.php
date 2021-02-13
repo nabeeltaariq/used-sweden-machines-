@@ -333,7 +333,7 @@
 										<td class="text-center">{{$item["quantity"]}}</td>
 										<td class="text-center">${{$item["price"]}}</td>
 										<td class="text-center">{{$item["quantity"] * $item["price"]}}</td>
-										<td class="text-right">${{$item["status"]}}</td>
+										<td class="text-center">${{$item["status"]}}</td>
 										@php
 										$subTotal += ($item["quantity"] * $item["price"]);
 
