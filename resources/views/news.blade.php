@@ -96,8 +96,8 @@
   }
 
   .img-responsive {
-  /*  border: 2px solid #034375;*/
-    border: 2px solid red;
+    border: 2px solid #034375;
+
     width: 150px;
     height: 100px;
     max-width: 150px;
@@ -110,7 +110,7 @@
     width: 100%;
   }
 
- #myTable tr td {
+  #myTable tr td {
 
     text-align: justify;
     padding-bottom: 5px;
@@ -135,7 +135,7 @@
 
   #table-outer {
     height: 435px;
-   overflow-y: auto;
+    overflow-y: auto;
 
     margin-top: -4px;
 
@@ -234,8 +234,8 @@
     .all-categories {
       display: none !important;
     }
-    .dropdown
-    {
+
+    .dropdown {
       display: block !important;
       margin-top: 10px;
     }
@@ -287,7 +287,7 @@
 
     }
 
-   #myTable tr td {
+    #myTable tr td {
 
 
 
@@ -308,7 +308,7 @@
 
     .content {
       border: none;
-  
+
     }
 
     .img-responsive {
@@ -463,7 +463,7 @@
 </div>
 <div class="row" style="width:100%;margin-top:10px;" ng-app="myModule" ng-controller="myController">
   <div class="col-lg-3 col-md-3 col-sm-12 all-categories" style="margin-top:-6px;box-sizing:border-box;padding-bottom:25px;float:left;margin-right:0px;">
- <ul class="news">
+    <ul class="news">
 
       <li><a href="{{URL::to('/news')}}" class="{{($mode=='news' ? 'active' : '')}}">News</a></li>
 
@@ -504,85 +504,85 @@
 
   </div>
   <div class="col-lg-9 col-md-9 col-sm-12" id="table-outer" ng-show="!loading">
-     @if($mode=="news")
+    @if($mode=="news")
     <table id="myTable">
 
- 
-      
-      @foreach ($data as $news) 
 
-        <tr>
-          <td  width="20">
-            <div>
-              <a href="{{URL::to('/getnews/by/')}}/{{$news->id}}">
-                <img class="img-responsive " src="{{($news->image == null ? URL::to('imgs/newsletter-icon.png') : URL::to('/storage/app/products/') . '/' . $news->image)}}" onclick="myimg(this)" alt=" " />
-              </a>
+
+      @foreach ($data as $news)
+
+      <tr>
+        <td width="20">
+          <div>
+            <a href="{{URL::to('/getnews/by/')}}/{{$news->id}}">
+              <img class="img-responsive " src="{{($news->image == null ? URL::to('/public/imgs/newsletter-icon.png') : URL::to('/storage/app/products/') . '/' . $news->image)}}" onclick="myimg(this)" alt=" " />
+            </a>
+          </div>
+        </td>
+        <td>
+          <div class="content">
+            <?php
+            $date = date_create($news->news_date);
+            $news->news_date = date_format($date, "j M , Y");
+            ?>
+            <span> {{$news->news_date}}</span><br>
+
+            <a style="text-decoration:none" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->news_title}} </strong></span><br>
+            </a>
+            <div id="check">
+
+              @php
+              echo substr(strip_tags(htmlspecialchars_decode($news->news_des, ENT_QUOTES)),0,100);
+              @endphp
+              <a class="desk" style="color:#034375;" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"><strong>»&nbsp;More details</strong></a>
+              <span class="mob">...</span>
+              <a class="mob" style="font-weight:bold" href="{{URL::to('/getnews/by/')}}/{{$news->id}}">
+                <span>More details</span> </a>
             </div>
-          </td>
-          <td>
-            <div class="content">
-              <?php
-              $date = date_create($news->news_date);
-              $news->news_date = date_format($date, "j M , Y");
-              ?>
-              <span> {{$news->news_date}}</span><br>
-
-              <a style="text-decoration:none" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->news_title}} </strong></span><br>
-              </a>
-              <div id="check">
-
-                @php
-                echo substr(strip_tags(htmlspecialchars_decode($news->news_des, ENT_QUOTES)),0,100);
-                @endphp
-                <a class="desk" style="color:#034375;" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"><strong>»&nbsp;More details</strong></a>
-                <span class="mob">...</span>
-                <a class="mob" style="font-weight:bold" href="{{URL::to('/getnews/by/')}}/{{$news->id}}">
-                  <span>More details</span> </a>
-              </div>
-            </div>
-          </td>
-        </tr>
-      @endforeach
-   
-      
-    </table>
-       @endif
-               @if($mode=="newsletter")
-       <table id="myTable">
-
-
-      
-      @foreach ($data as $news) 
-
-             <tr>
-          <td width="20">
-            <div>
-              <a href="{{URL::to('news/newsletter/')}}/{{$news->id}}">
-                <img class="img-responsive " src="{{URL::to('public/imgs/letter.png')}}" onclick="myimg(this)" alt=" " />
-              </a>
-            </div>
-          </td>
-          <td>
-            <div class="content ">
-            
-              <span>{{$news->news_date}}</span><br>
-
-              <a style="text-decoration:none" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->temp_title}} </strong></span><br>
-              </a>
-              <div id="check" >
-
-                <a style="color:#034375;" href="{{URL::to('news/newsletter/')}}/{{$news->id}}"><strong>View Complete Newsletter</strong></a>
-               
-              </div>
-            </div>
-          </td>
-        </tr>
+          </div>
+        </td>
+      </tr>
       @endforeach
 
-      
+
     </table>
-          @endif
-          @if($mode == "testimonials")
+    @endif
+    @if($mode=="newsletter")
+    <table id="myTable">
+
+
+
+      @foreach ($data as $news)
+
+      <tr>
+        <td width="20">
+          <div>
+            <a href="{{URL::to('news/newsletter/')}}/{{$news->id}}">
+              <img class="img-responsive " src="{{URL::to('public/imgs/letter.png')}}" onclick="myimg(this)" alt=" " />
+            </a>
+          </div>
+        </td>
+        <td>
+          <div class="content ">
+
+            <span>{{$news->news_date}}</span><br>
+
+            <a style="text-decoration:none" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->temp_title}} </strong></span><br>
+            </a>
+            <div id="check">
+
+              <a style="color:#034375;" href="{{URL::to('news/newsletter/')}}/{{$news->id}}"><strong>View Complete Newsletter</strong></a>
+
+            </div>
+          </div>
+        </td>
+      </tr>
+      @endforeach
+
+
+    </table>
+    @endif
+    @if($mode == "testimonials")
 
 
     <table>
@@ -680,7 +680,7 @@
   </table>
 
   @endif
-  </div>
+</div>
 </div>
 <script>
   //           $( document ).ready(function() {
