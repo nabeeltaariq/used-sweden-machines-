@@ -96,6 +96,8 @@ class API extends Controller
         return response()->json(["all-categories" => $allCatagories, "all-machines" => $allProducts]);
     }
 
+
+    
     public function Moredetail($machineid)
     {
 
