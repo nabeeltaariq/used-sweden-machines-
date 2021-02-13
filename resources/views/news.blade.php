@@ -29,32 +29,60 @@
     display: none;
   }
 
-  .leftSidebar li {
-    display: block;
+  .news {
+
+    list-style-type: none;
+
+    margin: 0;
+
+    padding: 0;
+
+    width: 100%;
+
+    background-color: #f4f4f4;
+
+
   }
 
-  .display {
-    height: 465px;
-    max-height: 465px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
-    margin-top: 0px;
+
+  ul li {
+
+    display: block;
+
   }
 
-  .leftSidebar li a {
+
+
+  .news li a {
+
     display: block;
-    text-decoration: none;
+
+    padding: 10px 20px;
+
     color: black;
-    font-weight: bold;
-    font-size: 13px;
-    padding: 3px 0px;
-    font-family: arial;
+
   }
 
-  .leftSidebar li a:hover {
-    color: grey;
-    background-color: transparent;
+
+
+  .news li a:hover {
+
+    background-color: #ccc;
+
+    color: white;
+
+    text-decoration: none;
+
+  }
+
+
+
+  .news li a.active {
+
+    background-color: #ccc;
+
+    color: white;
+
   }
 
   .para {
@@ -68,7 +96,8 @@
   }
 
   .img-responsive {
-    border: 2px solid #034375;
+  /*  border: 2px solid #034375;*/
+    border: 2px solid red;
     width: 150px;
     height: 100px;
     max-width: 150px;
@@ -77,11 +106,11 @@
 
   }
 
-  table {
+  #myTable {
     width: 100%;
   }
 
-  table tr td {
+ #myTable tr td {
 
     text-align: justify;
     padding-bottom: 5px;
@@ -90,7 +119,7 @@
 
   }
 
-  table tr td:nth-child(2) {
+  #myTable tr td:nth-child(2) {
     padding-left: 20px !important;
 
     padding-bottom: 4px;
@@ -106,9 +135,9 @@
 
   #table-outer {
     height: 435px;
-    overflow-y: auto;
-    /*margin-left:100px;*/
-    margin-top: 4px;
+   overflow-y: auto;
+
+    margin-top: -4px;
 
   }
 
@@ -175,10 +204,7 @@
       margin-top: 30px !important;
     }
 
-    .content {
 
-      height: auto;
-    }
 
     #myInput {
       margin-top: 10px !important;
@@ -188,6 +214,7 @@
   }
 
   @media only screen and (max-width:600px) {
+
     .row {
       margin-top: 30px !important;
     }
@@ -206,6 +233,11 @@
 
     .all-categories {
       display: none !important;
+    }
+    .dropdown
+    {
+      display: block !important;
+      margin-top: 10px;
     }
 
     .leftSidebar {
@@ -248,27 +280,27 @@
 
     }
 
-    table {
+    #myTable {
       width: 100%;
 
 
 
     }
 
-    table tr td {
+   #myTable tr td {
 
 
 
-      padding-bottom: 5px;
+      padding-bottom: 15px;
     }
 
-    table tr td:nth-child(2) {
-      padding-left: 15px !important;
-
+    #myTable tr td:nth-child(2) {
+      padding-left: 10px !important;
+      padding-bottom: 15px;
 
     }
 
-    table tr {
+    #myTable tr {
       border-top: 1px solid #e6e6e6;
 
 
@@ -276,7 +308,7 @@
 
     .content {
       border: none;
-      height: auto;
+  
     }
 
     .img-responsive {
@@ -402,8 +434,8 @@
     }
   }
 </style>
-<div style="font-family:arial;font-size:11px;margin-top:0px;" id="bread-crumb">
-  <a href="{{URL::to('/')}}" style="">Home</a>&nbsp;»&nbsp;<span>Products</span></span>
+<div class="sharing_top" style="font-family:arial;font-size:11px;margin-top:0px;" id="bread-crumb">
+  <a href="{{URL::to('/')}}" style="">Home</a>&nbsp;»&nbsp;<a href="{{URL::to('/news')}}">News</a>
   <style>
     a {
       color: #034375;
@@ -411,21 +443,76 @@
   </style>
 </div>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Machine Name or SKU">
+<div class="dropdown" style="display:none;">
+  <button id="dLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    Select News
+    <span class="caret"></span>
+  </button>
 
-<div class="row" style="margin-left:-25px;margin-right:1px;margin-top:3px;" ng-app="myModule" ng-controller="myController">
-  <div class="col-lg-3 col-md-3 col-sm-12 all-categories" style="margin-top:5px;background-color:#f4f4f4;height: 435px;overflow: auto;box-sizing:border-box;padding-bottom:25px;float:left;margin-right:0px;padding-left:40px;">
+  <ul class="dropdown-menu" aria-labelledby="dLabel">
+    <li><a href="{{URL::to('/news')}}" class="{{($mode=='news' ? 'active' : '')}}">News</a></li>
+
+    <li><a href="{{URL::to('/news?news_type=events')}}" class="{{($mode=='events' ? 'active' : '')}}">Events</a></li>
+
+    <li><a href="{{URL::to('/news?news_type=newsletter')}}" class="{{($mode=='newsletter' ? 'active' : '')}}">Newsletters</a></li>
+
+    <li><a href="{{URL::to('/news?news_type=testimonials')}}" class="{{($mode=='testimonials' ? 'active' : '')}}">Testimonials</a></li>
+
+    <li><a href="{{URL::to('/news?news_type=references')}}" class="{{($mode=='references' ? 'active' : '')}}">References</a></li>
+  </ul>
+</div>
+<div class="row" style="width:100%;margin-top:10px;" ng-app="myModule" ng-controller="myController">
+  <div class="col-lg-3 col-md-3 col-sm-12 all-categories" style="margin-top:-6px;box-sizing:border-box;padding-bottom:25px;float:left;margin-right:0px;">
+ <ul class="news">
+
+      <li><a href="{{URL::to('/news')}}" class="{{($mode=='news' ? 'active' : '')}}">News</a></li>
+
+      <li><a href="{{URL::to('/news?news_type=events')}}" class="{{($mode=='events' ? 'active' : '')}}">Events</a></li>
+
+      <li><a href="{{URL::to('/news?news_type=newsletter')}}" class="{{($mode=='newsletter' ? 'active' : '')}}">Newsletters</a></li>
+
+      <li><a href="{{URL::to('/news?news_type=testimonials')}}" class="{{($mode=='testimonials' ? 'active' : '')}}">Testimonials</a></li>
+
+      <li><a href="{{URL::to('/news?news_type=references')}}" class="{{($mode=='references' ? 'active' : '')}}">References</a></li>
+
+    </ul>
+
+    <form method="post" action="">
+      <input type="hidden" name="_token" value="{{csrf_token()}}">
+      <input type="email" name="email" placeholder="Enter Email for news" style="width:100%;margin-top:10px;" required />
+      <input type="submit" value="Subscribe" class="subscribeButton" style="background: #034375;width: 100px;
+
+              height: 28px;
+
+              color: #fff;
+
+              cursor: pointer;
+
+              border-radius: 5px;
+
+              box-shadow: 0 0 20px 0 rgba(0,0,0,.3);float:right">
+      <br />
+      @if(isset($message))
+
+      {{$message}}
+
+      @endif
+
+
+
+    </form>
 
   </div>
   <div class="col-lg-9 col-md-9 col-sm-12" id="table-outer" ng-show="!loading">
-
+     @if($mode=="news")
     <table id="myTable">
 
-      @if($mode=="news")
-      <?php
-      foreach ($data as $news) {
-      ?>
+ 
+      
+      @foreach ($data as $news) 
+
         <tr>
-          <td>
+          <td  width="20">
             <div>
               <a href="{{URL::to('/getnews/by/')}}/{{$news->id}}">
                 <img class="img-responsive " src="{{($news->image == null ? URL::to('imgs/newsletter-icon.png') : URL::to('/storage/app/products/') . '/' . $news->image)}}" onclick="myimg(this)" alt=" " />
@@ -455,12 +542,144 @@
             </div>
           </td>
         </tr>
-      <?php
-      }
-      ?>
-      @endif
-
+      @endforeach
+   
+      
     </table>
+       @endif
+               @if($mode=="newsletter")
+       <table id="myTable">
+
+
+      
+      @foreach ($data as $news) 
+
+             <tr>
+          <td width="20">
+            <div>
+              <a href="{{URL::to('news/newsletter/')}}/{{$news->id}}">
+                <img class="img-responsive " src="{{URL::to('public/imgs/letter.png')}}" onclick="myimg(this)" alt=" " />
+              </a>
+            </div>
+          </td>
+          <td>
+            <div class="content ">
+            
+              <span>{{$news->news_date}}</span><br>
+
+              <a style="text-decoration:none" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->temp_title}} </strong></span><br>
+              </a>
+              <div id="check" >
+
+                <a style="color:#034375;" href="{{URL::to('news/newsletter/')}}/{{$news->id}}"><strong>View Complete Newsletter</strong></a>
+               
+              </div>
+            </div>
+          </td>
+        </tr>
+      @endforeach
+
+      
+    </table>
+          @endif
+          @if($mode == "testimonials")
+
+
+    <table>
+      @foreach($data as $news)
+      <tr style="border-bottom:1px solid #e6e6e6;">
+        <td>
+          <img src="{{URL::to('/storage/app/') . '/' . $news->brandLogo}}" alt="" style="width: 130px;
+            height: 110px;
+            color: #999999;
+            border: solid 2px #034375;">
+        </td>
+        <td>
+          <div style="margin-left:30px;">
+            <p style="font-size:12px;font-weight:bolder;display:block;margin-top:19px">
+
+
+
+              <span style="float:left;color:green">
+
+                {{$news->companyName}} </span>
+
+              <span style="float:right">
+
+                {{$news->sentDate}} </span>
+
+              <br>
+
+            </p>
+
+            <p class="para" style="min-height: 50px;text-align: justify;">
+
+              {{$news->testimonial}}
+
+            </p>
+
+
+
+            <p class="reduce-margin-top-onMobile" style="font-size:12px;font-weight:bolder;margin-bottom:35px">
+
+
+
+              <span style="float:left">Sent By {{$news->personName}} , {{$news->personDesignation}} at {{$news->companyName}}</span>
+
+            </p>
+            <br>
+        </td>
+  </div>
+  </tr>
+  @endforeach
+  </table>
+
+  @endif
+
+  @if($mode == "references")
+
+  <table>
+    <tbody>
+      @foreach($data as $news)
+      <tr>
+        <th style="border-right:none;">Company Name</th>
+        <td style="border-right:none;color:green;font-weight:bolder;width:80%" colspan="2">{{$news->customerName}}
+        </td>
+      </tr>
+      <tr>
+        <th style="border-right:none">Delivery Scope</th>
+        <td colspan="3" style="border-right:none">{{$news->deliveryScope}}</td>
+      </tr>
+      <tr>
+
+        <th style="border-right:none">Project Status</th>
+
+        <td colspan="3" style="border-right:none">
+
+          {{$news->projectStatus}}
+
+        </td>
+
+      </tr>
+      <tr style="border-bottom:1px solid gray;">
+
+        <th style="border-right:none;min-width:120px;PADDING-BOTTOM:20PX;">Contact Person</th>
+
+        <td style="border-right:none;PADDING-BOTTOM:15PX;">
+
+          {{$news->contactPerson}}
+
+        </td>
+
+      </tr>
+
+
+      @endforeach
+
+    </tbody>
+  </table>
+
+  @endif
   </div>
 </div>
 <script>
@@ -505,7 +724,7 @@
 
     } else {
 
-      $(".products table tr").each(function() {
+      $(" table tr").each(function() {
 
         $(this).show();
 

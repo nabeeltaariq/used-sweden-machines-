@@ -55,7 +55,7 @@
     width: 925px;
   }
 </style>
-<section style="height:500px;width:100%;max-height:400px;overflow:auto">
+<section style="width:100%;max-height:460px;overflow:auto">
 
 
   <div style="margin-bottom:30px;
@@ -63,7 +63,7 @@
     width:inherit;
     position: absolute;
     background: white;
-    width: auto;z-index: 10;">
+    width: auto;z-index: 10;width: 100%">
     <span style="    margin-top: 11px;
     background: linear-gradient( 
 90deg
@@ -105,7 +105,7 @@
       } else {
         $total = 0;
         foreach (Request::session()->get("cartData") as $item) {
-          $total += $item["price"] * $item["quantity"];
+          $total=0;
 
       ?>
 
@@ -115,7 +115,7 @@
             <td><?= $item["manu"] ?></td>
             <td align=""><span class="fa fa-minus-square leftArrow" style="cursor:pointer"></span>&nbsp;&nbsp;<span id="quantity"><?= $item["quantity"] ?></span>&nbsp;&nbsp;<span class="fa fa-plus-square rightArrow" style="cursor:pointer"></span></td>
             <td>$ <?= $item["price"] ?></td>
-            <td>$ <?php echo $item["price"] * $item["quantity"]; ?></td>
+            <td>$ <?php echo $item["quantity"]; ?></td>
             <td style="position:relative"><?= $item["status"] ?>
               <span style="position:absolute;top:3px;right:0;color:maroon;cursor:pointer" class="fas fa-times removeButton" title="remove this item"></span>
             </td>
