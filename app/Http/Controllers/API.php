@@ -670,7 +670,7 @@ class API extends Controller
     public function Fill(Request $request)
     {
 
-
+        $ordernum = DB::table('sp_order')->get('orderId')->last();
         $cartData = [];
         if ($request->session()->has("cartData")) {
             $cartData = $request->session()->get("cartData");
@@ -683,6 +683,7 @@ class API extends Controller
             "status" => $request->input("status"),
             "manu" => $request->input("manu"),
             "quantity" => $request->input("quantity")
+
         ];
         array_push($cartData, $item);
         $request->session()->put("cartData", $cartData);

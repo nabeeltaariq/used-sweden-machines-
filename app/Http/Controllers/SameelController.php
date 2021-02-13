@@ -52,6 +52,7 @@ class SameelController extends Controller
     {
         $user = $request->session()->get("orderUser");
         $cartData = $request->session()->get("cartData");
+        $ordernum = DB::table('sp_order')->get('orderId')->last();
 
 
         if ($request->session()->has("tab")) {
@@ -60,7 +61,10 @@ class SameelController extends Controller
             $area = "Delivery Information";
         }
 
-        return view("shipping", ["user" => $user, "cart" => $cartData, "area" => $area]);
+
+
+
+        return view("shipping", ["user" => $user, "cart" => $cartData, "area" => $area, "ordernum" => $ordernum->orderId]);
     }
 
     public function Checkout(Request $request)
