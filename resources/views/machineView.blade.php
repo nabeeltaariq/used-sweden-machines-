@@ -247,7 +247,7 @@
             @foreach($parts as $part)
             <tr style="border-top:1px solid #e6e6e6;padding-bottom: 7px">
 
-                <td style="padding-bottom:4px"><img src="{{URL::to('/storage/app/products/')}}/<?= $part->image ?>"  class="parts-img" alt="" /></td>
+                <td style="padding-bottom:4px"><img src="{{URL::to('/storage/app/products/')}}/<?= $part->image ?>"  class="parts-img" alt="" style="border:2px solid  #034375" /></td>
                 <td style="padding-left:15px;">
                     <b>Part# <?= $part->spare_part_no ?></b><br />
                     <b><?= $part->title ?></b><br />
