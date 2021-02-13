@@ -2,14 +2,15 @@
 
 @section("content")
 <style>
-      .parts-img {
-    border: 2px solid #034375;
-   
-   width: 100px !important;
-  height: 90px !important;
+    .parts-img {
+        border: 2px solid #034375;
+
+        width: 100px !important;
+        height: 90px !important;
 
 
-  }
+    }
+
     .machinesView li a strong:hover {
         background-color: #ffff;
          !important;
@@ -247,22 +248,23 @@
             @foreach($parts as $part)
             <tr style="border-top:1px solid #e6e6e6;padding-bottom: 7px">
 
-                <td style="padding-bottom:4px"><img src="{{URL::to('/storage/app/products/')}}/<?= $part->image ?>"  class="parts-img" alt="" /></td>
+                <td style="padding-bottom:4px"><img src="{{URL::to('/storage/app/products/')}}/<?= $part->image ?>" class="parts-img" alt="" /></td>
                 <td style="padding-left:15px;">
                     <b>Part# <?= $part->spare_part_no ?></b><br />
                     <b><?= $part->title ?></b><br />
-                     <b>Manufacturer: </b>
-                      @php
-                  $manufacturer = App\Manufacturer::find($part->manufac);
-                  if($manufacturer != null){
-                  echo $manufacturer->title;
-                  }
-                  @endphp
-              <br />
+                    <b>Manufacturer: </b>
+                    @php
+                    $manufacturer = App\Manufacturer::find($part->manufac);
+                    if($manufacturer != null){
+                    echo $manufacturer->title;
+                    }
+                    @endphp
+                    <br />
                     <b>Price <span class="text-danger"><?= $part->price ?></span></b><br />
-                    
+
                     <b>Delivery Status: </b><b class="text-success"><?= $part->ds ?></b><br />
-                    <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer ?? '' != null ? $manufacturer ?? ''->title : '')}}" style="display:inline-block;border:1px solid maroon;margin-bottom:5px;padding:5px;background-color:maroon;color:white"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button>
+                    <span style="float:right;"> Quantity <input style="padding:5px;font-weight:bolder;display:inline;cursor:default;width:60px" class="numberField" type="number" value="1" min="1" max="1000">
+                        <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer != null ? $manufacturer->title : '')}}" style="display:inline-block;border:1px solid maroon;margin-bottom:5px;padding:5px;background-color:maroon;color:white"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button>
                 </td>
             </tr>
             @endforeach
@@ -465,7 +467,7 @@
 
                 let currentKeyword = $(this)[0].cells[1].children[0].innerHTML;
                 let partName = $(this)[0].cells[1].children[2].innerHTML;
-             
+
                 if ((currentKeyword.toUpperCase().indexOf(keyword.toUpperCase()) != -1) || (partName.toUpperCase().indexOf(keyword.toUpperCase()) != -1)) {
                     $(this).show();
                 } else {
@@ -580,7 +582,7 @@
 
 
     }
-  
+
 
     $("#machine_id").on("change", function() {
         let machineId = $(this).val();
