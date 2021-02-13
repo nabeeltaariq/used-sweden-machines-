@@ -313,10 +313,13 @@
 							<table class="table table-condensed">
 								<thead>
 									<tr>
-										<td><strong>Item</strong></td>
-										<td class="text-center"><strong>Price</strong></td>
-										<td class="text-center"><strong>Quantity</strong></td>
-										<td class="text-right"><strong>Totals</strong></td>
+										<th>Part No.</th>
+										<th>Part Name</th>
+										<th>Manufacturer</th>
+										<th>Ordered Quantity</th>
+										<th>Unit Price</th>
+										<th>Total Price</th>
+										<th>Delivery Status</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -328,6 +331,9 @@
 									@foreach($cart as $item)
 									<tr>
 										<td>{{$item["partTitle"]}}</td>
+										<td class="text-center">${{$item["price"]}}</td>
+										<td class="text-center">{{$item["quantity"]}}</td>
+										<td class="text-right">${{$item["quantity"] * $item["price"]}}</td>
 										<td class="text-center">${{$item["price"]}}</td>
 										<td class="text-center">{{$item["quantity"]}}</td>
 										<td class="text-right">${{$item["quantity"] * $item["price"]}}</td>
