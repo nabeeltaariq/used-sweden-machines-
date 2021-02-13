@@ -14,9 +14,6 @@
 		border-bottom: none;
 	}
 
-	.table>tbody>tr>.thick-line {
-		border-top: 2px solid;
-	}
 
 	/* Hide scrollbar for Chrome, Safari and Opera */
 	.cotnainer::-webkit-scrollbar {
@@ -329,14 +326,14 @@
 									@endphp
 									<!-- foreach ($order->lineItems as $line) or some such thing here -->
 									@foreach($cart as $item)
-									<tr>
-										<td>{{$item["partTitle"]}}</td>
-										<td class="text-center">${{$item["price"]}}</td>
+									<tr style="border-bottom:2px solid gray;">
+										<td>{{$item["partNo"]}}</td>
+										<td class="text-center">${{$item["partTitle"]}}</td>
+										<td class="text-center">{{$item["manu"] }}</td>
 										<td class="text-center">{{$item["quantity"]}}</td>
-										<td class="text-right">${{$item["quantity"] * $item["price"]}}</td>
 										<td class="text-center">${{$item["price"]}}</td>
-										<td class="text-center">{{$item["quantity"]}}</td>
-										<td class="text-right">${{$item["quantity"] * $item["price"]}}</td>
+										<td class="text-center">{{$item["quantity"] * $item["price"]}}</td>
+										<td class="text-right">${{$item["status"]}}</td>
 										@php
 										$subTotal += ($item["quantity"] * $item["price"]);
 
@@ -350,19 +347,19 @@
 										<td class="thick-line"></td>
 										<td class="thick-line"></td>
 										<td class="thick-line text-center"><strong>Subtotal</strong></td>
-										<td class="thick-line text-right">${{$subTotal}}</td>
+										<td class="thick-line text-center">${{$subTotal}}</td>
 									</tr>
 									<tr>
 										<td class="no-line"></td>
 										<td class="no-line"></td>
 										<td class="no-line text-center"><strong>Shipping</strong></td>
-										<td class="no-line text-right">$15</td>
+										<td class="no-line text-center">$15</td>
 									</tr>
 									<tr>
 										<td class="no-line"></td>
 										<td class="no-line"></td>
 										<td class="no-line text-center"><strong>Total</strong></td>
-										<td class="no-line text-right">${{$subTotal+15}}</td>
+										<td class="no-line text-center">${{$subTotal+15}}</td>
 									</tr>
 								</tbody>
 							</table>
