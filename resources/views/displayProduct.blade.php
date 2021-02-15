@@ -325,11 +325,13 @@ $category = App\Catagories::find($product->cat_id);
                     </a>
                 </li>
                 <li><a href="whatsapp://send?text={{URL::to('/machineView')}}/{{$product->id}}" style="color:#65bc54"><i class="fab fa-whatsapp-square"></i></a></li>
-                <li><a href="mailto:?subject={{$product->pr_title}}-Used Sweden Machines&body=To%20Get%20Information%20About%20This%20Machine,%20Please%20Visit%20{{URL::to('/machineView/')}}/{{$product->id}}%20" style="color:#c15b53"><img src="{{URL::to('public/imgs/email.png')}}" alt="" style="heigt:25px;margin-top:-8px;max-height:25px;max-width:25.17px;min-width:25.17px;width:25.17px"></a></li>
+                <li><a href="mailto:?subject={{$product->pr_title}}-Used Sweden Machines&body=To%20Get%20Information%20About%20This%20Machine,%20Please%20Visit%20{{URL::to('/machineView/')}}/{{$product->id}}%20" style="color:#c15b53"><img src="{{URL::to('public/imgs/email.png')}}" alt="" style="heigt: 25px;margin-top: -6px;max-height: 29px;max-width: 25.17px;
+                min-width: 25.17px;
+                width: 28px;"></a></li>
 
                 <li><a href="{{URL::to('/machine-pdf/generate')}}/{{$product->id}}" target="_blank" style="color:maroon">
-                        <img src="{{URL::to('public/imgs/pdf.png')}}" style="    height: 25px;
-               margin-top: -08px;" alt="image not found">
+                        <img src="{{URL::to('public/imgs/pdf.png')}}" style="      height: 25px;
+    margin-top: -07px;" alt="image not found">
                     </a></li>
             </ul>
         </div>
