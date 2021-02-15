@@ -320,7 +320,8 @@ $category = App\Catagories::find($product->cat_id);
                 <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u={{URL::to('/')}}/machineView/{{$product->id}}" style="color:#024374"><i class="fab fa-facebook-square"></i></a></li>
                 <li>
                     <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{URL::to('/machineView/')}}/{{$product->id}}&title={{$product->pr_title}}&summary=Tetra%20Pak%20Machines&source=USM" style="color: white">
-                        <i class="fab fa-linkedin" style="background: #0077b5;border-radius:2px;font-size:27px;padding-left:3px;padding-right:3px"></i>
+
+                        <i class="fab fa-linkedin" style="font-size: 22px;color: white;-webkit-font-smoothing: antialiased;display: inline-block;font-style: normal;font-variant: normal;text-rendering: auto;line-height: 1;font-weight: 300;font-family: Font Awesome 5 Brands;background-color: #0e76a8;padding-bottom: 0px; padding-top: 5px; border-radius: 4px; padding-right: 5px; padding-left: 3.5px;"></i>
                     </a>
                 </li>
                 <li><a href="whatsapp://send?text={{URL::to('/machineView')}}/{{$product->id}}" style="color:#65bc54"><i class="fab fa-whatsapp-square"></i></a></li>
