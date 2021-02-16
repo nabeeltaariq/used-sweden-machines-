@@ -1,5 +1,4 @@
 <style>
-
   .footer-icons {
     color: white;
     margin-left: 200px;
@@ -85,7 +84,7 @@
     #mobile_footer {
       display: inherit;
       margin-top: 30px !important;
-  
+
     }
 
     #desktop_footer {
@@ -176,7 +175,7 @@
           <img src="{{URL::to('public/imgs/message.svg')}}" style="min-width: 15px;max-height: 12px;height: 120px;min-height: 14px; margin-top:-4px;">
         </a>
       </li>
-      <li><a href="mailto:info@usedswedenmachines.com" style="background-color:red" data-toggle="tooltip" title="Email"><span class="fas fa-envelope"></span></a></li>
+      <li><a href="mailto: info@usm.com.pk " style="background-color:red" data-toggle="tooltip" title="Email"><span class="fas fa-envelope"></span></a></li>
     </ul>
     <script>
       function googleTranslateElementInit() {

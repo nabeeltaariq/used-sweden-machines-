@@ -1,481 +1,474 @@
 @extends("templates.public")
 @section("sharing")
 <style>
-      
-           .modal-body .form-control
-            {
-                border-radius:0px;
-            }
-                .modal-body
-  {
-     color:black;
-  }
-  
-   .label-heading
-   {
+    .modal-body .form-control {
+        border-radius: 0px;
+    }
 
-       margin-bottom:-10px;
-      margin-top:10px;
-      color:black;
-       }
-       #description_box
-{
-   background-color: #ddeef1;
-   color:black;
-           height:auto;
-            overflow: auto;
-            font-size: 12px;
-            border: 2px solid #808080;
-            height:310px;
-            margin-top:12px;
-    
+    .modal-body {
+        color: black;
+    }
 
-}
-#news-body
-{
+    .label-heading {
 
-    margin-top:-5px;
+        margin-bottom: -10px;
+        margin-top: 10px;
+        color: black;
+    }
 
-}
-       @media screen and (max-width: 417px) {
-  #slick {
-   display:none !important;
-  }
-  .modal-body
-  {
-      margin-top:-50px;
-  }
-#news-body
-{
+    #description_box {
+        background-color: #ddeef1;
+        color: black;
+        height: auto;
+        overflow: auto;
+        font-size: 12px;
+        border: 2px solid #808080;
+        height: 310px;
+        margin-top: 12px;
 
-    margin-top:10px;
-    margin-right:1px !important;
-        margin-left:1px !important;
-}
-#bread-crumb
-{
-    display:none;
-}
 
-#description_box
-{
+    }
 
-           height:auto !important;
-    
+    #news-body {
+
+        margin-top: -5px;
+
+    }
+
+    @media screen and (max-width: 417px) {
+        #slick {
+            display: none !important;
+        }
+
+        .modal-body {
+            margin-top: -50px;
+        }
+
+        #news-body {
+
+            margin-top: 10px;
+            margin-right: 1px !important;
+            margin-left: 1px !important;
+        }
+
+        #bread-crumb {
+            display: none;
+        }
+
+        #description_box {
+
+            height: auto !important;
+
             font-size: 12px;
             border: 2px solid #808080a6;
-margin-top: 10px;
-}
-#content
-{
-    margin-left:-5px;
- width:104%;
-}
-}
+            margin-top: 10px;
+        }
+
+        #content {
+            margin-left: -5px;
+            width: 104%;
+        }
+    }
 
 
-                .linked li a:hover
-                {
-                    background: none;
-                }
+    .linked li a:hover {
+        background: none;
+    }
 
 
-.slider {
-    width: 50%;
-    margin: auto;
-}
+    .slider {
+        width: 50%;
+        margin: auto;
+    }
 
-.slick-slide {
-    margin:0px;
-    width:132px !important;
+    .slick-slide {
+        margin: 0px;
+        width: 132px !important;
         transition: all ease-in-out .3s;
-}
+    }
 
-.slick-slide img {
-    width: 100%;
-       max-height:85px !important;
-}
+    .slick-slide img {
+        width: 100%;
+        max-height: 85px !important;
+    }
 
-.slick-prev:before,
-.slick-next:before {
-    color: black;
-        
-}
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
 
-
-
-.slick-current {
-    opacity: 1;
-}
-
-        /* ==== Main CSS === */
-
-        .shareButtons{
-            list-style-type:none;
-            margin:0;
-            padding:0;
-        }
-        #my-thumbs-list{
-            overflow: auto;
-            width: 400px;
-            height: auto;
-
-        }
+    }
 
 
-        .shareButtons li{
-            display:inline-block;
-        }
 
-        .shareButtons li a{
-            display: inline-block;
-            font-size: 30px;
-            /* margin-right: 3px; */
-            margin-right: -2px;
-        }
-        .btn-theme{
+    .slick-current {
+        opacity: 1;
+    }
 
-            display: inline-block;
-            padding: 3px 15px;
-            background-color: #034171;
-            border-radius: 5px;
-            box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
-            font-size: 13px;
-            font-family: "Open Sans",Arial,sans-serif;
-            color: white;
+    /* ==== Main CSS === */
 
-        }
-        h3{
-            font-size:14px;
-        }
+    .shareButtons {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 
-        .btn-theme:hover{
-            color:white;
-            text-decoration:none;
-        }
-        .left
-        }
-            z-index: 9999 !important;
-        }
- 
-     
-    </style>
+    #my-thumbs-list {
+        overflow: auto;
+        width: 400px;
+        height: auto;
 
-    <link rel="stylesheet" type="text/css" href="./slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js">
+    }
+
+
+    .shareButtons li {
+        display: inline-block;
+    }
+
+    .shareButtons li a {
+        display: inline-block;
+        font-size: 30px;
+        /* margin-right: 3px; */
+        margin-right: -2px;
+    }
+
+    .btn-theme {
+
+        display: inline-block;
+        padding: 3px 15px;
+        background-color: #034171;
+        border-radius: 5px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+        font-size: 13px;
+        font-family: "Open Sans", Arial, sans-serif;
+        color: white;
+
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    .btn-theme:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .left
+    }
+
+    z-index: 9999 !important;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="./slick/slick.css">
+<link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js">
 </script>
-   <meta property="og:url" content="https://usedswedenmachines.com/news/{{$news->id}}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{$news->news_title}}" />
-    <meta property="og:description" content="{{$news->news_des}}" />
-    <meta property="og:image" content="{{URL::to('public/img/logo.png')}}" />
+<meta property="og:url" content="https://usedswedenmachines.com/news/{{$news->id}}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{$news->news_title}}" />
+<meta property="og:description" content="{{$news->news_des}}" />
+<meta property="og:image" content="{{URL::to('public/img/logo.png')}}" />
 
 @endsection
 @section("content")
 
-    <div style="font-family:arial;font-size:11px;" id="bread-crumb">
-        <a href="{{URL::to('/')}}" style="">Home</a>&nbsp;»&nbsp;<a href="{{URL::to('/news')}}">News</a></span>
-        <style>
-            a{
-                color:#034375;
-            }
-            
-            .slick-prev {
-    left: 0px;
-    z-index:999;
+<div style="font-family:arial;font-size:11px;" id="bread-crumb">
+    <a href="{{URL::to('/')}}" style="">Home</a>&nbsp;»&nbsp;<a href="{{URL::to('/news')}}">News</a></span>
+    <style>
+        a {
+            color: #034375;
+        }
+
+        .slick-prev {
+            left: 0px;
+            z-index: 999;
+        }
+
+        .slick-next {
+            right: 0px;
+        }
+    </style>
+</div>
+@php
+
+if($news->image == null){
+
+$url = URL::to('public/imgs/newsletter-icon.png');
+
+}else{
+
+$url = URL::to("/storage/app/products/$news->image");
+
 }
-.slick-next {
-    right: 0px;
-}
+
+@endphp
+<div class="row" id="news-body">
 
 
+    <div style="margin-top: 10px;  " class="col-lg-6 col-md-6 col-sm 12 ">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="100000000">
+            <!-- Indicators -->
 
-        </style>
-    </div>
-      @php
-
-                if($news->image == null){
-
-                    $url = URL::to('public/imgs/newsletter-icon.png');
-
-                }else{
-
-                    $url = URL::to("/storage/app/products/$news->image");
-
-                }
-
-            @endphp
-    <div class="row" id="news-body">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner border-class" style="height: 310px;">
+                <div class="item active">
 
 
-        <div style="margin-top: 10px;  " class="col-lg-6 col-md-6 col-sm 12 ">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="100000000">
-                <!-- Indicators -->
+                    <img src="{{$url}}" class="img-responsive" style="height:370px;width:100%;">
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner border-class" style="height: 310px;">
-                    <div class="item active">
-                        
-                      
-                            <img src="{{$url}}"  class="img-responsive" style="height:370px;width:100%;">
-                        
-                    </div>
-                    @php
-                        $allThumbs = App\News_Image::where("news_id",$news->id)->get();
-                    @endphp
-
-                    @foreach($allThumbs as $thumb)
-                        <div class="item">
-                            
-                          
-                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}"  class="img-responsive" style="height:370px;width:100%;">
-                        
-                        </div>
-                    @endforeach
                 </div>
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev" >
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-   
-            {{--Slick slider Code Starts here --}}
-            <section id="slick" style="width: 100%; margin-top: 10px;padding: 0px;display: none;" class="center slider">
-                       <div>
-                      <button data-toggle="modal" data-target="#myModal" style="border:none;outline:none;margin:0px;padding:0px;">
-       <img class="main-image" style="border: 2px solid #034375;"  src="{{$url}}">
-       </button>
-    </div>
-           
-               
-
                 @php
-
-                    $allThumbs =  App\News_Image::where("news_id",$news->id)->get();
-
-
+                $allThumbs = App\News_Image::where("news_id",$news->id)->get();
                 @endphp
 
                 @foreach($allThumbs as $thumb)
-                  <div>
-                    <button data-toggle="modal" data-target="#myModal" style="border:none;outline:none;margin:0px;padding:0px;">
-                   
-                    <img class="main-image" style="border: 2px solid #034375;"  src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}">
-                    </button>
-               
+                <div class="item">
+
+
+                    <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}" class="img-responsive" style="height:370px;width:100%;">
+
                 </div>
                 @endforeach
-
-                <input id="check-thumbs" type="hidden" value="{{$allThumbs}}">
-
-
-            </section>
-            
-            {{--   Slick slider Code Ends--}}
-    </div>
-        <div class="col-lg-6 col-md-6 col-sm 12">
-            <div id="description_box">
-                <strong>{{$news->news_title}}</strong><Br/>
-                <strong>News #: </strong>&nbsp;&nbsp;&nbsp;{{$news->id}}<br/>
-               <strong>News Date</strong>&nbsp;&nbsp;&nbsp;
-
-                    {{$news->news_date}}<br/>
-
-                    <strong>Description: </strong><br/>
-                @php
-                  echo html_entity_decode($news->news_des);
-                @endphp
-                <Br/>
-              
             </div>
-         
- <div style="margin-top: 5px;">
-                    <ul class="shareButtons linked" style="margin-top: -4px;">
-                        <li><a href="http://www.facebook.com/sharer/sharer.php?u=https://www.usedswedenmachines.com/news/{{$news->id}}" target="_blank" style="color:#024374"><i class="fab fa-facebook-square"></i></a></li>
-                        
-                        
-                                       <li> <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.usedswedenmachines.com/news/{{$news->id}}&title={{$news->news_title}}&summary=Used Sweden Machines News&source=USM" target="_blank" style="color:white">
-        <i class="fab fa-linkedin" style="background: #0077b5;border-radius:2px;font-size:27px;padding-left:3px;padding-right:3px"></i>
-      </a></li>
-                     
-                        <!--<li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.usedswedenmachines.com/news/{{$news->id}}&title={{$news->news_title}}&summary=Used Sweden Machines News&source=USM" style="color: white;background-color:#017bb5;heighr:20px;" target="_blank"><i class="fab fa-linkedin"></i></a></li>-->
-                        <li><a href="whatsapp://send?text=https://www.usedswedenmachines.com/news/{{$news->id}}" target="_blank" style="color:#65bc54"><i class="fab fa-whatsapp-square"></i></a></li>
-                        <li><a href="mailto:?subject={{$news->news_title}}Machine-Used%20Sweden%20Machines News&body=To%20Get%20Information%20About%20This%20News,%20Please%20Visit%20https://www.usedswedenmachines.com/news/{{$news->id}}" target="_blank" style="color:#c15b53"><img src="{{URL::to('public/imgs/email.png')}}" alt="" style="heigt:25px;margin-top:-8px;max-height:25px;max-width:25.17px;min-width:25.17px;width:25.17px"></a></li>
-                         <li><a href="{{URL::to('/machine-pdf-news/generate')}}/{{$news->id}}" target="_blank" style="color:maroon">
-                            <img src="{{URL::to('public/imgs/pdf.png')}}" style="    height: 25px;
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        {{--Slick slider Code Starts here --}}
+        <section id="slick" style="width: 100%; margin-top: 10px;padding: 0px;display: none;" class="center slider">
+            <div>
+                <button data-toggle="modal" data-target="#myModal" style="border:none;outline:none;margin:0px;padding:0px;">
+                    <img class="main-image" style="border: 2px solid #034375;" src="{{$url}}">
+                </button>
+            </div>
+
+
+
+            @php
+
+            $allThumbs = App\News_Image::where("news_id",$news->id)->get();
+
+
+            @endphp
+
+            @foreach($allThumbs as $thumb)
+            <div>
+                <button data-toggle="modal" data-target="#myModal" style="border:none;outline:none;margin:0px;padding:0px;">
+
+                    <img class="main-image" style="border: 2px solid #034375;" src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}">
+                </button>
+
+            </div>
+            @endforeach
+
+            <input id="check-thumbs" type="hidden" value="{{$allThumbs}}">
+
+
+        </section>
+
+        {{-- Slick slider Code Ends--}}
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm 12">
+        <div id="description_box">
+            <strong>{{$news->news_title}}</strong><Br />
+            <strong>News #: </strong>&nbsp;&nbsp;&nbsp;{{$news->id}}<br />
+            <strong>News Date</strong>&nbsp;&nbsp;&nbsp;
+
+            {{$news->news_date}}<br />
+
+            <strong>Description: </strong><br />
+            @php
+            echo html_entity_decode($news->news_des);
+            @endphp
+            <Br />
+
+        </div>
+
+        <div style="margin-top: 5px;">
+            <ul class="shareButtons linked" style="margin-top: -4px;">
+                <li><a href="http://www.facebook.com/sharer/sharer.php?u=https://www.usedswedenmachines.com/news/{{$news->id}}" target="_blank" style="color:#024374"><i class="fab fa-facebook-square"></i></a></li>
+
+
+                <li>
+                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.usedswedenmachines.com/news/{{$news->id}}&title={{$news->news_title}}&summary=Used Sweden Machines News&source=USM" style="color: white">
+                        <i class="fab fa-linkedin" style="background: #0077b5;border-radius:2px;font-size:27px;padding-left:3px;padding-right:3px"></i>
+                    </a>
+
+                </li>
+
+                <!--<li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.usedswedenmachines.com/news/{{$news->id}}&title={{$news->news_title}}&summary=Used Sweden Machines News&source=USM" style="color: white;background-color:#017bb5;heighr:20px;" target="_blank"><i class="fab fa-linkedin"></i></a></li>-->
+                <li><a href="whatsapp://send?text=https://www.usedswedenmachines.com/news/{{$news->id}}" target="_blank" style="color:#65bc54"><i class="fab fa-whatsapp-square"></i></a></li>
+                <li><a href="mailto:?subject={{$news->news_title}}Machine-Used%20Sweden%20Machines News&body=To%20Get%20Information%20About%20This%20News,%20Please%20Visit%20https://www.usedswedenmachines.com/news/{{$news->id}}" target="_blank" style="color:#c15b53"><img src="{{URL::to('public/imgs/email.png')}}" alt="" style="heigt:25px;margin-top:-8px;max-height:25px;max-width:25.17px;min-width:25.17px;width:25.17px"></a></li>
+                <li><a href="{{URL::to('/machine-pdf-news/generate')}}/{{$news->id}}" target="_blank" style="color:maroon">
+                        <img src="{{URL::to('public/imgs/pdf.png')}}" style="    height: 25px;
                margin-top: -08px;" alt="image not found">
-                        </a></li>
+                    </a></li>
 
-                    <!-- <li><a href="" target="_blank" style="color:maroon">
+                <!-- <li><a href="" target="_blank" style="color:maroon">
              <!--   <img src="{{URL::to('/public/imgs/pdf.png')}}" style="    height: 25px;-->
-             <!--   margin-top: -08px;" alt="image not found">-->
-             <!--</a></li> -->
-                    </ul>
-                    </div>
+                <!--   margin-top: -08px;" alt="image not found">-->
+                <!--</a></li> -->
+            </ul>
+        </div>
 
-              
-            <br>
-            <div style="
+
+        <br>
+        <div style="
                 font-size: 13px;
-                font-family: "Open Sans",Arial,sans-serif;
-            color: #444;
-            ">
+                font-family: " Open Sans",Arial,sans-serif; color: #444; ">
                 
-              <a href="{{URL::to('/news')}}" class="btn-theme">All News</a>
+              <a href=" {{URL::to('/news')}}" class="btn-theme">All News</a>
             @if($news->Next() != null)
             <a href="{{URL::to('/news/by')}}/{{$news->Next()->id}}" autofocus><button class="btn-theme"> Next New </button> </a>
-         
+
             @endif
         </div>
-        </div>
     </div>
+</div>
 
 
 
 
 
 
-    <!-- Modal -->
-    <div style="margin-top: 10px;" class="modal fade" id="myModal" role="dialog">
+<!-- Modal -->
+<div style="margin-top: 10px;" class="modal fade" id="myModal" role="dialog">
 
-        <div class="modal-dialog" style="width:700px">
+    <div class="modal-dialog" style="width:700px">
 
-            <!-- Modal content-->
-            <div class="modal-content" style="height
+        <!-- Modal content-->
+        <div class="modal-content" style="height
             :600px">
-               
-                <div class="modal-body" style="padding:0px;height
+
+            <div class="modal-body" style="padding:0px;height
             :600px">
-                    <div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="100000000">
-                <!-- Indicators -->
+                <div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="100000000">
+                    <!-- Indicators -->
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner border-class" style="height: 600px;">
-                    <div class="item active">
-                       
-                       <img style="width: 100%;height: 600px;" class="model-images" src="">
-                    </div>
-                    @php
-                      $allThumbs =  App\News_Image::where("news_id",$news->id)->get();
-                    @endphp
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner border-class" style="height: 600px;">
+                        <div class="item active">
 
-                    @foreach($allThumbs as $thumb)
+                            <img style="width: 100%;height: 600px;" class="model-images" src="">
+                        </div>
+                        @php
+                        $allThumbs = App\News_Image::where("news_id",$news->id)->get();
+                        @endphp
+
+                        @foreach($allThumbs as $thumb)
                         <div class="item">
                             <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}" class="img-responsive" style="width:100%;height: 600px;">
-                        
+
                         </div>
-                    @endforeach
-                </div>
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel2" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-                   
+                        @endforeach
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
 
             </div>
+
         </div>
     </div>
-{{--    Model Code Ends--}}
+</div>
+{{-- Model Code Ends--}}
 
 
 
 
 
-{{--    jQuery Starts--}}
-        <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-    <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
+{{-- jQuery Starts--}}
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).on('ready', function() {
+        var val = $("#check-thumbs").val();
+        if (val) {
+            $("#slick").show();
+        }
 
 
-        $(document).on('ready', function() {
-            var val=$("#check-thumbs").val();
-            if(val)
-            {
-                $("#slick").show();
-            }
-
-
-            $(".vertical-center-4").slick({
-                dots: true,
-                vertical: true,
-                centerMode: true,
-                slidesToShow: 5,
-                slidesToScroll: 1
-            });
-            $(".vertical-center-3").slick({
-                dots: true,
-                vertical: true,
-                centerMode: true,
-                slidesToShow: 3,
-                slidesToScroll: 3
-            });
-            $(".vertical-center-2").slick({
-                dots: true,
-                vertical: true,
-                centerMode: true,
-                slidesToShow: 2,
-                slidesToScroll: 2
-            });
-            $(".vertical-center").slick({
-                dots: true,
-                vertical: true,
-                centerMode: true,
-            });
-            $(".vertical").slick({
-                dots: true,
-                vertical: true,
-                slidesToShow: 3,
-                slidesToScroll: 3
-            });
-            $(".regular").slick({
-                dots: true,
-                infinite: true,
-                slidesToShow: 3,
-                slidesToScroll: 3
-            });
-            $(".center").slick({
-                dots: false,
-                fade:false,
-                slickUnfilter:false,
-                infinite: true,
-                centerMode: true,
-                slidesToShow: 2,
-                slidesToScroll: 1
-            });
-            $(".variable").slick({
-                dots: true,
-                infinite: true,
-                variableWidth: true
-            });
-            $(".lazy").slick({
-                lazyLoad: 'ondemand', // ondemand progressive anticipated
-                infinite: true
-            });
+        $(".vertical-center-4").slick({
+            dots: true,
+            vertical: true,
+            centerMode: true,
+            slidesToShow: 5,
+            slidesToScroll: 1
         });
-        $(".main-image").on("click",function ()
-        {
-            let image_source=$(this).attr("src");
-            $(".model-images").attr("src",image_source);
+        $(".vertical-center-3").slick({
+            dots: true,
+            vertical: true,
+            centerMode: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
         });
-        $(".thumb-images").on("click",function ()
-        {
-            let image_source=$(this).attr("src");
-            $(".model-images").attr("src",image_source);
+        $(".vertical-center-2").slick({
+            dots: true,
+            vertical: true,
+            centerMode: true,
+            slidesToShow: 2,
+            slidesToScroll: 2
         });
-    </script>
-{{--    jQuery Ends--}}
+        $(".vertical-center").slick({
+            dots: true,
+            vertical: true,
+            centerMode: true,
+        });
+        $(".vertical").slick({
+            dots: true,
+            vertical: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+        });
+        $(".regular").slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+        });
+        $(".center").slick({
+            dots: false,
+            fade: false,
+            slickUnfilter: false,
+            infinite: true,
+            centerMode: true,
+            slidesToShow: 2,
+            slidesToScroll: 1
+        });
+        $(".variable").slick({
+            dots: true,
+            infinite: true,
+            variableWidth: true
+        });
+        $(".lazy").slick({
+            lazyLoad: 'ondemand', // ondemand progressive anticipated
+            infinite: true
+        });
+    });
+    $(".main-image").on("click", function() {
+        let image_source = $(this).attr("src");
+        $(".model-images").attr("src", image_source);
+    });
+    $(".thumb-images").on("click", function() {
+        let image_source = $(this).attr("src");
+        $(".model-images").attr("src", image_source);
+    });
+</script>
+{{-- jQuery Ends--}}
 
 @endsection

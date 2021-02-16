@@ -11,6 +11,7 @@
     line-height: 1.42857143;
     vertical-align: top;
     border-top: 1px solid #ddd;
+
   }
 
   .table {
@@ -54,26 +55,50 @@
     left: -20px;
     width: 925px;
   }
+
   @media screen and (max-width:600px) {
 
-#cart-btns
-{
-  display: block !important;
-  margin-top: 20px;
+    #cart-btns {
+      display: block !important;
+      margin-top: 20px;
+    }
+
+    #basket {
+
+      margin-left: 10px;
+    }
+
+    #content {
+      height: auto !important;
+    }
   }
-  #basket
-{
-  
-  margin-left: 10px;
+
+  @media only screen and (max-width: 600px) {
+    .hide-this {
+      display: none;
+    }
+
+    .show-this {
+      display: inherit;
+    }
+
+    .table>tbody>tr>td,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>td,
+    .table>tfoot>tr>th,
+    .table>thead>tr>td,
+    .table>thead>tr>th {
+
+      line-height: 1.42857143;
+      vertical-align: top;
+      border-top: 1px solid #ddd;
+      padding: 1px;
+    }
+
   }
-  #content
-  {
-    height: auto !important;
-  }
-}
 </style>
 <div style="background-color:white;display: flex;" id="cart-btns">
-    <span style=" margin-top: 11px;
+  <span style=" margin-top: 11px;
     background: linear-gradient( 
 90deg
  , #FBCA01 0%,#FBCA01 100%);
@@ -85,41 +110,19 @@
     padding: 10px;
 
     border-radius: 4px;color:#034375; " id="basket">Your Basket</span>
-    <p style="margin-left:10px;"><a href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></p>
+  <p style="margin-left:10px;"><a href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></p>
 </div>
-<!--  <div style="margin-bottom:30px;
-    display: flex;
-    width:95%;
-    position: absolute;
-    background-color: white;
-z-index: 10;">
-    <span style="    margin-top: 11px;
-    background: linear-gradient( 
-90deg
- , #FBCA01 0%,#FBCA01 100%);
-    height: 40px;
-    /* padding: 20px; */
-    padding-right: 10px;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 4px; ">Your Basket</span>
-
-    <p style="float: right;margin-left:10px;"><a href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></p>
-  </div> -->
-
 <div style="height:395px;width:100%;max-height:395px;overflow:auto;position: relative;">
-
-
   <table class="table table-bordered table-sm">
     <thead>
       <tr>
         <th>Part No.</th>
         <th>Part Name</th>
-        <th>Manufacturer</th>
+        <th class="hide-this">Manufacturer</th>
         <th>Ordered Quantity</th>
         <th>Unit Price</th>
         <th>Total Price</th>
-        <th>Delivery Status</th>
+        <th class="hide-this">Delivery Status</th>
       </tr>
     </thead>
     <tbody id="itemsData">
@@ -138,12 +141,14 @@ z-index: 10;">
 
           <tr>
             <td><?= $item["partNo"] ?></td>
-            <td><?php echo $item["partTitle"] ?></td>
+            <td class="hide-this"><?php echo $item["partTitle"] ?></td>
             <td><?= $item["manu"] ?></td>
             <td align=""><span class="fa fa-minus-square leftArrow" style="cursor:pointer"></span>&nbsp;&nbsp;<span id="quantity"><?= $item["quantity"] ?></span>&nbsp;&nbsp;<span class="fa fa-plus-square rightArrow" style="cursor:pointer"></span></td>
             <td>$ <?= $item["price"] ?></td>
-            <td>$ <?php echo $item["price"] * $item["quantity"]; ?></td>
-            <td style="position:relative"><?= $item["status"] ?>
+            <td style="position:relative">$ <?php echo $item["price"] * $item["quantity"];
+                                            ?>
+            </td>
+            <td class="hide-this" style="position:relative"><?= $item["status"] ?>
               <span style="position:absolute;top:3px;right:0;color:maroon;cursor:pointer" class="fas fa-times removeButton" title="remove this item"></span>
             </td>
 
@@ -156,7 +161,7 @@ z-index: 10;">
 
         ?>
         <tr style="border-top:2px solid black">
-          <td colspan="5" align="left"><Strong>Total Order</Strong></td>
+          <td colspan="3" align="left"><Strong>Total Order</Strong></td>
           <td align="left" colspan="2"><strong>$ <?= $total ?></strong></td>
         </tr>
       <?php
