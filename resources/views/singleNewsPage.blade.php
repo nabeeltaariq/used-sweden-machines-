@@ -329,7 +329,7 @@ margin-top: 10px;
                 
               <a href="{{URL::to('/news')}}" class="btn-theme">All News</a>
             @if($news->Next() != null)
-            <a href="{{URL::to('/getnews/by')}}/{{$news->Next()->id}}" autofocus><button class="btn-theme"> Next New </button> </a>
+            <a href="{{URL::to('/news/by')}}/{{$news->Next()->id}}" autofocus><button class="btn-theme"> Next New </button> </a>
          
             @endif
         </div>

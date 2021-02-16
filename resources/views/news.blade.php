@@ -444,7 +444,7 @@
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Machine Name or SKU">
 <div class="dropdown" style="display:none;">
   <button id="dLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-    Select News
+    News Menu
     <span class="caret"></span>
   </button>
 
@@ -533,9 +533,9 @@
               @php
               echo substr(strip_tags(htmlspecialchars_decode($news->news_des, ENT_QUOTES)),0,100);
               @endphp
-              <a class="desk" style="color:#034375;" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"><strong>»&nbsp;More details</strong></a>
+              <a class="desk" style="color:#034375;" href="{{URL::to('/news/by/')}}/{{$news->id}}"><strong>»&nbsp;More details</strong></a>
               <span class="mob">...</span>
-              <a class="mob" style="font-weight:bold" href="{{URL::to('/getnews/by/')}}/{{$news->id}}">
+              <a class="mob" style="font-weight:bold" href="{{URL::to('/news/by/')}}/{{$news->id}}">
                 <span>More details</span> </a>
             </div>
           </div>

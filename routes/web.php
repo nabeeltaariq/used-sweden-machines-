@@ -45,7 +45,7 @@ Route::get('contact', "Home@ContactForm");
 Route::POST('contact', "Home@ContactFormSubmit")->name('ContactFormSubmit');
 Route::GET('contact/mobile', "Home@ContactFormSubmitFromMobile")->name('ContactFormSubmitFromMobile');
 Route::get("tetra-pak-spare-parts", "Home@SpareParts");
-Route::get("getnews/by/{id}", "Home@FetchNewsById");
+Route::get("news/by/{id}", "Home@FetchNewsById");
 Route::get('admin', "Admin@Index");
 Route::post('admin', "Admin@ProcessRequest");
 Route::get("upload-your-machine", "Home@purchase");
