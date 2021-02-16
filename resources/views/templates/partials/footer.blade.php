@@ -1,16 +1,4 @@
 <style>
-  .sticky-footer {
-    width: 98.50%;
-    background-color: #0c2a4f;
-    position: -webkit-fixed;
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    height: 38px;
-    margin-left: 10px;
-
-
-  }
 
   .footer-icons {
     color: white;
@@ -97,6 +85,7 @@
     #mobile_footer {
       display: inherit;
       margin-top: 30px !important;
+  
     }
 
     #desktop_footer {
@@ -125,9 +114,10 @@
 
   .footer {
     width: 100%;
-    background-color: #015291;
+    background-color: #044271;
     padding: 10px 10px;
     color: white;
+
   }
 
   .socialFa {

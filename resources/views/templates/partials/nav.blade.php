@@ -216,7 +216,7 @@
             <li><a type="button" id="contactUs" data-toggle="modal" data-target="#myModal-contactus" class="{{(Request::path() == 'contact' ? 'active' : '')}}" style="color: white;cursor:pointer;">Contact Us</a></li>
             <li><a class="{{(Request::path() == 'news' ? 'active' : '')}}" style="color: white;" href="{{URL::to('news')}}">News</a></li>
             <li id="right-align"><a class="{{(Request::path() == 'cart' ? 'active' : '')}}" href="{{URL::to('cart')}}" style="color:white;background-color:{{(Request::session()->has('cartData') ?  'maroon' : 'none')}}"><span class="fas fa-shopping-cart"></span> Cart <sup id="totalItems">{{(Request::session()->has("cartData") ? count(Request::session()->get("cartData")) : '')}}</sup> </a></li>
-            <li id="mobile-no"><a href="#">Call USM: +92-321-741-5373</a></li>
+            <li id="mobile-no"><a href="tel:+92-321-741-5373">Call USM: +92-321-741-5373</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
