@@ -18,6 +18,10 @@
       margin-top:10px;
       color:black;
        }
+       .carousel-control.left, .carousel-control.right {
+   background-image:none !important;
+   filter:none !important;
+}
        #description_box
 {
    background-color: #ddeef1;
@@ -37,14 +41,11 @@
     margin-top:-5px;
 
 }
-       @media screen and (max-width: 417px) {
-  #slick {
+       @media screen and (max-width: 765px) {
+  #slick,#bread-crumb,#myModalbig,.modal-backdrop.fade {
    display:none !important;
   }
-  .modal-body
-  {
-      margin-top:-50px;
-  }
+ 
 #news-body
 {
 
@@ -218,7 +219,8 @@ margin-top: 10px;
                     <div class="item active">
                         
                       
-                            <img src="{{$url}}"  class="img-responsive" style="height:370px;width:100%;">
+                            <img src="{{$url}}" data-toggle="modal" data-target="#myModalbig" class="img-responsive model-images"  class="img-responsive" style="height:370px;width:100%;">
+                            <img src="{{$url}}"   class="img-responsive"  style="height:370px;width:100%;">
                         
                     </div>
                     @php
@@ -229,7 +231,8 @@ margin-top: 10px;
                         <div class="item">
                             
                           
-                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}"  class="img-responsive" style="height:370px;width:100%;">
+                            <img src="{{$url}}" data-toggle="modal" data-target="#myModalbig" class="img-responsive model-images"  class="img-responsive" style="height:370px;width:100%;">
+                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}"  class="img-responsive"  style="height:370px;width:100%;">
                         
                         </div>
                     @endforeach
@@ -312,10 +315,7 @@ margin-top: 10px;
                margin-top: -08px;" alt="image not found">
                         </a></li>
 
-                    <!-- <li><a href="" target="_blank" style="color:maroon">
-             <!--   <img src="{{URL::to('/public/imgs/pdf.png')}}" style="    height: 25px;-->
-             <!--   margin-top: -08px;" alt="image not found">-->
-             <!--</a></li> -->
+          
                     </ul>
                     </div>
 
@@ -323,7 +323,7 @@ margin-top: 10px;
             <br>
             <div style="
                 font-size: 13px;
-                font-family: "Open Sans",Arial,sans-serif;
+                font-family: "Open Sans,Arial,sans-serif;
             color: #444;
             ">
                 
@@ -334,59 +334,128 @@ margin-top: 10px;
             @endif
         </div>
         </div>
+
     </div>
 
 
+        <div style="margin-top: 40px;" class="modal fade" id="myModalbig" role="dialog">
+ <div class="modal-dialog" style="height:586px;width:763px">
 
-
-
-
-    <!-- Modal -->
-    <div style="margin-top: 10px;" class="modal fade" id="myModal" role="dialog">
-
-        <div class="modal-dialog" style="width:700px">
-
-            <!-- Modal content-->
-            <div class="modal-content" style="height
-            :600px">
-               
+      
+            <div class="modal-header" style="border:none;">
+    <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 730px"><span>&times;</span><span class="sr-only">Close</span></button>
+    
+       
+      </div>
+        
+        <div class="modal-content" style="  height:586px;width:763px">
+           
                 <div class="modal-body" style="padding:0px;height
-            :600px">
-                    <div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="100000000">
+            :auto">
+                   
+                  
+                    <div id="myCarousel4" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:586px;width:763px">
                 <!-- Indicators -->
 
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner border-class" style="height: 600px;">
+                <div class="carousel-inner " style="height:586px;width:763px;border:10px solid white">
                     <div class="item active">
-                       
-                       <img style="width: 100%;height: 600px;" class="model-images" src="">
+                        
+                       <img style="width:763px;height: 586px" class="model-images" src="{{$url}}">
                     </div>
                     @php
-                      $allThumbs =  App\News_Image::where("news_id",$news->id)->get();
+                       $allThumbs = App\News_Image::where("news_id",$news->id)->get();
                     @endphp
 
                     @foreach($allThumbs as $thumb)
                         <div class="item">
-                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}" class="img-responsive" style="width:100%;height: 600px;">
+                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}"  class="img-responsive" style="width:763px;height: 586px">
                         
                         </div>
                     @endforeach
                 </div>
                 <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+                <a class="left carousel-control" href="#myCarousel4" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+                <a class="right carousel-control" href="#myCarousel4" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                     <span class="sr-only">Next</span>
                 </a>
             </div>
                    
                 </div>
+                </div>
+          <div class="modal-footer">
+       <center>
+            <div style="background-color:#034375;color:white;font-size: 11px;border:2px solid white;border-radius: 20px;padding:4px;float: none " class="col-sm-6">{{$news->news_title}}</div>
+       </center>
+      </div>
 
             </div>
         </div>
+
+
+
+    <!-- Modal -->
+    <div style="margin-top: 10px;" class="modal fade" id="myModal" role="dialog">
+
+      <div class="modal-dialog" style="height:586px;width:763px">
+
+      
+            <div class="modal-header" style="border:none;">
+    <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 730px"><span>&times;</span><span class="sr-only">Close</span></button>
+    
+       
+      </div>
+        
+        <div class="modal-content" style="  height:586px;width:763px">
+           
+                <div class="modal-body" style="padding:0px;height
+            :auto">
+                   
+                  
+                    <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:586px;width:763px">
+                <!-- Indicators -->
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner " style="height:586px;width:763px;border:10px solid white">
+                    <div class="item active">
+                        
+                       <img style="width:763px;height: 586px" class="model-images" src="">
+                    </div>
+                    @php
+                       $allThumbs = App\News_Image::where("news_id",$news->id)->get();
+                    @endphp
+
+                    @foreach($allThumbs as $thumb)
+                        <div class="item">
+                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}"  class="img-responsive" style="width:763px;height: 586px">
+                        
+                        </div>
+                    @endforeach
+                </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel3" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel3" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+                   
+                </div>
+                </div>
+          <div class="modal-footer">
+       <center>
+            <div style="background-color:#034375;color:white;font-size: 11px;border:2px solid white;border-radius: 20px;padding:4px;float: none " class="col-sm-6">{{$news->news_title}}</div>
+       </center>
+      </div>
+
+            </div>
     </div>
 {{--    Model Code Ends--}}
 

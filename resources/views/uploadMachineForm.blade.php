@@ -241,7 +241,7 @@ font-weight:bold;
  <form action="" method="post" id="form-sub" enctype="multipart/form-data" >
         @csrf
                   <label for="company" id="testLabel" style="width:100%">
-                    Company 
+                    Company po
                     <input type="text" required name="company" id="company" style="width:100%" autocomplete="off" class="form-control">
                     <input type="hidden" name="Email-From" value="Contact US Form">
 

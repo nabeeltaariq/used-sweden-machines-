@@ -30,7 +30,11 @@
     {{ session()->get('success') }}
   </div>
   @endif
-
+@if(session()->has('danger'))
+  <div class="alert alert-danger">
+    {{ session()->get('danger') }}
+  </div>
+  @endif
   <div style="padding-top: 10px;">
 
     <div>
@@ -149,7 +153,7 @@
                width: 70%;
 
                float: left;padding-right:10px">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="/upload-your-machine" method="POST" enctype="multipart/form-data">
 
 
           <table style="width:100%;font-family:arial;font-size:12px;margin-top:1px">
@@ -166,7 +170,7 @@
 
 
 
-                <td height="22" colspan="2" align="left" valign="top"><input name="company" type="text" class="kontakt-text" style="width:100%;outline:none" size="30" value=""></td>
+                <td height="22" colspan="2" align="left" valign="top"><input name="company" type="text" class="kontakt-text" style="width:100%;outline:none" size="30" required></td>
 
               </tr>
               <tr>
@@ -178,7 +182,7 @@
 
 
 
-                <td height="22" colspan="2" align="left" valign="top"><input name="machine_name" type="text" class="kontakt-text" style="width:100%;outline:none" size="30" value=""></td>
+                <td height="22" colspan="2" align="left" valign="top"><input name="machine_name" type="text" class="kontakt-text" style="width:100%;outline:none" size="30" required></td>
 
               </tr>
 
@@ -190,7 +194,7 @@
 
 
 
-                <td colspan="2" style="background-color: #f3f9fa;" height="22" align="left" valign="top"><input name="serial_no" style="width:100%;outline:none" type="text" class="kontakt-text" size="30" value=""></td>
+                <td colspan="2" style="background-color: #f3f9fa;" height="22" align="left" valign="top"><input name="serial_no" style="width:100%;outline:none" type="text" class="kontakt-text" size="30" required></td>
 
               </tr>
 
@@ -202,7 +206,7 @@
 
 
 
-                <td height="22" colspan="2" align="left" valign="top"><input name="email" style="width:100%;outline:none" type="email" class="kontakt-text" size="30" value="" required=""></td>
+                <td height="22" colspan="2" align="left" valign="top"><input name="email" style="width:100%;outline:none" type="email" class="kontakt-text" size="30" required></td>
 
               </tr>
 
@@ -214,7 +218,7 @@
 
 
 
-                <td height="22" colspan="2" align="left" valign="top"><input name="phone" style="width:100%;outline:none" type="text" class="kontakt-text" size="30" value=""></td>
+                <td height="22" colspan="2" align="left" valign="top"><input name="phone" style="width:100%;outline:none" type="text" class="kontakt-text" size="30"required></td>
 
               </tr>
 
@@ -227,7 +231,7 @@
 
 
 
-                <td height="22" colspan="2" align="left" valign="top"><input name="full_name" type="text" class="kontakt-text" style="width:100%;outline:none" size="30" value=""></td>
+                <td height="22" colspan="2" align="left" valign="top"><input name="full_name" type="text" class="kontakt-text" style="width:100%;outline:none" size="30" required></td>
 
               </tr>
 
@@ -247,7 +251,7 @@
 
 
 
-                <td height="22" colspan="2" align="left" valign="top"><textarea name="technical_specification" class="kontakt-text" style="width:100%;outline:none" cols="31" rows="2"></textarea></td>
+                <td height="22" colspan="2" align="left" valign="top"><textarea name="technical_specification" class="kontakt-text" style="width:100%;outline:none" cols="31" rows="2" required></textarea></td>
 
               </tr>
               <tr>
@@ -258,7 +262,7 @@
 
 
 
-                <td height="22" colspan="2" align="left" valign="top"><input type="file" name="featuredImage"></td>
+                <td height="22" colspan="2" align="left" valign="top"><input type="file" name="featuredImage" required></td>
 
               </tr>
               <tr>
@@ -269,7 +273,7 @@
 
 
 
-                <td height="22" colspan="2" align="left" valign="top"> <input type="file" name="otherImages[]" multiple></td>
+                <td height="22" colspan="2" align="left" valign="top"> <input type="file" name="otherImages[]" multiple required></td>
 
               </tr>
 
