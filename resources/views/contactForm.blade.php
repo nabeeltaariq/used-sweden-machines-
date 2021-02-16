@@ -51,7 +51,7 @@
 
                                     <td height="22" align="left" valign="top">
 
-                                        <input name="serial_no" type="text" class="kontakt-text" id="desk_serial_no" style="margin-bottom:2px;width:100%;outline:none" size="30">
+                                        <input name="serial_no" type="text" class="kontakt-text" id="desk_serial_no" style="margin-bottom:2px;width:100%;outline:none" size="30" required>
                                     </td>
 
                                 </tr>
@@ -65,7 +65,7 @@
 
                                     <td height="22" align="left" valign="top">
 
-                                        <input name="machine_name" type="text" class="kontakt-text" id="desk_machine_name" style="margin-bottom:2px;width:100%;outline:none" size="30">
+                                        <input name="machine_name" type="text" class="kontakt-text" id="desk_machine_name" style="margin-bottom:2px;width:100%;outline:none" size="30" required>
                                     </td>
 
                                 </tr>
@@ -79,7 +79,7 @@
 
                                     <td height="22" align="left" valign="top">
 
-                                        <input name="company" type="text" class="kontakt-text" id="desk_company" style="margin-bottom:2px;width:100%;outline:none" size="30">
+                                        <input name="company" type="text" class="kontakt-text" id="desk_company" style="margin-bottom:2px;width:100%;outline:none" size="30" required>
                                     </td>
 
                                 </tr>
@@ -93,7 +93,7 @@
 
 
                                     <td height="22" align="left" valign="top">
-                                        <input name="full_name" type="text" class="kontakt-text" id="desk_full_name" style="margin-bottom:2px;width:100%;outline:none" size="30" required="required">
+                                        <input name="full_name" type="text" class="kontakt-text" id="desk_full_name" style="margin-bottom:2px;width:100%;outline:none" size="30" required>
                                     </td>
 
                                 </tr>
@@ -107,7 +107,7 @@
 
 
                                     <td height="22" align="left" valign="top">
-                                        <input name="phone" type="text" class="kontakt-text" id="desk_phone" style="margin-bottom:2px;width:100%;outline:none" size="30">
+                                        <input name="phone" type="text" class="kontakt-text" id="desk_phone" style="margin-bottom:2px;width:100%;outline:none" size="30" required>
                                     </td>
 
                                 </tr>
@@ -122,7 +122,7 @@
 
 
                                     <td height="22" align="left" valign="top">
-                                        <input name="email" type="email" class="kontakt-text" id="desk_email" style="margin-bottom:2px;width:100%;outline:none" size="30" required="required">
+                                        <input name="email" type="email" class="kontakt-text" id="desk_email" style="margin-bottom:2px;width:100%;outline:none" size="30" required>
                                     </td>
 
                                 </tr>
@@ -140,7 +140,7 @@
                                     <td height="" align="left" valign="top">
 
 
-                                        <textarea name="message" class="kontakt-text" id="desk_message" style="width:100%;outline:none" cols="31" rows="4"></textarea>
+                                        <textarea name="message" class="kontakt-text" id="desk_message" style="width:100%;outline:none" cols="31" rows="4" required></textarea>
 
                                 </tr>
 

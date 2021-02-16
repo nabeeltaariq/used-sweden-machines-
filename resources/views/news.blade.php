@@ -181,16 +181,7 @@
 
   @media only screen and (max-width: 768px) {
 
-    .col-lg-3,
-    .col-md-3 {
-      width: 26%;
-    }
-
-    .col-lg-9,
-    .col-md-9 {
-      width: 74%;
-    }
-
+   
     #table-outer {
       margin-left: 0px !important;
     }
@@ -461,7 +452,7 @@
   </ul>
 </div>
 <div class="row" style="width:100%;margin-top:10px;" ng-app="myModule" ng-controller="myController">
-  <div class="col-lg-3 col-md-3 col-sm-12 all-categories" style="margin-top:-6px;box-sizing:border-box;padding-bottom:25px;float:left;margin-right:0px;">
+  <div class="col-lg-3 col-md-3 col-sm-3 all-categories" style="margin-top:-6px;box-sizing:border-box;padding-bottom:25px;float:left;margin-right:0px;">
     <ul class="news">
 
       <li><a href="{{URL::to('/news')}}" class="{{($mode=='news' ? 'active' : '')}}">News</a></li>
@@ -502,7 +493,7 @@
     </form>
 
   </div>
-  <div class="col-lg-9 col-md-9 col-sm-12" id="table-outer" ng-show="!loading">
+  <div class="col-lg-9 col-md-9 col-sm-9" id="table-outer" ng-show="!loading">
     @if($mode=="news")
     <table id="myTable">
 
@@ -513,7 +504,7 @@
       <tr>
         <td width="20">
           <div>
-            <a href="{{URL::to('/getnews/by/')}}/{{$news->id}}">
+            <a href="{{URL::to('/news/by/')}}/{{$news->id}}">
               <img class="img-responsive " src="{{($news->image == null ? URL::to('/public/imgs/newsletter-icon.png') : URL::to('/storage/app/products/') . '/' . $news->image)}}" onclick="myimg(this)" alt=" " />
             </a>
           </div>
@@ -526,7 +517,7 @@
             ?>
             <span> {{$news->news_date}}</span><br>
 
-            <a style="text-decoration:none" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->news_title}} </strong></span><br>
+            <a style="text-decoration:none" href="{{URL::to('/news/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->news_title}} </strong></span><br>
             </a>
             <div id="check">
 
@@ -566,7 +557,7 @@
 
             <span>{{$news->news_date}}</span><br>
 
-            <a style="text-decoration:none" href="{{URL::to('/getnews/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->temp_title}} </strong></span><br>
+            <a style="text-decoration:none" href="{{URL::to('/news/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->temp_title}} </strong></span><br>
             </a>
             <div id="check">
 

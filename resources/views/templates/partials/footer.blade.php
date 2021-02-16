@@ -84,7 +84,10 @@
     #mobile_footer {
       display: inherit;
       margin-top: 30px !important;
+<<<<<<< HEAD
 
+=======
+>>>>>>> befa72d08e3388faca182881d06512d584d70fe2
     }
 
     #desktop_footer {
@@ -159,7 +162,7 @@
     <span style="color:red;font-size:14px; ">
       Email:
     </span>
-    <a href="mailto:info@usedswedenmachines.com" style="color:#034375;font-size:12px;font-weight:bold;margin-top:3px;">info@usm.com.pk</a>
+    <a href="mailto:info@usm.com.pk" style="color:#034375;font-size:12px;font-weight:bold;margin-top:3px;">info@usm.com.pk</a>
     |
     <a href="{{URL::to('upload-your-machine')}}" style="color:#034375;font-size:12px;font-weight:bold;margin-top:3px;">Upload Your Machine</a>
 
@@ -228,7 +231,7 @@
       <span style="color:red">
         Email:
       </span>
-      <a href="mailto:info@usedswedenmachines.com" class="themeAnchor" style="color:white;font-weight:bold;font-size:12px">info@usm.com.pk</a>
+      <a href="mailto:info@usm.com.pk" class="themeAnchor" style="color:white;font-weight:bold;font-size:12px">info@usm.com.pk</a>
       <br>
       <a href="{{URL::to('upload-your-machine')}}" class="themeAnchor" style="color:white;font-weight:bold;font-size:12px">Upload Your Machine</a>
     </p>

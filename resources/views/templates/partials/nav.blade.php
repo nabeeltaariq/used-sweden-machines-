@@ -232,39 +232,25 @@
   <div class="modal fade" id="myModal-contactus" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header" style="background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);dispaly:flex;text-align:center;position:relative;height:70px;">
+        <div class="modal-header" style="background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);dispaly:flex;text-align:center;position:relative;height:40px;">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <p class="modal-title" id="myModalLabel" style=" vertical-align: text-bottom;">
           <h4 class="item" style="
 
-              display: inline-block;
+              display: inline-block;margin-top:-15px;
 
-              padding: 7px 20px;
-
+             
                font-size: 20px;
 
               font-weight: bolder;
           
 
-              color: #034375;
-
-               background: #b43720;
-
-               background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…IgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-
-               background: -moz-linear-gradient(90deg, #b43720 0%, #e94541 100%);
-
-               background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#b43720), color-stop(100%,#e94541));
-
-               background: -webkit-linear-gradient(90deg, #b43720 0%,#e94541100%);
-
-               background: -o-linear-gradient(90deg, #b43720 0%,#e94541 100%);
-
-               background: -ms-linear-gradient(90deg, #b43720 0%,#e94541 100%);
-
-               background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);">Contact Us</h4>
+              color: #034375;"
+>Contact Us</h4>
           </p>
         </div>
+        <br>
+        
         <div style="font-size:15px;margin-left:18px">
           <strong>USM-Used Sweden Machines</strong><br>85-A, Small industrial estate # 1 <br>Gujranwala, Pakistan<br><br>Tel.: +92 (321) 7415373<br>E-Mail: <a class="link" style="color: blue; text-decoration: underline;" href="mailto: info@usedswedenmachines.com">info@usm.com.pk</a>
         </div>
@@ -292,7 +278,7 @@
                 <p>Full Name</p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
-                <input name="full_name" type="text" style="width:100%;outline:none" id="full_name" value="" class="col-lg-9 form-control" autofocus>
+                <input name="full_name" type="text" style="width:100%;outline:none" id="full_name"  class="col-lg-9 form-control" required>
               </div>
 
 
@@ -301,26 +287,26 @@
                 <p>Phone No.<span style="color:red">*</span></p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
-                <input name="phone" type="text" id="phone" value="" class="col-lg-9 form-control">
+                <input name="phone" type="text" id="phone"  class="col-lg-9 form-control" required>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-12">
                 <p>Email<span style="color:red">*</span></p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
-                <input name="email" type="email" id="email" value="" required="" class="col-lg-9 form-control">
+                <input name="email" type="email" id="email"  class="col-lg-9 form-control" required>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-12">
                 <p>Company</p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
-                <input name="company" id="company" value="" class="col-lg-9 form-control">
+                <input name="company" id="company" class="col-lg-9 form-control" required>
               </div>
 
               <div class="col-lg-3 col-md-3 col-sm-12">
                 <p>Special Request</p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
-                <textarea name="request" id="request" cols="31" placeholder="Please, contact regarding this machine" class="col-lg-9 form-control"></textarea>
+                <textarea name="request" id="request" cols="31" placeholder="Please, contact regarding this machine" class="col-lg-9 form-control" required></textarea>
               </div>
 
             </div>

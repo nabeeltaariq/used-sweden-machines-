@@ -1,9 +1,44 @@
 @extends("templates.public")
 @section("sharing")
 <style>
+<<<<<<< HEAD
     .modal-body .form-control {
         border-radius: 0px;
     }
+=======
+      
+           .modal-body .form-control
+            {
+                border-radius:0px;
+            }
+                .modal-body
+  {
+     color:black;
+  }
+  
+   .label-heading
+   {
+
+       margin-bottom:-10px;
+      margin-top:10px;
+      color:black;
+       }
+       .carousel-control.left, .carousel-control.right {
+   background-image:none !important;
+   filter:none !important;
+}
+       #description_box
+{
+   background-color: #ddeef1;
+   color:black;
+           height:auto;
+            overflow: auto;
+            font-size: 12px;
+            border: 2px solid #808080;
+            height:310px;
+            margin-top:12px;
+    
+>>>>>>> befa72d08e3388faca182881d06512d584d70fe2
 
     .modal-body {
         color: black;
@@ -11,6 +46,7 @@
 
     .label-heading {
 
+<<<<<<< HEAD
         margin-bottom: -10px;
         margin-top: 10px;
         color: black;
@@ -45,6 +81,25 @@
         }
 
         #news-body {
+=======
+}
+       @media screen and (max-width: 765px) {
+  #slick,#bread-crumb,#myModalbig,.modal-backdrop.fade {
+   display:none !important;
+  }
+ 
+#news-body
+{
+
+    margin-top:10px;
+    margin-right:1px !important;
+        margin-left:1px !important;
+}
+#bread-crumb
+{
+    display:none;
+}
+>>>>>>> befa72d08e3388faca182881d06512d584d70fe2
 
             margin-top: 10px;
             margin-right: 1px !important;
@@ -214,8 +269,54 @@ $url = URL::to("/storage/app/products/$news->image");
             <div class="carousel-inner border-class" style="height: 310px;">
                 <div class="item active">
 
+<<<<<<< HEAD
 
                     <img src="{{$url}}" class="img-responsive" style="height:370px;width:100%;">
+=======
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner border-class" style="height: 310px;">
+                    <div class="item active">
+                        
+                      
+                            <img src="{{$url}}" data-toggle="modal" data-target="#myModalbig" class="img-responsive model-images"  class="img-responsive" style="height:370px;width:100%;">
+                            <img src="{{$url}}"   class="img-responsive"  style="height:370px;width:100%;">
+                        
+                    </div>
+                    @php
+                        $allThumbs = App\News_Image::where("news_id",$news->id)->get();
+                    @endphp
+
+                    @foreach($allThumbs as $thumb)
+                        <div class="item">
+                            
+                          
+                            <img src="{{$url}}" data-toggle="modal" data-target="#myModalbig" class="img-responsive model-images"  class="img-responsive" style="height:370px;width:100%;">
+                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}"  class="img-responsive"  style="height:370px;width:100%;">
+                        
+                        </div>
+                    @endforeach
+                </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev" >
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+   
+            {{--Slick slider Code Starts here --}}
+            <section id="slick" style="width: 100%; margin-top: 10px;padding: 0px;display: none;" class="center slider">
+                       <div>
+                      <button data-toggle="modal" data-target="#myModal" style="border:none;outline:none;margin:0px;padding:0px;">
+       <img class="main-image" style="border: 2px solid #034375;"  src="{{$url}}">
+       </button>
+    </div>
+           
+               
+>>>>>>> befa72d08e3388faca182881d06512d584d70fe2
 
                 </div>
                 @php
@@ -312,18 +413,30 @@ $url = URL::to("/storage/app/products/$news->image");
                margin-top: -08px;" alt="image not found">
                     </a></li>
 
+<<<<<<< HEAD
                 <!-- <li><a href="" target="_blank" style="color:maroon">
              <!--   <img src="{{URL::to('/public/imgs/pdf.png')}}" style="    height: 25px;-->
                 <!--   margin-top: -08px;" alt="image not found">-->
                 <!--</a></li> -->
             </ul>
         </div>
+=======
+          
+                    </ul>
+                    </div>
+>>>>>>> befa72d08e3388faca182881d06512d584d70fe2
 
 
         <br>
         <div style="
                 font-size: 13px;
+<<<<<<< HEAD
                 font-family: " Open Sans",Arial,sans-serif; color: #444; ">
+=======
+                font-family: "Open Sans,Arial,sans-serif;
+            color: #444;
+            ">
+>>>>>>> befa72d08e3388faca182881d06512d584d70fe2
                 
               <a href=" {{URL::to('/news')}}" class="btn-theme">All News</a>
             @if($news->Next() != null)
@@ -331,17 +444,79 @@ $url = URL::to("/storage/app/products/$news->image");
 
             @endif
         </div>
+<<<<<<< HEAD
+=======
+        </div>
+
+>>>>>>> befa72d08e3388faca182881d06512d584d70fe2
     </div>
 </div>
 
 
+        <div style="margin-top: 40px;" class="modal fade" id="myModalbig" role="dialog">
+ <div class="modal-dialog" style="height:586px;width:763px">
 
+      
+            <div class="modal-header" style="border:none;">
+    <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 730px"><span>&times;</span><span class="sr-only">Close</span></button>
+    
+       
+      </div>
+        
+        <div class="modal-content" style="  height:586px;width:763px">
+           
+                <div class="modal-body" style="padding:0px;height
+            :auto">
+                   
+                  
+                    <div id="myCarousel4" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:586px;width:763px">
+                <!-- Indicators -->
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner " style="height:586px;width:763px;border:10px solid white">
+                    <div class="item active">
+                        
+                       <img style="width:763px;height: 586px" class="model-images" src="{{$url}}">
+                    </div>
+                    @php
+                       $allThumbs = App\News_Image::where("news_id",$news->id)->get();
+                    @endphp
+
+                    @foreach($allThumbs as $thumb)
+                        <div class="item">
+                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}"  class="img-responsive" style="width:763px;height: 586px">
+                        
+                        </div>
+                    @endforeach
+                </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel4" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel4" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+                   
+                </div>
+                </div>
+          <div class="modal-footer">
+       <center>
+            <div style="background-color:#034375;color:white;font-size: 11px;border:2px solid white;border-radius: 20px;padding:4px;float: none " class="col-sm-6">{{$news->news_title}}</div>
+       </center>
+      </div>
+
+            </div>
+        </div>
 
 
 
 <!-- Modal -->
 <div style="margin-top: 10px;" class="modal fade" id="myModal" role="dialog">
 
+<<<<<<< HEAD
     <div class="modal-dialog" style="width:700px">
 
         <!-- Modal content-->
@@ -356,6 +531,35 @@ $url = URL::to("/storage/app/products/$news->image");
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner border-class" style="height: 600px;">
                         <div class="item active">
+=======
+      <div class="modal-dialog" style="height:586px;width:763px">
+
+      
+            <div class="modal-header" style="border:none;">
+    <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 730px"><span>&times;</span><span class="sr-only">Close</span></button>
+    
+       
+      </div>
+        
+        <div class="modal-content" style="  height:586px;width:763px">
+           
+                <div class="modal-body" style="padding:0px;height
+            :auto">
+                   
+                  
+                    <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:586px;width:763px">
+                <!-- Indicators -->
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner " style="height:586px;width:763px;border:10px solid white">
+                    <div class="item active">
+                        
+                       <img style="width:763px;height: 586px" class="model-images" src="">
+                    </div>
+                    @php
+                       $allThumbs = App\News_Image::where("news_id",$news->id)->get();
+                    @endphp
+>>>>>>> befa72d08e3388faca182881d06512d584d70fe2
 
                             <img style="width: 100%;height: 600px;" class="model-images" src="">
                         </div>
@@ -365,6 +569,7 @@ $url = URL::to("/storage/app/products/$news->image");
 
                         @foreach($allThumbs as $thumb)
                         <div class="item">
+<<<<<<< HEAD
                             <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}" class="img-responsive" style="width:100%;height: 600px;">
 
                         </div>
@@ -379,11 +584,38 @@ $url = URL::to("/storage/app/products/$news->image");
                         <span class="glyphicon glyphicon-chevron-right"></span>
                         <span class="sr-only">Next</span>
                     </a>
+=======
+                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}"  class="img-responsive" style="width:763px;height: 586px">
+                        
+                        </div>
+                    @endforeach
                 </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel3" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel3" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+                   
+>>>>>>> befa72d08e3388faca182881d06512d584d70fe2
+                </div>
+                </div>
+          <div class="modal-footer">
+       <center>
+            <div style="background-color:#034375;color:white;font-size: 11px;border:2px solid white;border-radius: 20px;padding:4px;float: none " class="col-sm-6">{{$news->news_title}}</div>
+       </center>
+      </div>
 
             </div>
+<<<<<<< HEAD
 
         </div>
+=======
+>>>>>>> befa72d08e3388faca182881d06512d584d70fe2
     </div>
 </div>
 {{-- Model Code Ends--}}

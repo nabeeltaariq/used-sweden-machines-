@@ -95,7 +95,7 @@ class Home extends Controller
           </tr>
           <tr>
               <td><p><span style="color:black;">Mob:</span> <a href="skype:+92(321)7415373?call" style="text-decoration:none;font-size:13px">+92 (321) 7415373</a></p><p><span style="color:black;">Landline:</span> <a href="skype:+92(55)3845988?call" style="text-decoration:none;font-size:13px">+92(55)3845988</a></p></td>
-              <td><p><span style="color:black">Website:</span> <a href="https://www.usedswedenmachines.com">www.usedswedenmachines.com</a></p><p><span style="color:black">Email:</span> <a href="mailto:info@usedswedenmachines.com">info@usedswedenmachines.com</a></p></td>
+              <td><p><span style="color:black">Website:</span> <a href="https://www.usedswedenmachines.com">www.usedswedenmachines.com</a></p><p><span style="color:black">Email:</span> <a href="mailto:info@usm.com.pk">info@usm.com.pk</a></p></td>
           </tr>
         </table></div><hr style="margin:0px"/>'
         );
@@ -170,7 +170,7 @@ class Home extends Controller
           </tr>
           <tr>
               <td><p><span style="color:black;">Mob:</span> <a href="skype:+92(321)7415373?call" style="text-decoration:none;font-size:13px">+92 (321) 7415373</a></p><p><span style="color:black;">Landline:</span> <a href="skype:+92(55)3845988?call" style="text-decoration:none;font-size:13px">+92(55)3845988</a></p></td>
-              <td><p><span style="color:black">Website:</span> <a href="https://www.usedswedenmachines.com">www.usedswedenmachines.com</a></p><p><span style="color:black">Email:</span> <a href="mailto:info@usedswedenmachines.com">info@usedswedenmachines.com</a></p></td>
+              <td><p><span style="color:black">Website:</span> <a href="https://www.usedswedenmachines.com">www.usedswedenmachines.com</a></p><p><span style="color:black">Email:</span> <a href="mailto:info@usm.com.pk">info@usm.com.pk</a></p></td>
           </tr>
         </table></div><hr style="margin:0px"/>'
         );
@@ -260,8 +260,16 @@ class Home extends Controller
                 $thumb->machine_id = $machine->id;
                 $thumb->save();
             }
+            $request->session()->flash("success", "Your machine has been uploaded");
         }
-        $request->session()->flash("success", "Your machine has been uploaded");
+        else
+        {
+             $request->session()->flash("danger", "OOPS! Something went wrong...");
+        }
+
+
+
+        
 
         return redirect()->back();
 
@@ -721,7 +729,7 @@ class Home extends Controller
 
     public function QuoteFormContactUs(Request $request)
     {
-        $to = "inquiry@trepak.pk";
+        $to = "info@usm.com.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
         $message .= 'Machine Name: ' . request('machine_name') . "\n";
@@ -749,11 +757,12 @@ class Home extends Controller
         $to = "inquiry@trepak.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
+         $message .= 'Sender:  ' .  request('email') . "\n";
         $message .= 'Machine Name: ' . request('machine_name') . "\n";
         $message .= 'Item #:  ' .  request('serial_no') . "\n";
         $message .= 'Name :  ' . request('full_name') . "\n";
         $message .= 'Phone #:  ' . request('phone') . "\n";
-        $message .= 'Email:  ' .  request('email') . "\n";
+       
         $message .= 'Company:  ' . request('company')  . "\n";
 
         $message .= 'Special Request:  ' .  request('request') . "\n";
