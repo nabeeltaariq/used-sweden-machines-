@@ -762,7 +762,7 @@
 
         #content {
           height: auto;
-          max-height: none;
+          min-height: 200px;
           margin-top: 60px;
 
         }
