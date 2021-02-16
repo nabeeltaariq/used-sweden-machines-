@@ -1,5 +1,21 @@
 @extends("templates.public")
+
+@section("content")
 <style type="text/css">
+    
+  p{
+
+    margin:0px;
+
+  }
+ @media only screen and (max-width: 600px) {
+     .row
+    {
+      margin-left:1px;
+       margin-right:1px;
+    }
+      
+ }
     @media screen and (max-width: 600px) {
         #technical-services {
             margin-right:0px !important;
@@ -7,7 +23,6 @@
 }
 
 </style>
-@section("content")
 <div id="technical-services" style="font-family:arial;font-size:13px;line-height:20px;margin-right:15px">
     <div style="margin-top:15px;" class="row">
         <div  class="col-xl-12-col-md-12-col-lg-12 col-sm-12 p-0" >
@@ -62,21 +77,6 @@
         </div>
     </div>
     </div>
-<style>
 
-  p{
-
-    margin:0px;
-
-  }
- @media only screen and (max-width: 600px) {
-     .row
-    {
-      margin-left:1px;
-       margin-right:1px;
-    }
-      
- }
-</style>
 
 @endsection
