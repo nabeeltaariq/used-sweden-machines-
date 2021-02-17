@@ -513,7 +513,7 @@
           <div class="content">
             <?php
             $date = date_create($news->news_date);
-            $news->news_date = date_format($date, "j M , Y");
+            $news->news_date = date_format($date, "j F , Y");
             ?>
             <span> {{$news->news_date}}</span><br>
 
