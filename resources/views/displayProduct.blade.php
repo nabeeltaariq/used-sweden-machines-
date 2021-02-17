@@ -323,14 +323,14 @@ $category = App\Catagories::find($product->cat_id);
         </div>
         <div style="margin-top: 5px;">
             <ul class="shareButtons linked" style="margin-top: -4px;">
-                <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u={{URL::to('/')}}/machineView/{{$product->id}}" style="color:#024374"><i class="fab fa-facebook-square"></i></a></li>
+                <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u={{URL::to('/')}}/{{$machine_name}}/{{$product->id}}" style="color:#024374"><i class="fab fa-facebook-square"></i></a></li>
                 <li>
-                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{URL::to('/machineView/')}}/{{$product->id}}&title={{$product->pr_title}}&summary=Tetra%20Pak%20Machines&source=USM" style="color: white">
+                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{URL::to('/')}}/{{$machine_name}}/{{$product->id}}&title={{$product->pr_title}}&summary=Tetra%20Pak%20Machines&source=USM" style="color: white">
                         <i class="fab fa-linkedin" style="background: #0077b5;border-radius:2px;font-size:27px;padding-left:3px;padding-right:3px"></i>
                     </a>
                 </li>
-                <li><a href="https://api.whatsapp.com/send?phone=923217415373&&text={{URL::to('/machineView')}}/{{$product->id}}" style="color:#65bc54"><i class="fab fa-whatsapp-square"></i></a></li>
-                <li><a href="mailto:?subject={{$product->pr_title}}-Used Sweden Machines&body=To%20Get%20Information%20About%20This%20Machine,%20Please%20Visit%20{{URL::to('/machineView/')}}/{{$product->id}}%20" style="color:#c15b53"><img src="{{URL::to('public/imgs/email.png')}}" alt="" style="heigt:25px;margin-top:-8px;max-height:25px;max-width:25.17px;min-width:25.17px;width:25.17px"></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=923217415373&&text={{URL::to('/')}}/{{$machine_name}}/{{$product->id}}" style="color:#65bc54"><i class="fab fa-whatsapp-square"></i></a></li>
+                <li><a href="mailto:?subject={{$product->pr_title}}-Used Sweden Machines&body=To%20Get%20Information%20About%20This%20Machine,%20Please%20Visit%20{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}%20" style="color:#c15b53"><img src="{{URL::to('public/imgs/email.png')}}" alt="" style="heigt:25px;margin-top:-8px;max-height:25px;max-width:25.17px;min-width:25.17px;width:25.17px"></a></li>
 
                 <li><a href="{{URL::to('/machine-pdf/generate')}}/{{$product->id}}" target="_blank" style="color:maroon">
                         <img src="{{URL::to('public/imgs/pdf.png')}}" style="    height: 25px;
