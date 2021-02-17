@@ -338,12 +338,17 @@ margin-top: 10px;
             ">
                 
             <button data-toggle="modal" data-target="#myModal-ask_for_price"  class="btn-theme">Ask For Price </>
+          
+
+
             <button onclick="location.href='{{URL::to('/category/selected')}}/{{$selectedCat}}'" style="margin-left:3px;" class="btn-theme">Back To Review</button>
-            @if($next != '')
-            <a href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}/next" autofocus><button class="btn-theme"> Next Machine </button> </a>
-               
+
+            @if($next)
+
+            <a href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}" autofocus><button class="btn-theme"> Next Machine </button> </a>
+
             @else
-                <button onclick="location.href='{{URL::to('/used-tetra-pak-machines')}}'" class="btn-theme">All Products</button>
+            <button onclick="location.href='{{URL::to('/used-tetra-pak-machines')}}'" class="btn-theme">All Products</button>
 
             @endif
         </div>
