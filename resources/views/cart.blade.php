@@ -74,6 +74,10 @@
   }
 
   @media only screen and (max-width: 600px) {
+    .mobile-remove {
+      display: block !important;
+    }
+
     .hide-this {
       display: none;
     }
@@ -110,7 +114,9 @@
     padding: 10px;
 
     border-radius: 4px;color:#034375; " id="basket">Your Basket</span>
-  <p style="margin-left:10px;"><a href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a></p>
+  <p style="margin-left:10px;">
+    <a id="link_spare" href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a>
+  </p>
 </div>
 <div style="height:395px;width:100%;max-height:395px;overflow:auto;position: relative;">
   <table class="table table-bordered table-sm">
@@ -122,7 +128,7 @@
         <th>Ordered Quantity</th>
         <th>Unit Price</th>
         <th>Total Price</th>
-        <th class="hide-this">Delivery Status</th>
+        <th><span class="hide-this">Delivery Status</span><span class="mobile-remove" style="display: none">Remove Product</span></th>
       </tr>
     </thead>
     <tbody id="itemsData">
@@ -141,16 +147,16 @@
 
           <tr>
             <td><?= $item["partNo"] ?></td>
-            <td class="hide-this"><?php echo $item["partTitle"] ?></td>
-            <td><?= $item["manu"] ?></td>
+            <td><?php echo $item["partTitle"] ?></td>
+            <td class="hide-this"><?= $item["manu"] ?></td>
             <td align=""><span class="fa fa-minus-square leftArrow" style="cursor:pointer"></span>&nbsp;&nbsp;<span id="quantity"><?= $item["quantity"] ?></span>&nbsp;&nbsp;<span class="fa fa-plus-square rightArrow" style="cursor:pointer"></span></td>
             <td>$ <?= $item["price"] ?></td>
             <td style="position:relative">$ <?php echo $item["price"] * $item["quantity"];
                                             ?>
             </td>
-            
-            <td class="hide-this" style="position:relative"><?= $item["status"] ?>
-              <span style="position:absolute;top:3px;right:0;color:maroon;cursor:pointer" class="fas fa-times removeButton" title="remove this item"></span>
+            <td style="position:relative">
+              <span class="hide-this"><?= $item["status"] ?></span>
+              <span style="position:absolute;top:3px;right:0;color:maroon;cursor:pointer" class="fas fa-times removeButton " title="remove this item"></span>
             </td>
 
           </tr>
@@ -178,6 +184,13 @@
 
 
 <script type="text/javascript">
+  window.onload = (function() {
+    var width_of_screen = (window.screen.width)
+    if (width_of_screen <= 480) {
+      document.getElementById('link_spare').setAttribute('href', "{{URL::to('/tetra-pak-spare-parts')}}");
+    }
+  })();
+
   function checkCart(totalItems) {
     totalItems = parseInt(totalItems);
 
@@ -218,7 +231,7 @@
 
     var quanitySpan = $(this).parent().parent().find("span#quantity");
     var quantity = parseInt(quanitySpan[0].innerHTML);
-    if (quantity >= 1) {
+    if (quantity >= 1 && quantity <= 999) {
       quantity++;
     }
     quanitySpan[0].innerHTML = quantity;

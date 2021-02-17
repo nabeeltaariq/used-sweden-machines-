@@ -177,7 +177,7 @@
 
         <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-filter"></i> Filter</a>
         <a href="#"><i class="fas fa-sort-amount-down"></i> Sort</a>
-        <a href="{{URL::to('cart')}}"><i class="glyphicon glyphicon-shopping-cart"></i> Cart <sup id="totalItems">{{(Request::session()->has("cartData") ? count(Request::session()->get("cartData")) : '')}}</sup></a>
+        <a href="{{URL::to('cart')}}"><i class="glyphicon glyphicon-shopping-cart"></i> Cart <sup class="totalItems">{{(Request::session()->has("cartData") ? count(Request::session()->get("cartData")) : '')}}</sup></a>
 
     </div>
     <!-- Modal -->
@@ -267,8 +267,16 @@
                     <b>Price <span class="text-danger"><?= $part->price ?></span></b><br />
 
                     <b>Delivery Status: </b><b class="text-success"><?= $part->ds ?></b><br />
-                    <span style="float:right;"> Quantity <input style="padding:5px;font-weight:bolder;display:inline;cursor:default;width:60px" class="numberField" type="number" value="1" min="1" max="1000">
-                        <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer != null ? $manufacturer->title : '')}}" style="display:inline-block;border:1px solid maroon;margin-bottom:5px;padding:5px;background-color:maroon;color:white"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button>
+                    
+                   <!--   <input style="padding:5px;font-weight:bolder;display:inline;cursor:default;width:60px" class="numberField" type="number" value="1" min="1" max="1000"> -->
+               <div style="display: flex">
+                     <div style="border:1px solid #e6e6e6;width: 90px;height:35px">
+                     <span class=" leftArrow" style="cursor:pointer; font-size: 25px;padding-left: 10px;padding-right: 7px;">-</span>&nbsp;&nbsp;<span id="quantity" class="numberField" style="font-size: 17px;padding-left: 7px;padding-right: 7px;">1</span>&nbsp;&nbsp;<span class=" rightArrow" style="cursor:pointer;font-size: 22px;padding-left: 7px;padding-right: 7px;">+</span>
+                      
+                  </div>
+   
+                        <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer != null ? $manufacturer->title : '')}}" style="display:inline-block;border:1px solid maroon;margin-bottom:5px;margin-left: 15px;padding:5px;background-color:maroon;color:white;height:35px"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button> 
+               </div>
                 </td>
             </tr>
             @endforeach
@@ -408,6 +416,27 @@
         $("#subCat").html("<option value='*'>Select Sub Catagory</option>");
     }
 
+ $(".leftArrow").on("click", function() {
+
+    var quanitySpan = $(this).parent().parent().find("span#quantity");
+    var quantity = parseInt(quanitySpan[0].innerHTML);
+    if (quantity > 1) {
+      quantity--;
+    }
+    quanitySpan[0].innerHTML = quantity;
+
+  });
+
+  $(".rightArrow").on("click", function() {
+
+    var quanitySpan = $(this).parent().parent().find("span#quantity");
+    var quantity = parseInt(quanitySpan[0].innerHTML);
+    if (quantity >= 1 && quantity<=999) {
+      quantity++;
+    }
+    quanitySpan[0].innerHTML = quantity;
+
+  });
 
     $("#machineId").on("change", function() {
 
@@ -564,7 +593,9 @@
         let partData = cartButton.getAttribute("data");
 
         let previousInnerHTML = cartButton.innerHTML;
-        var quantity = cartButton.parentNode.children[0].value;
+        var quantity = cartButton.parentNode.children[0].children[1].innerHTML;
+         // var quantity = cartButton.parentNode.children[1].innerHTML;
+
         partData += "&quantity=" + quantity;
         cartButton.innerHTML = "Please Wait... ";
 
@@ -577,7 +608,7 @@
                 cartButton.classList.add("btn");
                 cartButton.disabled = true;
                 cartButton.innerHTML = "Added";
-                $("#totalItems").html(data);
+                $(".totalItems").html(data);
             }
 
 

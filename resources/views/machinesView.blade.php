@@ -460,7 +460,7 @@
                 @php
                 echo substr(strip_tags(htmlspecialchars_decode($product->long_des, ENT_QUOTES)),0,150);
                 @endphp
-                <a class="desk" style="color:#034375;" href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}"><strong>»&nbsp;More details</strong></a>
+                <a class="desk"  href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}"><strong>»&nbsp;More details</strong></a>
                 <span class="mob">...</span>
                 <a class="mob" style="font-weight:bold" href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}">
                   <span>More details</span> </a>
@@ -497,7 +497,7 @@
 
 
                 @endphp
-                <a class="desk" style="color:black" href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}"><strong>»&nbsp;More details</strong></a>
+                <a class="desk"  href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}"><strong>»&nbsp;More details</strong></a>
                 <span class="mob">...</span> <a class="mob" style="font-weight:bold" href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}"><span>More details</span> </a>
               </div>
             </div>
