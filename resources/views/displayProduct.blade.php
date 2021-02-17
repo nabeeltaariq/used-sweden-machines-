@@ -1,6 +1,7 @@
 @extends("templates.public")
 @section("sharing")
 <style>
+<<<<<<< HEAD
     .slick-slide img {
         min-height: 84px !important;
         max-height: 84px !important;
@@ -19,6 +20,79 @@
     .border-class-thinner {
         border: 2px solid #034375;
     }
+=======
+.slick-slide img {
+    min-height: 84px !important;
+    max-height: 84px !important;
+    min-width: 134px;
+    max-width: 134px;
+}
+      
+           .modal-body .form-control
+            {
+                border-radius:0px;
+            }
+                .modal-body
+  {
+     color:black;
+  }
+  .border-class-thinner {
+    border: 2px solid #034375;
+}
+.carousel-control.left, .carousel-control.right {
+   background-image:none !important;
+   filter:none !important;
+}
+   .label-heading
+   {
+
+       margin-bottom:-10px;
+      margin-top:10px;
+      color:black;
+       }
+       #description_box
+{
+   background-color: #ddeef1;
+   color:black;
+           height:auto;
+            overflow: auto;
+            font-size: 12px;
+            border: 2px solid #808080;
+            height:310px;
+            margin-top:12px;
+    
+
+}
+
+textarea.form-control {
+    height: auto;
+    resize: vertical;
+}
+#product-body
+{
+
+    margin-top:-5px;
+
+}
+
+
+                .linked li a:hover
+                {
+                    background: none;
+                }
+
+
+.slider {
+    width: 50%;
+    margin: auto;
+}
+
+.slick-slide {
+    margin:0px;
+    width:132px !important;
+        transition: all ease-in-out .3s;
+}
+>>>>>>> ed84ce1135b4e3985a0d643e5dd71ea4bb5f149d
 
     .carousel-control.left,
     .carousel-control.right {
@@ -59,12 +133,23 @@
 
     @media screen and (max-width: 765px) {
 
+<<<<<<< HEAD
         #slick,
         #bread-crumb,
         #myModalbig,
         .modal-backdrop.fade {
             display: none !important;
         }
+=======
+            display: inline-block;
+            
+            background-color: #034171;
+            border-radius: 5px;
+            box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
+            font-size: 13px;
+            font-family: "Open Sans",Arial,sans-serif;
+            color: white;
+>>>>>>> ed84ce1135b4e3985a0d643e5dd71ea4bb5f149d
 
         #ask-for-price-form {
             padding-top: 50px !important;
@@ -94,6 +179,7 @@
             margin-left: -5px;
             width: 104%;
         }
+<<<<<<< HEAD
     }
 
 
@@ -106,6 +192,47 @@
         width: 50%;
         margin: auto;
     }
+=======
+ 
+     
+       @media screen and (max-width: 765px) {
+      
+  #slick,#bread-crumb,#myModalbig,.modal-backdrop.fade {
+   display:none !important;
+  }
+  #ask-for-price-form
+  {
+    padding-top: 50px !important;
+  }
+ #ask-for-price-form {
+            margin-top: -50px;
+        }
+#product-body
+{
+
+    margin-top:10px;
+    margin-right:1px !important;
+        margin-left:1px !important;
+}
+
+#description_box
+{
+
+           height:auto !important;
+    
+            font-size: 12px;
+            border: 2px solid #808080a6;
+margin-top: 10px;
+}
+#content
+{
+    margin-left:-5px;
+ width:104%;
+}
+}
+
+    </style>
+>>>>>>> ed84ce1135b4e3985a0d643e5dd71ea4bb5f149d
 
     .slick-slide {
         margin: 0px;
@@ -342,10 +469,23 @@ $category = App\Catagories::find($product->cat_id);
                 font-size: 13px;
                 font-family: " Open Sans",Arial,sans-serif; color: #444; ">
                 
+<<<<<<< HEAD
             <button data-toggle=" modal" data-target="#myModal-ask_for_price" class="btn-theme">Ask For Price </>
             <button onclick="location.href='{{URL::to('/category/selected')}}/{{$selectedCat}}'" style="margin-left:3px;" class="btn-theme">Back To Review</button>
             @if($next != '')
             <a href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next" autofocus><button class="btn-theme"> Next Machine </button> </a>
+=======
+            <button data-toggle="modal" data-target="#myModal-ask_for_price"  class="btn-theme">Ask For Price </>
+          
+
+
+            <button onclick="location.href='{{URL::to('/category/selected')}}/{{$selectedCat}}'" style="margin-left:3px;" class="btn-theme">Back To Review</button>
+
+            @if($next)
+
+            <a href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}" autofocus><button class="btn-theme"> Next Machine </button> </a>
+
+>>>>>>> ed84ce1135b4e3985a0d643e5dd71ea4bb5f149d
             @else
             <button onclick="location.href='{{URL::to('/used-tetra-pak-machines')}}'" class="btn-theme">All Products</button>
 
