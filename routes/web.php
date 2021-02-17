@@ -17,12 +17,13 @@ Route::get('/policy', 'Home@privacyPolicy');
 Route::post('send', 'Home@sendmail');
 Route::get('email', 'Home@email');
 Route::get('{mahcine_name}/{id}', "Products@machine");
+Route::get('{mahcine_name}/{id}/next', "Products@machine");
 
 
 Route::get("/refurbished_tetra_pak_machines_supplier_home", "Home@Index");
 Route::post("/refurbished_tetra_pak_machines_supplier_home", "Home@AddSubscriber");
 
-Route::get('select/all', 'Home@fetchAllMachines');
+
 Route::get('category/selected/all', 'Home@all');
 Route::get('category/selected/{cat_id}', 'Home@fetchFewMachines');
 Route::get('/auth', 'SameelController@showAuthPage');

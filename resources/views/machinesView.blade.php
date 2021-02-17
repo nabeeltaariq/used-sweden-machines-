@@ -17,7 +17,7 @@
     border: 1px solid #ffff;
     width: 280px;
     font-family: arial;
-    margin-right: 33px;
+
 
   }
 
@@ -416,7 +416,7 @@
   <div class="col-lg-3 col-md-3 col-sm-12 all-categories" style="margin-top:5px;background-color:#f4f4f4;height: 435px;overflow: auto;box-sizing:border-box;padding-bottom:25px;float:left;margin-right:0px;padding-left:40px;">
     <ul class="leftSidebar" style="padding-left:0px;">
       <li>
-        <a href="{{URL::to('/all')}}" id="*" class="{{($selectedCat == 'all' ? 'selected' : '')}}">» All Machines</a>
+        <a href="{{URL::to('category/selected/all')}}" id="*" class="{{($selectedCat == 'all' ? 'selected' : '')}}">» All Machines</a>
       </li>
       @foreach($allCatagories as $catagory)
       <li>

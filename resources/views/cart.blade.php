@@ -148,6 +148,7 @@
             <td style="position:relative">$ <?php echo $item["price"] * $item["quantity"];
                                             ?>
             </td>
+            
             <td class="hide-this" style="position:relative"><?= $item["status"] ?>
               <span style="position:absolute;top:3px;right:0;color:maroon;cursor:pointer" class="fas fa-times removeButton" title="remove this item"></span>
             </td>
