@@ -136,8 +136,9 @@ margin-top: 10px;
         }
         .btn-theme{
 
+           
             display: inline-block;
-            padding: 3px 15px;
+            
             background-color: #034171;
             border-radius: 5px;
             box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
@@ -327,7 +328,7 @@ margin-top: 10px;
             color: #444;
             ">
                 
-              <a href="{{URL::to('/news')}}" class="btn-theme">All News</a>
+              <a href="{{URL::to('/news')}}" class="btn-theme"><button class="btn-theme"> All News</button></a>
             @if($news->Next() != null)
             <a href="{{URL::to('/news/by')}}/{{$news->Next()->id}}" autofocus><button class="btn-theme"> Next New </button> </a>
          

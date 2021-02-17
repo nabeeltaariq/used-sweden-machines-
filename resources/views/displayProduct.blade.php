@@ -55,41 +55,6 @@ textarea.form-control {
 
 }
 
-       @media screen and (max-width: 765px) {
-  #slick,#bread-crumb,#myModalbig,.modal-backdrop.fade {
-   display:none !important;
-  }
-  #ask-for-price-form
-  {
-    padding-top: 50px !important;
-  }
- #ask-for-price-form {
-            margin-top: -50px;
-        }
-#product-body
-{
-
-    margin-top:10px;
-    margin-right:1px !important;
-        margin-left:1px !important;
-}
-
-#description_box
-{
-
-           height:auto !important;
-    
-            font-size: 12px;
-            border: 2px solid #808080a6;
-margin-top: 10px;
-}
-#content
-{
-    margin-left:-5px;
- width:104%;
-}
-}
-
 
                 .linked li a:hover
                 {
@@ -153,7 +118,7 @@ margin-top: 10px;
         .btn-theme{
 
             display: inline-block;
-            padding: 3px 15px;
+            
             background-color: #034171;
             border-radius: 5px;
             box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
@@ -176,6 +141,42 @@ margin-top: 10px;
         }
  
      
+       @media screen and (max-width: 765px) {
+      
+  #slick,#bread-crumb,#myModalbig,.modal-backdrop.fade {
+   display:none !important;
+  }
+  #ask-for-price-form
+  {
+    padding-top: 50px !important;
+  }
+ #ask-for-price-form {
+            margin-top: -50px;
+        }
+#product-body
+{
+
+    margin-top:10px;
+    margin-right:1px !important;
+        margin-left:1px !important;
+}
+
+#description_box
+{
+
+           height:auto !important;
+    
+            font-size: 12px;
+            border: 2px solid #808080a6;
+margin-top: 10px;
+}
+#content
+{
+    margin-left:-5px;
+ width:104%;
+}
+}
+
     </style>
 
     <link rel="stylesheet" type="text/css" href="./slick/slick.css">
