@@ -32,6 +32,10 @@
         margin-bottom: 3px;
     }
 
+
+
+
+
     .projects {
         font-size: 18px;
     }
