@@ -380,7 +380,7 @@ function processRequest(cartButton){
               cartButton.classList.add("btn");
               cartButton.disabled=true;
               cartButton.innerHTML = "Added";
-              $(".totalItems").html(data); 
+              $("#totalItems").html(data); 
         }
 
 
