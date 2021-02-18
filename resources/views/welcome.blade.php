@@ -253,14 +253,16 @@
 
 <div class="mobile_welcome" style="margin-top:40px;">
     <ul class="mobile_products" align="right">
-        <li><a href="{{URL::to('/used-tetra-pak-machines')}}/?cat_id=All">All Machines ({{$totalMachines ?? ''}})</a></li>
+        <li><a href="{{URL::to('/category/selected/all')}}>All Machines ({{$totalMachines ?? ''}})</a></li>
         @foreach($statistics ?? '' as $stat)
 
-        <li><a href="{{URL::to('/used-tetra-pak-machines')}}/?cat_id={{$stat['id']}}">{{$stat["name"]}} ({{$stat["totalProducts"]}})</a></li>
+        <li><a href=" {{URL::to('/used-tetra-pak-machines')}}/?cat_id={{$stat['id']}}">{{$stat["name"]}} ({{$stat["totalProducts"]}})</a></li>
 
         @endforeach
     </ul>
 </div>
+
+
 
 
 <script>
