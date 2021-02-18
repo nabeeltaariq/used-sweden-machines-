@@ -204,7 +204,21 @@
   }
 
   @media only screen and (max-width:600px) {
+    #testimonial-expand
+    {
+      display: none;
+    }
+    #testimonial-content
 
+  {
+    margin-left: 8px !important;
+  }
+    #testimonial-content p
+
+  {
+    margin-top: -30px !important;
+  }
+  
     .row {
       margin-top: 30px !important;
     }
@@ -573,19 +587,19 @@
     </table>
     @endif
     @if($mode == "testimonials")
+<?php $i=0; ?>
 
-
-    <table>
+    <table id="myTable">
       @foreach($data as $news)
       <tr style="border-bottom:1px solid #e6e6e6;">
         <td>
           <img src="{{URL::to('/storage/app/') . '/' . $news->brandLogo}}" alt="" style="width: 130px;
             height: 110px;
             color: #999999;
-            border: solid 2px #034375;">
+            border: solid 2px #034375;" class="img-responsive">
         </td>
         <td>
-          <div style="margin-left:30px;">
+          <div style="margin-left:30px;" id="testimonial-content">
             <p style="font-size:12px;font-weight:bolder;display:block;margin-top:19px">
 
 
@@ -602,7 +616,8 @@
 
             </p>
 
-            <p class="para" style="min-height: 50px;text-align: justify;">
+         <div id="testimonial-expand">
+              <p class="para" style="min-height: 50px;text-align: justify;">
 
               {{$news->testimonial}}
 
@@ -617,10 +632,27 @@
               <span style="float:left">Sent By {{$news->personName}} , {{$news->personDesignation}} at {{$news->companyName}}</span>
 
             </p>
+         </div>
+         <a class="mob" style="font-weight:bold" href="#testimonial-details-<?php echo $i ?>"  data-toggle="collapse">
+                <span>More details</span> </a>
+
             <br>
+      
         </td>
+        <tr id="testimonial-details-<?php echo $i ?>" class="collapse">
+          <td colspan="2" style="border-top:1px solid #e6e6e6">
+             <div  >
+                
+              <span>{{$news->testimonial}}</span>
+<br>
+              <span style="font-weight: bolder">Sent By {{$news->personName}} , {{$news->personDesignation}} at {{$news->companyName}}</span>
+
+  </div>
+          </td>
+        </tr>
   </div>
   </tr>
+  <?php $i++; ?>
   @endforeach
   </table>
 

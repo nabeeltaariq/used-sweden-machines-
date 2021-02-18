@@ -330,7 +330,7 @@ $url = URL::to("/storage/app/products/$news->image");
                 
               <a href=" {{URL::to('/news')}}" class="btn-theme"><button class="btn-theme"> All News</button></a>
             @if($news->Next() != null)
-            <a href="{{URL::to('/news/by')}}/{{$news->Next()->id}}" autofocus><button class="btn-theme"> Next New </button> </a>
+            <a href="{{URL::to('/news/by')}}/{{$news->Next()->id}}" autofocus><button class="btn-theme"> Next News </button> </a>
 
             @endif
         </div>
