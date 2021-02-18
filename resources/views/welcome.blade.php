@@ -260,7 +260,7 @@
         <li><a href="{{URL::to('/category/selected/all')}}>All Machines ({{$totalMachines ?? ''}})</a></li>
         @foreach($statistics ?? '' as $stat)
 
-        <li><a href=" {{URL::to('/used-tetra-pak-machines')}}/?cat_id={{$stat['id']}}">{{$stat["name"]}} ({{$stat["totalProducts"]}})</a></li>
+        <li><a href=" {{URL::to('/category/selected')}}/{{$stat['id']}}">{{$stat["name"]}} ({{$stat["totalProducts"]}})</a></li>
 
         @endforeach
     </ul>
