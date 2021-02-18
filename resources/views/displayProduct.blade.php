@@ -185,6 +185,9 @@
             width: 104%;
         }
     }
+
+
+    }
 </style>
 
 <link rel="stylesheet" type="text/css" href="./slick/slick.css">
@@ -218,6 +221,20 @@ $category = App\Catagories::find($product->cat_id);
         .slick-next {
             right: 0px;
         }
+
+        .next-pre {
+            border-color: #f1ebeb !important;
+            border: .5px !important;
+            margin: 10px !important;
+            height: 30px !important;
+            width: 30px !important;
+            color: gray !important;
+        }
+
+
+
+
+        @media only screen and (max-width:481px) {}
     </style>
 </div>
 {{--Carousel and Description Div--}}
@@ -233,9 +250,20 @@ $category = App\Catagories::find($product->cat_id);
 </script>
 @endif
 @endif
+@php
+$machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($product->pr_title))));
+@endphp
+
+
+<!-- <a style="color:lightgray;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next"><button>
+        < </button> </a>
+<a style="color:lightgray;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next"><button>
+        > </button> </a> -->
+
+
+
+
 <div class="row" id="product-body">
-
-
     <div style="margin-top: 10px;  " class="col-lg-6 col-md-6 col-sm-6 ">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="100000000">
             <!-- Indicators -->
@@ -318,7 +346,6 @@ $category = App\Catagories::find($product->cat_id);
             <Br />
             @php
             echo html_entity_decode($product->long_des);
-            $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($product->pr_title))));
             @endphp
         </div>
         <div style="margin-top: 5px;">
@@ -345,26 +372,19 @@ $category = App\Catagories::find($product->cat_id);
                 
             <button data-toggle=" modal" data-target="#myModal-ask_for_price" class="btn-theme">Ask For Price </>
 
-
-
             <button onclick="location.href='{{URL::to('/category/selected')}}/{{$selectedCat}}'" style="margin-left:3px;" class="btn-theme">Back To Review</button>
 
             @if($next)
 
-            <a href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next" autofocus><button class="btn-theme"> Next Machine </button> </a>
+            <a class="desktop" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next" autofocus><button class="btn-theme"> Next Machine </button> </a>
 
             @else
-            <button onclick="location.href='{{URL::to('/used-tetra-pak-machines')}}'" class="btn-theme">All Products</button>
+            <button class="desktop" onclick="location.href='{{URL::to('/used-tetra-pak-machines')}}'" class="btn-theme">All Products</button>
 
             @endif
         </div>
     </div>
 </div>
-
-
-
-
-
 
 <!-- Modal -->
 <div style="margin-top: 40px;" class="modal fade" id="myModal" role="dialog">
