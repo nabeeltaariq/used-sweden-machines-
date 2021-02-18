@@ -218,7 +218,7 @@
       83-A, S.I.E # 1,<br>
       Gujranwala Pakistan
       <br>
-      Tel.: +92 (321) 7415373
+      Tel.: <span style="color:red;">+92 (321) 7415373</span>
     </p>
     <p>
       <a href="tel:+92-321-741-5373" class="footerButton"><i class="fas fa-phone-square"></i> Call</a>
