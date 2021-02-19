@@ -451,7 +451,7 @@
           </td>
           <td>
             <div class="content">
-              <span>item #: {{$product->SKU}}</span><br>
+              <span style="font-size: 12px">item #: {{$product->SKU}}</span><br>
 
               <a style="text-decoration:none" href="{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}"> <span id="title"> <strong> {{$product->pr_title}} </strong></span><br>
               </a>
@@ -488,7 +488,7 @@
           </td>
           <td>
             <div class="content">
-              <span>item #: {{$product->SKU}}</span><br>
+              <span style="font-size: 12px">item #: {{$product->SKU}}</span><br>
               <span id="title"> <strong> {{$product->pr_title}} </strong></span><br>
               <div id="check">
 
