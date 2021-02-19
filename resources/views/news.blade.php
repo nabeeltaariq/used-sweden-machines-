@@ -318,6 +318,8 @@
     .img-responsive {
       max-width: 100px !important;
       max-height: 90px !important;
+     width: 100px !important;
+     height: 90px !important;
       margin-top: 5px;
     }
 

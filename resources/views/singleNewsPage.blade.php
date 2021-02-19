@@ -213,7 +213,7 @@ $url = URL::to("/storage/app/products/$news->image");
 <div class="row" id="news-body">
 
 
-    <div style="margin-top: 10px;  " class="col-lg-6 col-md-6 col-sm 12 ">
+    <div style="margin-top: 10px;  " class="col-lg-6 col-md-6 col-sm-6 ">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="100000000">
             <!-- Indicators -->
 
@@ -285,7 +285,7 @@ $url = URL::to("/storage/app/products/$news->image");
 
         {{-- Slick slider Code Ends--}}
     </div>
-    <div class="col-lg-6 col-md-6 col-sm 12">
+    <div class="col-lg-6 col-md-6 col-sm-6">
         <div id="description_box">
             <strong>{{$news->news_title}}</strong><Br />
             <strong>News #: </strong>&nbsp;&nbsp;&nbsp;{{$news->id}}<br />
