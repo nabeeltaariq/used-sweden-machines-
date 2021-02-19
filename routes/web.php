@@ -18,6 +18,8 @@ Route::post('send', 'Home@sendmail');
 Route::get('email', 'Home@email');
 Route::get('{mahcine_name}/{id}', "Products@machine");
 Route::get('{mahcine_name}/{id}/next', "Products@machine");
+Route::get('{mahcine_name}/{id}/next/mobile', "Products@machineMobile");
+Route::get('{mahcine_name}/{id}/pre/mobile', "Products@machineMobile");
 
 
 Route::get("/refurbished_tetra_pak_machines_supplier_home", "Home@Index");
