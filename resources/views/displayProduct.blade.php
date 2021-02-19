@@ -222,19 +222,27 @@ $category = App\Catagories::find($product->cat_id);
             right: 0px;
         }
 
-        .next-pre {
+        /* .next-pre {
             border-color: #f1ebeb !important;
             border: .5px !important;
             margin: 10px !important;
             height: 30px !important;
             width: 30px !important;
             color: gray !important;
+        } */
+        .mobile-next-pre {
+            display: none;
         }
 
 
 
+        @media only screen and (max-width:481px) {
 
-        @media only screen and (max-width:481px) {}
+
+            .mobile-next-pre {
+                display: inherit;
+            }
+        }
     </style>
 </div>
 {{--Carousel and Description Div--}}
@@ -260,10 +268,13 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
 
 
-<!-- <a style="color:lightgray;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next"><button>
-        < </button> </a>
-<a style="color:lightgray;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next"><button>
-        > </button> </a> -->
+<div class="mobile-next-pre">
+    <a style="color:lightgray;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next"><button>
+            < </button> </a>
+    <a style="color:lightgray;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next"><button>
+            > </button> </a>
+</div>
+
 
 
 
