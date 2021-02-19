@@ -8,6 +8,9 @@
         max-width: 134px;
     }
 
+
+
+
     .modal-body .form-control {
         border-radius: 0px;
     }
