@@ -273,27 +273,13 @@
     // window.onload = zE(function() {
     //     zE.activate();
     // });
-
-
     var reloading = sessionStorage.getItem("reloading");
-    if (reloading) {
-
-
-    } else {
-
-
+    if (reloading) {} else {
         setTimeout(function() {
             $('#m').click();
         }, 10000);
-
-
         sessionStorage.setItem("reloading", "true");
-
-
     }
-
-
-
     $("input[name='search']").on("keyup", function() {
 
         let val = $(this).val();
@@ -306,10 +292,7 @@
             } else {
                 listitem.style.display = "none";
             }
-
-
         });
-
     });
 </script>
 
