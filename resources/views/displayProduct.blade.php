@@ -1,181 +1,185 @@
 @extends("templates.public")
 @section("sharing")
 <style>
-.slick-slide img {
-    min-height: 84px !important;
-    max-height: 84px !important;
-    min-width: 134px;
-    max-width: 134px;
-}
-      
-           .modal-body .form-control
-            {
-                border-radius:0px;
-            }
-                .modal-body
-  {
-     color:black;
-  }
-  .border-class-thinner {
-    border: 2px solid #034375;
-}
-.carousel-control.left, .carousel-control.right {
-   background-image:none !important;
-   filter:none !important;
-}
-   .label-heading
-   {
+    .slick-slide img {
+        min-height: 84px !important;
+        max-height: 84px !important;
+        min-width: 134px;
+        max-width: 134px;
+    }
 
-       margin-bottom:-10px;
-      margin-top:10px;
-      color:black;
-       }
-       #description_box
-{
-   background-color: #ddeef1;
-   color:black;
-           height:auto;
-            overflow: auto;
-            font-size: 12px;
-            border: 2px solid #808080;
-            height:310px;
-            margin-top:12px;
-    
+    .modal-body .form-control {
+        border-radius: 0px;
+    }
 
-}
+    .modal-body {
+        color: black;
+    }
 
-textarea.form-control {
-    height: auto;
-    resize: vertical;
-}
-#product-body
-{
+    .border-class-thinner {
+        border: 2px solid #034375;
+    }
 
-    margin-top:-5px;
+    .carousel-control.left,
+    .carousel-control.right {
+        background-image: none !important;
+        filter: none !important;
+    }
 
-}
+    .label-heading {
 
-       @media screen and (max-width: 765px) {
-  #slick,#bread-crumb,#myModalbig,.modal-backdrop.fade {
-   display:none !important;
-  }
-  #ask-for-price-form
-  {
-    padding-top: -50px !important;
-  }
-  
-#product-body
-{
+        margin-bottom: -10px;
+        margin-top: 10px;
+        color: black;
+    }
 
-    margin-top:10px;
-    margin-right:1px !important;
-        margin-left:1px !important;
-}
+    #description_box {
+        background-color: #ddeef1;
+        color: black;
+        height: auto;
+        overflow: auto;
+        font-size: 12px;
+        border: 2px solid #808080;
+        height: 310px;
+        margin-top: 12px;
 
-#description_box
-{
 
-           height:auto !important;
-    
+    }
+
+    textarea.form-control {
+        height: auto;
+        resize: vertical;
+    }
+
+    #product-body {
+
+        margin-top: -5px;
+
+    }
+
+    @media screen and (max-width: 765px) {
+
+        #slick,
+        #bread-crumb,
+        #myModalbig,
+        .modal-backdrop.fade {
+            display: none !important;
+        }
+
+        #ask-for-price-form {
+            padding-top: -50px !important;
+        }
+
+        #product-body {
+
+            margin-top: 10px;
+            margin-right: 1px !important;
+            margin-left: 1px !important;
+        }
+
+        #description_box {
+
+            height: auto !important;
+
             font-size: 12px;
             border: 2px solid #808080a6;
-margin-top: 10px;
-}
-#content
-{
-    margin-left:-5px;
- width:104%;
-}
-}
+            margin-top: 10px;
+        }
 
 
-                .linked li a:hover
-                {
-                    background: none;
-                }
+        #content {
+            margin-left: -5px;
+            width: 104%;
+        }
+    }
 
 
-.slider {
-    width: 50%;
-    margin: auto;
-}
+    .linked li a:hover {
+        background: none;
+    }
 
-.slick-slide {
-    margin:0px;
-    width:132px !important;
+
+    .slider {
+        width: 50%;
+        margin: auto;
+    }
+
+    .slick-slide {
+        margin: 0px;
+        width: 132px !important;
         transition: all ease-in-out .3s;
-}
+    }
 
-/*.slick-slide img {*/
-/*    width: 100%;*/
-/*    max-height:85px !important;*/
-/*}*/
+    /*.slick-slide img {*/
+    /*    width: 100%;*/
+    /*    max-height:85px !important;*/
+    /*}*/
 
-.slick-prev:before,
-.slick-next:before {
-    color: black;
-        
-}
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
 
-
-
-.slick-current {
-    opacity: 1;
-}
-
-        /* ==== Main CSS === */
-
-        .shareButtons{
-            list-style-type:none;
-            margin:0;
-            padding:0;
-        }
-        #my-thumbs-list{
-            overflow: auto;
-            width: 400px;
-            height: auto;
-
-        }
+    }
 
 
-        .shareButtons li{
-            display:inline-block;
-        }
 
-        .shareButtons li a{
-            display: inline-block;
-            font-size: 30px;
-            /* margin-right: 3px; */
-            margin-right: -2px;
-        }
-        .btn-theme{
+    .slick-current {
+        opacity: 1;
+    }
 
-            display: inline-block;
-  
-            background-color: #034171;
-            border-radius: 5px;
-            box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
-            font-size: 13px;
-            font-family: "Open Sans",Arial,sans-serif;
-            color: white;
+    /* ==== Main CSS === */
 
-        }
-        h3{
-            font-size:14px;
-        }
+    .shareButtons {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 
-        .btn-theme:hover{
-            color:white;
-            text-decoration:none;
-        }
-        .left
-        }
-            z-index: 9999 !important;
-        }
- 
-     
-    </style>
+    #my-thumbs-list {
+        overflow: auto;
+        width: 400px;
+        height: auto;
 
+    }
+
+
+    .shareButtons li {
+        display: inline-block;
+    }
+
+    .shareButtons li a {
+        display: inline-block;
+        font-size: 30px;
+        /* margin-right: 3px; */
+        margin-right: -2px;
+    }
+
+    .btn-theme {
+
+        display: inline-block;
+
+        background-color: #034171;
+        border-radius: 5px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+        font-size: 13px;
+        font-family: "Open Sans", Arial, sans-serif;
+        color: white;
+
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    .btn-theme:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .left {
+
+        z-index: 9999 !important;
+    }
 
 </style>
 
@@ -231,7 +235,10 @@ $category = App\Catagories::find($product->cat_id);
 
             .mobile-next-pre {
                 display: inherit;
+                margin-left: 10px;
             }
+
+
         }
     </style>
 </div>
@@ -376,7 +383,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
                 font-size: 13px;
                 font-family: " Open Sans",Arial,sans-serif; color: #444; ">
                 
-          <button data-toggle="modal" data-target="#myModal-ask_for_price"  class="btn-theme">Ask For Price </button>
+          <button data-toggle=" modal" data-target="#myModal-ask_for_price" class="btn-theme">Ask For Price </button>
 
             <button onclick="location.href='{{URL::to('/category/selected')}}/{{$selectedCat}}'" style="margin-left:3px;" class="btn-theme">Back To Review</button>
 
@@ -519,85 +526,85 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
 <!-- Modal -->
 <div class="modal fade" id="myModal-ask_for_price" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="color: #FBCA01;background-color:#034375;font-weight:bolder;">
-      <button type="button" style="background-color:#fbca01;color:#034375;float:right;border-radius:20px;"  data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <p class="modal-title" id="myModalLabel" style=""> {{$product->pr_title}}</p>
-      </div>
-      
-                  <!--<p style="background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);color:#034375;padding:8px;font-weight:bolder;">-->
-                  <!--  USM-Used Sweden Machines</br>-->
-                  <!--  83-A, S.I.E # 1,</br>-->
-                  <!--  Gujranwala Pakistan</br>-->
-                  <!--  Tel.: +92 (321) 7415373</br>-->
-                  <!--  E-Mail: info@usedswedenmachines.com</p>       -->
-<form action="{{route('QuoteFormSubmit',$product->id)}}" style="padding:10px;" method="POST" id="ask-for-price-form">
-                    @csrf
-                     <input type="hidden" name="token" >
-      <div class="modal-body">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-12 label-heading" >
-                <p >Item #</p>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="color: #FBCA01;background-color:#034375;font-weight:bolder;">
+                <button type="button" style="background-color:#fbca01;color:#034375;float:right;border-radius:20px;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <p class="modal-title" id="myModalLabel" style=""> {{$product->pr_title}}</p>
             </div>
-             <div class="col-lg-9 col-md-9 col-sm-12 ">
-                <input name="serial_no"  type="text"  value="{{$product->SKU}}" readonly="" class="col-lg-9 form-control" style="text-align:center">
-            </div>
-            
-             <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                <p>Machine Name</p>
-            </div>
-             <div class="col-lg-9 col-md-9 col-sm-12">
-                <input name="machine_name" type="text"   value="{{$product->pr_title}}" readonly="" class="col-lg-9 form-control">
-            </div>
-         
-             <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                <p>Full Name</p>
-            </div>
-             <div class="col-lg-9 col-md-9 col-sm-12">
-               <input name="full_name" type="text"  class="col-lg-9 form-control" required>
-            </div>
-            
-            
-            
-              <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                <p>Phone No</p>
-            </div>
-             <div class="col-lg-9 col-md-9 col-sm-12">
-             <input name="phone" type="text"    class="col-lg-9 form-control" required>
-            </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                <p>Email<span style="color:red">*</span></p>
-            </div>
-             <div class="col-lg-9 col-md-9 col-sm-12">
-               <input name="email" type="email"    class="col-lg-9 form-control" required>
-            </div>
-              <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                <p>Company</p>
-            </div>
-             <div class="col-lg-9 col-md-9 col-sm-12">
-             <input name="company" type="text"   class="col-lg-9 form-control" required>
-            </div>
-            
-              <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
-                <p>Special Request</p>
-            </div>
-             <div class="col-lg-9 col-md-9 col-sm-12">
-            <textarea name="request" placeholder="Please, contact regarding this machine"   cols="31" class="col-lg-9 form-control" required></textarea>
-            </div>
-            
+
+            <!--<p style="background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);color:#034375;padding:8px;font-weight:bolder;">-->
+            <!--  USM-Used Sweden Machines</br>-->
+            <!--  83-A, S.I.E # 1,</br>-->
+            <!--  Gujranwala Pakistan</br>-->
+            <!--  Tel.: +92 (321) 7415373</br>-->
+            <!--  E-Mail: info@usedswedenmachines.com</p>       -->
+            <form action="{{route('QuoteFormSubmit',$product->id)}}" style="padding:10px;" method="POST" id="ask-for-price-form">
+                @csrf
+                <input type="hidden" name="token">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Item #</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12 ">
+                            <input name="serial_no" type="text" value="{{$product->SKU}}" readonly="" class="col-lg-9 form-control" style="text-align:center">
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Machine Name</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <input name="machine_name" type="text" value="{{$product->pr_title}}" readonly="" class="col-lg-9 form-control">
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Full Name</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <input name="full_name" type="text" class="col-lg-9 form-control" required>
+                        </div>
+
+
+
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Phone No</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <input name="phone" type="text" class="col-lg-9 form-control" required>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Email<span style="color:red">*</span></p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <input name="email" type="email" class="col-lg-9 form-control" required>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Company</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <input name="company" type="text" class="col-lg-9 form-control" required>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
+                            <p>Special Request</p>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <textarea name="request" placeholder="Please, contact regarding this machine" cols="31" class="col-lg-9 form-control" required></textarea>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="color: #FBCA01;background-color:#034375;font-weight:bolder;" data-dismiss="modal">Close</button>
+
+                    <button name="quote_form" type="submit" style="color: #FBCA01;background-color:#034375;font-weight:bolder;" class="btn btn-default" id="Submit" name="submit">Submit
+                    </button>
+                </div>
+            </form>
         </div>
-      </div>
-         
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" style="color: #FBCA01;background-color:#034375;font-weight:bolder;" data-dismiss="modal">Close</button>
-     
-        <button name="quote_form" type="submit" style="color: #FBCA01;background-color:#034375;font-weight:bolder;" class="btn btn-default" id="Submit" name="submit" >Submit
-        </button>
-      </div>
-       </form>
     </div>
-  </div>
 </div>
 
 
