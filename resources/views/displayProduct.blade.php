@@ -176,18 +176,9 @@ margin-top: 10px;
      
     </style>
 
-<<<<<<< HEAD
-=======
-        #content {
-            margin-left: -5px;
-            width: 104%;
-        }
-    }
 
-
-    }
 </style>
->>>>>>> b019f22e7a3044417529358134385a89dd4dbc94
+
 
 <link rel="stylesheet" type="text/css" href="./slick/slick.css">
 <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
