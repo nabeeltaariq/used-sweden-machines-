@@ -16,11 +16,6 @@
     overflow-y: auto;
     margin-left: -7px;
     margin-top: 4px;
-
-
-
-
-
   }
 
   #search {
