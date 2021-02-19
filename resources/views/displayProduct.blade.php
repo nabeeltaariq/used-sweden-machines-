@@ -255,6 +255,11 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 @endphp
 
 
+
+
+
+
+
 <!-- <a style="color:lightgray;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next"><button>
         < </button> </a>
 <a style="color:lightgray;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next"><button>
