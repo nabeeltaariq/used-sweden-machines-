@@ -21,24 +21,25 @@ class Products extends Controller
 
     public function machine($machine_name, $id)
     {
+
         if (session()->get("mode") == "all") {
             $machine = Product::find($id);
-            $nextmachine = Product::where('id', '<', $machine->id)->orderBy('id', 'desc')->first();
+            $nextmachine = Product::where('id', '>', $machine->id)->orderBy('id', 'asc')->first();
             $next = '';
             if ($nextmachine) {
                 $next = $nextmachine->id;
             } else {
-
-                $next = '';
+                $nextmachine = Product::where('id', '<', $machine->id)->orderBy('id', 'asc')->first();
+                $next = $nextmachine->id;
             }
             $allThumbs = Thumbs::where('org_id', $machine->id)->get();
             return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => 'all']);
         }
 
         $machine = Product::find($id);
-        $nextmachineid = Product::where('id', '<', $machine->id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
+        $nextmachineid = Product::where('id', '>', $machine->id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
         if (empty($nextmachineid)) {
-            $nextmachineid = Product::where('id', '>', $machine->id)->where('cat_id', $machine->cat_id)->orderBy('id', 'asc')->first();
+            $nextmachineid = Product::where('id', '<', $machine->id)->where('cat_id', $machine->cat_id)->orderBy('id', 'asc')->first();
             if ($nextmachineid) {
                 $next = $nextmachineid->id;
             } else {
@@ -51,6 +52,29 @@ class Products extends Controller
         return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => $machine->cat_id]);
     }
 
+    public function machineMobile($machine_name, $id)
+    {
+
+        $pre = '';
+        $next = '';
+        $machine = Product::find($id);
+        $nextmachineid = Product::where('id', '>', $machine->id)->where('cat_id', $machine->cat_id)->orderBy('id', 'asc')->first();
+        if ($nextmachineid) {
+            $next = $nextmachineid->id;
+        } else {
+            $next = $id;
+        }
+        $pre = Product::where('id', '<', $id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
+        if ($pre) {
+            $pre = $pre->id;
+        } else {
+            $pre = $id;
+        }
+
+
+        $allThumbs = Thumbs::where('org_id', $machine->id)->get();
+        return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => $machine->cat_id, "pre" => $pre]);
+    }
 
 
 

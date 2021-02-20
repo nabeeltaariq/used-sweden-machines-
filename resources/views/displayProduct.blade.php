@@ -8,6 +8,9 @@
         max-width: 134px;
     }
 
+
+
+
     .modal-body .form-control {
         border-radius: 0px;
     }
@@ -228,17 +231,12 @@ $category = App\Catagories::find($product->cat_id);
             display: none;
         }
 
-
-
-        @media only screen and (max-width:481px) {
-
-
+        @media only screen and (max-width: 481px) {
             .mobile-next-pre {
                 display: inherit;
-                margin-left: 10px;
+                margin-left: 14px;
+                margin-top: 10px;
             }
-
-
         }
     </style>
 </div>
@@ -261,14 +259,10 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
 
 
-
-
-
-
 <div class="mobile-next-pre">
-    <a style="color:lightgray;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next"><button>
+    <a style="color:lightgray;background-color:white;" href="{{URL::to('/')}}/{{$machine_name}}/{{$pre ?? ''}}/pre/mobile"><button>
             < </button> </a>
-    <a style="color:lightgray;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next"><button>
+    <a style="color:lightgray;background-color:white;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next/mobile"><button>
             > </button> </a>
 </div>
 
