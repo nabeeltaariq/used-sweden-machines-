@@ -234,7 +234,35 @@ $category = App\Catagories::find($product->cat_id);
                 display: inherit;
                 margin-left: 14px;
                 margin-top: 10px;
+                margin-left: 70%;
+
             }
+
+            .outer-pre-next {
+                text-decoration: none;
+                display: inline-block;
+                padding: 8px 16px;
+                border: .5px solid lightgray;
+                color: gray;
+                font-size: 20px;
+                border-radius: 5px;
+            }
+
+            .previous {
+                background-color: #f1f1f1;
+                color: black;
+            }
+
+            .next {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            .round {
+                border-radius: 50%;
+            }
+
+
         }
     </style>
 </div>
@@ -258,10 +286,9 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
 
 <div class="mobile-next-pre">
-    <a style="color:lightgray;background-color:white;" href="{{URL::to('/')}}/{{$machine_name}}/{{$pre ?? ''}}/pre/mobile"><button>
-            < </button> </a>
-    <a style="color:lightgray;background-color:white;" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next/mobile"><button>
-            > </button> </a>
+    <a class="outer-pre-next" href="{{URL::to('/')}}/{{$machine_name}}/{{$pre ?? ''}}/pre/mobile">&#8249;</a>
+    <a class="outer-pre-next" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next/mobile">&#8250;</a>
+
 </div>
 
 

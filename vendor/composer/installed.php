@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'cc46f839e3a045a1ebf27719c1a274891f7bb81a',
+    'reference' => 'c7b3d2070511cd4f9ca21e3939902ee304a7b2e3',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -419,6 +419,15 @@
         0 => 'v6.20.16',
       ),
     ),
+    'intervention/image' => 
+    array (
+      'pretty_version' => '2.5.1',
+      'version' => '2.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'abbf18d5ab8367f96b3205ca3c89fb2fa598c69e',
+    ),
     'jakub-onderka/php-console-color' => 
     array (
       'replaced' => 
@@ -474,7 +483,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'cc46f839e3a045a1ebf27719c1a274891f7bb81a',
+      'reference' => 'c7b3d2070511cd4f9ca21e3939902ee304a7b2e3',
     ),
     'laravel/tinker' => 
     array (
