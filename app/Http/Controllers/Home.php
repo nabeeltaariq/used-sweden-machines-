@@ -55,6 +55,8 @@ class Home extends Controller
         // $img->save(public_path('imgs/main-new.png'));
         // dd("saved");
 
+
+
         $request->session()->forget("mode");
         $request->session()->put("mode", "all");
         $allCatagories = Catagories::where('id', ">=", 1)->orderBy("order", "asc")->get();
