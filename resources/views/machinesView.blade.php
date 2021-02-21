@@ -402,6 +402,13 @@
     }
   }
 </style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Used Tetra Pak Machines, wide range of machine categories available and other filling equipments.">
+  <meta name="keywords" content="used-tetra-pak-machines,tetra pak used machine for sale">
+  <meta name="author" content="Mr. Abdul Rehman">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <div style="font-family:arial;font-size:11px;margin-top:0px;" id="bread-crumb">
   <a href="{{URL::to('/')}}" style="">Home</a>&nbsp;»&nbsp;<span>Products</span></span>
   <style>
