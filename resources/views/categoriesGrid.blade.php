@@ -1,6 +1,14 @@
 @extends("templates.public")
 
 @section("content")
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="We sell unused (new) original Tetra Pak spare parts for Tetra Pak filling, capping, screw cap applicators, packaging machines like TBA 8, A 3 flex, TCBP 70, CP 70, TBA 3, TBA 19, PT 10, PT 8 Wir bieten an: Wir bieten an, ungenutzte (neue) Tetra Pak Ersatzteile für Tetra Pak Füllmaschinen,
+  Abfüllmaschinen, Schraubverschluss Applikatoren, Kapper, Tray Packer, TBA 8, A 3 flex, TCBP 70 and Drive Cams set. ">
+  <meta name="keywords" content="filling-spare-parts,spare-parts,food-packaging,food-service">
+  <meta name="author" content="Mr. Abdul Rehman">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
 <div style="font-family:arial;font-size:11px;">
 
