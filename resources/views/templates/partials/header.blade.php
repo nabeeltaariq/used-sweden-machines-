@@ -147,8 +147,8 @@
     <div style="float:left;font-size:12px;padding-top:0px;padding-left:20px">
       <a href="tel:+92-321-741-5373" style="color:red;line-height:2.5;font-weight:bolder;"> Call USM: </a>
       <span style=""><a href="tel:+92-321-741-5373" style="color:#0b4692;">+92-321-741-5373</a></span>
-      <br />
-      <span><a href="mailto:info@usm.com.pk" style="color:#0b4692;">info@usm.com.pk</a> </span><br />
+
+      <p><a href="mailto:info@usm.com.pk" style="color:#0b4692;">info@usm.com.pk</a> </p>
 
       <span>
         <a href="#" target="_blank" style="color:#0b4692;">
