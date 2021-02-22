@@ -149,7 +149,7 @@
       <span style=""><a href="tel:+92-321-741-5373" style="color:#0b4692;">+92-321-741-5373</a></span>
       <br />
       <span><a href="mailto:info@usm.com.pk" style="color:#0b4692;">info@usm.com.pk</a> </span><br />
-      <br />
+
       <span>
         <a href="#" target="_blank" style="color:#0b4692;">
           <img src="{{url('public/imgs/app.png')}}" style="max-height:25px;margin-top:4px;" alt="">
