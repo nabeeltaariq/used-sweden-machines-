@@ -1,6 +1,7 @@
 @extends("templates.public")
 @section("sharing")
 <style>
+    
     .modal-body .form-control {
         border-radius: 0px;
     }
@@ -339,30 +340,30 @@ $url = URL::to("/storage/app/products/$news->image");
 </div>
 
 
-<div style="margin-top: 40px;" class="modal fade" id="myModalbig" role="dialog">
-    <div class="modal-dialog" style="height:586px;width:763px">
+<div style="margin-top: 20px;" class="modal fade" id="myModalbig" role="dialog">
+    <div class="modal-dialog" style="height:486px;width:600px">
 
 
         <div class="modal-header" style="border:none;">
-            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 730px"><span>&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 94%"><span>&times;</span><span class="sr-only">Close</span></button>
 
 
         </div>
 
-        <div class="modal-content" style="  height:586px;width:763px">
+        <div class="modal-content" style=" height:486px;width:600px">
 
             <div class="modal-body" style="padding:0px;height
             :auto">
 
 
-                <div id="myCarousel4" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:586px;width:763px">
+                <div id="myCarousel4" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:486px;width:600px">
                     <!-- Indicators -->
 
                     <!-- Wrapper for slides -->
-                    <div class="carousel-inner " style="height:586px;width:763px;border:10px solid white">
+                    <div class="carousel-inner " style="height:486px;width:600px;border:10px solid white">
                         <div class="item active">
 
-                            <img style="width:763px;height: 586px" class="model-images" src="{{$url}}">
+                            <img style="height:486px;width:600px" class="model-images" src="{{$url}}">
                         </div>
                         @php
                         $allThumbs = App\News_Image::where("news_id",$news->id)->get();
@@ -370,7 +371,7 @@ $url = URL::to("/storage/app/products/$news->image");
 
                         @foreach($allThumbs as $thumb)
                         <div class="item">
-                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}" class="img-responsive" style="width:763px;height: 586px">
+                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}" class="img-responsive" style="height:486px;width:600px">
 
                         </div>
                         @endforeach
@@ -400,31 +401,31 @@ $url = URL::to("/storage/app/products/$news->image");
 
 
 <!-- Modal -->
-<div style="margin-top: 10px;" class="modal fade" id="myModal" role="dialog">
+<div style="margin-top: 20px;" class="modal fade" id="myModal" role="dialog">
 
-    <div class="modal-dialog" style="height:586px;width:763px">
+    <div class="modal-dialog" style="height:height:486px;width:600px">
 
 
         <div class="modal-header" style="border:none;">
-            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 730px"><span>&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 94%"><span>&times;</span><span class="sr-only">Close</span></button>
 
 
         </div>
 
-        <div class="modal-content" style="  height:586px;width:763px">
+        <div class="modal-content" style=" height:486px;width:600px">
 
             <div class="modal-body" style="padding:0px;height
             :auto">
 
 
-                <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:586px;width:763px">
+                <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:486px;width:600px">
                     <!-- Indicators -->
 
                     <!-- Wrapper for slides -->
-                    <div class="carousel-inner " style="height:586px;width:763px;border:10px solid white">
+                    <div class="carousel-inner " style="height:486px;width:600px;border:10px solid white">
                         <div class="item active">
 
-                            <img style="width:763px;height: 586px" class="model-images" src="">
+                            <img style="height:486px;width:600px" class="model-images" src="">
                         </div>
                         @php
                         $allThumbs = App\News_Image::where("news_id",$news->id)->get();
@@ -432,7 +433,7 @@ $url = URL::to("/storage/app/products/$news->image");
 
                         @foreach($allThumbs as $thumb)
                         <div class="item">
-                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}" class="img-responsive" style="width:763px;height: 586px">
+                            <img src="{{URL::to('/storage/app/products/'.$thumb->imageUrl)}}" class="img-responsive" style="height:486px;width:600px">
 
                         </div>
                         @endforeach
