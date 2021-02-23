@@ -6,7 +6,7 @@
     padding: 5px 5px 5px 5px;margin-top:10px;margin-bottom:10px;margin-left:auto;margin-right:auto;">
 @if($id==6)
 <div style="margin-top:45px;" class="para" align="center">
-    <font face="Verdana, Geneva, sans-serif" size="1" style="font-size:10px;">So that our emails do not end up in your SPAM folder, please add our <a href="mailto:newsletter@usedswedenmachines.com">E-Mail-Adress</a> to your address book.</font>
+    <font face="Verdana, Geneva, sans-serif" size="1" style="font-size:10px;">So that our emails do not end up in your SPAM folder, please add our <a href="mailto:info@usm.com.pk">E-Mail-Adress</a> to your address book.</font>
 </div>
 
 
@@ -55,7 +55,7 @@
 </div>
 @elseif($id==9)
 <div class="para" align="center">
-    <font face="Verdana, Geneva, sans-serif" size="1" style="font-size:10px;">So that our emails do not end up in your SPAM folder, please add our <a href="mailto:newsletter@usedswedenmachines.com">E-Mail-Adress</a> to your address book.</font>
+    <font face="Verdana, Geneva, sans-serif" size="1" style="font-size:10px;">So that our emails do not end up in your SPAM folder, please add our <a href="mailto:info@usm.com.pk">E-Mail-Adress</a> to your address book.</font>
 </div>
 <div align=left class="row">
      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"  >
@@ -90,9 +90,9 @@
 
 @elseif($id==10)
 <div style="margin-top:10px;" class="para" align="center">
-    <font face="Verdana, Geneva, sans-serif" size="1" style="font-size:10px;">So that our emails do not end up in your SPAM folder, please add our <a href="mailto:newsletter@usedswedenmachines.com">E-Mail-Adress</a> to your address book.</font>
+    <font face="Verdana, Geneva, sans-serif" size="1" style="font-size:10px;">So that our emails do not end up in your SPAM folder, please add our <a href="mailto:info@usm.com.pk">E-Mail-Adress</a> to your address book.</font>
 </div>
-<div class="row">
+<div class="row" style="margin-left: 20px">
     <div class="col-lg-6 col-md-6 col-sm-12">
         <a href="http://usedswedenmachines.com/">  
     <center>
@@ -112,7 +112,7 @@
     
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12"  >
-        <p style="margin-top: 51px;font-size:13px;margin-left:10px;">Used Sweden Machines<br />D.O.H.S 290, Phase 1 Gujranwala, Pakistan<br />Company Registration No: 4015134-4<br />Tel.: +92(321)7415373<br />E-Mail: <a href="mailto:info@usedsweedenmachines.com">info@usedsweedenmachines.com</a></p>
+        <p style="margin-top: 51px;font-size:13px;margin-left:10px;">Used Sweden Machines<br />D.O.H.S 290, Phase 1 Gujranwala, Pakistan<br />Company Registration No: 4015134-4<br />Tel.: +92(321)7415373<br />E-Mail: <a href="mailto:info@usm.com.pk">info@usm.com.pk</a></p>
     </div>
 </div>
 
@@ -205,7 +205,7 @@
 </tr>
 <tr>
 <td colspan="2" align="center" width="80%">
-<p>* CONDITION RATING <br />1 = very good 2 = good 3 = fair 4 = poor 5 = very poor<br />Tel +92-321-7415373 Fax +92-55-3845997 <a href="mailto:info@usedswedenmachines.com">info@usedswedenmachines.com</a><br /><a href="http://usedswedenmachines.com/">www.usedswedenmachines.com</a></p>
+<p>* CONDITION RATING <br />1 = very good 2 = good 3 = fair 4 = poor 5 = very poor<br />Tel +92-321-7415373 Fax +92-55-3845997 <a href="mailto:info@usm.com.pk">info@usm.com.pk</a><br /><a href="http://usedswedenmachines.com/">www.usedswedenmachines.com</a></p>
 </td>
 </tr>
 </tbody>
@@ -218,14 +218,14 @@
 @elseif($id==11)
 
 <div  class="para" align="center">
-    <font face="Verdana, Geneva, sans-serif" size="1" style="font-size:10px;">So that our emails do not end up in your SPAM folder, please add our <a href="mailto:newsletter@usedswedenmachines.com">E-Mail-Adress</a> to your address book.</font>
+    <font face="Verdana, Geneva, sans-serif" size="1" style="font-size:10px;">So that our emails do not end up in your SPAM folder, please add our <a href="mailto:info@usm.com.pk">E-Mail-Adress</a> to your address book.</font>
 </div>
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-12">
         <a href="http://usedswedenmachines.com/"> <img src="{{url('public/imgs/logo.png')}}" style="margin-left: 80px;" height=120 width="40%;"></a>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12">
-       <p style="margin-top: 28px;margin-left:20px;">Used Sweden Machines<br />D.O.H.S 290, Phase 1 Gujranwala, Pakistan<br />Company Registration No: 4015134-4<br />Tel.: +92(321)7415373<br />E-Mail: <a href="mailto:info@usedsweedenmachines.com">info@usedsweedenmachines.com</a></p>
+       <p style="margin-top: 28px;margin-left:20px;">Used Sweden Machines<br />D.O.H.S 290, Phase 1 Gujranwala, Pakistan<br />Company Registration No: 4015134-4<br />Tel.: +92(321)7415373<br />E-Mail: <a href="mailto:info@usm.com.pk">info@usm.com.pk</a></p>
     </div>
 </div>
 
@@ -303,7 +303,7 @@
 </tr>
 <tr>
 <td colspan="2" align="center" width="80%">
-<p>* CONDITION RATING <br />1 = very good 2 = good 3 = fair 4 = poor 5 = very poor<br />Tel +92-321-7415373 Fax +92-55-3845997 <a href="mailto:info@usedswedenmachines.com">info@usedswedenmachines.com</a><br /><a href="http://usedswedenmachines.com/">www.usedswedenmachines.com</a></p>
+<p>* CONDITION RATING <br />1 = very good 2 = good 3 = fair 4 = poor 5 = very poor<br />Tel +92-321-7415373 Fax +92-55-3845997 <a href="mailto:info@usm.com.pk">info@usm.com.pk</a><br /><a href="http://usedswedenmachines.com/">www.usedswedenmachines.com</a></p>
 </td>
 </tr>
 </tbody>

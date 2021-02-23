@@ -569,7 +569,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
 
 <!-- Modal -->
-<div  class="modal fade" id="myModalbig" role="dialog">
+<div  class="modal fade" id="myModalbig" role="dialog" style="margin-top: 20px">
 
     <div class="modal-dialog" style="height:486px;width:600px">
 
