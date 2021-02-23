@@ -15,6 +15,7 @@ use App\ContactHead;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Session\Session;
+use Image;
 
 class Products extends Controller
 {
@@ -22,6 +23,15 @@ class Products extends Controller
     public function machine($machine_name, $id)
     {
 
+        // $img = Image::make(public_path('imgs/0_HICLyAdNSIyT0ODU.jpg'));
+        // $watermark = public_path('imgs/confetti.png');
+
+        // $img->insert($watermark, 'bottom-right', 10, 10);
+        // $img->save(public_path('imgs/main-new.png'));
+
+
+        $pre = '';
+        $next = '';
         if (session()->get("mode") == "all") {
             $machine = Product::find($id);
             $nextmachine = Product::where('id', '>', $machine->id)->orderBy('id', 'asc')->first();
@@ -32,8 +42,15 @@ class Products extends Controller
                 $nextmachine = Product::where('id', '<', $machine->id)->orderBy('id', 'asc')->first();
                 $next = $nextmachine->id;
             }
+            $pre = Product::where('id', '<', $id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
+            if ($pre) {
+                $pre = $pre->id;
+            } else {
+                $pre = $id;
+            }
+
             $allThumbs = Thumbs::where('org_id', $machine->id)->get();
-            return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => 'all']);
+            return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => 'all', "pre" => $pre]);
         }
 
         $machine = Product::find($id);
@@ -48,8 +65,14 @@ class Products extends Controller
         } else {
             $next = $nextmachineid->id;
         }
+        $pre = Product::where('id', '<', $id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
+        if ($pre) {
+            $pre = $pre->id;
+        } else {
+            $pre = $id;
+        }
         $allThumbs = Thumbs::where('org_id', $machine->id)->get();
-        return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => $machine->cat_id]);
+        return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => $machine->cat_id, "pre" => $pre]);
     }
 
     public function machineMobile($machine_name, $id)
@@ -59,19 +82,17 @@ class Products extends Controller
         $next = '';
         $machine = Product::find($id);
         $nextmachineid = Product::where('id', '>', $machine->id)->where('cat_id', $machine->cat_id)->orderBy('id', 'asc')->first();
+        $pre = Product::where('id', '<', $id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
         if ($nextmachineid) {
             $next = $nextmachineid->id;
         } else {
             $next = $id;
         }
-        $pre = Product::where('id', '<', $id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
         if ($pre) {
             $pre = $pre->id;
         } else {
             $pre = $id;
         }
-
-
         $allThumbs = Thumbs::where('org_id', $machine->id)->get();
         return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => $machine->cat_id, "pre" => $pre]);
     }

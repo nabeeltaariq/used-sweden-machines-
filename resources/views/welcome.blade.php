@@ -108,6 +108,13 @@
     }
 </style>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Buy and Sell Used Tetra Pak Machines,Tetra Pak Machines Spare parts, Refurbished Tetra Pak Machines suppliers' home and Technical Services">
+    <meta name="keywords" content="Used-Sweden-Mchines,machines, tetrapak,machines,packaging-machines">
+    <meta name="author" content="Mr. Abdul Rehman">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <div class="row desktop_welcome" id="desk">
     <div class="col-lg-4 col-md-4 col-sm-6" style="padding-right:0px;">
 
@@ -257,7 +264,7 @@
 
 <div class="mobile_welcome" style="margin-top:40px;">
     <ul class="mobile_products" align="right">
-        <li><a href="{{URL::to('/category/selected/all')}}>All Machines ({{$totalMachines ?? ''}})</a></li>
+        <li><a href="{{URL::to('/category/selected/all')}}">All Machines ({{$totalMachines ?? ''}})</a></li>
         @foreach($statistics ?? '' as $stat)
 
         <li><a href=" {{URL::to('/category/selected')}}/{{$stat['id']}}">{{$stat["name"]}} ({{$stat["totalProducts"]}})</a></li>

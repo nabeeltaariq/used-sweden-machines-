@@ -30,6 +30,7 @@ use App\Purchase;
 use Mail;
 use App\Mail\SendMail;
 use App\News_Image;
+use Image;
 
 
 
@@ -45,11 +46,23 @@ class Home extends Controller
     }
     public function all(Request $request)
     {
+
+        // $watermark = url('public/imgs/confetti.png');
+        // $img = Image::make(public_path('imgs/0_HICLyAdNSIyT0ODU.jpg'));
+        // $watermark = public_path('imgs/confetti.png');
+
+        // $img->insert($watermark, 'bottom-right', 10, 10);
+        // $img->save(public_path('imgs/main-new.png'));
+        // dd("saved");
+
+
+
         $request->session()->forget("mode");
         $request->session()->put("mode", "all");
         $allCatagories = Catagories::where('id', ">=", 1)->orderBy("order", "asc")->get();
         $allProducts = Product::all()->sortByDesc("id");
         $allProductsJustIn = Product::where('id', ">=", 1)->where('s_status', 'Just In')->orderBy("id", "desc")->get();
+
         $allProductsSold = Product::where('id', ">=", 1)->where('s_status', 'SOLD')->orderBy("id", "desc")->get();
         return view("machinesView", ["allCatagories" => $allCatagories, "allProductsJustIn" =>  $allProductsJustIn, "allProductsSold" => $allProductsSold, "selectedCat" => "all"]);
     }
@@ -261,15 +274,13 @@ class Home extends Controller
                 $thumb->save();
             }
             $request->session()->flash("success", "Your machine has been uploaded");
-        }
-        else
-        {
-             $request->session()->flash("danger", "OOPS! Something went wrong...");
+        } else {
+            $request->session()->flash("danger", "OOPS! Something went wrong...");
         }
 
 
 
-        
+
 
         return redirect()->back();
 
@@ -757,12 +768,12 @@ class Home extends Controller
         $to = "inquiry@trepak.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
-         $message .= 'Sender:  ' .  request('email') . "\n";
+        $message .= 'Sender:  ' .  request('email') . "\n";
         $message .= 'Machine Name: ' . request('machine_name') . "\n";
         $message .= 'Item #:  ' .  request('serial_no') . "\n";
         $message .= 'Name :  ' . request('full_name') . "\n";
         $message .= 'Phone #:  ' . request('phone') . "\n";
-       
+
         $message .= 'Company:  ' . request('company')  . "\n";
 
         $message .= 'Special Request:  ' .  request('request') . "\n";

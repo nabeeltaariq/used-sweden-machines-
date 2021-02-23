@@ -132,6 +132,13 @@
 
   }
 
+  @media only screen and(max-width:481px) {
+    .content {
+      border-top: 1px solid gray;
+      height: auto;
+    }
+  }
+
   #table-outer {
     height: 435px;
     overflow-y: auto;
@@ -181,7 +188,7 @@
 
   @media only screen and (max-width: 768px) {
 
-   
+
     #table-outer {
       margin-left: 0px !important;
     }
@@ -204,21 +211,18 @@
   }
 
   @media only screen and (max-width:600px) {
-    #testimonial-expand
-    {
+    #testimonial-expand {
       display: none;
     }
-    #testimonial-content
 
-  {
-    margin-left: 8px !important;
-  }
-    #testimonial-content p
+    #testimonial-content {
+      margin-left: 8px !important;
+    }
 
-  {
-    margin-top: -30px !important;
-  }
-  
+    #testimonial-content p {
+      margin-top: -30px !important;
+    }
+
     .row {
       margin-top: 30px !important;
     }
@@ -318,8 +322,8 @@
     .img-responsive {
       max-width: 100px !important;
       max-height: 90px !important;
-     width: 100px !important;
-     height: 90px !important;
+      width: 100px !important;
+      height: 90px !important;
       margin-top: 5px;
     }
 
@@ -451,7 +455,8 @@
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Machine Name or SKU">
 <div class="dropdown" style="display:none;">
   <button id="dLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-    News Menu
+
+    {{ucfirst( $mode)}}
     <span class="caret"></span>
   </button>
 
@@ -589,7 +594,7 @@
     </table>
     @endif
     @if($mode == "testimonials")
-<?php $i=0; ?>
+    <?php $i = 0; ?>
 
     <table id="myTable">
       @foreach($data as $news)
@@ -618,40 +623,40 @@
 
             </p>
 
-         <div id="testimonial-expand">
+            <div id="testimonial-expand">
               <p class="para" style="min-height: 50px;text-align: justify;">
 
-              {{$news->testimonial}}
+                {{$news->testimonial}}
 
-            </p>
-
-
-
-            <p class="reduce-margin-top-onMobile" style="font-size:12px;font-weight:bolder;margin-bottom:35px">
+              </p>
 
 
 
-              <span style="float:left">Sent By {{$news->personName}} , {{$news->personDesignation}} at {{$news->companyName}}</span>
+              <p class="reduce-margin-top-onMobile" style="font-size:12px;font-weight:bolder;margin-bottom:35px">
 
-            </p>
-         </div>
-         <a class="mob" style="font-weight:bold" href="#testimonial-details-<?php echo $i ?>"  data-toggle="collapse">
-                <span>More details</span> </a>
+
+
+                <span style="float:left">Sent By {{$news->personName}} , {{$news->personDesignation}} at {{$news->companyName}}</span>
+
+              </p>
+            </div>
+            <a class="mob" style="font-weight:bold" href="#testimonial-details-<?php echo $i ?>" data-toggle="collapse">
+              <span>More details</span> </a>
 
             <br>
-      
-        </td>
-        <tr id="testimonial-details-<?php echo $i ?>" class="collapse">
-          <td colspan="2" style="border-top:1px solid #e6e6e6">
-             <div  >
-                
-              <span>{{$news->testimonial}}</span>
-<br>
-              <span style="font-weight: bolder">Sent By {{$news->personName}} , {{$news->personDesignation}} at {{$news->companyName}}</span>
 
-  </div>
-          </td>
-        </tr>
+        </td>
+      <tr id="testimonial-details-<?php echo $i ?>" class="collapse">
+        <td colspan="2" style="border-top:1px solid #e6e6e6">
+          <div>
+
+            <span>{{$news->testimonial}}</span>
+            <br>
+            <span style="font-weight: bolder">Sent By {{$news->personName}} , {{$news->personDesignation}} at {{$news->companyName}}</span>
+
+          </div>
+        </td>
+      </tr>
   </div>
   </tr>
   <?php $i++; ?>

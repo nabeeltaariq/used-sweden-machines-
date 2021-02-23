@@ -156,7 +156,7 @@
             </td>
             <td style="position:relative">
               <span class="hide-this"><?= $item["status"] ?></span>
-              <span style="position:absolute;top:3px;right:0;color:maroon;cursor:pointer" class="fas fa-times removeButton " title="remove this item"></span>
+              <span style="position:absolute;top:3px;color:maroon;cursor:pointer;margin-left:8px;" class="fas fa-times removeButton " title="remove this item"></span>
             </td>
 
           </tr>

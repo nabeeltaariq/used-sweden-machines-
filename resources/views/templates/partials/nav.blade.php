@@ -245,14 +245,13 @@
               font-weight: bolder;
           
 
-              color: #034375;"
->Contact Us</h4>
+              color: #034375;">Contact Us</h4>
           </p>
         </div>
         <br>
-        
+
         <div style="font-size:15px;margin-left:18px">
-          <strong>USM-Used Sweden Machines</strong><br>85-A, Small industrial estate # 1 <br>Gujranwala, Pakistan<br><br>Tel.: +92 (321) 7415373<br>E-Mail: <a class="link" style="color: blue; text-decoration: underline;" href="mailto: info@usedswedenmachines.com">info@usm.com.pk</a>
+          <strong>USM-Used Sweden Machines</strong><br>85-A, Small industrial estate # 1 <br>Gujranwala, Pakistan<br><br>Tel.: +92 (321) 7415373<br>E-Mail: <a class="link" style="color: blue; text-decoration: underline;" href="mailto: info@usm.com.pk">info@usm.com.pk</a>
         </div>
         <form id="contact-form">
           @csrf
@@ -278,7 +277,7 @@
                 <p>Full Name</p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
-                <input name="full_name" type="text" style="width:100%;outline:none" id="full_name"  class="col-lg-9 form-control" required>
+                <input name="full_name" type="text" style="width:100%;outline:none" id="full_name" class="col-lg-9 form-control" required>
               </div>
 
 
@@ -287,13 +286,13 @@
                 <p>Phone No.<span style="color:red">*</span></p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
-                <input name="phone" type="text" id="phone"  class="col-lg-9 form-control" required>
+                <input name="phone" type="text" id="phone" class="col-lg-9 form-control" required>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-12">
                 <p>Email<span style="color:red">*</span></p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
-                <input name="email" type="email" id="email"  class="col-lg-9 form-control" required>
+                <input name="email" type="email" id="email" class="col-lg-9 form-control" required>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-12">
                 <p>Company</p>
