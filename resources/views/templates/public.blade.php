@@ -7,13 +7,9 @@
 <body>
 
   <head>
-
-
-
     <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=aa32dc5b-9dcc-4d9c-a506-e00f1a24cf08"> </script>
     <!-- End of usmhelphelp Zendesk Widget script -->
     <script type="text/javascript">
-
     </script>
     <script type="text/javascript">
       window.zESettings = {
@@ -25,8 +21,6 @@
         }
       };
     </script>
-
-
     <script src="{{URL::to('/public/js/jquery.alphanum.js')}}"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <!-- Add the slick-theme.css if you want default styling -->
@@ -43,13 +37,6 @@
       gtag('config', 'UA-165141480-1');
     </script>
     <meta charset="UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Buy and Sell Used Tetra Pak Machines,Tetra Pak Machines Spare parts, Refurbished Tetra Pak Machines suppliers' home and Technical Services">
-    <meta name="keywords" content="Used-Sweden-Mchines,machines, tetrapak,machines,packaging-machines">
-    <meta name="author" content="Mr. Abdul Rehman">
-    <title>USED SWEDEN MACHINES</title>
     @yield("sharing")
     <link rel="shortcut icon" href="{{URL::to('public/imgs/favicon.png')}}">
     <!-- Latest compiled and minified CSS -->
