@@ -110,10 +110,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Buy and Sell Used Tetra Pak Machines,Tetra Pak Machines Spare parts, Refurbished Tetra Pak Machines suppliers' home and Technical Services">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="og:description" content="Buy and Sell Used Tetra Pak Machines,Tetra Pak Machines Spare parts, Refurbished Tetra Pak Machines suppliers' home and Technical Services">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.usedswedenmachines.com">
+    <meta name="twitter:description" content="Used Sweden Machines is a buying and selling Company of Used Tetra Pak Filling Machines,
+                            Spare Parts and Processing Equipment's.">
+    <meta name="twitter:title" content="Used Sweden Machines">
+    <meta name="twitter:site" content="@tpusm">
+    <meta name="twitter:card" content="summary">
     <meta name="keywords" content="Used-Sweden-Mchines,machines, tetrapak,machines,packaging-machines">
     <meta name="author" content="Mr. Abdul Rehman">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <div class="row desktop_welcome" id="desk">
     <div class="col-lg-4 col-md-4 col-sm-6" style="padding-right:0px;">
