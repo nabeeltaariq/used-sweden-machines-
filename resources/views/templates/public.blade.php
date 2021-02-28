@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<html>
-
-<body>
-
-  <head>
+ <head>
     <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=aa32dc5b-9dcc-4d9c-a506-e00f1a24cf08"> </script>
     <!-- End of usmhelphelp Zendesk Widget script -->
     <script type="text/javascript">
@@ -866,7 +860,7 @@
     </style>
   </head>
 
-  <body class="set">
+ <body class="set">
 
     <div class="global-whatsapp-float">
       <a href="https://api.whatsapp.com/send?phone=923217415373&&text=hello" target="_blank"><img src="{{URL::to('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg')}}" style="height:55px"></a>
