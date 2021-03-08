@@ -416,16 +416,10 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
         <div class="modal-content">
             <div class="modal-content">
                 <div class="modal-header" style="color: #FBCA01;background-color:#034375;font-weight:bolder;">
-                    <button type="button" style="background-color:#fbca01;color:#034375;float:right;border-radius:20px;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" style="color:black;float:right;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <p class="modal-title" id="myModalLabel" style=""> {{$product->pr_title}}</p>
                 </div>
 
-                <p style="background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);color:#034375;padding:8px;font-weight:bolder;">
-                    USM-Used Sweden Machines</br>
-                    83-A, S.I.E # 1,</br>
-                    Gujranwala Pakistan</br>
-                    Tel.: +92 (321) 7415373</br>
-                    E-Mail: info@usedswedenmachines.com</p>
                 <form action="{{route('QuoteFormSubmit',$product->id)}}" style="padding:10px;" method="POST" id="ask-for-price-form">
                     @csrf
                     <input type="hidden" name="token">
