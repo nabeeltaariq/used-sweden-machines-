@@ -1,11 +1,53 @@
 @extends("templates.public")
 
 @section("content")
+
+<head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+</head>
+<style>
+    .desktop_contact_form {
+        display: none;
+    }
+
+    textarea {
+        resize: vertical;
+
+        overflow: hidden;
+    }
+
+
+    @media screen and (min-width: 417px) {
+        .desktop_contact_form {
+            display: inherit;
+        }
+    }
+
+
+
+    @media screen and (max-width:570px) {
+        .desktop_contact_form {
+
+            margin-left: 5px;
+        }
+    }
+
+    td,
+    th {
+        padding: 0;
+        background-color: white;
+    }
+
+    .btn-continue {
+        background-color: #034375;
+        color: white;
+    }
+</style>
 <section class="desktop_contact_form">
     <!-- FIRST BLOCK -->
 
 
-    <div id="first-block" style="padding-top:-30px;paddin-bottom:10px; margin-top:18px;">
+    <div id="first-block" style="padding-top:-30px;padding-bottom:10px; margin-top:18px;">
 
         <div class="line">
 
@@ -14,8 +56,7 @@
 
                 <div class="col-lg-8 col-md-8 col-sm-12 p-0">
 
-
-                    <form id="desktop-contact-form">
+                    <form id="#desktop-contact-form" method="post" enctype="multipart/form-data">
                         @csrf
                         @if(isset($message))
                         <div style="color: #034375; font-weight: bold;">
@@ -144,18 +185,12 @@
 
                                 </tr>
 
-
                                 <tr align="left" valign="bottom">
 
                                     <td width="110" align="left" valign="top"><input type="hidden" name="ueberpruefung" value="1"><input type="hidden" name="ID" value=""></td>
-
-
                                     <td>
-
-                                        <input name="quote_form" type="submit" class="kontakt_btn" id="Submit" style="height:30px;width:75px;font-size: 13px;font-weight: bolder;" value="Submit">
-
-
-                                        <span class="kontakt-info">*</span><span class="kontakt-form-text">Required</span>
+                                        <button type="submit" class="btn btn-continue" style="height:30px;width:75px;font-size: 13px;font-weight: bolder;color:white;">Submit</button>
+                                        <span class=" kontakt-info">*</span><span class="kontakt-form-text">Required</span>
 
                                         <span class="kontakt-info">*</span><span class="kontakt-form-text">Please write English if possible!</span>
                                     </td>
@@ -170,6 +205,8 @@
                     </form>
 
                 </div>
+
+
 
                 <div class="col-lg-4 col-md-4 col-sm-12 p-0">
 
@@ -206,9 +243,9 @@
                     <br />
 
                     <p style="font-size:12px;margin:0"><strong>USM-Used Sweden Machines</strong><br>85-A, Small industrial estate # 1,<br>Gujranwala, Pakistan</p>
-                        
 
-                    <p style="margin:0">Tel.: +92 (321) 7415373<br>E-Mail: <a class="link" style="color: blue; text-decoration: underline;" href="mailto: info@usedswedenmachines.com">info@usm.com.pk</a>
+
+                    <p style="margin:0">Tel.: +92 (321) 7415373<br>E-Mail: <a class="link" style="color: blue; text-decoration: underline;" href="mailto: info@usm.com.pk">info@usm.com.pk</a>
                     </p>
 
                     <div style="margin-top:15px;">
@@ -236,44 +273,11 @@
 
 
 
-<style>
-    .desktop_contact_form {
-        display: none;
-    }
-
-    textarea {
-        resize: vertical;
-
-        overflow: hidden;
-    }
-
-
-    @media screen and (min-width: 417px) {
-        .desktop_contact_form {
-            display: inherit;
-        }
-    }
-
-
-
-    @media screen and (max-width:570px) {
-        .desktop_contact_form {
-
-            margin-left: 5px;
-        }
-    }
-
-    td,
-    th {
-        padding: 0;
-        background-color: white;
-    }
-</style>
 
 <script>
     $("#desktop-contact-form").submit(function(e) {
         e.preventDefault();
-        let machine_name = $("desk_#machine_name").val();
+        let machine_name = $("#desk_machine_name").val();
         let serial_no = $("#desk_serial_no").val();
         let phone = $("#desk_phone").val();
         let email = $("#desk_email").val();
@@ -281,16 +285,12 @@
         let company = $("#desk_company").val();
         let message = $("#desk_message").val();
 
-
-
-
         $.ajax({
 
             url: "/machine/contactUsform",
             type: "POST",
             data: {
-                token: "{{ csrf_token() }}",
-
+                _token: "{{ csrf_token() }}",
                 machine_name: machine_name,
                 serial_no: serial_no,
                 phone: phone,

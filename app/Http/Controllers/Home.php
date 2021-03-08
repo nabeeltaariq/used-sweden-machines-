@@ -602,6 +602,7 @@ class Home extends Controller
     }
     public function ContactFormSubmit(Request $request)
     {
+
         $newSubscriber = new Subscriber();
         $newSubscriber->title = "Contact Us";
         $newSubscriber->email_add = $request->input('email');
@@ -632,7 +633,7 @@ class Home extends Controller
         $url = "https://www.google.com/recaptcha/api/siteverify";
         $testdata = [
             "secret" => "6LeZq9gUAAAAAJeFL1UopthwusHQBs_ntRx92S78",
-            "response" => $_POST["token"],
+            "response" => $_POST["_token"],
             "remoteip" => $_SERVER["REMOTE_ADDR"]
         ];
 
@@ -667,6 +668,7 @@ class Home extends Controller
     }
     public function ContactFormSubmitFromMobile()
     {
+
 
         $to = "inquiry@trepak.pk"; //inquiry@trepak.pk
         //$to = "inquiry@trepak.pk";
@@ -740,6 +742,7 @@ class Home extends Controller
 
     public function QuoteFormContactUs(Request $request)
     {
+
         $to = "info@usm.com.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
@@ -765,6 +768,7 @@ class Home extends Controller
     }
     public function QuoteFormSubmit($id)
     {
+
         $to = "inquiry@trepak.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
@@ -785,7 +789,7 @@ class Home extends Controller
         $url = "https://www.google.com/recaptcha/api/siteverify";
         $testdata = [
             "secret" => "6LeZq9gUAAAAAJeFL1UopthwusHQBs_ntRx92S78",
-            "response" => $_POST["token"],
+            "response" => $_POST["_token"],
             "remoteip" => $_SERVER["REMOTE_ADDR"]
         ];
 

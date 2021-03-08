@@ -59,7 +59,7 @@
 
 
   @media only screen and (max-width: 600px) {
-    
+
     #cart-btns {
       display: block !important;
       margin-top: 20px;
@@ -68,11 +68,13 @@
     #basket {
 
       margin-left: 10px;
+
     }
 
     #content {
       height: auto !important;
     }
+
     .mobile-remove {
       display: block !important;
     }
@@ -97,37 +99,40 @@
       border-top: 1px solid #ddd;
       padding: 1px;
     }
-      
 
-            #search-bar
-            {
-                display: none !important;
-            }
-               #small-search
-            {
-                display: none !important;
-            }
+
+    #search-bar {
+      display: none !important;
+    }
+
+    #small-search {
+      display: none !important;
+    }
 
   }
 </style>
-<div style="background-color:white;display: flex;" id="cart-btns">
-  <span style=" margin-top: 11px;
+<div class="row" style="position:absolute;">
+  <div class="col-lg-12">
+    <div style="margin-top:20px;">
+      <span style="
     background: linear-gradient( 
 90deg
  , #FBCA01 0%,#FBCA01 100%);
     height: 40px;
-    
-   
     font-size: 13px;
     font-weight: bold;
     padding: 10px;
 
     border-radius: 4px;color:#034375; " id="basket">Your Basket</span>
-  <p style="margin-left:10px;">
-    <a id="link_spare" href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a>
-  </p>
+    </div>
+  </div>
 </div>
-<div style="height:395px;width:100%;max-height:395px;overflow:auto;position: relative;">
+
+<br />
+<br />
+
+
+<div style="width:100%;max-height:395px;overflow:auto;position: relative;">
   <table class="table table-bordered table-sm">
     <thead>
       <tr>
@@ -189,6 +194,11 @@
     </tbody>
   </table>
 
+</div>
+<div style="background-color:white;display: flex;" id="cart-btns">
+  <p style="margin-left:10px;">
+    <a id="link_spare" href="all-spare-parts?machineId=1" class="btn btn-continue">Continue Shopping</a><a href="{{url('/auth')}}" onclick="#" style="color:white" class="btn btn-proceed">Proceed to Checkout</a>
+  </p>
 </div>
 
 

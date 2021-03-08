@@ -73,6 +73,11 @@
 		width: 100%;
 	}
 
+	#search-bar,
+	#small-search {
+		display: none important;
+	}
+
 
 
 	@media only screen and (max-width: 417px) {
