@@ -103,13 +103,18 @@
          margin:0;
  }
  
- @media screen and (max-width:687px)
+ @media screen and (max-width:600px)
  {
      .top-top
      {
          margin:auto 7px auto 7px;
      }
-   
+         
+
+            #search-bar
+            {
+                display: none !important;
+            }
  }
   @media screen and (max-width:414px)
  {
@@ -118,7 +123,11 @@
         
          padding-top:15px;
      }
-   
+      #small-search
+            {
+                display: none !important;
+            }
+
  }
 
 

@@ -4,7 +4,7 @@
     
     .modal-body .form-control {
         border-radius: 0px;
-    }
+    }a
 
     .modal-body {
         color: black;
@@ -166,6 +166,7 @@
 
     z-index: 9999 !important;
     }
+  
 </style>
 
 <link rel="stylesheet" type="text/css" href="./slick/slick.css">
@@ -327,11 +328,11 @@ $url = URL::to("/storage/app/products/$news->image");
         <br>
         <div style="
                 font-size: 13px;
-                font-family: " Open Sans,Arial,sans-serif; color: #444; ">
+                font-family: " Open Sans,Arial,sans-serif; color: #444; " id="news-buttons">
                 
-              <a href=" {{URL::to('/news')}}" class="btn-theme"><button class="btn-theme"> All News</button></a>
+              <a href=" {{URL::to('/news')}}" class="btn-theme"><button class="btn-theme" style="  padding: 4px;"> All News</button></a>
             @if($news->Next() != null)
-            <a href="{{URL::to('/news/by')}}/{{$news->Next()->id}}" autofocus><button class="btn-theme"> Next News </button> </a>
+            <a href="{{URL::to('/news/by')}}/{{$news->Next()->id}}" autofocus><button class="btn-theme" style="  padding: 4px;"> Next News </button> </a>
 
             @endif
         </div>

@@ -177,15 +177,14 @@
         color: white;
         text-decoration: none;
     }
-<<<<<<< HEAD
+
 
     .left {
 
         z-index: 9999 !important;
     }
 
-=======
->>>>>>> 2996bd7ef97a926f7a51e984a864b8782cea446e
+
 </style>
 
 
@@ -221,26 +220,10 @@ $category = App\Catagories::find($product->cat_id);
             right: 0px;
         }
 
-        /* .next-pre {
-            border-color: #f1ebeb !important;
-            border: .5px !important;
-            margin: 10px !important;
-            height: 30px !important;
-            width: 30px !important;
-            color: gray !important;
-        } */
-        .mobile-next-pre {
-            display: none;
-        }
+  
 
-        @media only screen and (max-width: 481px) {
-            .mobile-next-pre {
-                display: inherit;
-                margin-left: 14px;
-                margin-top: 10px;
-                margin-left: 70%;
-
-            }
+        @media only screen and (max-width: 600px) {
+      
 
             .outer-pre-next {
                 text-decoration: none;
@@ -265,8 +248,19 @@ $category = App\Catagories::find($product->cat_id);
             .round {
                 border-radius: 50%;
             }
+            #search-bar
+            {
+                display: none !important;
+            }
 
-
+   #small-search
+            {
+                display: none !important;
+            }
+#display-buttons button
+{
+padding: 4px
+}
         }
     </style>
 </div>
@@ -287,13 +281,6 @@ $category = App\Catagories::find($product->cat_id);
 $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($product->pr_title))));
 @endphp
 
-
-
-<div class="mobile-next-pre">
-    <a class="outer-pre-next" href="{{URL::to('/')}}/{{$machine_name}}/{{$pre ?? ''}}/pre/mobile">&#8249;</a>
-    <a class="outer-pre-next" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next/mobile">&#8250;</a>
-
-</div>
 
 
 
@@ -404,7 +391,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
         <br>
         <div style="
                 font-size: 13px;
-                font-family: " Open Sans",Arial,sans-serif; color: #444; ">
+                font-family: " Open Sans",Arial,sans-serif; color: #444; " id="display-buttons">
                 
        
             <button type=" button" class="btn-theme" data-toggle="modal" data-target="#myModalAshForPrice">

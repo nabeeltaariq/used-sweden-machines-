@@ -56,8 +56,10 @@
     width: 925px;
   }
 
-  @media screen and (max-width:600px) {
 
+
+  @media only screen and (max-width: 600px) {
+    
     #cart-btns {
       display: block !important;
       margin-top: 20px;
@@ -71,9 +73,6 @@
     #content {
       height: auto !important;
     }
-  }
-
-  @media only screen and (max-width: 600px) {
     .mobile-remove {
       display: block !important;
     }
@@ -98,6 +97,16 @@
       border-top: 1px solid #ddd;
       padding: 1px;
     }
+      
+
+            #search-bar
+            {
+                display: none !important;
+            }
+               #small-search
+            {
+                display: none !important;
+            }
 
   }
 </style>

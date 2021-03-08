@@ -55,12 +55,35 @@
     font-family: "Open Sans",Arial,sans-serif;
     color: white;
         }
-           @media only screen and (max-width: 416px) {
+           @media only screen and (max-width: 600px) {
     #forget-pass-body{
         margin-top:-20px ;
         margin-left:10px ;
         margin-right:10px ;
         
     }
+    
+    #cart-btns {
+      display: block !important;
+      margin-top: 20px;
+    }
+
+    #basket {
+
+      margin-left: 10px;
+    }
+
+        
+
+            #search-bar
+            {
+                display: none !important;
+            }
+               #small-search
+            {
+                display: none !important;
+            }
+
+}
     </style>
 @endsection

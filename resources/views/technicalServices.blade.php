@@ -20,6 +20,17 @@
         #technical-services {
             margin-right:0px !important;
         }
+              
+
+            #search-bar
+            {
+                display: none !important;
+            }
+               #small-search
+            {
+                display: none !important;
+            }
+
 }
 
 </style>

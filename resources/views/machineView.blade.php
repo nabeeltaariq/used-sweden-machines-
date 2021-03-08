@@ -276,7 +276,7 @@
 
                         </div>
 
-                        <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer != null ? $manufacturer->title : '')}}" style="display:inline-block;border:1px solid maroon;margin-bottom:5px;margin-left: 15px;padding:5px;background-color:maroon;color:white;height:35px"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button>
+                        <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer != null ? $manufacturer->title : '')}}" style="display:inline-block;border:1px solid maroon;margin-bottom:5px;margin-left: 15px;padding:5px;background-color:maroon;color:white;height:35px"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> </button>
                     </div>
                 </td>
             </tr>

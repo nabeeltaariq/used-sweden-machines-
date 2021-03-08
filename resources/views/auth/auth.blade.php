@@ -20,7 +20,7 @@
     #register-new{
         padding-left:50px;
     } 
-    @media only screen and (max-width: 416px) {
+    @media only screen and (max-width: 600px) {
     .row{
         margin-top:20px;
            margin-right:40px !important;
@@ -30,6 +30,17 @@
     {
      padding-right:50px;
     }
+          
+
+            #search-bar
+            {
+                display: none !important;
+            }
+               #small-search
+            {
+                display: none !important;
+            }
+
     }
    /*@media only screen and (max-width: 620px) {*/
    /*    .border-end*/

@@ -17,6 +17,16 @@
       margin-left: 15px;
       margin-right: 15px;
     }
+      
+
+            #search-bar
+            {
+                display: none !important;
+            }
+               #small-search
+            {
+                display: none !important;
+            }
 
   }
 </style>
