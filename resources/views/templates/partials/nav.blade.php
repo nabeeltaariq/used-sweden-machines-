@@ -42,9 +42,6 @@
 
     }
 
-    .mobile-search-bar {
-      display: none;
-    }
 
     #nav-logo,
     #scroll-search-icon {
@@ -136,7 +133,7 @@
       }
 
       .mobile-search-bar {
-        display: block !important;
+        display: block ;
         margin-top: -62px;
         margin-left: 10px;
         width: 80%;
@@ -145,27 +142,25 @@
         position: absolute;
       }
 
-      .mobile-scroll-search-bar {
-
-
-        width: 81%;
-        margin-top: 20px;
-        margin-left: 20px;
-        height: 45px;
-        border: 1px solid #777;
-
-      }
 
       .search-bar {
         display: block !important;
-        width: 100%;
-        height: 100%;
-        background-color: white;
+        width: 62%;
+       margin-top: -105px;
         /*opacity:0.5;*/
         position: fixed;
-        margin-top: -65px;
+      
         z-index: 1;
+
+        margin-left: -300px;
+              margin-left: 110px;
+                    transition: margin-left 2s;
       }
+    /*  .search-bar-trans
+      {
+          
+                transition: 10s;
+      }*/
 
     }
 
@@ -188,7 +183,7 @@
 
           <div id="nav-logo">
             <a class="navbar-brand" href="#">
-              <img onclick="javascript:window.location='{{URL::to('/')}}';" src="{{URL::to('public/imgs/usm.svg')}}" style="height:50px;width:200px;float:left;margin-top:-13px">
+              <img onclick="javascript:window.location='{{URL::to('/')}}';" src="{{URL::to('public/imgs/usm.svg')}}" style="height:50px;width:200px;float:left;margin-top:-13px;margin-left: -100px">
 
             </a>
             <span class="glyphicon glyphicon-search" id="small-search" style="float:right;color: #044271;font-size:25px;margin-top:13px" onclick="displaySearchBar()"></span>
@@ -223,7 +218,7 @@
     </nav>
     <div id="search-bar">
       <input type="text" name="search" autocomplete="Off" placeholder="Search In USM" class="form-control mobile-search-bar" id="mobile-search-bar">
-      <span class="glyphicon glyphicon-search" style="float:right;color:#777;font-size:25px;margin-right:12px;margin-top:-38px;" onclick="removeScroll()" id="scroll-search-icon"></span>
+     <!--  <span class="glyphicon glyphicon-search" style="float:right;color:#777;font-size:25px;margin-right:12px;margin-top:-38px;" onclick="removeScroll()" id="scroll-search-icon"></span> -->
     </div>
   </div>
 

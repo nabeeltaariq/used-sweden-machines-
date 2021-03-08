@@ -955,25 +955,28 @@
       };
 
       function displaySearchBar() {
+
         document.getElementById("search-bar").classList.add("search-bar");
         document.getElementById("mobile-search-bar").classList.remove("mobile-search-bar");
-        document.getElementById("mobile-search-bar").classList.add("mobile-scroll-search-bar");
-        document.getElementById("scroll-search-icon").style.display = "block";
+
+        // document.getElementById("search-bar").classList.add("search-bar-trans");
+
+
 
       }
 
-      function removeScroll() {
+      // function removeScroll() {
 
-        document.getElementById("search-bar").classList.remove("search-bar");
-        document.getElementById("mobile-search-bar").classList.remove("mobile-scroll-search-bar");
-        document.getElementById("mobile-search-bar").classList.add("mobile-search-bar");
-        document.getElementById("scroll-search-icon").style.display = "none";
+      //   document.getElementById("search-bar").classList.remove("search-bar");
+      //   document.getElementById("mobile-search-bar").classList.remove("mobile-scroll-search-bar");
+      //   document.getElementById("mobile-search-bar").classList.add("mobile-search-bar");
+      //   document.getElementById("scroll-search-icon").style.display = "none";
 
-      }
+      // }
 
-      function hideScollSearchBar() {
-        document.getElementById("search-bar").classList.remove("search-bar");
-      }
+      // function hideScollSearchBar() {
+      //   document.getElementById("search-bar").classList.remove("search-bar");
+      // }
 
       function screenSize(x) {
         if (x.matches) { // If media query matches
@@ -993,20 +996,21 @@
         var navbar = document.getElementById("navbar");
         var sticky = navbar.offsetTop;
         if (window.pageYOffset >= sticky) {
-          document.getElementById("search-bar").style.display = "none";
-
+          document.getElementById("mobile-search-bar").classList.remove("mobile-search-bar");
+    // document.getElementById("search-bar").classList.add("search-bar");
           navbar.classList.add("sticky");
           nav_button.classList.add("nav-button-collapse-scroll");
           document.getElementById("nav-logo").style.display = "block";
 
 
-        } else {
+         } 
+         else {
 
           document.getElementById("search-bar").classList.remove("search-bar");
-          document.getElementById("mobile-search-bar").classList.remove("mobile-scroll-search-bar");
+;
           document.getElementById("mobile-search-bar").classList.add("mobile-search-bar");
           document.getElementById("search-bar").style.display = "block";
-          document.getElementById("scroll-search-icon").style.display = "none";
+         
 
           navbar.classList.remove("sticky");
           nav_button.classList.remove("nav-button-collapse-scroll");
