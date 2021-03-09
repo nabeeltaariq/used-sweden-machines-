@@ -8,9 +8,10 @@
     overflow: hidden;
   }
 
-
-
-
+#mobile-form
+{
+  display: none;
+}
 
   @media only screen and (max-width: 600px) {
     #upload-machine {
@@ -27,8 +28,19 @@
             {
                 display: none !important;
             }
-
+#address
+{
+  display: none;
   }
+  #mobile-form
+  {
+display: block;
+  }
+  #desk-form
+  {
+    display: none;
+  }
+}
 </style>
 
 <section style="margin-top:5px" id="upload-machine">
@@ -133,7 +145,7 @@
 
     font-size: 13px;"> To discuss any aspect of Used Tetra Pak Machines For Sale supply or sourcing or for any other dairy processing machinery, just give us a call on: <a href="tel:+92-321-741-5373" style="color:blue">+92-321-741-5373</a></p>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="col-lg-4 col-md-4 col-sm-12" id="address">
           <h3 style="
 
                 background-color: #fbca01;
@@ -157,12 +169,46 @@
           <p style="margin:0px">Tel.: +92 (321) 7415373<br>E-Mail: <a class="link" style="color: blue; text-decoration: underline;" href="mailto: info@usm.com.pk">info@usm.com.pk</a></p>
         </div>
       </div>
+<br>
 
+<div class="col-sm-12" id="mobile-form">
+  <form action="/upload-your-machine" method="POST" enctype="multipart/form-data">
+ <span class="kontakt-form-text">Company Name:</span><br>
+  <input  name="company" type="text" style="width: 100%" required><br>
+
+ <span class="kontakt-form-text">Machine Name:</span><br>
+  <input  name="machine_name" type="text" style="width: 100%" required><br>
+
+  <span class="kontakt-form-text">Your Name #:</span><br>
+  <input  name="serial_no" type="text" style="width: 100%" required><br>
+
+    <span class="kontakt-form-text">Email ID:</span><br>
+  <input  name="email" type="email" style="width: 100%" required><br>
+
+  <span class="kontakt-form-text">Phone #:</span><br>
+  <input  name="phone" type="text" style="width: 100%" required><br>
+
+   <span class="kontakt-form-text"> Full Machine Name:</span><br>
+  <input  name="full_name" type="text" style="width: 100%" required><br>
+
+   <span class="kontakt-form-text">Technical Specifications:</span><br>
+  <textarea name="technical_specification" style="width:100%;outline:none" cols="31" rows="2" required></textarea><br>
+
+  <span class="kontakt-form-text">Machine Featured Image:</span><br>
+ <input type="file" name="featuredImage" required style="width: 100%"><br>
+
+    <span class="kontakt-form-text">Machine Other Image:</span><br>
+<input type="file" name="otherImages[]" multiple required style="width: 100%"><br>
+
+              <input type="hidden" name="country" value="none">
+                <input name="quote_form" type="submit" class="kontakt_btn" id="Submit" style="height:30px;width:75px;font-size: 13px;font-weight: bolder;" value="Submit">
+</form>
+</div>
       <section class="s-12 m-7 l-8 " style="
 
                width: 70%;
 
-               float: left;padding-right:10px">
+               float: left;padding-right:10px" id="desk-form">
         <form action="/upload-your-machine" method="POST" enctype="multipart/form-data">
 
 
@@ -173,7 +219,7 @@
             <tbody>
               <tr>
 
-                <td width="110" height="22" align="left" valign="top">
+                <td width="110" height="22" align="left" valign="top" >
                   <div align="left"><span class="kontakt-form-text">Company Name:</span> </div>
                 </td>
 

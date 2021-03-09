@@ -453,25 +453,18 @@
   </style>
 </div>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Machine Name or SKU">
-<div class="dropdown" style="display:none;">
-  <button id="dLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
-    {{ucfirst( $mode)}}
-    <span class="caret"></span>
-  </button>
-
-  <ul class="dropdown-menu" aria-labelledby="dLabel">
-    <li><a href="{{URL::to('/news')}}" class="{{($mode=='news' ? 'active' : '')}}">News</a></li>
-
-    <li><a href="{{URL::to('/news?news_type=events')}}" class="{{($mode=='events' ? 'active' : '')}}">Events</a></li>
-
-    <li><a href="{{URL::to('/news?news_type=newsletter')}}" class="{{($mode=='newsletter' ? 'active' : '')}}">Newsletters</a></li>
-
-    <li><a href="{{URL::to('/news?news_type=testimonials')}}" class="{{($mode=='testimonials' ? 'active' : '')}}">Testimonials</a></li>
-
-    <li><a href="{{URL::to('/news?news_type=references')}}" class="{{($mode=='references' ? 'active' : '')}}">References</a></li>
-  </ul>
-</div>
+  <div class="dropdown" style="display:none;">
+    <button class=" btn dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:#044271;color:white">{{ucfirst( $mode)}}
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="{{URL::to('/news')}}" class="{{($mode=='news' ? 'active' : '')}}">News</a></li>
+      <li><a href="{{URL::to('/news?news_type=events')}}" class="{{($mode=='events' ? 'active' : '')}}">Events</a></li>
+      <li><a href="{{URL::to('/news?news_type=newsletter')}}" class="{{($mode=='newsletter' ? 'active' : '')}}">Newsletters</a></li>
+      <li><a href="{{URL::to('/news?news_type=testimonials')}}" class="{{($mode=='testimonials' ? 'active' : '')}}">Testimonials</a></li>
+      <li><a href="{{URL::to('/news?news_type=references')}}" class="{{($mode=='references' ? 'active' : '')}}">References</a></li>
+    </ul>
+  </div>
 <div class="row" style="width:100%;margin-top:10px;" ng-app="myModule" ng-controller="myController">
   <div class="col-lg-3 col-md-3 col-sm-3 all-categories" style="margin-top:-6px;box-sizing:border-box;padding-bottom:25px;float:left;margin-right:0px;">
     <ul class="news">
