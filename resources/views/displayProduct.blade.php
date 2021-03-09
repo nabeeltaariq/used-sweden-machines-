@@ -183,8 +183,6 @@
 
         z-index: 9999 !important;
     }
-
-
 </style>
 
 
@@ -220,10 +218,10 @@ $category = App\Catagories::find($product->cat_id);
             right: 0px;
         }
 
-  
+
 
         @media only screen and (max-width: 600px) {
-      
+
 
             .outer-pre-next {
                 text-decoration: none;
@@ -248,19 +246,18 @@ $category = App\Catagories::find($product->cat_id);
             .round {
                 border-radius: 50%;
             }
-            #search-bar
-            {
+
+            #search-bar {
                 display: none !important;
             }
 
-   #small-search
-            {
+            #small-search {
                 display: none !important;
             }
-#display-buttons button
-{
-padding: 4px
-}
+
+            #display-buttons button {
+                padding: 4px
+            }
         }
     </style>
 </div>
@@ -391,11 +388,11 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
         <br>
         <div style="
                 font-size: 13px;
-                font-family: " Open Sans",Arial,sans-serif; color: #444; " id="display-buttons">
-                
-       
+                font-family: " Open Sans",Arial,sans-serif; color: #444; " id=" display-buttons">
+
+
             <button type=" button" class="btn-theme" data-toggle="modal" data-target="#myModalAshForPrice">
-            Ask For Price
+                Ask For Price
             </button>
 
             <button onclick="location.href='{{URL::to('/category/selected')}}/{{$selectedCat}}'" style="margin-left:3px;" class="btn-theme">Back To Review</button>
@@ -422,7 +419,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
                 <form action="{{route('QuoteFormSubmit',$product->id)}}" style="padding:10px;" method="POST" id="ask-for-price-form">
                     @csrf
-                    <input type="hidden" name="token">
+                    <input type="hidden" name="_token">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
@@ -551,7 +548,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
 
 <!-- Modal -->
-<div  class="modal fade" id="myModalbig" role="dialog" style="margin-top: 20px">
+<div class="modal fade" id="myModalbig" role="dialog" style="margin-top: 20px">
 
     <div class="modal-dialog" style="height:486px;width:600px">
 

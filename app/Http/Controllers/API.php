@@ -93,11 +93,11 @@ class API extends Controller
                 $allProducts[$i]->short_des = strip_tags(htmlspecialchars_decode($allProducts[$i]->short_des, ENT_QUOTES));
             }
         }
-        return response()->json(["all-categories" => $allCatagories, "all-machines" => $allProducts]);
+        return response()->json(["allCategories" => $allCatagories]);
     }
 
 
-    
+
     public function Moredetail($machineid)
     {
 
@@ -122,7 +122,7 @@ class API extends Controller
     {
         $url = url("/machine-pdf-news/generate/$id");
 
-        return response()->json(["pdf-link" => $url]);
+        return response()->json(["pdflink" => $url]);
     }
 
 
@@ -132,7 +132,7 @@ class API extends Controller
 
         $allCatagories = Catagories::where('id', ">=", 1)->orderBy("id", "asc")->get();
         $allProducts = Product::where('id', ">=", 1)->orderBy("id", "desc")->get();
-        return response()->json(["all-categories" => $allCatagories, "all-machines" => $allProducts]);
+        return response()->json(["allCategories" => $allCatagories]);
     }
 
     public function fetchFewMachines(Request $request)
@@ -141,7 +141,7 @@ class API extends Controller
         $cat_id = (int)$request->input('cat_id');
         $allCatagories = Catagories::where('id', ">=", 1)->orderBy("order", "asc")->get();
         $allProducts = Product::where('cat_id', $cat_id)->get();
-        return response()->json(["all-categories" => $allCatagories, "machines" => $allProducts]);
+        return response()->json(["allCategories" => $allCatagories]);
     }
 
 
@@ -152,7 +152,7 @@ class API extends Controller
         $allMachines = Machine::all();
         $allParts = SparePart::all();
 
-        return response()->json(["machines" => $allMachines, "all-spare-parts" => $allParts]);
+        return response()->json(["machines" => $allMachines, "allSpareParts" => $allParts]);
     }
 
     public function uploadYourMachine(Request $request)
