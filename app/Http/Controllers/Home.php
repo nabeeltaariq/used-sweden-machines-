@@ -656,11 +656,11 @@ class Home extends Controller
 
 
             if (mail($to, $subject, $message, $header))
-                $messageFlush = "true";
+                $messageFlush = "success";
             else
-                $messageFlush = "first false";
+                $messageFlush = "error";
         } else {
-            $messageFlush = "second false";
+            $messageFlush = "error";
         }
 
 

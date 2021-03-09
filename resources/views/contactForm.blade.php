@@ -56,7 +56,7 @@
 
                 <div class="col-lg-8 col-md-8 col-sm-12 p-0">
 
-                    <form id="#desktop-contact-form" method="post" enctype="multipart/form-data">
+                    <form id="desktop-contact-form" method="post" enctype="multipart/form-data">
                         @csrf
                         @if(isset($message))
                         <div style="color: #034375; font-weight: bold;">
@@ -287,7 +287,7 @@
 
         $.ajax({
 
-            url: "/machine/contactUsform",
+            url: "/contact",
             type: "POST",
             data: {
                 _token: "{{ csrf_token() }}",
