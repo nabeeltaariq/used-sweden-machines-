@@ -669,7 +669,6 @@ class Home extends Controller
     public function ContactFormSubmitFromMobile()
     {
 
-
         $to = "inquiry@trepak.pk"; //inquiry@trepak.pk
         //$to = "inquiry@trepak.pk";
         $subject = "Email from contact page.  Used Sweden Machines";
@@ -768,7 +767,6 @@ class Home extends Controller
     }
     public function QuoteFormSubmit($id)
     {
-
         $to = "inquiry@trepak.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
@@ -817,11 +815,6 @@ class Home extends Controller
         } else {
             $messageFlush = false;
         }
-
-
-
-
-
         return redirect()->back()->with('message', $messageFlush);
     }
 
