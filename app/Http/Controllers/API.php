@@ -126,12 +126,16 @@ class API extends Controller
     }
 
 
-
+    public function allMachinesApi()
+    {
+        $allProducts = Product::where('id', ">=", 1)->orderBy("id", "desc")->get();
+        return response()->json(["allMachines" => $allProducts]);
+    }
     public function fetchAllMachinesCategories()
     {
 
         $allCatagories = Catagories::where('id', ">=", 1)->orderBy("id", "asc")->get();
-        $allProducts = Product::where('id', ">=", 1)->orderBy("id", "desc")->get();
+
         return response()->json(["allCategories" => $allCatagories]);
     }
 
@@ -141,7 +145,7 @@ class API extends Controller
         $cat_id = (int)$request->input('cat_id');
         $allCatagories = Catagories::where('id', ">=", 1)->orderBy("order", "asc")->get();
         $allProducts = Product::where('cat_id', $cat_id)->get();
-        return response()->json(["allCategories" => $allCatagories]);
+        return response()->json(["allCategories" => $allCatagories, "machines" => $allProducts]);
     }
 
 

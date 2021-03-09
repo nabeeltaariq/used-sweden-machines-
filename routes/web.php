@@ -223,6 +223,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'Auth'], function () {
 
 //api routes
 Route::group(['prefix' => 'api'], function () {
+    Route::get('updated/all-machines', "API@allMachinesApi");
     Route::post('/fetchMachines/{id?}', "API@FetchMachines");
     Route::get("/fillCart/now", "API@Fill");
     Route::post("/UpdateService", "API@UpateService");

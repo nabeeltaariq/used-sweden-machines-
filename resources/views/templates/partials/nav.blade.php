@@ -52,6 +52,28 @@
       margin-left: -15px;
     }
 
+    .online-shop {
+      position: absolute;
+      top: -4px;
+      right: 5px;
+      font-size: 10px;
+      font-weight: bolder;
+      color: #ffdd00;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .online-shop {
+        position: absolute;
+        top: -4px;
+        right: 0px;
+        left: 120px;
+        font-size: 10px;
+        font-weight: bolder;
+        color: #ffdd00;
+      }
+
+    }
+
     @media (max-width: 768px) {
       .navbar {
         width: 97.50%;
@@ -133,7 +155,7 @@
       }
 
       .mobile-search-bar {
-        display: block ;
+        display: block;
         margin-top: -62px;
         margin-left: 10px;
         width: 80%;
@@ -146,17 +168,18 @@
       .search-bar {
         display: block !important;
         width: 62%;
-       margin-top: -105px;
+        margin-top: -105px;
         /*opacity:0.5;*/
         position: fixed;
-      
+
         z-index: 1;
 
         margin-left: -300px;
-              margin-left: 110px;
-                    transition: margin-left 2s;
+        margin-left: 110px;
+        transition: margin-left 2s;
       }
-    /*  .search-bar-trans
+
+      /*  .search-bar-trans
       {
           
                 transition: 10s;
@@ -198,12 +221,7 @@
             <li id="left-align"><a class=" {{(Request::path() == '/' ? 'active' : '')}}" href="{{URL::to('/')}}" style="color: white;">Home</a></li>
             <li><a style="color: white;" class="{{(Request::path() == 'tetra-pak-machines-expert' ? 'active' : '')}}" href="{{URL::to('tetra-pak-machines-expert')}}">About Us</a></li>
             <li><a class="{{(Request::path() == 'used-tetra-pak-machines' ? 'active' : '')}}" style="color: white;" href="{{URL::to('used-tetra-pak-machines')}}">Used Tetra Pak Machines</a></li>
-            <li><a class="{{(Request::path() == 'tetra-pak-spare-parts' ? 'active' : '')}}" style="color: white;" href="{{URL::to('tetra-pak-spare-parts')}}" style="position:relative">Tetra Pak Spare Parts <span style="position: absolute;
-          top: -4px;
-          right: 5px;
-          font-size: 10px;
-          font-weight: bolder;
-          color: #ffdd00;">Online Shop</span> </a></li>
+            <li><a class="{{(Request::path() == 'tetra-pak-spare-parts' ? 'active' : '')}}" style="color: white;" href="{{URL::to('tetra-pak-spare-parts')}}" style="position:relative">Tetra Pak Spare Parts <span class="online-shop">Online Shop</span> </a></li>
             <li><a class="{{(Request::path() == 'upload-your-machine' ? 'active' : '')}}" style="color: white;" href="{{URL::to('upload-your-machine')}}">Upload Your Machine</a></li>
             <li><a class="{{(Request::path() == 'Technical-services' ? 'active' : '')}}" style="color: white;" href="{{URL::to('Technical-services')}}">Technical Services</a></li>
 
@@ -218,7 +236,7 @@
     </nav>
     <div id="search-bar">
       <input type="text" name="search" autocomplete="Off" placeholder="Search In USM" class="form-control mobile-search-bar" id="mobile-search-bar">
-     <!--  <span class="glyphicon glyphicon-search" style="float:right;color:#777;font-size:25px;margin-right:12px;margin-top:-38px;" onclick="removeScroll()" id="scroll-search-icon"></span> -->
+      <!--  <span class="glyphicon glyphicon-search" style="float:right;color:#777;font-size:25px;margin-right:12px;margin-top:-38px;" onclick="removeScroll()" id="scroll-search-icon"></span> -->
     </div>
   </div>
 
