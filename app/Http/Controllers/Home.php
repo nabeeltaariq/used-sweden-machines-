@@ -155,7 +155,7 @@ class Home extends Controller
 
         $mpdf->WriteHTML($html);
         $mpdf->SetTitle($product->pr_title);
-        $mpdf->Output();
+        $mpdf->Output($product->pr_title.'.pdf', 'I');
     }
 
 
@@ -223,7 +223,7 @@ class Home extends Controller
 
         $mpdf->WriteHTML($html);
         $mpdf->SetTitle($news->news_title);
-        $mpdf->Output();
+       $mpdf->Output($news->news_title.'.pdf', 'I');
     }
     public function Main()
     {
