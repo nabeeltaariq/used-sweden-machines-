@@ -959,7 +959,8 @@
         document.getElementById("search-bar").classList.add("search-bar");
         document.getElementById("mobile-search-bar").classList.remove("mobile-search-bar");
 
-        // document.getElementById("search-bar").classList.add("search-bar-trans");
+        document.getElementById("nav-logo").style.marginLeft="-100px";
+        document.getElementById("nav-logo").style.float="left";
 
 
 
@@ -1005,6 +1006,8 @@
 
          } 
          else {
+               document.getElementById("nav-logo").style.marginLeft="0px";
+        document.getElementById("nav-logo").style.float="none";
 
           document.getElementById("search-bar").classList.remove("search-bar");
 ;
@@ -1015,6 +1018,7 @@
           navbar.classList.remove("sticky");
           nav_button.classList.remove("nav-button-collapse-scroll");
           document.getElementById("nav-logo").style.display = "none";
+            @yield("display-products")
         }
 
         @yield("spare-parts")

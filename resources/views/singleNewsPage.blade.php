@@ -1,3 +1,15 @@
+  @section('display-products')
+   
+   var nav_button = document.getElementById("nav-button-collapse");
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+          document.getElementById("mobile-search-bar").classList.remove("mobile-search-bar");
+    // document.getElementById("search-bar").classList.add("search-bar");
+          navbar.classList.add("sticky");
+          nav_button.classList.add("nav-button-collapse-scroll");
+          document.getElementById("nav-logo").style.display = "block";
+
+  @endsection
 @extends("templates.public")
 @section("sharing")
 <style>
@@ -43,6 +55,10 @@
     }
 
     @media screen and (max-width: 765px) {
+                    #search-bar, #small-search,#mobile-logo
+            {
+                display: none !important;
+            }
 
         #slick,
         #bread-crumb,
@@ -215,7 +231,7 @@ $url = URL::to("/storage/app/products/$news->image");
 <div class="row" id="news-body">
 
 
-    <div style="margin-top: 10px;  " class="col-lg-6 col-md-6 col-sm-6 ">
+    <div style="margin-top: 80px;  " class="col-lg-6 col-md-6 col-sm-6 ">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="100000000">
             <!-- Indicators -->
 

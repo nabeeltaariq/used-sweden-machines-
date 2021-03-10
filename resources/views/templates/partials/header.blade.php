@@ -142,8 +142,8 @@
   <div class="container-fluid adjust-on-cart" style="background-color:#044271;width:100%;margin-left:0px;position:fixed;top:0;z-index:1 !important">
     <p style="margin:0px;color:white;font-weight:bolder;font-family:arial;font-size:12px" align="center">Best Supplier Of Refurbished Tetra Pak Machines</p>
   </div>
-  <div class="container" style="background-color:white;padding-top:22px">
-    <div style="float:left;margin-left:5px;"><img onclick="javascript:window.location='{{URL::to('/')}}';" src="{{URL::to('public/imgs/usm.svg')}}" height="90px"></div>
+  <div class="container" style="background-color:white;padding-top:22px" id="mobile-logo" >
+    <div style="float:left;margin-left:5px;" ><img onclick="javascript:window.location='{{URL::to('/')}}';" src="{{URL::to('public/imgs/usm.svg')}}" height="90px"></div>
     <div style="float:left;font-size:12px;padding-top:0px;padding-left:20px">
       <a href="tel:+92-321-741-5373" style="color:red;line-height:2.5;font-weight:bolder;"> Call USM: </a>
       <span style=""><a href="tel:+92-321-741-5373" style="color:#0b4692;">+92-321-741-5373</a></span>

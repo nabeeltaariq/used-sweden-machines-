@@ -458,8 +458,8 @@
 </div>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Machine Name or SKU">
 
-<div class="dropdown" style="display:none;">
-  <button id="dLabel" data-toggle="dropdown" role="button" aria-haspopup="true" style="background-color:#034375;color:white;" aria-expanded="false">
+
+
 
 
   <div class="dropdown" style="display:none;">

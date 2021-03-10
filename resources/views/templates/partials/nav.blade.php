@@ -167,7 +167,7 @@
 
       .search-bar {
         display: block !important;
-        width: 62%;
+        width: 66%;
         margin-top: -105px;
         /*opacity:0.5;*/
         position: fixed;
@@ -206,7 +206,7 @@
 
           <div id="nav-logo">
             <a class="navbar-brand" href="#">
-              <img onclick="javascript:window.location='{{URL::to('/')}}';" src="{{URL::to('public/imgs/usm.svg')}}" style="height:50px;width:200px;float:left;margin-top:-13px;margin-left: -100px">
+              <img onclick="javascript:window.location='{{URL::to('/')}}';" src="{{URL::to('public/imgs/usm.svg')}}" style="height:50px;width:200px;margin-top:-13px">
 
             </a>
             <span class="glyphicon glyphicon-search" id="small-search" style="float:right;color: #044271;font-size:25px;margin-top:13px" onclick="displaySearchBar()"></span>

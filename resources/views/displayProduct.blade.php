@@ -1,3 +1,15 @@
+  @section('display-products')
+   
+   var nav_button = document.getElementById("nav-button-collapse");
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+          document.getElementById("mobile-search-bar").classList.remove("mobile-search-bar");
+    // document.getElementById("search-bar").classList.add("search-bar");
+          navbar.classList.add("sticky");
+          nav_button.classList.add("nav-button-collapse-scroll");
+          document.getElementById("nav-logo").style.display = "block";
+
+  @endsection
 @extends("templates.public")
 @section("sharing")
 <style>
@@ -60,6 +72,10 @@
     }
 
     @media screen and (max-width: 765px) {
+                    #search-bar, #small-search,#mobile-logo
+            {
+                display: none !important;
+            }
 
         #slick,
         #bread-crumb,
@@ -177,12 +193,14 @@
         color: white;
         text-decoration: none;
     }
-
+/*
 
     .left {
 
         z-index: 9999 !important;
-    }
+    }*/
+
+
 </style>
 
 
@@ -218,20 +236,19 @@ $category = App\Catagories::find($product->cat_id);
             right: 0px;
         }
 
+        /* .next-pre {
+            border-color: #f1ebeb !important;
+            border: .5px !important;
+            margin: 10px !important;
+            height: 30px !important;
+            width: 30px !important;
+            color: gray !important;
+        } */
+       
 
-
-        @media only screen and (max-width: 600px) {
-
-
-            .outer-pre-next {
-                text-decoration: none;
-                display: inline-block;
-                padding: 8px 16px;
-                border: .5px solid lightgray;
-                color: gray;
-                font-size: 20px;
-                border-radius: 5px;
-            }
+        @media only screen and (max-width: 481px) {
+           
+         
 
             .previous {
                 background-color: #f1f1f1;
@@ -247,17 +264,7 @@ $category = App\Catagories::find($product->cat_id);
                 border-radius: 50%;
             }
 
-            #search-bar {
-                display: none !important;
-            }
 
-            #small-search {
-                display: none !important;
-            }
-
-            #display-buttons button {
-                padding: 4px
-            }
         }
     </style>
 </div>
@@ -283,8 +290,10 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
 
 
+
+
 <div class="row" id="product-body">
-    <div style="margin-top: 10px;  " class="col-lg-6 col-md-6 col-sm-6 ">
+    <div style="margin-top: 80px;  " class="col-lg-6 col-md-6 col-sm-6 ">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="100000000">
             <!-- Indicators -->
 
@@ -388,11 +397,11 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
         <br>
         <div style="
                 font-size: 13px;
-                font-family: " Open Sans",Arial,sans-serif; color: #444; " id=" display-buttons">
-
-
+                font-family: " Open Sans",Arial,sans-serif; color: #444; ">
+                
+       
             <button type=" button" class="btn-theme" data-toggle="modal" data-target="#myModalAshForPrice">
-                Ask For Price
+            Ask For Price
             </button>
 
             <button onclick="location.href='{{URL::to('/category/selected')}}/{{$selectedCat}}'" style="margin-left:3px;" class="btn-theme">Back To Review</button>
@@ -413,13 +422,19 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
         <div class="modal-content">
             <div class="modal-content">
                 <div class="modal-header" style="color: #FBCA01;background-color:#034375;font-weight:bolder;">
-                    <button type="button" style="color:black;float:right;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" style="background-color:#fbca01;color:#034375;float:right;border-radius:20px;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <p class="modal-title" id="myModalLabel" style=""> {{$product->pr_title}}</p>
                 </div>
 
+                <p style="background: linear-gradient(90deg, #FBCA01 0%,#FBCA01 100%);color:#034375;padding:8px;font-weight:bolder;">
+                    USM-Used Sweden Machines</br>
+                    83-A, S.I.E # 1,</br>
+                    Gujranwala Pakistan</br>
+                    Tel.: +92 (321) 7415373</br>
+                    E-Mail: info@usedswedenmachines.com</p>
                 <form action="{{route('QuoteFormSubmit',$product->id)}}" style="padding:10px;" method="POST" id="ask-for-price-form">
                     @csrf
-                    <input type="hidden" name="_token">
+                    <input type="hidden" name="token">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 label-heading">
@@ -486,31 +501,30 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
     </div>
 </div>
 <!-- Modal -->
-<div style="margin-top: 20px;" class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog" style="height:486px;width:600px">
-
+<div style="margin-top: 40px;" class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" style="height:586px;width:763px">
 
 
         <div class="modal-header" style="border:none;">
-            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 94%"><span>&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 730px"><span>&times;</span><span class="sr-only">Close</span></button>
 
 
         </div>
 
-        <div class="modal-content" style="height:486px;width:600px">
+        <div class="modal-content" style="  height:586px;width:763px">
 
             <div class="modal-body" style="padding:0px;height
             :auto">
 
 
-                <div id="myCarousel4" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:486px;width:600px">
+                <div id="myCarousel4" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:586px;width:763px">
                     <!-- Indicators -->
 
                     <!-- Wrapper for slides -->
-                    <div class="carousel-inner " style="height:486px;width:600px;border:10px solid white">
+                    <div class="carousel-inner " style="height:586px;width:763px;border:10px solid white">
                         <div class="item active">
 
-                            <img style="height:486px;width:600px" class="model-images" src="{{URL::to('storage/app/products/'.$product->image)}}">
+                            <img style="width:763px;height: 586px" class="model-images" src="{{URL::to('storage/app/products/'.$product->image)}}">
                         </div>
                         @php
                         $allThumbs = App\Thumbs::where("org_id",$product->id)->get();
@@ -518,7 +532,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
                         @foreach($allThumbs as $thumb)
                         <div class="item">
-                            <img src="{{URL::to('storage/app/products/'.$thumb->file_name)}}" class="img-responsive" style="height:486px;width:600px">
+                            <img src="{{URL::to('storage/app/products/'.$thumb->file_name)}}" class="img-responsive" style="width:763px;height: 586px">
 
                         </div>
                         @endforeach
@@ -548,31 +562,31 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModalbig" role="dialog" style="margin-top: 20px">
+<div style="margin-top: 40px" class="modal fade" id="myModalbig" role="dialog">
 
-    <div class="modal-dialog" style="height:486px;width:600px">
+    <div class="modal-dialog" style="height:586px;width:763px">
 
 
         <div class="modal-header" style="border:none;">
-            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 94%"><span>&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 730px"><span>&times;</span><span class="sr-only">Close</span></button>
 
 
         </div>
 
-        <div class="modal-content" style="  height:486px;width:600px">
+        <div class="modal-content" style="  height:586px;width:763px">
 
             <div class="modal-body" style="padding:0px;height
             :auto">
 
 
-                <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:486px;width:600px">
+                <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:586px;width:763px">
                     <!-- Indicators -->
 
                     <!-- Wrapper for slides -->
-                    <div class="carousel-inner " style="height:486px;width:600px;border:10px solid white">
+                    <div class="carousel-inner " style="height:586px;width:763px;border:10px solid white">
                         <div class="item active">
 
-                            <img style="height:486px;width:600px;" class="model-images" src="{{URL::to('storage/app/products/'.$product->image)}}">
+                            <img style="width:763px;height: 586px" class="model-images" src="{{URL::to('storage/app/products/'.$product->image)}}">
                         </div>
                         @php
                         $allThumbs = App\Thumbs::where("org_id",$product->id)->get();
@@ -580,7 +594,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
                         @foreach($allThumbs as $thumb)
                         <div class="item">
-                            <img src="{{URL::to('storage/app/products/'.$thumb->file_name)}}" class="img-responsive" style="height:486px;width:600px;">
+                            <img src="{{URL::to('storage/app/products/'.$thumb->file_name)}}" class="img-responsive" style="width:763px;height: 586px">
 
                         </div>
                         @endforeach
@@ -611,6 +625,8 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
+ 
+
     $(document).on('ready', function() {
         var val = $("#check-thumbs").val();
         if (val) {
