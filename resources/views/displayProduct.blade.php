@@ -293,7 +293,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
 
 <div class="row" id="product-body">
-    <div style="margin-top: 80px;  " class="col-lg-6 col-md-6 col-sm-6 ">
+    <div style="margin-top: 11.5px;  " class="col-lg-6 col-md-6 col-sm-6 ">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="100000000">
             <!-- Indicators -->
 
