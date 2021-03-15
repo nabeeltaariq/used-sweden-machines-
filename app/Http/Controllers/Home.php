@@ -745,8 +745,11 @@ class Home extends Controller
         $to = "info@usm.com.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
-        $message .= 'Machine Name: ' . request('machine_name') . "\n";
+        if(request('page')=='desktop')
+        {
+            $message .= 'Machine Name: ' . request('machine_name') . "\n";
         $message .= 'Item #:  ' .  request('serial_no') . "\n";
+        }
         $message .= 'Name :  ' . request('full_name') . "\n";
         $message .= 'Phone #:  ' . request('phone') . "\n";
         $message .= 'Email:  ' .  request('email') . "\n";

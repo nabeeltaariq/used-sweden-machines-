@@ -400,10 +400,11 @@
           machine_name: machine_name,
           serial_no: serial_no,
           phone: phone,
-          email: phone,
+          email: email,
           full_name: full_name,
           company: company,
           message: message,
+          page:"mobile",
           
 
 
