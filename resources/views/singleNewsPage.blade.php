@@ -1,4 +1,4 @@
-  @section('display-products')
+  @section('display-products/news')
    
    var nav_button = document.getElementById("nav-button-collapse");
         var navbar = document.getElementById("navbar");
@@ -333,7 +333,7 @@ $url = URL::to("/storage/app/products/$news->image");
 
                 <!--<li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.usedswedenmachines.com/news/{{$news->id}}&title={{$news->news_title}}&summary=Used Sweden Machines News&source=USM" style="color: white;background-color:#017bb5;heighr:20px;" target="_blank"><i class="fab fa-linkedin"></i></a></li>-->
                 <li><a href="https://api.whatsapp.com/send?phone=923217415373&&text=https://usedswedenmachines.com/news/by/{{$news->id}}" target="_blank" style="color:#65bc54"><i class="fab fa-whatsapp-square"></i></a></li>
-                <li><a href="mailto:?subject={{$news->news_title}}Machine-Used%20Sweden%20Machines News&body=To%20Get%20Information%20About%20This%20News,%20Please%20Visit%20https://www.usedswedenmachines.com/news/by/{{$news->id}}" target="_blank" style="color:#c15b53"><img src="{{URL::to('public/imgs/email.png')}}" alt="" style="heigt:25px;margin-top:-8px;max-height:25px;max-width:25.17px;min-width:25.17px;width:25.17px"></a></li>
+                <li><a href="mailto:info@usm.com.pk?subject={{$news->news_title}}Machine-Used%20Sweden%20Machines News&body=To%20Get%20Information%20About%20This%20News,%20Please%20Visit%20https://www.usedswedenmachines.com/news/by/{{$news->id}}" target="_blank" style="color:#c15b53"><img src="{{URL::to('public/imgs/email.png')}}" alt="" style="heigt:25px;margin-top:-8px;max-height:25px;max-width:25.17px;min-width:25.17px;width:25.17px"></a></li>
                 <li><a href="{{URL::to('/machine-pdf-news/generate')}}/{{$news->id}}" target="_blank" style="color:maroon">
                         <img src="{{URL::to('public/imgs/pdf.png')}}" style="    height: 25px;
                margin-top: -08px;" alt="image not found">

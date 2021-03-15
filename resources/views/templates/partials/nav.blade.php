@@ -384,6 +384,8 @@
       let email = $("#email").val();
       let full_name = $("#full_name").val();
       let company = $("#company").val();
+      let message = $("#request").val();
+
 
 
 
@@ -401,6 +403,8 @@
           email: phone,
           full_name: full_name,
           company: company,
+          message: message,
+          
 
 
         },

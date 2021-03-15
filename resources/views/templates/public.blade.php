@@ -961,6 +961,7 @@
 
         document.getElementById("nav-logo").style.marginLeft="-100px";
         document.getElementById("nav-logo").style.float="left";
+        document.getElementById("mob-sep").style.marginTop = "-5px";
 
 
 
@@ -1018,7 +1019,7 @@
           navbar.classList.remove("sticky");
           nav_button.classList.remove("nav-button-collapse-scroll");
           document.getElementById("nav-logo").style.display = "none";
-            @yield("display-products")
+            @yield("display-products/news")
         }
 
         @yield("spare-parts")

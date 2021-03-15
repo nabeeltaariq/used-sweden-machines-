@@ -1,4 +1,4 @@
-  @section('display-products')
+  @section('display-products/news')
    
    var nav_button = document.getElementById("nav-button-collapse");
         var navbar = document.getElementById("navbar");
@@ -390,7 +390,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
                     </a>
                 </li>
                 <li><a href="https://api.whatsapp.com/send?phone=923217415373&&text={{URL::to('/')}}/{{$machine_name}}/{{$product->id}}" style="color:#65bc54"><i class="fab fa-whatsapp-square"></i></a></li>
-                <li><a href="mailto:?subject={{$product->pr_title}}-Used Sweden Machines&body=To%20Get%20Information%20About%20This%20Machine,%20Please%20Visit%20{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}%20" style="color:#c15b53"><img src="{{URL::to('public/imgs/email.png')}}" alt="" style="heigt:25px;margin-top:-8px;max-height:25px;max-width:25.17px;min-width:25.17px;width:25.17px"></a></li>
+                <li><a href="mailto:info@usm.com.pk?subject={{$product->pr_title}}-Used Sweden Machines&body=To%20Get%20Information%20About%20This%20Machine,%20Please%20Visit%20{{URL::to('/')}}/{{$machine_name}}/{{$product->id}}%20" style="color:#c15b53"><img src="{{URL::to('public/imgs/email.png')}}" alt="" style="heigt:25px;margin-top:-8px;max-height:25px;max-width:25.17px;min-width:25.17px;width:25.17px"></a></li>
 
                 <li><a href="{{URL::to('/machine-pdf/generate')}}/{{$product->id}}" target="_blank" style="color:maroon">
                         <img src="{{URL::to('public/imgs/pdf.png')}}" style="    height: 25px;
@@ -566,31 +566,31 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
 
 <!-- Modal -->
-<div style="margin-top: 40px" class="modal fade" id="myModalbig" role="dialog">
+<div style="margin-top: 20px" class="modal fade" id="myModalbig" role="dialog">
 
-    <div class="modal-dialog" style="height:586px;width:763px">
+    <div class="modal-dialog" style="height:486px;width:600px">
 
 
         <div class="modal-header" style="border:none;">
-            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 730px"><span>&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 94%"><span>&times;</span><span class="sr-only">Close</span></button>
 
 
         </div>
 
-        <div class="modal-content" style="  height:586px;width:763px">
+        <div class="modal-content" style=" height:486px;width:600px">
 
             <div class="modal-body" style="padding:0px;height
             :auto">
 
 
-                <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:586px;width:763px">
+                <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:486px;width:600px">
                     <!-- Indicators -->
 
                     <!-- Wrapper for slides -->
-                    <div class="carousel-inner " style="height:586px;width:763px;border:10px solid white">
+                    <div class="carousel-inner " style="height:486px;width:600px;border:10px solid white">
                         <div class="item active">
 
-                            <img style="width:763px;height: 586px" class="model-images" src="{{URL::to('storage/app/products/'.$product->image)}}">
+                            <img style="height:486px;width:600px" class="model-images" src="{{URL::to('storage/app/products/'.$product->image)}}">
                         </div>
                         @php
                         $allThumbs = App\Thumbs::where("org_id",$product->id)->get();
@@ -598,7 +598,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
                         @foreach($allThumbs as $thumb)
                         <div class="item">
-                            <img src="{{URL::to('storage/app/products/'.$thumb->file_name)}}" class="img-responsive" style="width:763px;height: 586px">
+                            <img src="{{URL::to('storage/app/products/'.$thumb->file_name)}}" class="img-responsive" style="height:486px;width:600px">
 
                         </div>
                         @endforeach

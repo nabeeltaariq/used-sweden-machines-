@@ -321,7 +321,9 @@ class SameelController extends Controller
                 $user = DB::table("sp_userInformation")->where("email", $request->email)->where("password", base64_encode($request->password))->get();
 
                 $request->session()->put("orderUser", $user);
-                return redirect("/processOrder");
+            $request->session()->flash('profile-created', 'Profile has been Created');
+
+                return redirect("/auth");
             } else {
                 return view("auth.auth", ["errorMessage" => "Password and confirm password does not matched"]);
             }

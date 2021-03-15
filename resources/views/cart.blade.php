@@ -111,7 +111,7 @@
 
   }
 </style>
-<div class="row" style="position:absolute;">
+<div class="row" style="position:absolute;z-index: 1">
   <div class="col-lg-12">
     <div style="margin-top:20px;">
       <span style="
@@ -132,7 +132,7 @@
 <br />
 
 
-<div style="width:100%;max-height:395px;overflow:auto;position: relative;">
+<div style="width:100%;max-height:395px;overflow:auto;position: relative;margin-top: 10px">
   <table class="table table-bordered table-sm">
     <thead>
       <tr>

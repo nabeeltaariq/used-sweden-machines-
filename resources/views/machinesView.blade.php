@@ -559,7 +559,7 @@
 
     } else {
 
-      $(".products table tr").each(function() {
+      $("table tr").each(function() {
 
         $(this).show();
 

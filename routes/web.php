@@ -99,6 +99,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'Auth'], function () {
         Route::get("/new", "Products@AddProductForm");
         Route::get("/uploadedProducts", "Products@ViewUploads");
         Route::get("/catagories", "Catagory@Index");
+        Route::get("/manage-products", "Products@Index");
+
         Route::get("/addCategory", "Catagory@AddNew");
         Route::post("/addCategory", "Catagory@Save");
         Route::get("/categories/remove/{id}", "Catagory@Remove");

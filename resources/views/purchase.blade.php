@@ -198,7 +198,7 @@ display: block;
  <input type="file" name="featuredImage" required style="width: 100%"><br>
 
     <span class="kontakt-form-text">Machine Other Image:</span><br>
-<input type="file" name="otherImages[]" multiple required style="width: 100%"><br>
+<input type="file" name="otherImages[]" multiple  style="width: 100%"><br>
 
               <input type="hidden" name="country" value="none">
                 <input name="quote_form" type="submit" class="kontakt_btn" id="Submit" style="height:30px;width:75px;font-size: 13px;font-weight: bolder;" value="Submit">
@@ -329,7 +329,7 @@ display: block;
 
 
 
-                <td height="22" colspan="2" align="left" valign="top"> <input type="file" name="otherImages[]" multiple required></td>
+                <td height="22" colspan="2" align="left" valign="top"> <input type="file" name="otherImages[]" multiple ></td>
 
               </tr>
 
@@ -359,20 +359,6 @@ display: block;
 
         </form>
       </section>
-
-      <!-- ASIDE NAV -->
-
-      <section class="s-12 m-8 l-4 contact">
-
-        <!--<h3>Navigation</h3>-->
-
-
-
-
-
-
-      </section>
-
 
 
 

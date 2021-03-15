@@ -287,7 +287,7 @@
 
         $.ajax({
 
-            url: "/contact",
+            url: "/machine/contactUsform",
             type: "POST",
             data: {
                 _token: "{{ csrf_token() }}",

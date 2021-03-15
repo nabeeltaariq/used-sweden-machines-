@@ -119,6 +119,13 @@
   <strong>Oops!</strong> {{Session::get('status') }}.
 </div>
 @endif
+	    					    @if(session('profile-created'))
+<!--<p class="alert alert-danger" style="margin-top:10px">{{Session::get('status') }}</p>-->
+<div style="margin-top:10px" class="alert alert-success alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong> {{Session::get('profile-created') }}</strong>
+</div>
+@endif
 
 			<h3 align="center" style="font-family:Georgia;font-size:18px">Register Now</h3>
 			<form method="post" action="{{URL::to('/createProfile')}}">
