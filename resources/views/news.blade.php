@@ -320,6 +320,7 @@
 
     .content {
       border: none;
+      height: auto !important;
 
     }
 
