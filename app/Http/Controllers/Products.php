@@ -32,15 +32,20 @@ class Products extends Controller
 
         $pre = '';
         $next = '';
+        $name='';
         if (session()->get("mode") == "all") {
             $machine = Product::find($id);
             $nextmachine = Product::where('id', '>', $machine->id)->orderBy('id', 'asc')->first();
             $next = '';
             if ($nextmachine) {
                 $next = $nextmachine->id;
+                $name = $nextmachine->pr_title;
+
             } else {
                 $nextmachine = Product::where('id', '<', $machine->id)->orderBy('id', 'asc')->first();
                 $next = $nextmachine->id;
+                $name = $nextmachine->pr_title;
+
             }
             $pre = Product::where('id', '<', $id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
             if ($pre) {
@@ -50,7 +55,7 @@ class Products extends Controller
             }
 
             $allThumbs = Thumbs::where('org_id', $machine->id)->get();
-            return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => 'all', "pre" => $pre]);
+            return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "name" => $name,"selectedCat" => 'all', "pre" => $pre]);
         }
 
         $machine = Product::find($id);
@@ -59,11 +64,16 @@ class Products extends Controller
             $nextmachineid = Product::where('id', '<', $machine->id)->where('cat_id', $machine->cat_id)->orderBy('id', 'asc')->first();
             if ($nextmachineid) {
                 $next = $nextmachineid->id;
+                $name = $nextmachineid->pr_title;
+
+
             } else {
                 $next = '';
             }
         } else {
             $next = $nextmachineid->id;
+                $name = $nextmachineid->pr_title;
+            
         }
         $pre = Product::where('id', '<', $id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
         if ($pre) {
@@ -72,7 +82,7 @@ class Products extends Controller
             $pre = $id;
         }
         $allThumbs = Thumbs::where('org_id', $machine->id)->get();
-        return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "selectedCat" => $machine->cat_id, "pre" => $pre]);
+        return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "name" => $name, "selectedCat" => $machine->cat_id, "pre" => $pre]);
     }
 
     public function machineMobile($machine_name, $id)

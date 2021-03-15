@@ -287,6 +287,8 @@ $category = App\Catagories::find($product->cat_id);
 @endif
 @php
 $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($product->pr_title))));
+$name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($name))));
+
 @endphp
 
 
@@ -410,9 +412,9 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
 
             <button onclick="location.href='{{URL::to('/category/selected')}}/{{$selectedCat}}'" style="margin-left:3px;" class="btn-theme">Back To Review</button>
 
-            @if($next)
+            @if($next && $name)
 
-            <a class="desktop" href="{{URL::to('/')}}/{{$machine_name}}/{{$next}}/next" autofocus><button class="btn-theme"> Next Machine </button> </a>
+            <a class="desktop" href="{{URL::to('/')}}/{{$name}}/{{$next}}/next" autofocus><button class="btn-theme"> Next Machine </button> </a>
 
             @else
             <button class="desktop btn-theme" onclick='location.href="{{URL::to('/used-tetra-pak-machines')}}"'>All Products</button>
