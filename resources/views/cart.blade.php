@@ -132,7 +132,7 @@
 <br />
 
 
-<div style="width:100%;max-height:395px;overflow:auto;position: relative;margin-top: 10px">
+<div style="width:100%;max-height:350px;overflow:auto;position: relative;margin-top: 10px">
   <table class="table table-bordered table-sm">
     <thead>
       <tr>
