@@ -144,8 +144,7 @@
         border-top: 2px solid #005294;
         display: flex;
         margin-top: -40px;
-        position: fixed;
-        z-index: 1;
+        position: absolute;
 
 
     }
@@ -664,7 +663,7 @@ mob.style.marginTop = "-50px";
 document.getElementById("partsControl").style.position = "fixed";
 }
 else {
-document.getElementById("partsControl").style.position = "fixed";
+document.getElementById("partsControl").style.position = "absolute";
 mob.style.marginTop = "40px";
 
 }
