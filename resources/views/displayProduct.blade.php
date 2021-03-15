@@ -505,30 +505,30 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
     </div>
 </div>
 <!-- Modal -->
-<div style="margin-top: 40px;" class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog" style="height:586px;width:763px">
+<div style="margin-top: 20px;" class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" style="height:486px;width:600px">
 
 
         <div class="modal-header" style="border:none;">
-            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 730px"><span>&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="modal" style="color:#034375;font-weight:bold;font-size:30px;opacity:1;background-color: white;border-radius: 10px;position: absolute;z-index:1;margin-top: 17px;margin-left: 94%"><span>&times;</span><span class="sr-only">Close</span></button>
 
 
         </div>
 
-        <div class="modal-content" style="  height:586px;width:763px">
+        <div class="modal-content" style="height:486px;width:600px">
 
             <div class="modal-body" style="padding:0px;height
             :auto">
 
 
-                <div id="myCarousel4" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:586px;width:763px">
+                <div id="myCarousel4" class="carousel slide" data-ride="carousel" data-interval="100000000" style="height:486px;width:600px">
                     <!-- Indicators -->
 
                     <!-- Wrapper for slides -->
-                    <div class="carousel-inner " style="height:586px;width:763px;border:10px solid white">
+                    <div class="carousel-inner " style="height:486px;width:600px;border:10px solid white">
                         <div class="item active">
 
-                            <img style="width:763px;height: 586px" class="model-images" src="{{URL::to('storage/app/products/'.$product->image)}}">
+                            <img style="height:486px;width:600px" class="model-images" src="{{URL::to('storage/app/products/'.$product->image)}}">
                         </div>
                         @php
                         $allThumbs = App\Thumbs::where("org_id",$product->id)->get();
@@ -556,7 +556,7 @@ $machine_name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($pr
         </div>
         <div class="modal-footer">
             <center>
-                <div style="background-color:#034375;color:white;font-size: 11px;border:2px solid white;border-radius: 20px;padding:4px;float: none " class="col-sm-6">{{$product->pr_title}}</div>
+                <div style="background-color:#034375;color:white;font-size: 11px;border:2px solid white;border-radius: 20px;padding:4px;float: none  " class="col-sm-6">{{$product->pr_title}}</div>
             </center>
         </div>
 
