@@ -144,7 +144,8 @@
         border-top: 2px solid #005294;
         display: flex;
         margin-top: -40px;
-        position: absolute;
+        position: fixed;
+        z-index: 1;
 
 
     }
@@ -608,7 +609,7 @@
 
                 cartButton.classList.add("btn");
                 cartButton.disabled = true;
-                cartButton.innerHTML = "<span>Added</span>";
+                cartButton.innerHTML = "Added";
                 $(".totalItems").html(data);
             }
 
