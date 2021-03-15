@@ -660,7 +660,7 @@
 var mob = document.getElementById("mob-sep");
 var vv = mob.offsetTop;
 if (window.pageYOffset >= vv) {
-mob.style.marginTop = "-5px";
+mob.style.marginTop = "-50px";
 document.getElementById("partsControl").style.position = "fixed";
 }
 else {
