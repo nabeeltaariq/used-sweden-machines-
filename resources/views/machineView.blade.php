@@ -608,7 +608,7 @@
 
                 cartButton.classList.add("btn");
                 cartButton.disabled = true;
-                cartButton.innerHTML = "Added";
+                cartButton.innerHTML = "<span>Added</span>";
                 $(".totalItems").html(data);
             }
 
