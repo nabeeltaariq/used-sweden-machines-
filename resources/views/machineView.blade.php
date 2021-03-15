@@ -664,7 +664,7 @@ mob.style.marginTop = "-50px";
 document.getElementById("partsControl").style.position = "fixed";
 }
 else {
-document.getElementById("partsControl").style.position = "absolute";
+document.getElementById("partsControl").style.position = "fixed";
 mob.style.marginTop = "40px";
 
 }
