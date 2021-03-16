@@ -779,7 +779,7 @@ class Home extends Controller
     }
     public function QuoteFormSubmit($id)
     {
-        $to = "inquiry@trepak.pk";
+         $to = "inquiry@trepak.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
         $message .= 'Sender:  ' .  request('email') . "\n";
@@ -796,9 +796,9 @@ class Home extends Controller
         $header = 'From:' . request('email');
 
          if (mail($to, $subject, $message, $header))
-            $flash_message = true;
+            $messageFlush = true;
         else
-            $flash_message = false;
+            $messageFlush = false;
         return redirect()->back()->with('message', $messageFlush);
     }
 
