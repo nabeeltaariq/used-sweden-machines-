@@ -779,7 +779,7 @@ class Home extends Controller
     }
     public function QuoteFormSubmit($id)
     {
-         $to = "inquiry@trepak.pk";
+         $to = "info@usm.com.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
         $message .= 'Sender:  ' .  request('email') . "\n";

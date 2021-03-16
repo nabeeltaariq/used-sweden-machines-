@@ -437,7 +437,7 @@ $name= strtoupper( preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($name))));
                     83-A, S.I.E # 1,</br>
                     Gujranwala Pakistan</br>
                     Tel.: +92 (321) 7415373</br>
-                    E-Mail: info@usedswedenmachines.com</p>
+                    E-Mail: info@usm.com.pk</p>
                 <form action="{{route('QuoteFormSubmit',$product->id)}}" style="padding:10px;" method="POST" id="ask-for-price-form">
                     @csrf
                     <input type="hidden" name="token">
