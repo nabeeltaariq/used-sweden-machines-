@@ -38,7 +38,7 @@ $parentPages = DB::table("sp_adminpages")->where("parentId", 0)->get();
 
 <body >
 
-    <div id="head" style="position:absolute;top:0;left:0;right:0;z-index:1">
+    <div id="head" style="position:fixed;top:0;left:0;right:0;z-index:1">
         <div
             style="width:100%;height:80px;background:url({{asset('imgs/banner1.png')}}) no-repeat;background-size:cover">
             <div style="float:left;margin-left:30px;height:80px;width:50%;">
