@@ -254,15 +254,18 @@ class Home extends Controller
         $machine->email = $request->input("email");
         $machine->technicalSpecifications = $request->input("technical_specification");
         $machine->machineName = $request->input("machine_name");
-        $machine->save();
 
-        $path = $request->file("featuredImage")->store("products");
+         $path = $request->file("featuredImage")->store("products");
         $common = new Common();
         $path = $common->SimplifiedPath($path);
 
         $machine->featuredImage = $path;
         $machine->isApproved = 0;
-        $machine->save();
+
+   
+
+       
+  
 
         if ($request->file("otherImages") != null) {
             foreach ($request->file("otherImages") as $file) {
@@ -273,11 +276,17 @@ class Home extends Controller
                 $thumb->machine_id = $machine->id;
                 $thumb->save();
             }
-            $request->session()->flash("success", "Your machine has been uploaded");
-        } else {
-            $request->session()->flash("danger", "OOPS! Something went wrong...");
-        }
+           
+        } 
+             if($machine->save())
+             {
+ $request->session()->flash("success", "Your machine has been uploaded");
 
+             }
+             else {
+            $request->session()->flash("danger", "OOPS! Something went wrong...");
+              
+             }
 
 
 

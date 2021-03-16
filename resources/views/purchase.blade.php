@@ -281,7 +281,7 @@ display: block;
               <tr>
 
                 <td width="110" height="22" align="left" valign="top">
-                  <div align="left"><span class="kontakt-form-text">Machine Name:</span> </div>
+                  <div align="left"><span class="kontakt-form-text"> Full Machine Name:</span> </div>
                 </td>
 
 
