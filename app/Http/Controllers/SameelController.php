@@ -49,7 +49,7 @@ class SameelController extends Controller
     }
 
     public function ProcessOrder(Request $request)
-    {g
+    {
         $user = $request->session()->get("orderUser");
         $cartData = $request->session()->get("cartData");
         $ordernum = DB::table('sp_order')->get('orderId')->last();
