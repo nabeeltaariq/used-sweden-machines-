@@ -795,38 +795,10 @@ class Home extends Controller
 
         $header = 'From:' . request('email');
 
-        //captcha integration
-        $url = "https://www.google.com/recaptcha/api/siteverify";
-        $testdata = [
-            "secret" => "6LeZq9gUAAAAAJeFL1UopthwusHQBs_ntRx92S78",
-            "response" => $_POST["_token"],
-            "remoteip" => $_SERVER["REMOTE_ADDR"]
-        ];
-
-        $options = array(
-            'http' => array(
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-                'method'  => 'POST',
-                'content' => http_build_query($testdata)
-            )
-        );
-
-
-        //captcha integration ended
-        $context  = stream_context_create($options);
-        $response = file_get_contents($url, false, $context);
-
-        $res = json_decode($response, true);
-        if ($res['success'] == true) {
-
-
-            if (mail($to, $subject, $message, $header))
-                $messageFlush = true;
-            else
-                $messageFlush = false;
-        } else {
-            $messageFlush = false;
-        }
+         if (mail($to, $subject, $message, $header))
+            $flash_message = true;
+        else
+            $flash_message = false;
         return redirect()->back()->with('message', $messageFlush);
     }
 
