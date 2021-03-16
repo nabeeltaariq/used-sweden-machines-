@@ -144,7 +144,9 @@
         border-top: 2px solid #005294;
         display: flex;
         margin-top: -40px;
+        z-index: 1;
         position: absolute;
+
 
 
     }
