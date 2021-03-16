@@ -144,6 +144,7 @@
         border-top: 2px solid #005294;
         display: flex;
         margin-top: -40px;
+        z-index:1;
         position: absolute;
 
 
@@ -172,7 +173,7 @@
 
 </div>
 
-<div class="mobile_spareparts" id="mob-sep">
+<div class="mobile_spareparts" id="mob-sep" >
     <div class="partsControl" id="partsControl">
 
         <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-filter"></i> Filter</a>
@@ -659,12 +660,24 @@
 var mob = document.getElementById("mob-sep");
 var vv = mob.offsetTop;
 if (window.pageYOffset >= vv) {
-mob.style.marginTop = "-50px";
+document.getElementById("partsControl").style.marginTop = "-127px";
 document.getElementById("partsControl").style.position = "fixed";
 }
 else {
 document.getElementById("partsControl").style.position = "absolute";
-mob.style.marginTop = "40px";
+if(fix_counter>0)
+{
+
+
+ document.getElementById("mob-sep").style.marginTop = "30px";
+   document.getElementById("partsControl").style.marginTop = "-30px";
+}
+else
+{
+
+<!--mob.style.marginTop = "400px";-->
+    document.getElementById("partsControl").style.marginTop = "-30px";
+}
 
 }
 @endsection

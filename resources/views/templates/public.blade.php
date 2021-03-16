@@ -878,6 +878,7 @@
     </div>
     @include("templates.partials.footer")
     <script>
+    var fix_counter=0;
       // --- Config --- //
       var purecookieTitle = "Cookies."; // Title
       var purecookieDesc = "We are using cookies. By continuing to use our website without changing the settings, you're agreeing to our use of cookies."; // Description
@@ -961,7 +962,11 @@
 
         document.getElementById("nav-logo").style.marginLeft="-100px";
         document.getElementById("nav-logo").style.float="left";
-        // document.getElementById("mob-sep").style.marginTop = "-5px";
+        document.getElementById("mob-sep").style.marginTop = "83px";
+        fix_counter++;
+      
+
+//  document.getElementById("mob-sep").style.position = "relative";
 
 
 
@@ -992,8 +997,9 @@
         }
       }
 
-
+  
       function screenScroll() {
+        
         var nav_button = document.getElementById("nav-button-collapse");
         var navbar = document.getElementById("navbar");
         var sticky = navbar.offsetTop;
@@ -1019,6 +1025,7 @@
           navbar.classList.remove("sticky");
           nav_button.classList.remove("nav-button-collapse-scroll");
           document.getElementById("nav-logo").style.display = "none";
+
             @yield("display-products/news")
         }
 
