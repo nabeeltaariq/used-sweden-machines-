@@ -59,6 +59,10 @@
 
 
   @media only screen and (max-width: 600px) {
+    #cart-main
+    {
+      z-index: 0 !important;
+    }
 
     #cart-btns {
       display: block !important;
@@ -111,7 +115,7 @@
 
   }
 </style>
-<div class="row" style="position:absolute;z-index: 1">
+<div class="row" style="position:absolute;z-index: 1" id="cart-main">
   <div class="col-lg-12">
     <div style="margin-top:20px;">
       <span style="
