@@ -961,7 +961,7 @@
 
         document.getElementById("nav-logo").style.marginLeft="-100px";
         document.getElementById("nav-logo").style.float="left";
-        document.getElementById("mob-sep").style.marginTop = "-5px";
+        // document.getElementById("mob-sep").style.marginTop = "-5px";
 
 
 
