@@ -148,7 +148,7 @@
         position: absolute;
 
 
-z-index:0;
+
     }
 
 
