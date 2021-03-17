@@ -288,7 +288,7 @@
     console.clear();
     partName = partName.innerHTML;
     $.ajax({
-      url: "{{URL::to('/api/updateCart')}}",
+      url: "{{URL::to('api/item/cartUpdate')}}",
       method: "GET",
       data: {
         part: partName,
@@ -296,7 +296,7 @@
       },
       success: function(data) {
         console.log(data);
-
+ window.location.reload();
       }
     });
   }

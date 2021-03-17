@@ -240,7 +240,7 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::get("/updateCart", "SameelController@updateCart");
     Route::get("/item/deleteFromCart", "SameelController@removeItem");
-
+    Route::get("/item/cartUpdate", "SameelController@cartUpdate");
     Route::get('/updated/welcome-page', 'API@welcome_page_data_api');
     Route::post('/updated/add-subscriber', 'API@AddSubscriber');
     Route::get('/updated/get-all-machines-categories', 'API@AllMachinesCategories');

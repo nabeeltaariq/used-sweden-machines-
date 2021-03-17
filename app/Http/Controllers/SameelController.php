@@ -30,6 +30,27 @@ class SameelController extends Controller
         $request->session()->put("cartData", $cartData);
         return count($cartData);
     }
+    public function cartUpdate(Request $request)
+    {
+
+        $partName = $request->input("part");
+        $newQuantity = $request->input("qty");
+        $cartData = [];
+        $items = Session::get("cartData");
+
+        foreach ($items as $item) {
+
+            if ($partName == $item["partTitle"]) {
+                $item["quantity"] = $newQuantity;
+            }
+
+            array_push($cartData, $item);
+        }
+
+        $request->session()->put("cartData", $cartData);
+        return count($cartData);
+        
+    }
 
     public function ProcessLogin(Request $request)
     {
