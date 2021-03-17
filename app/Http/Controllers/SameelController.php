@@ -265,11 +265,11 @@ class SameelController extends Controller
 
 
 
-echo $user->email;
-            // $request->session()->pull("cartData");
+
+            $request->session()->pull("cartData");
 
 
-            // return view("thankspage", ["user" => $userinfo, "orderId" => $id]);
+            return view("thankspage", ["user" => $userinfo, "orderId" => $id]);
         } else {
             return redirect("/cart");
         }
