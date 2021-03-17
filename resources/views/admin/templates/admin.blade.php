@@ -40,9 +40,9 @@ $parentPages = DB::table("sp_adminpages")->where("parentId", 0)->get();
 
     <div id="head" style="position:fixed;top:0;left:0;right:0;z-index:1">
         <div
-            style="width:100%;height:80px;background:url({{asset('imgs/banner1.png')}}) no-repeat;background-size:cover">
+            style="width:100%;height:80px;background:url('https://usedswedenmachines.com/public/imgs/banner1.png');background-size:cover">
             <div style="float:left;margin-left:30px;height:80px;width:50%;">
-                <img src="{{asset('imgs/logo.png')}}" width="111.33px" height="80px">
+                <img src="https://www.usedswedenmachines.com/public/imgs/logo.png" width="111.33px" height="80px">
             </div>
             <div style="float:right;height:80px;width:45%;">
                 <p align="right" style="padding-bottom:0px;margin-top:9px;font-size:11px;margin-right:30px">
