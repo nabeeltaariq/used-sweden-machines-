@@ -13,7 +13,7 @@
 <div class="top-top">
     <p style="text-align: justify;"><strong>Tetra Pak Machines, Expertise and Consulting</strong></p>
 <div>
-    <p style="text-align: justifye;">
+    <p style="text-align: justify;">
         Founded in 1950, the company is now run by the 3rd generation. We are specialized in consulting, planning and supplying of machines and complete systems for the processing and filling of liquid food and beverages. According to the needs of our customers, we offer high-quality used equipment and machines.
 <br>
         Mr. Abdul Rahman joined the company in 2009. As managing director, he will be involved primarily in the sales and customer relationship areas.
