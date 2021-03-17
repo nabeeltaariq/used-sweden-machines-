@@ -250,7 +250,7 @@ class SameelController extends Controller
             $headersfrom = '';
             $headersfrom .= 'MIME-Version: 1.0' . "\r\n";
             $headersfrom .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            $headersfrom .= 'From: ' . 'no-replay@usedswedenmachines.com' . ' ' . "\r\n";
+            $headersfrom .= 'From: ' . 'no-replay@info@usm.com.pk' . ' ' . "\r\n";
             mail($user->email, "Purchase Invoice USM", $emailcontent, $headersfrom);
 
 
@@ -258,9 +258,9 @@ class SameelController extends Controller
             $headersfrom .= 'MIME-Version: 1.0' . "\r\n";
             $headersfrom .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $headersfrom .= 'From: ' . $user->email . ' ' . "\r\n";
-            mail('shahzaibiftikhar78@gmail.com', "Purchase Invoice USM", $emailcontent, $headersfrom);
+            mail('info@usm.com.pk', "Purchase Invoice USM", $emailcontent, $headersfrom);
 
-           // mail('inquiry@trepak.pk', "Purchase Invoice USM", $emailcontent, $headersfrom);
+            
 
 
 
