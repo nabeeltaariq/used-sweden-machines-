@@ -246,14 +246,15 @@ class SameelController extends Controller
 
                         </style>';
 
+//to customer
 
             $headersfrom = '';
             $headersfrom .= 'MIME-Version: 1.0' . "\r\n";
             $headersfrom .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            $headersfrom .= 'From: ' . 'no-replay@info@usm.com.pk' . ' ' . "\r\n";
+            $headersfrom .= 'From: ' . 'no-replay@shahzaib@pms.net.pk' . ' ' . "\r\n";
             mail($user->email, "Purchase Invoice USM", $emailcontent, $headersfrom);
 
-
+//to usm
             $headersfrom = '';
             $headersfrom .= 'MIME-Version: 1.0' . "\r\n";
             $headersfrom .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
