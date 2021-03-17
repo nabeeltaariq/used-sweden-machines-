@@ -324,7 +324,7 @@ $url = URL::to("/storage/app/products/$news->image");
 
         <div style="margin-top: 5px;">
             <ul class="shareButtons linked" style="margin-top: -4px;">
-                <li><a href="http://www.facebook.com/sharer/sharer.php?u=https://www.usedswedenmachines.com/news/{{$news->id}}" target="_blank" style="color:#024374"><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href="http://www.facebook.com/sharer/sharer.php?u={{URL::to('/')}}/news/{{$news->id}}" target="_blank" style="color:#024374"><i class="fab fa-facebook-square"></i></a></li>
 
 
                 <li> <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.usedswedenmachines.com/news/by/{{$news->id}}&title={{$news->news_title}}&summary=Used Sweden Machines News&source=USM" target="_blank" style="color:white">
