@@ -49,7 +49,7 @@ class SameelController extends Controller
 
         $request->session()->put("cartData", $cartData);
         return count($cartData);
-        
+
     }
 
     public function ProcessLogin(Request $request)
@@ -260,14 +260,16 @@ class SameelController extends Controller
             $headersfrom .= 'From: ' . $user->email . ' ' . "\r\n";
             mail('inquiry@trepak.pk', "Purchase Invoice USM", $emailcontent, $headersfrom);
 
+           // mail('inquiry@trepak.pk', "Purchase Invoice USM", $emailcontent, $headersfrom);
 
 
 
 
-            $request->session()->pull("cartData");
+echo $user->email;
+            // $request->session()->pull("cartData");
 
 
-            return view("thankspage", ["user" => $userinfo, "orderId" => $id]);
+            // return view("thankspage", ["user" => $userinfo, "orderId" => $id]);
         } else {
             return redirect("/cart");
         }
