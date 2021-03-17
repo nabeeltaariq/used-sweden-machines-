@@ -249,7 +249,26 @@
 
 
     <div class="products" style="margin-top:-5px;margin-left: 5px;font-size: 13px">
+        
+      <?php
+
+      if (Request::session()->has("cartData")) {
+
+     $item= Request::session()->get("cartData");
+  
+      }
+      else
+      {
+          $item=[];
+      }
+
+      ?>
         <table>
+            <!--@if(Request::session()->has("cartData"))-->
+            <!--  $item= Request::session()->get("cartData");-->
+            <!--  @else-->
+            <!--  $item=[];-->
+            <!--  @endif-->
             @foreach($parts as $part)
             <tr style="border-top:1px solid #e6e6e6;padding-bottom: 7px">
 
@@ -280,8 +299,12 @@
                             <span class=" leftArrow" style="cursor:pointer; font-size: 25px;padding-left: 10px;padding-right: 7px;">-</span>&nbsp;&nbsp;<span id="quantity" class="numberField" style="font-size: 17px;padding-left: 7px;padding-right: 7px;">1</span>&nbsp;&nbsp;<span class=" rightArrow" style="cursor:pointer;font-size: 22px;padding-left: 7px;padding-right: 7px;">+</span>
 
                         </div>
+@if(array_search($part->title, array_column($item, 'partTitle')) !== False)
+  <button style="display:inline-block;border:1px solid maroon;margin-bottom:5px;margin-left: 15px;padding:5px;background-color:maroon;color:white;height:35px"><span>Added</span> </button>
+@else
+  <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer != null ? $manufacturer->title : '')}}" style="display:inline-block;border:1px solid maroon;margin-bottom:5px;margin-left: 15px;padding:5px;background-color:maroon;color:white;height:35px"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> </button>
+@endif
 
-                        <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer != null ? $manufacturer->title : '')}}" style="display:inline-block;border:1px solid maroon;margin-bottom:5px;margin-left: 15px;padding:5px;background-color:maroon;color:white;height:35px"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> </button>
                     </div>
                 </td>
             </tr>

@@ -268,7 +268,19 @@ ul, #myUL {
     <div class="col-lg-9 col-md-9 col-sm-9"     id="table-outer" ng-show="!loading">
    
         @if($spareParts != null && count($spareParts) >= 1)
+   <?php
 
+      if (Request::session()->has("cartData")) {
+
+     $item= Request::session()->get("cartData");
+  
+      }
+      else
+      {
+          $item=[];
+      }
+
+      ?>
         @foreach($spareParts as $part)
 
         <article class="line">
@@ -319,8 +331,13 @@ height: 100px;border: solid 2px #034375; color:#999999;margin-right:10px" align=
                     {{$part->description}}
                      <span style="float:right;"> Quantity <input style="padding:5px;font-weight:bolder;display:inline;cursor:default;width:60px" class="numberField" type="number" value="1" min="1" max="1000">
   <!--<a href="{{URL::to('/api/fillCart')}}" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer != null ? $manufacturer->title : '')}}" style="display:inline-block;border:1px solid #ccc;padding:10px;background-color:maroon;color:white"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Basket</a>-->
-                  <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer != null ? $manufacturer->title : '')}}" style="display:inline-block;border:1px solid maroon;padding:5px;background-color:maroon;color:white"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button>
-                 </span>
+                  
+        @if(array_search($part->title, array_column($item, 'partTitle')) !== False)
+  <button style="display:inline-block;border:1px solid maroon;padding:5px;background-color:maroon;color:white"><span>Added</span> </button>
+              @else
+   <button onclick="processRequest(this)" data="partNo={{$part->spare_part_no}}&amp;partTitle={{$part->title}}&amp;price={{$part->price}}&amp;status={{$part->ds}}&amp;manu={{($manufacturer != null ? $manufacturer->title : '')}}" style="display:inline-block;border:1px solid maroon;padding:5px;background-color:maroon;color:white"><span class="fas fa-cart-arrow-down" aria-hidden="true"></span> Add to Cart</button>
+              @endif          
+                    </span>
                  </p>
                   <!--<p align="right" style="margin:0">-->
 
