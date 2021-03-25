@@ -156,7 +156,7 @@ $parentPages = DB::table("sp_adminpages")->where("parentId", 0)->get();
                                     <a href="{{URL::to('admin/userManagement')}}" class="dropdown-item">User Management</a>
                                 @endif
                                 <a class="dropdown-item" href="{{URL::to('admin/changePassword')}}">Change Password</a>
-                                <a class="dropdown-item" href="{{URL::to('/admin/logout')}}">Logout</a>
+                                <a class="dropdown-item" href="{{URL::to('logout')}}">Logout</a>
                             </div>
                         </div>
                     </li>

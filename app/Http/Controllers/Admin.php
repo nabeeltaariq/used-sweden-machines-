@@ -28,9 +28,11 @@ class Admin extends Controller
         return view("loginPage");
     }
 
-    public function logout(Request $request)
+
+     public function Logout()
     {
-        $request->session()->pull("activeUser");
+      session()->pull("activeUser");
+
         return redirect("/admin");
     }
 

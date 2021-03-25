@@ -240,6 +240,18 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
     {
         return View("admin.uploadedProducts", ["products" => UploadedMachine::all()]);
     }
+     public function DeleteUploads(Request $request)
+    {
+        if(UploadedMachine::find($request->id)->delete())
+            echo "success";
+        else
+            echo "error";
+    }
+      public function ViewUploadedProduct(Request $request)
+    {
+         $allProducts = UploadedMachine::where('id', $request->id)->get();
+      return view('admin.upload_product_view', ['product' => $allProducts]);
+    }
 
 
     //stock reporting methods

@@ -41,10 +41,10 @@
     </head>
 
 
-    <a href="{{URL::to('/admin/products')}}">Back to Admin Panel</a><table width='80%' border='0' align='center'>
+    <a href="{{URL::to('/admin')}}">Back to Admin Panel</a><table width='80%' border='0' align='center'>
         <tr>
-            <td align='left'><a href='http://usedswedenmachines.com/'><img src="{{URL::to('/public/imgs/logo.png')}}" height='75' style='height: 144px;'></a> <br/>
-
+        <!--     <td align='left'><a href='http://usedswedenmachines.com/'><img src="{{URL::to('/public/imgs/logo.png')}}" height='75' style='height: 144px;'></a> <br/> -->
+<td align='left'><a href='http://usedswedenmachines.com/'><img src="https://www.usedswedenmachines.com/public/imgs/logo.png" height='75' style='height: 144px;'></a> <br/>
 
 
             </td>
@@ -53,7 +53,7 @@
                     D.O.H.S 290, Phase 1 Gujranwala, Pakistan<br>
                     Company Registration No: <span style='color:#034375;font-weight:bold;'>4015134-4</span><br>
                     Tel.: +92(321)7415373<br>
-                    E-Mail: <a href='mailto:info@usedswedenmachines.com'>info@usedswedenmachines.com</a><br>
+                    E-Mail: <a href='mailto:info@usm.com.pk'>info@usm.com.pk</a><br>
                 </p>
             </td>
         </tr>
@@ -92,7 +92,7 @@
                     <p align='center'>All offers are prior to sale</p>
                     <p style='padding-top: 10px;'> <span style='color:red;font-weight:bold;'>* CONDITION RATING </span><br>
                         <span style='color:red;font-weight:bold;'>1 = very good 2 = good 3 = fair 4 = poor 5 = very poor</span><br>
-                        Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachines.com'>info@usedswedenmachines.com</a><br>
+                        Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usm.com.pk'>info@usm.com.pk</a><br>
                         <a href='http://usedswedenmachines.com'>www.usedswedenmachines.com</a><br>
 
                     </p>

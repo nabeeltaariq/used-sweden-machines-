@@ -538,7 +538,7 @@
             $date = date_create($news->news_date);
             $news->news_date = date_format($date, "j F , Y");
             ?>
-            <span> {{$news->news_date}}</span><br>
+            <span style="font-size: 12px"> {{$news->news_date}}</span><br>
 
             <a style="text-decoration:none" href="{{URL::to('/news/by/')}}/{{$news->id}}"> <span id="title"> <strong> {{$news->news_title}} </strong></span><br>
             </a>

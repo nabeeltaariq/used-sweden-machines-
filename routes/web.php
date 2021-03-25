@@ -51,6 +51,7 @@ Route::get("tetra-pak-spare-parts", "Home@SpareParts");
 Route::get("news/by/{id}", "Home@FetchNewsById");
 Route::get('admin', "Admin@Index");
 Route::post('admin', "Admin@ProcessRequest");
+Route::get('logout', "Admin@Logout");
 Route::get("upload-your-machine", "Home@purchase");
 Route::post("upload-your-machine", "Home@purchaseForm");
 
@@ -73,7 +74,7 @@ Route::get("international-projects", function () {
 Route::get("/{id?}", "Home@FetchMachine");
 
 
-Route::get("admin/logout", "Admin@Logout");
+// Route::get("admin/logout", "Admin@Logout");
 //admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'Auth'], function () {
     Route::get("all/products", "Products@Index");
@@ -98,6 +99,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'Auth'], function () {
     Route::group(['prefix' => 'products'], function () {
         Route::get("/new", "Products@AddProductForm");
         Route::get("/uploadedProducts", "Products@ViewUploads");
+        Route::get("/deleteUploadedProducts", "Products@DeleteUploads");
+        Route::get("/uploaded-products/view/{id}", "Products@ViewUploadedProduct");
+
+
         Route::get("/catagories", "Catagory@Index");
         Route::get("/manage-products", "Products@Index");
 
