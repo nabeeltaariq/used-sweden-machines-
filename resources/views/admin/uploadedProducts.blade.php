@@ -49,7 +49,7 @@ function deleteUploads(e)
 
       $.ajax({
 
-        url: "/admin/products/deleteUploadedProducts",
+        url: "deleteUploadedProducts",
         type: "GET",
         data: {
           id: id,

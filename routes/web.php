@@ -202,8 +202,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'Auth'], function () {
         Route::get("/deleteSubscriber/{id}", "Contacts@RemoveSubscriber");
         Route::get("/subscribers/edit/{id}", "Contacts@SubscriberEditForm");
         Route::post("/subscribers/edit/{id}", "Contacts@SaveSubscriberChanges");
-        Route::get("/find", "Contacts@ShowAllContacts");
+        Route::get("/find", "Contacts@ShowAllContacts")->name("allContacts");
+        Route::get("/find/{id}", "Contacts@ShowSingleContacts");
         Route::get("/singleContact/{id}", "Contacts@SingleContact");
+        Route::get("/deleteEngineer", "Contacts@DeleteEngineer");
+        Route::get("/editEngineer/{id}", "Contacts@EditEngineer");
+        Route::post("/updateEngineer", "Contacts@UpdateEngineer");
+
         Route::get("/designations", "Contacts@Designations");
         Route::get("/services", "Contacts@Services");
         Route::post("/services", "Contacts@SaveSearch");

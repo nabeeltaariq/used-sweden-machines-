@@ -47,7 +47,7 @@
                         @foreach($allContactHeads as $head)
                             @if($head->name != null)
                         <tr>
-                            <td>{{$head->name}}({{$head->CountContacts()}})</td>
+                            <td><a href="admin/contacts/find/{{$head->id}}">{{$head->name}}({{$head->CountContacts()}})</a></td>
                         </tr>
                             @endif
                         @endforeach

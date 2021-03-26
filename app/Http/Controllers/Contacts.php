@@ -33,9 +33,84 @@ class Contacts extends Controller
 
     public function ShowAllContacts()
     {
-        return view("admin.showAllContacts");
+       $firstContactType=ContactHead::first();
+       $allContactsType=ContactHead::get();
+       
+       $contacts = contact::where('contactTypeId',$firstContactType->id)->get();
+
+          
+        return view("admin.showAllContacts",['allContacts' => $contacts,'allTypes' => $allContactsType ,'id' =>'empty']);
+    }
+     
+    public function ShowSingleContacts(Request $request)
+    {
+       
+        $allContactsType=ContactHead::get();
+        if($request->id!=6)
+        {
+            $contacts = contact::where('contactTypeId',$request->id)->get();
+        }
+        else{
+            $contacts = Engineer::all();
+            foreach ($contacts as $engineer) {
+                $otherInfo = EngineerTeam::find($engineer->engineerId);
+                $engineer->dateOfBirth = $otherInfo->dateOfBirth;
+                $engineer->nationality = $otherInfo->nationality;
+                $engineer->country = $otherInfo->country;
+                $engineer->experienceMechanic = $otherInfo->experienceMechanic;
+            }
+           
+        }
+
+       
+    return view("admin.showAllContacts",['allContacts' => $contacts,'allTypes' => $allContactsType,'id' => $request->id ]);
     }
 
+    public function DeleteEngineer(Request $request)
+    {
+   
+$eng=Engineer::where('engineerId',$request->id)->delete();
+$eng_team=EngineerTeam::where('engineerId',$request->id)->delete();
+if($eng && $eng_team )
+     echo "success";
+    else
+        echo "error";
+    }
+    
+ 
+    public function EditEngineer($id)
+    {
+        $eng=Engineer::where('engineerId',$id)->get()->first();
+        $eng_team=EngineerTeam::where('engineerId',$id)->get()->first();
+        $allCounteries=Country::get();
+       return view("admin.editEngineer",['allCounteries' => $allCounteries,'engineer' => $eng,'engineer_team' =>$eng_team  ]);
+    }
+
+    public function UpdateEngineer(Request $request)
+    {
+        $eng = Engineer::where('engineerId',$request->id)->get()->first();
+  
+        $eng->teamPersonName = $request->name;
+        $eng->email = $request->email;
+        $eng->mobileNo = $request->mob_no;
+        $eng->linkedIn = $request->linkdin;
+       
+
+        $eng_team = EngineerTeam::where('engineerId',$request->id)->get()->first();
+
+        $eng_team->cnicPassport = $request->cnic;
+        $eng_team->nationality = $request->nationality;
+        $eng_team->dateOfBirth = $request->dob;
+        $eng_team->experienceMechanic = $request->jcp;
+        $eng_team->workshopDetails = $request->wdetails;
+       $eng_team->country = $request->country;
+        
+       
+      if(( $eng->save()) && ($eng_team->save()))
+      return redirect()->route('allContacts');
+      else
+      echo "not updated";
+    }
     public function Head()
     {
 
@@ -228,22 +303,42 @@ class Contacts extends Controller
 
         $request->session()->put("currentContactTypeId", $id);
         if ($id != 6) {
-            $contacts = contact::where("contactTypeId", $id)->get();
-            foreach ($contacts as $contact) {
-                $buyProducts = CustomerProduct::where("buyOrSell", 1)->where("customer_spplier_id", $contact->contactId)->get();
-                $contact->buyProductRate = $buyProducts;
+            $allContacts = contact::where("contactTypeId", $id)->get();
+     
+            $output = "";
+            $output .= "<thead>";
+            $output .="
+            <tr>
+            <th>ID</th>
+            <th>Company Name</th>
+            <th>Country</th>
+            <th>Product</th>
+            <th>Website</th>
+            
+        </tr> </thead>";
+            $output .= "<tbody id='example'>";
+               foreach ($allContacts as $contacts )
+            {
+                $output .= "<tr>";
+                $output .= "<td>".$contacts['contactUdId']."</td>";
+                $output .= "<td><a href='singleContact/".$contacts['contactUdId']."'>".$contacts['companyName']."</a></td>";
+                $output .= " <td>".$contacts['country']."</td>";
+                $output .="<td>".$contacts['productService']."</td>";
+                
+                $output .="<td>";
+                $output .="<a href='".$contacts['web']."' target='_blank' class='btn btn-primary btn-sm'><i class='fab fa-internet-explorer'></i> Visit Site</a>";
+                $output .="<a href='edit/".$contacts['contactUdId']."' class='btn btn-success btn-sm'><i class='fas fa-edit'></i> Quick Edit</a>";
+                $output .="</td>";
+                $output .= "</tr>";
+            }
+        
+            $output .= "</tbody>";
+            return $output;
 
             }
 
-            foreach ($contacts as $contact) {
-                $buyProducts = CustomerProduct::where("buyOrSell", 2)->where("customer_spplier_id", $contact->contactId)->get();
-                foreach ($buyProducts as $buyProduct) {
-                    $contact->sellProductRate = $buyProducts;
-                }
-            }
-
-            return $contacts;
-        } else {
+           
+        else {
             $allEngineers = Engineer::all();
             foreach ($allEngineers as $engineer) {
                 $otherInfo = EngineerTeam::find($engineer->engineerId);
@@ -252,9 +347,50 @@ class Contacts extends Controller
                 $engineer->country = $otherInfo->country;
                 $engineer->experienceMechanic = $otherInfo->experienceMechanic;
             }
-            return $allEngineers;
+               
+            $output = "";
+            $output .= "<thead>";
+            $output .="
+            <tr>
+            <th>Engineer ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Linked In</th>
+            <th>Nationality</th>
+            <th>Date of Birth</th>
+            <th>Jobs Can Perform</th>
+            <th>Operations</th>
+        </tr> </thead><tbody id='example'>";
+               foreach ($allEngineers as $engineer )
+            {
+                $output .= "<tr id='eng-".$engineer['engineerId']."'>";
+                $output .= "<td>".$engineer['engineerId']."</td>";
+                $output .= "<td><a href='#'>".$engineer['teamPersonName']."</a></td>";
+
+                $output .="<td>".$engineer['email']."</td>";
+                $output .="<td>".$engineer['mobileNo']."</td>";
+                $output .="<td> <span>
+                <a href='#".$engineer['linkedIn']."' target='_blank' class='btn btn-primary btn-sm' style='font-size:11px'>Visit Profile</a>
+            </span></td>";
+
+            
+                $output .= "<td>".$engineer['nationality']."</td>";
+                $output .= "<td>".$engineer['dateOfBirth']."</td>";
+                $output .= "<td>".$engineer['experienceMechanic']."</td>";
+                $output .="
+                <td>
+                <button  class='btn btn-primary btn-sm' title='View' onclick='deleteContact(this)' value='".$engineer['engineerId']."'><i class='fa fa-trash'></i></button>
+                <a href='editEngineer/".$engineer['engineerId']."' class='btn btn-warning btn-sm' title='Quick Edit'><i class='fas fa-user-edit'></i></a>
+            </td>
+                ";
+                $output .= "</tr>";
+            }
+            $output .= "</tbody>";
+            return $output;
         }
     }
+
 
     public function UpdateDesignation(Request $request)
     {
