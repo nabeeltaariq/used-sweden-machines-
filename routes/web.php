@@ -207,6 +207,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'Auth'], function () {
         Route::get("/singleContact/{id}", "Contacts@SingleContact");
         Route::get("/deleteEngineer", "Contacts@DeleteEngineer");
         Route::get("/editEngineer/{id}", "Contacts@EditEngineer");
+        Route::get("/viewEngineer/{id}", "Contacts@ViewEngineer");
+
         Route::post("/updateEngineer", "Contacts@UpdateEngineer");
 
         Route::get("/designations", "Contacts@Designations");

@@ -85,7 +85,14 @@ if($eng && $eng_team )
         $allCounteries=Country::get();
        return view("admin.editEngineer",['allCounteries' => $allCounteries,'engineer' => $eng,'engineer_team' =>$eng_team  ]);
     }
-
+ public function ViewEngineer($id)
+ {
+    $eng=Engineer::where('engineerId',$id)->get()->first();
+    $eng_team=EngineerTeam::where('engineerId',$id)->get()->first();
+ 
+   return view("admin.view-engineer",['engineer' => $eng,'engineer_team' =>$eng_team  ]);
+  
+ }
     public function UpdateEngineer(Request $request)
     {
         $eng = Engineer::where('engineerId',$request->id)->get()->first();
@@ -382,7 +389,8 @@ if($eng && $eng_team )
                 <td>
                 <button  class='btn btn-primary btn-sm' title='View' onclick='deleteContact(this)' value='".$engineer['engineerId']."'><i class='fa fa-trash'></i></button>
                 <a href='editEngineer/".$engineer['engineerId']."' class='btn btn-warning btn-sm' title='Quick Edit'><i class='fas fa-user-edit'></i></a>
-            </td>
+                <a href='viewEngineer/".$engineer['engineerId']."' class='btn btn-warning btn-sm' title='view'><i class='fa fa-eye'></i></a>
+                </td>
                 ";
                 $output .= "</tr>";
             }

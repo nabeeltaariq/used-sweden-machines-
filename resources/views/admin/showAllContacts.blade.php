@@ -101,8 +101,10 @@
                        <td>{{ $engineer->experienceMechanic }}</td>
                         
                         <td>
-                        <button class="btn btn-danger btn-sm" title="View" onclick="deleteContact(this)" value="{{$engineer->engineerId}}"><i class="fa fa-trash"></i></button>
-                        <a href="../editEngineer/{{$engineer->engineerId}}" class="btn btn-warning btn-sm"title="Quick Edit"><i class="fas fa-user-edit"></i></a>
+                        <button class="btn btn-danger btn-sm" title="delte" onclick="deleteContact(this)" value="{{$engineer->engineerId}}"><i class="fa fa-trash"></i></button>
+                        <a href="../editEngineer/{{$engineer->engineerId}}" class="btn btn-warning btn-sm" title="Quick Edit"><i class="fas fa-user-edit"></i></a>
+                        <a href="../viewEngineer/{{$engineer->engineerId}}" class="btn btn-warning btn-sm" title="view"><i class="fa fa-eye"></i></a>
+                        
                     </td>
                      </tr>
                     
