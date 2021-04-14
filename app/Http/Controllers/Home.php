@@ -31,6 +31,8 @@ use Mail;
 use App\Mail\SendMail;
 use App\News_Image;
 use Image;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 
 
 

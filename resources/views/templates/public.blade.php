@@ -883,7 +883,7 @@
       var purecookieTitle = "Cookies."; // Title
       var purecookieDesc = "We are using cookies. By continuing to use our website without changing the settings, you're agreeing to our use of cookies."; // Description
       var purecookieLink = '<br><a href="/policy" target="_blank">Learn more about our cookie policy</a>'; // Cookiepolicy link
-      var purecookieButton = "Ok, I understand!"; // Button text
+      var purecookieButton = "Allow Cookies!"; // Button text
       // ---        --- //
 
 

@@ -275,11 +275,13 @@
     //     zE.activate();
     // });
     var reloading = sessionStorage.getItem("reloading");
+    if($(window).width() > 500){
     if (reloading) {} else {
         setTimeout(function() {
             $('#m').click();
         }, 10000);
         sessionStorage.setItem("reloading", "true");
+    }
     }
     $("input[name='search']").on("keyup", function() {
 
