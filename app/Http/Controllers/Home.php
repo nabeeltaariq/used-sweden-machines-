@@ -242,8 +242,7 @@ class Home extends Controller
     {
         return view('purchase');
     }
-
-    public function purchaseForm(Request $request)
+ public function purchaseForm(Request $request)
     {
 
 
@@ -280,8 +279,9 @@ class Home extends Controller
         } 
              if($machine->save())
              {
- $request->session()->flash("success", "Your machine has been uploaded");
-
+                $request->session()->flash("success", "Your machine has been uploaded");
+                $request = request()->all();
+                $data =  $this->sendEmailFuction($request);
              }
              else {
             $request->session()->flash("danger", "OOPS! Something went wrong...");
@@ -293,84 +293,81 @@ class Home extends Controller
 
         return redirect()->back();
 
-        //       /*  return $request->all(); */
-
-        // require 'vendor/autoload.php';
-
-        // $client = SesClient::factory(array(
-        //     'credentials' => array(
-        //         'key' => 'AKIA3MPSPFQT3XKW2ECW',
-        //     'secret' => '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',
-        //     ),
-        //     'version'=>'2010-12-01',
-        //     'region' => 'us-east-2'
-        // ));
-
-        // $emailSentId = $client->sendEmail(array(
-        //     // Source is required
-        //     'Source' => 'pms.demo.pvt@gmail.com',
-        //     // Destination is required
-        //     'Destination' => array(
-        //         'ToAddresses' => array($request->input("email"))
-        //     ),
-        //     // Message is required
-        //     'Message' => array(
-        //         // Subject is required
-        //         'Subject' => array(
-        //             // Data is required
-        //             'Data' => 'SES Testing',
-        //             'Charset' => 'UTF-8',
-        //         ),
-        //         // Body is required
-        //         'Body' => array(
-        //             'Text' => array(
-        //                 // Data is required
-        //                 'Data' => 'My plain text email',
-        //                 'Charset' => 'UTF-8',
-        //             ),
-        //             'Html' => array(
-        //                 // Data is required
-        //                 'Data' => '<b>My HTML Email</b>',
-        //                 'Charset' => 'UTF-8',
-        //             ),
-        //         ),
-        //     ),
-        //     'ReplyToAddresses' => array( 'pms.demo.pvt@gmail.com' )
-        // ));
-
-        //  $to = "nabeeltaariq@gmail.com";//inquiry@trepak.pk
-        // $subject = "Purchase Request Used Sweden Machines";
-        // $message = 'This Email is from purchase request page - Used Sweden Machines'. "\n";
-        // $message .= 'Name: '. $request->input('your_name') . "\n";
-        // $message .='Company:  '. $request->input('company_name'). "\n";
-        // $message .='Phone #:  '.  $request->input('phone')."\n";
-        // $message .='Email:  '.  $request->input('email')."\n";
-        // $message .='Message:  '.   $request->input('technical_specification'). "\n" ;
-        // $message .= "This email is backed up into database also";
-        // $header = 'From:'. $request->input('email');
-        // $retval = mail($to,$subject,$message,$header);
-        // $product = new Purchase();
-        // $product->company_name = $request->input("company_name");
-        // $product->your_name = $request->input("your_name");
-        // $product->email = $request->input("email");
-        // $product->machine_name = $request->input("machine_name");
-        // $product->technical_specification = $request->input("technical_specification");
-        // $product->phone = $request->input("phone");
-        // $product->save();
-        // if($product->save())
-        // {
-        //     if( $retval)
-        //     {
-        //           $request->session()->flash('status',"Your request has been submitted");
-        //     }
-        //     else
-        //     {
-        //          $request->session()->flash('failed',"could not be processed");
-        //     }
-        // }
-        //  return redirect()->back();
 
     }
+   public function sendEmailFuction($getData)
+    {
+        
+        $last_row = DB::table('uploaded_machines')->latest()->first();
+        $id =  $last_row->id;
+        $product = UploadedMachine::find($id);
+        $all_contents = "<table width='80%' align='center'>
+            
+                    
+                    <tr>
+                        <td style='font-family:Times New Roman;' align='left'>
+                        <h2 style='font-family:Times New Roman; margin-top:10px; color:#034375' ><b>Used Sweden Machines</b></h2>
+                        <div style='margin-top:20px'>
+                        <b style='font-size:17px'>Mob:</b> <a href='tel:+92 (321) 7415373' style='font-size:17px'>+92 (321) 7415373</a><br>
+                        <b style='font-size:17px'>Landline:</b> <a href='tel:+92 (55) 3845988' style='font-size:17px'>+92 (55) 3845988</a>
+                        </div>
+                        </td>
+                        <td>
+                        <center>
+                    <img src=" . URL::to('/') . '/public/imgs/logo.png' ." height='100px' width='135px' style='margin-left:40px; margin-top:-40px'>
+                        <center>
+                        </td>
+                    <td style='font-family:Times New Roman;'  align='right'>
+                    <div style='margin-top:55px'>
+                        <b style='font-size:17px'>Website:</b> <a href='www.usedswedenmachines.com' style='font-size:17px'>www.usedswedenmachines.com</a><br>
+                        <b style='font-size:17px'>Email:</b> <a href='mailto:info@usm.com.pk' style='font-size:17px'>info@usm.com.pk</a>
+                    <div>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td colspan='3' style='background-color:black; '><center><b style='font-size:17px; color:white'>".strtoupper( $product->company) ." Has Uploaded Machine Information</b></center></td>
+                    </tr>
+                    <br>
+                
+                    <tr style='padding:10px'>
+                        <td colspan='3'>
+                    <span align='right' style='font-size:15px'><b>Machine Name: </b>".$product->machineName."</span><br>
+                    <span align='right' style='font-size:15px'><b>Your Name: </b>".$product->personName."</span><br>
+                    <span align='right' style='font-size:15px'><b>Email ID: </b>".$product->email."</span><br>
+                    <span align='right' style='font-size:15px'><b>Phone #: </b>".$product->phone."</span><br>
+                    <span align='right' style='font-size:15px'><b>Technical Specification: </b>".$product->technicalSpecifications."</span>
+                    </td>
+                    </tr>
+                    <br>
+                  <tr style='padding:10px; margin:10px'>
+                    <td colspan='3'>
+                                            <hr style='border:2px solid black'>
+
+            
+                    
+                    <span><img src=" . URL::to('/') . '/storage/app/products/' . $product->featuredImage . " height='200' ></span>
+                    
+                    </td>
+                
+                    </tr>
+";
+
+
+
+ 
+
+        $all_contents .= '</table>';
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        // More headers
+        $headers .= 'From: <info@usm.com.pk>' . "\r\n";
+
+        $subject = ucfirst($product->personName) . " Uploaded Machine At Used Sweden Machines";
+        mail("purchase@usedswedenmachines.com", $subject, "$all_contents", $headers);
+    }
+
+
 
 
     public function AddSubscriber(Request $request)
