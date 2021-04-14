@@ -129,7 +129,7 @@ class Products extends Controller
         $data = $this->sendEmailFuction($request, $id);
         return redirect()->back();
     }
-    public function sendEmailFuction($getData, $id)
+       public function sendEmailFuction($getData, $id)
     {
         $product = Product::find($id);
         /*return $getData;*/
@@ -141,7 +141,7 @@ class Products extends Controller
 D.O.H.S 290, Phase 1 Gujranwala, Pakistan<br>
 Company Registration No: <span style='color:#034375;font-weight:bold;'>4015134-4</span><br>
 Tel.: +92(321)7415373<br>
- E-Mail: <a href='mailto:info@usedswedenmachines.com'>info@usedswedenmachines.com</a><br>
+ E-Mail: <a href='mailto:info@usedswedenmachines.com'>info@usm.com.pk</a><br>
 </p>
 					</td>
 					</tr>
@@ -150,16 +150,38 @@ Tel.: +92(321)7415373<br>
 						<p align='center'><strong>" . $product->pr_title . "</strong></p><hr>
 					</td>
 					</tr>
+		
 					<tr>
 						<td colspan='2'  align='left'>
 						<a href='http://usedswedenmachines.com/machineView/" . $product->id . "' ><img src=" . URL::to('/') . '/storage/app/products/' . $product->image . " height='250' ></a>
 						</td>
 					</tr>
+	<tr>
+        <td colspan='2' align='left'>
+          
+            <a style='color:#e01515;text-decoration:none' target='_blank' href=" . URL::to('/machineView/') . '/' . $product->id . ">click here for more details and pictures</a>
+        </td>
+    </tr>
 					<tr>
 						<td  colspan='2' align='left'>
 						<div class='st_div'>" . "Title: " . $product->pr_title . "<br>" . "SKU:  " . $product->SKU . "<br>" . "Specifications:" . html_entity_decode($product->long_des) . "</div>
 						</td>
-					</tr>";
+					</tr>
+					                         <tr>
+            <td colspan='2'>
+                <div style='text-align: left;'><strong><u>BENEFICIARY BANK INFORMATION:</u></strong></div>
+                <div style='text-align: left;'>Bank Name: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Habib Bank Limited</div>
+                <div style='text-align: left;'>Account Number: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;14297900692903</div>
+                <div style='text-align: left;'>Account Name: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Used Sweden Machines</div>
+                <div style='text-align: left;'>IBAN: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PK76HABB0014297900692903</div>
+                <div style='text-align: left;'>Bank Address: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Main Model Town&nbsp;Branch(1429) Gujranwala, Pakistan</div>
+                <div style='text-align: left;'>Bank Tel: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +92-55-4445018</div>
+                <div style='text-align: left;'><strong><u>BENEFICIARY COMPANY INFORMATION:</u></strong></div>
+                <div style='text-align: left;'>Company Name: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Used Sweden Machines</div>
+                <div style='text-align: left;'>Address: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;D.O.H.S 290, Phase 1, Gujranwala Cantt, Pakistan</div>
+                <div style='text-align: left;'>Telephone: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +92-321-7415373; +92-55-3845988</div>
+            </td>
+        </tr>";
 
 
 
@@ -177,7 +199,7 @@ Tel.: +92(321)7415373<br>
 					<td colspan='2' align='center' width='80%'>
 					<p style='padding-top: 10px;'> <span style='color:red;font-weight:bold;'>* CONDITION RATING </span><br>
 <span style='color:red;font-weight:bold;'>1 = very good 2 = good 3 = fair 4 = poor 5 = very poor</span><br>
-Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachines.com'>info@usedswedenmachines.com</a><br>
+Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usm.com.pk'>info@usm.com.pk</a><br>
 <a href='http://usedswedenmachines.com'>www.usedswedenmachines.com</a><br>
 
 </p>
@@ -189,7 +211,7 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usedswedenmachi
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
         // More headers
-        $headers .= 'From: <info@usedswedenmachines.com>' . "\r\n";
+        $headers .= 'From: <info@usm.com.pk>' . "\r\n";
 
         $subject = $product->pr_title . " - Used Sweden Machines";
         mail("{$getData['receiver_id']}", $subject, "$all_contents", $headers);
