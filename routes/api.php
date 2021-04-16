@@ -23,4 +23,6 @@ Route::post("saveCompany", "API@SaveContact");
 Route::get("fetchContactEmails", "API@GetEmailsByType");
 Route::get("getContactInfo/{id}/{type}", "API@ContactInfo");
 Route::post("UpdateContactInfo", "API@UpdateContactInfo");
-Route::get("GETContactNewId", "API@FetchContactType");
+Route::get("/getContactType", "API@FetchContactType");
+Route::get("/getservices", "API@getservices");
+Route::POST("/GETContactNewId", "API@ProcessContact");

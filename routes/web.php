@@ -241,13 +241,12 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/fetchMachines/{id?}', "API@FetchMachines");
     Route::get("/fillCart/now", "API@Fill");
     Route::post("/UpdateService", "API@UpateService");
-    Route::get("/getContactType", "API@FetchContactType");
     Route::POST("/GETContactNewId", "API@ProcessContact");
     Route::get("/getservices", "API@getservices");
     Route::post("/UploadServicePicture", "API@UploadServicePicture");
     Route::get("getPartsCategories/{id}", "API@PartsCategories");
     Route::get("getSubCategory/{id}", "API@SubCategories");
-
+    Route::get("/getContactType", "API@FetchContactType");
     //Sameel Start
 
     Route::get("/updateCart", "SameelController@updateCart");
