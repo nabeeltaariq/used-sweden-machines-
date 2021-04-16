@@ -18,10 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get("allDesignations","API@getDesignations");
-Route::post("saveCompany","API@SaveContact");
-Route::get("fetchContactEmails","API@GetEmailsByType");
-Route::get("getContactInfo/{id}/{type}","API@ContactInfo");
-Route::post("UpdateContactInfo","API@UpdateContactInfo");
-
-
+Route::get("allDesignations", "API@getDesignations");
+Route::post("saveCompany", "API@SaveContact");
+Route::get("fetchContactEmails", "API@GetEmailsByType");
+Route::get("getContactInfo/{id}/{type}", "API@ContactInfo");
+Route::post("UpdateContactInfo", "API@UpdateContactInfo");
+Route::get("GETContactNewId", "API@FetchContactType");

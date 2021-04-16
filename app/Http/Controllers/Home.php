@@ -157,7 +157,7 @@ class Home extends Controller
 
         $mpdf->WriteHTML($html);
         $mpdf->SetTitle($product->pr_title);
-        $mpdf->Output($product->pr_title.'.pdf', 'I');
+        $mpdf->Output($product->pr_title . '.pdf', 'I');
     }
 
 
@@ -225,7 +225,7 @@ class Home extends Controller
 
         $mpdf->WriteHTML($html);
         $mpdf->SetTitle($news->news_title);
-       $mpdf->Output($news->news_title.'.pdf', 'I');
+        $mpdf->Output($news->news_title . '.pdf', 'I');
     }
     public function Main()
     {
@@ -244,7 +244,7 @@ class Home extends Controller
     {
         return view('purchase');
     }
- public function purchaseForm(Request $request)
+    public function purchaseForm(Request $request)
     {
 
 
@@ -256,17 +256,17 @@ class Home extends Controller
         $machine->technicalSpecifications = $request->input("technical_specification");
         $machine->machineName = $request->input("machine_name");
 
-         $path = $request->file("featuredImage")->store("products");
+        $path = $request->file("featuredImage")->store("products");
         $common = new Common();
         $path = $common->SimplifiedPath($path);
 
         $machine->featuredImage = $path;
         $machine->isApproved = 0;
 
-   
 
-       
-  
+
+
+
 
         if ($request->file("otherImages") != null) {
             foreach ($request->file("otherImages") as $file) {
@@ -277,29 +277,23 @@ class Home extends Controller
                 $thumb->machine_id = $machine->id;
                 $thumb->save();
             }
-           
-        } 
-             if($machine->save())
-             {
-                $request->session()->flash("success", "Your machine has been uploaded");
-                $request = request()->all();
-                $data =  $this->sendEmailFuction($request);
-             }
-             else {
+        }
+        if ($machine->save()) {
+            $request->session()->flash("success", "Your machine has been uploaded");
+            $request = request()->all();
+            $data =  $this->sendEmailFuction($request);
+        } else {
             $request->session()->flash("danger", "OOPS! Something went wrong...");
-              
-             }
+        }
 
 
 
 
         return redirect()->back();
-
-
     }
-   public function sendEmailFuction($getData)
+    public function sendEmailFuction($getData)
     {
-        
+
         $last_row = DB::table('uploaded_machines')->latest()->first();
         $id =  $last_row->id;
         $product = UploadedMachine::find($id);
@@ -316,7 +310,7 @@ class Home extends Controller
                         </td>
                         <td>
                         <center>
-                    <img src=" . URL::to('/') . '/public/imgs/logo.png' ." height='100px' width='135px' style='margin-left:40px; margin-top:-40px'>
+                    <img src=" . URL::to('/') . '/public/imgs/logo.png' . " height='100px' width='135px' style='margin-left:40px; margin-top:-40px'>
                         <center>
                         </td>
                     <td style='font-family:Times New Roman;'  align='right'>
@@ -327,17 +321,17 @@ class Home extends Controller
                         </td>
                     </tr>
                     <tr>
-                    <td colspan='3' style='background-color:black; '><center><b style='font-size:17px; color:white'>".strtoupper( $product->company) ." Has Uploaded Machine Information</b></center></td>
+                    <td colspan='3' style='background-color:black; '><center><b style='font-size:17px; color:white'>" . strtoupper($product->company) . " Has Uploaded Machine Information</b></center></td>
                     </tr>
                     <br>
                 
                     <tr style='padding:10px'>
                         <td colspan='3'>
-                    <span align='right' style='font-size:15px'><b>Machine Name: </b>".$product->machineName."</span><br>
-                    <span align='right' style='font-size:15px'><b>Your Name: </b>".$product->personName."</span><br>
-                    <span align='right' style='font-size:15px'><b>Email ID: </b>".$product->email."</span><br>
-                    <span align='right' style='font-size:15px'><b>Phone #: </b>".$product->phone."</span><br>
-                    <span align='right' style='font-size:15px'><b>Technical Specification: </b>".$product->technicalSpecifications."</span>
+                    <span align='right' style='font-size:15px'><b>Machine Name: </b>" . $product->machineName . "</span><br>
+                    <span align='right' style='font-size:15px'><b>Your Name: </b>" . $product->personName . "</span><br>
+                    <span align='right' style='font-size:15px'><b>Email ID: </b>" . $product->email . "</span><br>
+                    <span align='right' style='font-size:15px'><b>Phone #: </b>" . $product->phone . "</span><br>
+                    <span align='right' style='font-size:15px'><b>Technical Specification: </b>" . $product->technicalSpecifications . "</span>
                     </td>
                     </tr>
                     <br>
@@ -356,7 +350,7 @@ class Home extends Controller
 
 
 
- 
+
 
         $all_contents .= '</table>';
         $headers = "MIME-Version: 1.0" . "\r\n";
@@ -366,7 +360,7 @@ class Home extends Controller
         $headers .= 'From: <info@usm.com.pk>' . "\r\n";
 
         $subject = ucfirst($product->personName) . " Uploaded Machine At Used Sweden Machines";
-        mail("purchase@usedswedenmachines.com", $subject, "$all_contents", $headers);
+        mail("info@usm.com.pk", $subject, "$all_contents", $headers);
     }
 
 
@@ -753,10 +747,9 @@ class Home extends Controller
         $to = "info@usm.com.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
-        if(request('page')=='desktop')
-        {
+        if (request('page') == 'desktop') {
             $message .= 'Machine Name: ' . request('machine_name') . "\n";
-        $message .= 'Item #:  ' .  request('serial_no') . "\n";
+            $message .= 'Item #:  ' .  request('serial_no') . "\n";
         }
         $message .= 'Name :  ' . request('full_name') . "\n";
         $message .= 'Phone #:  ' . request('phone') . "\n";
@@ -778,7 +771,7 @@ class Home extends Controller
     }
     public function QuoteFormSubmit($id)
     {
-         $to = "info@usm.com.pk";
+        $to = "info@usm.com.pk";
         $subject = "Email from Machine page. Price Query.";
         $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
         $message .= 'Sender:  ' .  request('email') . "\n";
@@ -794,7 +787,7 @@ class Home extends Controller
 
         $header = 'From:' . request('email');
 
-         if (mail($to, $subject, $message, $header))
+        if (mail($to, $subject, $message, $header))
             $messageFlush = true;
         else
             $messageFlush = false;

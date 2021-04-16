@@ -148,7 +148,7 @@
 
 
                                     <td height="22" align="left" valign="top">
-                                        <input name="phone" type="text" class="kontakt-text" id="desk_phone" style="margin-bottom:2px;width:100%;outline:none" size="30" required>
+                                        <input name="phone" type="number" class="kontakt-text" id="desk_phone" style="margin-bottom:2px;width:100%;outline:none" size="30" required>
                                     </td>
 
                                 </tr>

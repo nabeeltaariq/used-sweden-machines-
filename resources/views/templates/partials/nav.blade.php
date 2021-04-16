@@ -299,7 +299,7 @@
                 <p>Phone No.<span style="color:red">*</span></p>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12">
-                <input name="phone" type="text" id="phone" class="col-lg-9 form-control" required>
+                <input name="phone" type="number" id="phone" class="col-lg-9 form-control" required>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-12">
                 <p>Email<span style="color:red">*</span></p>
@@ -404,8 +404,8 @@
           full_name: full_name,
           company: company,
           message: message,
-          page:"mobile",
-          
+          page: "mobile",
+
 
 
         },
