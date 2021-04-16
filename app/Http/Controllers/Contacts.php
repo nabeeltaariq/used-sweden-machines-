@@ -241,9 +241,10 @@ if($eng && $eng_team )
 
     public function SingleContact(Request $request, $id)
     {
-        $type = $request->session()->get("currentContactTypeId");
+    //      $request->session()->put("currentContactTypeId", $id);
+    //     $type = $request->session()->get("currentContactTypeId");
 
-        $contact = contact::where("contactUdId", $id)->where("contactTypeId", $type)->first();
+        $contact = contact::where("contactUdId", $id)->first();
         $productBuy = $contact->BuyProducts();
         $sellProducts = $contact->SellProducts();
         $referenceCustomers = explode(",", $contact->referenceCustomers);
