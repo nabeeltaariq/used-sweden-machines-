@@ -58,7 +58,7 @@ class NewsController extends Controller
     public function RemoveNews($newsId){
         $newsToRemove = News::find($newsId);
         $newsToRemove->delete();
-        return redirect("/admin/news");
+        return redirect("/admin/get/news");
     }
 
     public function DeleteImages(Request $request){

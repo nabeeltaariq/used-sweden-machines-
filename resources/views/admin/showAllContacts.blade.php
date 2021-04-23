@@ -54,7 +54,7 @@
                     @foreach ($allContacts as $contacts )
                     <tr>
                         <td>{{ $contacts->contactUdId }}</td>
-                        <td><a href="{{URL::to('admin/contacts/singleContact/')}}/{{ $contacts->contactUdId }}">{{ $contacts->companyName }}</a></td>
+                        <td><a href="{{URL::to('admin/contacts/singleContact/')}}/{{ $contacts->contactId }}">{{ $contacts->companyName }}</a></td>
                         <td>{{ $contacts->country }}</td>
                         <td>{{ $contacts->productService }}</td>
                       

@@ -28,7 +28,7 @@
                 </td>
                 <td>
                     <a href="{{URL::to('admin/news/testimonials/edit/')}}/{{$test->testimonialId}}">Edit</a>
-                <a onclick="return confirm('are you sure you want to remove this testimonial?')" href="{{URL::to('admin/news/testimonials/remove/')}}/{{$test->testimonialId}}">Delete</a>
+                <a href="{{URL::to('admin/news/testimonials/remove/')}}/{{$test->testimonialId}}"onclick="return confirm('are you sure you want to remove this testimonial?')" >Delete</a>
                 </td>
                 </tr>
 

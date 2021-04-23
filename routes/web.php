@@ -13,68 +13,6 @@
 */
 
 \Illuminate\Support\Facades\Route::get('/', 'Home@Main');
-Route::get('/policy', 'Home@privacyPolicy');
-Route::post('send', 'Home@sendmail');
-Route::get('email', 'Home@email');
-Route::get('{mahcine_name}/{id}', "Products@machine");
-Route::get('{mahcine_name}/{id}/next', "Products@machine");
-Route::get('{mahcine_name}/{id}/next/mobile', "Products@machineMobile");
-Route::get('{mahcine_name}/{id}/pre/mobile', "Products@machineMobile");
-
-
-Route::get("/refurbished_tetra_pak_machines_supplier_home", "Home@Index");
-Route::post("/refurbished_tetra_pak_machines_supplier_home", "Home@AddSubscriber");
-
-
-Route::get('category/selected/all', 'Home@all');
-Route::get('category/selected/{cat_id}', 'Home@fetchFewMachines');
-Route::get('/auth', 'SameelController@showAuthPage');
-Route::post("/auth", "SameelController@ProcessLogin");
-Route::get("/processOrder", "SameelController@ProcessOrder");
-Route::post("/createProfile", "SameelController@CreateProfile");
-Route::any("/submitinfo/{id}", "SameelController@PushInfo");
-Route::get("/checkout", "SameelController@Checkout");
-
-
-Route::get("tetra-pak-machines-expert", "Home@About");
-Route::get("Technical-services", "Home@TechnicalServices");
-
-Route::get("purchase", "Home@purchase");
-Route::get("used-tetra-pak-machines", "Home@AllMachines");
-Route::get("all-spare-parts", "Home@DisplaySpareParts");
-Route::get('news', "Home@FetchNews");
-Route::post('news', "Home@SubscriptionWithNews");
-Route::get('contact', "Home@ContactForm");
-Route::POST('contact', "Home@ContactFormSubmit")->name('ContactFormSubmit');
-Route::GET('contact/mobile', "Home@ContactFormSubmitFromMobile")->name('ContactFormSubmitFromMobile');
-Route::get("tetra-pak-spare-parts", "Home@SpareParts");
-Route::get("news/by/{id}", "Home@FetchNewsById");
-Route::get('admin', "Admin@Index");
-Route::post('admin', "Admin@ProcessRequest");
-Route::get('logout', "Admin@Logout");
-Route::get("upload-your-machine", "Home@purchase");
-Route::post("upload-your-machine", "Home@purchaseForm");
-
-Route::get("cart", "Home@DisplayCart");
-Route::get("/news/event/{id}", "Home@SingleEvent");
-Route::get("/news/newsletter/{id}", "Home@SingleNewsLetter");
-Route::get("/machine/{id}", "Home@QuoteForm")->name('QuoteFormView');
-Route::POST("/machine/contactUsform", "Home@QuoteFormContactUs")->name('QuoteFormView');
-Route::get("/machineView/{id}", "Home@MachineViewFromSharing");
-Route::POST("/machine/{id}", "Home@QuoteFormSubmit")->name('QuoteFormSubmit');
-Route::get("/machine-pdf/generate/{id}", "Home@GeneratePdf");
-Route::get("/machine-pdf-news/generate/{id}", "Home@GeneratePdfNews");
-Route::get("/spare-parts/categories/{id}", "Home@ShowSparePartCategories");
-Route::view("forget-password", "auth.forgetpasswordpage");
-Route::post("forget-password", "SameelController@ForgetPassword");
-Route::get("international-projects", function () {
-    return view("map");
-});
-//routes for machines
-Route::get("/{id?}", "Home@FetchMachine");
-
-
-// Route::get("admin/logout", "Admin@Logout");
 //admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'Auth'], function () {
     Route::get("all/products", "Products@Index");
@@ -232,6 +170,69 @@ Route::group(['prefix' => 'admin', 'middleware' => 'Auth'], function () {
 
 
 
+
+Route::get('/policy', 'Home@privacyPolicy');
+Route::post('send', 'Home@sendmail');
+Route::get('email', 'Home@email');
+Route::get('{mahcine_name}/{id}', "Products@machine");
+Route::get('{mahcine_name}/{id}/next', "Products@machine");
+Route::get('{mahcine_name}/{id}/next/mobile', "Products@machineMobile");
+Route::get('{mahcine_name}/{id}/pre/mobile', "Products@machineMobile");
+
+
+Route::get("/refurbished_tetra_pak_machines_supplier_home", "Home@Index");
+Route::post("/refurbished_tetra_pak_machines_supplier_home", "Home@AddSubscriber");
+
+
+Route::get('category/selected/all', 'Home@all');
+Route::get('category/selected/{cat_id}', 'Home@fetchFewMachines');
+Route::get('/auth', 'SameelController@showAuthPage');
+Route::post("/auth", "SameelController@ProcessLogin");
+Route::get("/processOrder", "SameelController@ProcessOrder");
+Route::post("/createProfile", "SameelController@CreateProfile");
+Route::any("/submitinfo/{id}", "SameelController@PushInfo");
+Route::get("/checkout", "SameelController@Checkout");
+
+
+Route::get("tetra-pak-machines-expert", "Home@About");
+Route::get("Technical-services", "Home@TechnicalServices");
+
+Route::get("purchase", "Home@purchase");
+Route::get("used-tetra-pak-machines", "Home@AllMachines");
+Route::get("all-spare-parts", "Home@DisplaySpareParts");
+Route::get('news', "Home@FetchNews");
+Route::post('news', "Home@SubscriptionWithNews");
+Route::get('contact', "Home@ContactForm");
+Route::POST('contact', "Home@ContactFormSubmit")->name('ContactFormSubmit');
+Route::GET('contact/mobile', "Home@ContactFormSubmitFromMobile")->name('ContactFormSubmitFromMobile');
+Route::get("tetra-pak-spare-parts", "Home@SpareParts");
+Route::get("news/by/{id}", "Home@FetchNewsById");
+Route::get('admin', "Admin@Index");
+Route::post('admin', "Admin@ProcessRequest");
+Route::get('logout', "Admin@Logout");
+Route::get("upload-your-machine", "Home@purchase");
+Route::post("upload-your-machine", "Home@purchaseForm");
+
+Route::get("cart", "Home@DisplayCart");
+Route::get("/news/event/{id}", "Home@SingleEvent");
+Route::get("/news/newsletter/{id}", "Home@SingleNewsLetter");
+Route::get("/machine/{id}", "Home@QuoteForm")->name('QuoteFormView');
+Route::POST("/machine/contactUsform", "Home@QuoteFormContactUs")->name('QuoteFormView');
+Route::get("/machineView/{id}", "Home@MachineViewFromSharing");
+Route::POST("/machine/{id}", "Home@QuoteFormSubmit")->name('QuoteFormSubmit');
+Route::get("/machine-pdf/generate/{id}", "Home@GeneratePdf");
+Route::get("/machine-pdf-news/generate/{id}", "Home@GeneratePdfNews");
+Route::get("/spare-parts/categories/{id}", "Home@ShowSparePartCategories");
+Route::view("forget-password", "auth.forgetpasswordpage");
+Route::post("forget-password", "SameelController@ForgetPassword");
+Route::get("international-projects", function () {
+    return view("map");
+});
+//routes for machines
+Route::get("/{id?}", "Home@FetchMachine");
+
+
+// Route::get("admin/logout", "Admin@Logout");
 
 
 

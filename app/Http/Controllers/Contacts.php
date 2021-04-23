@@ -244,7 +244,7 @@ if($eng && $eng_team )
     //      $request->session()->put("currentContactTypeId", $id);
     //     $type = $request->session()->get("currentContactTypeId");
 
-        $contact = contact::where("contactUdId", $id)->first();
+        $contact = contact::where("contactId", $id)->first();
         $productBuy = $contact->BuyProducts();
         $sellProducts = $contact->SellProducts();
         $referenceCustomers = explode(",", $contact->referenceCustomers);
@@ -329,7 +329,7 @@ if($eng && $eng_team )
             {
                 $output .= "<tr>";
                 $output .= "<td>".$contacts['contactUdId']."</td>";
-                $output .= "<td><a href='singleContact/".$contacts['contactUdId']."'>".$contacts['companyName']."</a></td>";
+                $output .= "<td><a href='singleContact/".$contacts['contactId']."'>".$contacts['companyName']."</a></td>";
                 $output .= " <td>".$contacts['country']."</td>";
                 $output .="<td>".$contacts['productService']."</td>";
                 

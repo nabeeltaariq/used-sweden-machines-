@@ -45,7 +45,7 @@ class Admin extends Controller
     //need to append main website
     public function MakeBackupDb(Request $request)
     {
-        $this->EXPORT_DATABASE("localhost", "trepakpk_usmdemo", "Godisgreat@134", "trepakpk_usmdemo");
+        $this->EXPORT_DATABASE("localhost", "root", "", "usm");
         return back();
     }
 
