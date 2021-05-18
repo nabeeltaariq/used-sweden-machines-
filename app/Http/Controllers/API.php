@@ -700,7 +700,7 @@ class API extends Controller
     {
         $service = Service::find($request->input("id"));
         $service->name = $request->input("name");
-        // $service->description = $request->input("description");
+        $service->description = $request->input("description");
         $service->save();
         $serviceDetail = ServiceDetail::where("productId", $request->input("id"))->first();
         if ($serviceDetail == null) {

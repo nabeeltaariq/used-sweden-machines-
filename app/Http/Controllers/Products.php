@@ -32,7 +32,7 @@ class Products extends Controller
 
         $pre = '';
         $next = '';
-        $name='';
+        $name = '';
         if (session()->get("mode") == "all") {
             $machine = Product::find($id);
             $nextmachine = Product::where('id', '>', $machine->id)->orderBy('id', 'asc')->first();
@@ -40,12 +40,10 @@ class Products extends Controller
             if ($nextmachine) {
                 $next = $nextmachine->id;
                 $name = $nextmachine->pr_title;
-
             } else {
                 $nextmachine = Product::where('id', '<', $machine->id)->orderBy('id', 'asc')->first();
                 $next = $nextmachine->id;
                 $name = $nextmachine->pr_title;
-
             }
             $pre = Product::where('id', '<', $id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
             if ($pre) {
@@ -55,7 +53,7 @@ class Products extends Controller
             }
 
             $allThumbs = Thumbs::where('org_id', $machine->id)->get();
-            return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "name" => $name,"selectedCat" => 'all', "pre" => $pre]);
+            return view("displayProduct", ["product" => $machine, "allThumbs" => $allThumbs, "next" => $next, "name" => $name, "selectedCat" => 'all', "pre" => $pre]);
         }
 
         $machine = Product::find($id);
@@ -65,15 +63,12 @@ class Products extends Controller
             if ($nextmachineid) {
                 $next = $nextmachineid->id;
                 $name = $nextmachineid->pr_title;
-
-
             } else {
                 $next = '';
             }
         } else {
             $next = $nextmachineid->id;
-                $name = $nextmachineid->pr_title;
-            
+            $name = $nextmachineid->pr_title;
         }
         $pre = Product::where('id', '<', $id)->where('cat_id', $machine->cat_id)->orderBy('id', 'desc')->first();
         if ($pre) {
@@ -129,7 +124,7 @@ class Products extends Controller
         $data = $this->sendEmailFuction($request, $id);
         return redirect()->back();
     }
-       public function sendEmailFuction($getData, $id)
+    public function sendEmailFuction($getData, $id)
     {
         $product = Product::find($id);
         /*return $getData;*/
@@ -141,7 +136,7 @@ class Products extends Controller
 D.O.H.S 290, Phase 1 Gujranwala, Pakistan<br>
 Company Registration No: <span style='color:#034375;font-weight:bold;'>4015134-4</span><br>
 Tel.: +92(321)7415373<br>
- E-Mail: <a href='mailto:info@usedswedenmachines.com'>info@usm.com.pk</a><br>
+ E-Mail: <a href='mailto:info@usm.com.pk'>info@usm.com.pk</a><br>
 </p>
 					</td>
 					</tr>
@@ -262,17 +257,17 @@ Tel +92-321-7415373  Fax +92-55-3845997     <a href='mailto:info@usm.com.pk'>inf
     {
         return View("admin.uploadedProducts", ["products" => UploadedMachine::all()]);
     }
-     public function DeleteUploads(Request $request)
+    public function DeleteUploads(Request $request)
     {
-        if(UploadedMachine::find($request->id)->delete())
+        if (UploadedMachine::find($request->id)->delete())
             echo "success";
         else
             echo "error";
     }
-      public function ViewUploadedProduct(Request $request)
+    public function ViewUploadedProduct(Request $request)
     {
-         $allProducts = UploadedMachine::where('id', $request->id)->get();
-      return view('admin.upload_product_view', ['product' => $allProducts]);
+        $allProducts = UploadedMachine::where('id', $request->id)->get();
+        return view('admin.upload_product_view', ['product' => $allProducts]);
     }
 
 

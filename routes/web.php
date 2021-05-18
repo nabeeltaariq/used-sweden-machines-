@@ -63,6 +63,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'Auth'], function () {
     Route::get("/pages", "Pages@Index");
     Route::get("/pages/edit/{id}", "Pages@EditForm");
     Route::post("/pages/edit/{id}", "Pages@SaveChanges");
+    Route::post("/api/UpdateService", "API@UpateService");
 
     //news routing
     Route::get('/get/news', "NewsController@Index");
@@ -241,7 +242,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('updated/all-machines', "API@allMachinesApi");
     Route::post('/fetchMachines/{id?}', "API@FetchMachines");
     Route::get("/fillCart/now", "API@Fill");
-    Route::post("/UpdateService", "API@UpateService");
+
     Route::POST("/GETContactNewId", "API@ProcessContact");
     Route::get("/getservices", "API@getservices");
     Route::post("/UploadServicePicture", "API@UploadServicePicture");

@@ -26,3 +26,4 @@ Route::post("UpdateContactInfo", "API@UpdateContactInfo");
 Route::get("/getContactType", "API@FetchContactType");
 Route::get("/getservices", "API@getservices");
 Route::POST("/GETContactNewId", "API@ProcessContact");
+Route::post("/UpdateService", "API@UpateService");

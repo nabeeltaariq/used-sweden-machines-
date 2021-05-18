@@ -1,7 +1,7 @@
 @extends("admin.templates.parts")
 @section("parts_content")
-<h3>Manage All Spare Parts&nbsp;<sup><a href="{{ url('/admin/spareParts/new') }}" class="btn btn-primary">Add New</a></sup></h3>
-<h3>Import Machines Data&nbsp;<sup><a href="{{URL::to('admin/spareParts/import/data')}}" class="btn btn-primary btn-sm">Import Machines Data</sup></a></h3>
+<h3>Import Spare Parts Data&nbsp;<a href="{{ url('/admin/spareParts/new') }}" class="btn btn-primary"><b>Add New</b></a></h3>
+<h3>Import Machines Data&nbsp;<a href="{{URL::to('admin/spareParts/import/data')}}" class="btn btn-primary"><b>Import Machines Data</b></a></h3>
 <table class="table table-bordere table-hover table-striped table-sm" id="myTable">
     <thead>
         <tr>
