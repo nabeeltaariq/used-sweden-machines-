@@ -701,33 +701,124 @@ class API extends Controller
         $service = Service::find($request->input("id"));
         $service->name = $request->input("name");
         $service->description = $request->input("description");
+        if(trim($service->description) == '' )
+        {
+            $service->description='-';
+        }
         $service->save();
+      
         $serviceDetail = ServiceDetail::where("productId", $request->input("id"))->first();
+          
         if ($serviceDetail == null) {
             $serviceDetail = new ServiceDetail();
             $serviceDetail->productId = $request->input("id");
+            $serviceDetail->description = $request->input("description");
         }
         $serviceDetail->height = $request->input("height");
+        if(trim($serviceDetail->height) == '' )
+        {
+            $serviceDetail->height=0;
+        }
         $serviceDetail->width = $request->input("width");
+        if(trim($serviceDetail->width) == '' )
+        {
+            $serviceDetail->width=0;
+        }
         $serviceDetail->qualityParameter = $request->input("qualityParameter");
+        if(trim($serviceDetail->qualityParameter) == '' )
+        {
+            $serviceDetail->qualityParameter=0;
+        }
         $serviceDetail->hsCode = $request->input("hsCode");
+        if(trim($serviceDetail->hsCode) == '' )
+        {
+            $serviceDetail->hsCode=0;
+        }
         $serviceDetail->valueAtCustom = $request->input("customWeight");
+        if(trim($serviceDetail->valueAtCustom) == '' )
+        {
+            $serviceDetail->valueAtCustom=0;
+        }
         $serviceDetail->weightInKg = $request->input("weightInKg");
+        if(trim($serviceDetail->weightInKg) == '' )
+        {
+            $serviceDetail->weightInKg=0;
+        }
         $serviceDetail->exchangeRate = $request->input("exchangeRate");
+        if(trim($serviceDetail->exchangeRate) == '' )
+        {
+            $serviceDetail->exchangeRate=1;
+        }
         $serviceDetail->customDuty = $request->input("customDuty");
+        if(trim($serviceDetail->customDuty) == '' )
+        {
+            $serviceDetail->customDuty=0;
+        }
         $serviceDetail->salesTax = $request->input("salesTax");
+         if(trim($serviceDetail->salesTax) == '' )
+        {
+            $serviceDetail->salesTax=0;
+        }
         $serviceDetail->rd = $request->input("rd");
+         if(trim($serviceDetail->rd) == '' )
+        {
+            $serviceDetail->rd=0;
+        }
         $serviceDetail->acd = $request->input("acd");
+         if(trim($serviceDetail->acd) == '' )
+        {
+            $serviceDetail->acd=0;
+        }
         $serviceDetail->ast = $request->input("ast");
+         if(trim($serviceDetail->ast) == '' )
+        {
+            $serviceDetail->ast=0;
+        }
         $serviceDetail->incomeTax = $request->input("incomeTax");
+         if(trim($serviceDetail->incomeTax) == '' )
+        {
+            $serviceDetail->incomeTax=0;
+        }
         $serviceDetail->sindhExcise = $request->input("sindhExcise");
+         if(trim($serviceDetail->sindhExcise) == '' )
+        {
+            $serviceDetail->sindhExcise=0;
+        }
         $serviceDetail->deliveryOrder = $request->input("deliveryOrder");
+        if(trim($serviceDetail->deliveryOrder) == '' )
+        {
+            $serviceDetail->deliveryOrder=0;
+        }
         $serviceDetail->portRent = $request->input("portRent");
+           if(trim($serviceDetail->portRent) == '' )
+        {
+            $serviceDetail->portRent=0;
+        }
         $serviceDetail->containerRent = $request->input("containerRent");
+             if(trim($serviceDetail->containerRent) == '' )
+        {
+            $serviceDetail->containerRent=0;
+        }
         $serviceDetail->insuranceCharges = $request->input("insuranceCharges");
+                if(trim($serviceDetail->insuranceCharges) == '' )
+        {
+            $serviceDetail->insuranceCharges=0;
+        }
         $serviceDetail->agencyCommission = $request->input("agencyCommission");
+                if(trim($serviceDetail->agencyCommission) == '' )
+        {
+            $serviceDetail->agencyCommission=0;
+        }
         $serviceDetail->roadTransportCharges = $request->input("roadTransportCharges");
+                if(trim($serviceDetail->roadTransportCharges) == '' )
+        {
+            $serviceDetail->roadTransportCharges=0;
+        }
         $serviceDetail->other = $request->input("other");
+                if(trim($serviceDetail->other) == '' )
+        {
+            $serviceDetail->other=0;
+        }
         $serviceDetail->save();
         return json_encode(["token" => "Successful"]);
     }

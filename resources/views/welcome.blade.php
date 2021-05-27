@@ -1,6 +1,19 @@
 @extends("templates.public")
 @section("content")
 
+<head>
+    <title>USED SWEDEN MACHINES USED TETRA PAK MACHINES</title>
+
+    <meta name="keywords" content="tetra pak machine, tetra pak filling machine, tetra machine, used tetra pak machines, used sweden machines, tba tetra pak, tba 19 filling machine, tetra pak machines for sale,">
+    <meta name="og:description" content="Buy and Sell Used Tetra Pak Machines,Tetra Pak Machines Spare parts, Refurbished Tetra Pak Machines suppliers' home and Technical Services">
+    <meta name="google-site-verification" content="iQd06p1fVvZW5mWnAxPKwmXQfc3WULevBRz5aG2so-g" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.usedswedenmachines.com/tetra-pak-machines">
+
+    <meta name="author" content="Mr. Abdul Rehman">
+
+</head>
+
 <style>
     .tagline {
         width: 100%;
@@ -171,9 +184,9 @@
                     $machine_name = strtoupper(preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($featuredProducts[0]->pr_title))));
                     ?>
                 </span>
-                <p id="web" style="text-align: justify; padding:0px;margin-bottom:0px">
+                <p id="web" style="text-align: justify; padding:0px; margin-bottom:0px">
                     <a href="{{URL::to('/')}}/{{$machine_name}}/{{$featuredProducts[0]->id}}">
-                        <img src="{{URL::to('storage/app/products/')}}/{{$featuredProducts[0]->image}}" style="width:100%;height:250px;border:2px solid #034375">
+                        <img src="{{URL::to('storage/app/products/')}}/{{$featuredProducts[0]->image}}" style="width:100%;height:250px;border:2px solid #034375" alt="Tetra Pak® A3 Speed Filling Machine">
                     </a>
                     <a href="{{URL::to('/')}}/{{$machine_name}}/{{$featuredProducts[0]->id}}" style="color:black">
                         <strong style="font-family:arial;font-size:13px;display:block;margin-top:10px">{{$featuredProducts[0]->pr_title}}</strong>
@@ -195,7 +208,7 @@
                 $machine_name = strtoupper(preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($featuredProducts[1]->pr_title))));
                 ?>
                 <a href="{{URL::to('/')}}/{{$machine_name}}/{{$featuredProducts[1]->id}}">
-                    <img src="{{URL::to('storage/app/products/')}}/{{$featuredProducts[1]->image}}" style="width:100%;height:250px;border:2px solid #034375">
+                    <img src="{{URL::to('storage/app/products/')}}/{{$featuredProducts[1]->image}}" style="width:100%;height:250px;border:2px solid #034375" alt="Tetra Pak A3 Flex 1000ml">
                 </a>
                 <p id="web" style="text-align: justify; padding:0px;margin-bottom:0px">
                     <a style="color:black;" href="{{URL::to('/')}}/{{$machine_name}}/{{$featuredProducts[1]->id}}">
@@ -275,13 +288,13 @@
     //     zE.activate();
     // });
     var reloading = sessionStorage.getItem("reloading");
-    if($(window).width() > 500){
-    if (reloading) {} else {
-        setTimeout(function() {
-            $('#m').click();
-        }, 10000);
-        sessionStorage.setItem("reloading", "true");
-    }
+    if ($(window).width() > 500) {
+        if (reloading) {} else {
+            setTimeout(function() {
+                $('#m').click();
+            }, 10000);
+            sessionStorage.setItem("reloading", "true");
+        }
     }
     $("input[name='search']").on("keyup", function() {
 

@@ -386,7 +386,7 @@
         $scope.service = {
             name: "{{$service->name}}",
             id: "{{$service->id}}",
-            description: "{{($service->Detail() != null ? $service->Detail()->description:'')}}",
+            description: "{{$service->Detail() != null ? ($service->Detail()->description != null ? $service->Detail()->description : $service->description)  : $service->description}}",
             hsCode: "{{($service->Detail() != null ? $service->Detail()->hsCode : '')}}",
             height: "{{($service->Detail() != null ? $service->Detail()->height : '')}}",
             width: "{{($service->Detail() != null ? $service->Detail()->width : '')}}",

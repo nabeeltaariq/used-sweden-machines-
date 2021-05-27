@@ -5,10 +5,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <a href="{{URL::to('/admin/backupdb')}}" class="btn btn-primary btn-sm" style="margin-top:10px">Backup Database now</a>
+            <a href="{{URL::to('/admin/backupdb')}}" class="btn btn-primary" style="margin-top:02px"><b>Backup Database Now</b></a>
         </div>
         <div class="col-lg-6">
-            <input style="margin-top:2px" type="text" name="searchBar" id="searchBar" class="form-control" placeholder="Search Anything in usm">
+            <input style="margin-top:2px" type="text" name="searchBar" id="searchBar" class="form-control" placeholder="Search Anything in USM">
         </div>
     </div>
     <br />

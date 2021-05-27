@@ -614,8 +614,8 @@ class Home extends Controller
 
         $to = "inquiry@trepak.pk"; //inquiry@trepak.pk
         //$to = "inquiry@trepak.pk";
-        $subject = "Email from contact page.  Used Sweden Machines";
-        $message = 'This Email is from Contact page - Used Sweden Machines' . "\n";
+        $subject = "Email From Contact Page.  Used Sweden Machines";
+        $message = 'This Email Is From Contact Page - Used Sweden Machines' . "\n";
         $message .= 'Name: ' . $request->input('name') . "\n";
         $message .= 'Company:  ' .  $request->input('company') . "\n";
         $message .= 'Phone #:  ' .  $request->input('phone') . "\n";
@@ -624,7 +624,7 @@ class Home extends Controller
         //$message .='Subject: '.  $_POST['sbj']."\n";
         $message .= 'Country:  ' .  $request->input('country') . "\n";
         $message .= 'Message:  ' .  $request->input('message') . "\n";
-        $message .= "This email is backed up into database also";
+        $message .= "This Email Is Backed Up Into Database Also";
 
 
         //$message .= 'Message:  '.$_POST['ueberpruefung'];
@@ -673,8 +673,8 @@ class Home extends Controller
 
         $to = "inquiry@trepak.pk"; //inquiry@trepak.pk
         //$to = "inquiry@trepak.pk";
-        $subject = "Email from contact page.  Used Sweden Machines";
-        $message = 'This Email is from Contact page - Used Sweden Machines' . "\n";
+        $subject = "Email From Contact Page.  Used Sweden Machines";
+        $message = 'This Email Is From Contact Page - Used Sweden Machines' . "\n";
         $message .= 'Name: ' . $_GET['Name'] . "\n";
         $message .= 'Company:  ' .  $_GET['Company'] . "\n";
         $message .= 'Phone #:  ' .  $_GET['Telephone'] . "\n";
@@ -682,7 +682,7 @@ class Home extends Controller
         //$message .='Use:  '.  $POST['use'] ."\n";
         //$message .='Subject: '.  $_POST['sbj']."\n";
         $message .= 'Message:  ' .  $_GET['Message'] . "\n";
-        $message .= "This email is backed up into database also";
+        $message .= "This Email Is Backed Up Into Database Also";
 
         //$message .= 'Message:  '.$_POST['ueberpruefung'];
 
@@ -745,8 +745,8 @@ class Home extends Controller
     {
 
         $to = "info@usm.com.pk";
-        $subject = "Email from Machine page. Price Query.";
-        $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
+        $subject = "Email From Machine Page. Price Query.";
+        $message = 'This Email Is For Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
         if (request('page') == 'desktop') {
             $message .= 'Machine Name: ' . request('machine_name') . "\n";
             $message .= 'Item #:  ' .  request('serial_no') . "\n";
@@ -757,7 +757,7 @@ class Home extends Controller
         $message .= 'Company:  ' . request('company')  . "\n";
 
         $message .= 'Special Request:  ' .  request('message') . "\n";
-        $message .= "This email is fully backed up in database";
+        $message .= "This Email Is Fully Backed Up In Database";
 
         $header = 'From:' . request('email');
 
@@ -772,8 +772,8 @@ class Home extends Controller
     public function QuoteFormSubmit($id)
     {
         $to = "info@usm.com.pk";
-        $subject = "Email from Machine page. Price Query.";
-        $message = 'This Email is for Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
+        $subject = "Email From Machine Page. Price Query.";
+        $message = 'This Email Is For Price Query - ' . request('machine_name') . '  - Used Sweden Machines' . "\n";
         $message .= 'Sender:  ' .  request('email') . "\n";
         $message .= 'Machine Name: ' . request('machine_name') . "\n";
         $message .= 'Item #:  ' .  request('serial_no') . "\n";
@@ -783,7 +783,7 @@ class Home extends Controller
         $message .= 'Company:  ' . request('company')  . "\n";
 
         $message .= 'Special Request:  ' .  request('request') . "\n";
-        $message .= "This email is fully backed up in database";
+        $message .= "This Email Is Fully Backed Up In Database";
 
         $header = 'From:' . request('email');
 

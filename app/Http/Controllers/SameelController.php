@@ -49,7 +49,6 @@ class SameelController extends Controller
 
         $request->session()->put("cartData", $cartData);
         return count($cartData);
-
     }
 
     public function ProcessLogin(Request $request)
@@ -119,7 +118,21 @@ class SameelController extends Controller
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>';
 
             $emailcontent .= ' <div class="container">
+            <table width="80%" border="0" align="center">
+            	<tr>
+					<td align="left"><a href="https://usedswedenmachines.com/"><img src="http://www.usedswedenmachines.com/public/imgs/logo.png" height="75" style="height: 144px;"></a></td>
+					<td width="60%" align="right">
+					<p ><span style="color:#034375;font-weight:bold;font-size: 19px;">Used Sweden Machines</span><br>
+D.O.H.S 290, Phase 1 Gujranwala, Pakistan<br>
+Company Registration No: <span style="color:#034375;font-weight:bold;">4015134-4</span><br>
+Tel.: +92(321)7415373<br>
+ E-Mail: <a href="mailto:info@usm.com.pk">info@usm.com.pk</a><br>
+</p>
+					</td>
+					</tr>
+					</table>
     <div class="row">
+    
     <div class="col-xs-8 col-md-9">
         <div class="invoice-title">
             <h2>Used Sweden Machines <sup>Purchase Invoice</sup></h2><h3 class="pull-right">Order # ' . $id . '</h3>
@@ -217,6 +230,18 @@ class SameelController extends Controller
                     </div>
                         Thank you from purchasing @ Used Sweden Machines
                         </div>
+                        <table width="80%" border="0" align="center">
+                        <tr>
+					<td colspan="2" align="center" width="80%">
+					<p style="padding-top: 10px;"> <span style="color:red;font-weight:bold;">* CONDITION RATING </span><br>
+<span style="color:red;font-weight:bold;">1 = very good 2 = good 3 = fair 4 = poor 5 = very poor</span><br>
+Tel +92-321-7415373  Fax +92-55-3845997     <a href="mailto:info@usm.com.pk">info@usm.com.pk</a><br>
+<a href="http://usedswedenmachines.com">www.usedswedenmachines.com</a><br>
+
+</p>
+					</td>
+					</tr>
+					</table>
                         <style>
                             .invoice-title h2, .invoice-title h3 {
                     display: inline-block;
@@ -246,7 +271,7 @@ class SameelController extends Controller
 
                         </style>';
 
-//to customer
+            //to customer
 
             $headersfrom = '';
             $headersfrom .= 'MIME-Version: 1.0' . "\r\n";
@@ -254,7 +279,7 @@ class SameelController extends Controller
             $headersfrom .= 'From: ' . 'info@usm.com.pk' . ' ' . "\r\n";
             mail($user->email, "Purchase Invoice USM", $emailcontent, $headersfrom);
 
-//to usm
+            //to usm
             $headersfrom = '';
             $headersfrom .= 'MIME-Version: 1.0' . "\r\n";
             $headersfrom .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -345,7 +370,7 @@ class SameelController extends Controller
                 $user = DB::table("sp_userInformation")->where("email", $request->email)->where("password", base64_encode($request->password))->get();
 
                 $request->session()->put("orderUser", $user);
-            $request->session()->flash('profile-created', 'Profile has been Created');
+                $request->session()->flash('profile-created', 'Profile has been Created');
 
                 return redirect("/auth");
             } else {
